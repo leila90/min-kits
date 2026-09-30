@@ -1,42 +1,25 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Hero from "./components/hero";
-import Header from "./components/header";
 import MySlogan from "./components/mySlogan";
-import ContactUs from "./components/contactUs";
-import Logo from "./components/logo";
 import AboutUs from "./components/aboutUs";
-import FooterHeader from "./components/footerHeader";
 import MyFeatures from "./components/myFeatures";
-import LatestBlog from "./components/latestBlog";
-import TeamSection from "./components/teamSection";
 import BlogSection from "./components/blogSection";
-import Ctr from "./components/ctr";
-import { getDictionary, hasLocale } from "../dictionaries";
-
-export const metadata: Metadata = {
-    title: { absolute: "MinKits | Production-ready UI kits" },
-};
+import ContactUs from "./components/contactUs";
+import { getContent, hasLocale, type Locale } from "@/content/site";
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
-    const { lang } = await params;
-    if (!hasLocale(lang)) notFound();
-    const dict = await getDictionary(lang);
-
-    return (
-        <>
-            <Hero />
-            <Header />
-            <MySlogan dict={dict} />
-            <AboutUs lang={lang} />
-            <MyFeatures lang={lang} />
-            <Ctr />
-            <BlogSection lang={lang} />
-            <TeamSection lang={lang} />
-            <LatestBlog />
-            <ContactUs lang={lang} />
-            <Logo />
-            <FooterHeader />
-        </>
-    );
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+  const locale = lang as Locale;
+  const content = getContent(locale);
+  return (
+    <>
+      <Hero content={content.home} />
+      <MySlogan content={content.home} />
+      <AboutUs lang={locale} content={content.home} />
+      <MyFeatures lang={locale} content={content.home} />
+      <BlogSection lang={locale} content={content} />
+      <ContactUs lang={locale} content={content.home} />
+    </>
+  );
 }
