@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import {usePathname} from "next/navigation";
-import type {Lang} from "@/app/dictionaries";
+import type {Locale} from "@/content/site";
 
 type Props = {
-    lang: Lang
+    lang: Locale
 }
 export default function Breadcrumb({lang}: Props) {
     const pathname = usePathname();
