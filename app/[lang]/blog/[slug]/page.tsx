@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Breadcrumb from "../../components/breadcrumb";
+import Breadcrumb from "../../components/navigation/Breadcrumb";
 import { getBlogPost, getBlogPosts, hasLocale, locales, type Locale } from "@/content/site";
 
 export const dynamicParams = false;
