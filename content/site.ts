@@ -200,7 +200,7 @@ const posts = {
       excerpt: "A few architecture decisions that keep a growing UI site fast and maintainable.",
       date: "2026-09-15",
       lastModified: "2026-09-15",
-      category: "عملکرد",
+      category: "Performance",
       image: "/images/blog/3.png",
       author: "MinKits",
       content: [
