@@ -9,7 +9,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const content = getContent(lang);
-  return { title: content.blog.title, description: content.blog.description };
+  return {
+    title: content.blog.title,
+    description: content.blog.description,
+    alternates: { canonical: `/${lang}/blog` },
+    openGraph: { title: content.blog.title, description: content.blog.description, url: `/${lang}/blog` },
+  };
 }
 
 export default async function BlogPage({ params }: { params: Promise<{ lang: string }> }) {
