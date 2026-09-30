@@ -14,7 +14,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   if (!hasLocale(lang)) return {};
   const post = getBlogPost(lang as Locale, slug);
   if (!post) return {};
-  return { title: post.title, description: post.excerpt };
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: `/${lang}/blog/${slug}` },
+    openGraph: { type: "article", title: post.title, description: post.excerpt, url: `/${lang}/blog/${slug}`, publishedTime: post.date, modifiedTime: post.lastModified, authors: [post.author] },
+  };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ lang: string; slug: string }> }) {
@@ -23,6 +28,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ lang:
   const locale = lang as Locale;
   const post = getBlogPost(locale, slug);
   if (!post) notFound();
+
   return (
     <main className="mx-auto max-w-4xl px-5 pb-24 pt-24">
       <Breadcrumb lang={locale} />
