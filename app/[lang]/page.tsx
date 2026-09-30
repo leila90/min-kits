@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import Hero from "./components/hero";
-import MySlogan from "./components/mySlogan";
-import AboutUs from "./components/aboutUs";
-import MyFeatures from "./components/myFeatures";
-import BlogSection from "./components/blogSection";
-import ContactUs from "./components/contactUs";
+import Hero from "./components/sections/Hero/HeroSection";
+import MySlogan from "./components/sections/Slogan/SloganSection";
+import AboutUs from "./components/sections/About/AboutSection";
+import MyFeatures from "./components/sections/Features/FeaturesSection";
+import BlogSection from "./components/sections/Blog/BlogSection";
+import ContactUs from "./components/sections/Contact/ContactSection";
 import { getContent, hasLocale, type Locale } from "@/content/site";
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
