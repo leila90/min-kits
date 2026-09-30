@@ -8,7 +8,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const content = getContent(lang);
-  return { title: content.about.title, description: content.about.subtitle };
+  return {
+    title: content.about.title,
+    description: content.about.subtitle,
+    alternates: { canonical: `/${lang}/about` },
+    openGraph: { title: content.about.title, description: content.about.subtitle, url: `/${lang}/about` },
+  };
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
