@@ -25,7 +25,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           {content.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
         <div className="rounded-3xl bg-zinc-950 p-8 text-white">
-          <h2 className="text-xl font-semibold">{locale === "fa" ? "اصول ما" : "Our principles"}</h2>
+          <h2 className="text-xl font-semibold">{content.about.principlesTitle}</h2>
           <ul className="mt-6 space-y-4 text-white/70">
             {content.about.principles.map((item) => <li key={item}>— {item}</li>)}
           </ul>
