@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import Breadcrumb from "../components/breadcrumb";
 import SectionTitle from "../components/sectionTitle";
