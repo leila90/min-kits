@@ -73,6 +73,11 @@ const en = {
     empty: "No posts published yet.",
     readMore: "Read article",
   },
+  errors: {
+    notFoundTitle: "Page not found",
+    notFoundText: "The page you requested does not exist or has moved.",
+    notFoundHome: "Back to home",
+  },
   footer: {
     description: "Production-ready UI components and kits for modern React and Next.js projects.",
     links: "Explore",
@@ -141,6 +146,11 @@ const fa = {
     description: "مطالب کاربردی درباره UI قابل استفاده مجدد، معماری Next.js و عملکرد فرانت‌اند.",
     empty: "هنوز مطلبی منتشر نشده است.",
     readMore: "ادامه مطلب",
+  },
+  errors: {
+    notFoundTitle: "صفحه پیدا نشد",
+    notFoundText: "صفحه‌ای که دنبال آن هستید وجود ندارد یا منتقل شده است.",
+    notFoundHome: "بازگشت به خانه",
   },
   footer: {
     description: "کامپوننت‌ها و کیت‌های آماده برای پروژه‌های مدرن React و Next.js.",
