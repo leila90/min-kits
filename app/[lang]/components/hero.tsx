@@ -1,82 +1,33 @@
-'use client'
+`use client`;
 
-import {motion} from 'framer-motion';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import type { SiteContent } from "@/content/site";
 
-export default function Hero() {
-    return (
-        // <div className="relative min-h-screen w-full md:bg-[url('/images/banner.png')] bg-[url('/images/banner.png')] bg-cover bg-no-repeat flex md:justify-start justify-center items-center">
-        // <div className="relative min-h-screen w-full bg-white bg-cover bg-no-repeat flex md:justify-start justify-center items-center">
-        <div className="relative min-h-screen w-full overflow-hidden flex justify-center items-center">
-            <div className="absolute inset-0 h-full w-full bg-white/50"/>
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                poster="/images/hero-bg.jpg"
-                className="absolute inset-0 w-full h-full object-cover -z-10"
-            >
-                <source src="/videos/hero2.mp4" type="video/mp4"/>
-            </video>
-            <div className="text-center bg-none lg:mx-30 md:mx-10">
-                <motion.div
-                    initial={{y: 150, opacity: 0}}
-                    whileInView={{y: 0, opacity: 1}}
-                    viewport={{once: true}}
-                    transition={{type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.1 + 0.1}}
-                    className={`relative p-6`}
-                >
-                    <h6 className="font-thin p-1 text-zinc-600"> Production-ready UI Kits for developers by: </h6>
-                    <h1 className="text-2xl md:text-3xl lg:text-4xl tracking-tight text-black">
-                        Ship production-ready UI faster with{" "}
-                        <span className="font-bold">MinKits</span>
-                    </h1>
+type Props = { content: SiteContent["home"] };
 
-                    <h4 className="text-sm md:text-base lg:text-xl font-light text-zinc-600 mt-3">
-                        Premium React, Next.js and Tailwind UI kits built to help developers ship faster, cleaner and better products.
-                    </h4>
-
-                    <div className="mt-8 flex items-center gap-4">
-                        <button className="px-6 py-3 rounded-xl bg-black text-white text-sm font-semibold">
-                            Explore Kits
-                        </button>
-
-                        <button className="px-6 py-3 rounded-xl border border-black text-black text-sm font-semibold">
-                            View Components
-                        </button>
-                    </div>
-                        {/*<Link*/}
-                        {/*    href="#"*/}
-                        {/*    className="rounded-xl px-15 bg-black py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-sky-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"*/}
-                        {/*>*/}
-                        {/*    About US*/}
-                        {/*</Link>*/}
-                        {/*<div*/}
-                        {/*    className="rainbow relative z-0 bg-black overflow-hidden p-0.5 flex items-center justify-center rounded-full transition duration-300 active:scale-100">*/}
-                        {/*    <button*/}
-                        {/*        className="px-15 text-sm py-3 text-white rounded-full font-medium bg-black backdrop-blur cursor-pointer">*/}
-                        {/*        About Us*/}
-                        {/*    </button>*/}
-                        {/*</div>*/}
-                        {/*<div*/}
-                        {/*    className="rainbow relative z-0 bg-black/30 overflow-hidden p-0.5 flex items-center justify-center rounded-full transition duration-300 active:scale-100">*/}
-                        {/*    <button*/}
-                        {/*        className="px-15 text-sm py-3 text-black rounded-full font-medium bg-white backdrop-blur cursor-pointer">*/}
-                        {/*        Get More ...*/}
-                        {/*    </button>*/}
-                        {/*</div>*/}
-                    {/*    <button*/}
-                    {/*        className="md:px-15 px-5 mx-5 text-sm font-semibold p-1 tracking-tight text-balance py-3 text-white rounded-xl border-2 border-black bg-black cursor-pointer">*/}
-                    {/*        Explore Kits*/}
-                    {/*    </button>*/}
-                    {/*    <button*/}
-                    {/*        className="md:px-15 px-5 mx-5 text-sm font-semibold p-1 tracking-tight text-balance py-3 text-white rounded-xl border-2 border-black bg-black cursor-pointer">*/}
-                    {/*        View Components*/}
-                    {/*    </button>*/}
-                    {/*</div>*/}
-                </motion.div>
-            </div>
+export default function Hero({ content }: Props) {
+  return (
+    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
+      <video autoPlay muted loop playsInline preload="metadata" poster="/images/hero-bg.jpg" className="absolute inset-0 -z-10 h-full w-full object-cover">
+        <source src="/videos/hero2.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-white/65" />
+      <motion.div
+        initial={{ y: 80, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ type: "spring", stiffness: 250, damping: 70 }}
+        className="relative z-10 mx-5 max-w-4xl text-center"
+      >
+        <p className="text-sm font-medium text-zinc-600">{content.heroEyebrow}</p>
+        <h1 className="mt-3 text-3xl tracking-tight text-zinc-950 md:text-5xl lg:text-6xl">{content.heroTitle}</h1>
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-zinc-600 md:text-lg">{content.heroDescription}</p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Link href="#kits" className="rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white">{content.heroPrimary}</Link>
+          <Link href="#components" className="rounded-xl border border-black px-6 py-3 text-sm font-semibold text-black">{content.heroSecondary}</Link>
         </div>
-    )
+      </motion.div>
+    </section>
+  );
 }
