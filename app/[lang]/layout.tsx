@@ -6,6 +6,7 @@ import LenisScroll from "./components/lenis";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { getContent, hasLocale, locales, type Locale } from "@/content/site";
+import { siteFont } from "@/app/fonts";
 
 const siteUrl = "https://minkits.com";
 export const dynamicParams = false;
@@ -47,7 +48,7 @@ export default async function RootLayout({ children, params }: {
   const content = getContent(lang as Locale);
   return (
     <html lang={lang} dir={lang === "fa" ? "rtl" : "ltr"}>
-      <body>
+      <body className={siteFont.variable}>
         <LenisScroll />
         <NextTopLoader color="#000" initialPosition={0.08} crawlSpeed={200} height={3} crawl showSpinner={false} speed={200} />
         <Navbar lang={lang} content={content} />
