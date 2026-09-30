@@ -36,6 +36,7 @@ const en = {
     aboutTitle: "About MinKits",
     aboutSubtitle: "Simple, reusable building blocks for modern web products.",
     aboutText: "MinKits is a growing collection of practical UI components and sections for developers who want a clean starting point without unnecessary complexity. The goal is simple: reusable source code that you can understand, adapt and ship.",
+    aboutBullets: ["Readable, adaptable source code", "Modern React and Next.js", "Simple reusable patterns"],
     featuresTitle: "Why MinKits?",
     featuresSubtitle: "Build faster, stay consistent, and keep control of your code.",
     features: [
@@ -47,6 +48,7 @@ const en = {
     blogSubtitle: "Practical notes about UI architecture, Next.js and frontend performance.",
     contactTitle: "Let's build something useful",
     contactSubtitle: "Have a question or an idea for a component? Send a message.",
+    contactForm: { name: "Name", email: "Email", message: "Message", submit: "Send message" },
   },
   about: {
     title: "About MinKits",
@@ -66,6 +68,7 @@ const en = {
     title: "MinKits Blog",
     description: "Practical articles about reusable UI, Next.js architecture and frontend performance.",
     empty: "No posts published yet.",
+    readMore: "Read article",
   },
   footer: {
     description: "Production-ready UI components and kits for modern React and Next.js projects.",
@@ -99,6 +102,7 @@ const fa = {
     aboutTitle: "درباره MinKits",
     aboutSubtitle: "بلوک‌های ساده و قابل استفاده مجدد برای محصولات مدرن وب.",
     aboutText: "MinKits مجموعه‌ای از کامپوننت‌ها و سکشن‌های کاربردی برای توسعه‌دهندگانی است که یک نقطه شروع تمیز و بدون پیچیدگی اضافی می‌خواهند. هدف ساده است: کد قابل فهم، قابل تغییر و آماده استفاده.",
+    aboutBullets: ["سورس‌کد خوانا و قابل تغییر", "تمرکز بر React و Next.js مدرن", "طراحی ساده و قابل استفاده مجدد"],
     featuresTitle: "چرا MinKits؟",
     featuresSubtitle: "سریع‌تر بسازید، یکپارچگی را حفظ کنید و کنترل کد را در دست داشته باشید.",
     features: [
@@ -110,6 +114,7 @@ const fa = {
     blogSubtitle: "یادداشت‌های کاربردی درباره معماری UI، Next.js و بهینه‌سازی فرانت‌اند.",
     contactTitle: "بیایید چیزی کاربردی بسازیم",
     contactSubtitle: "سؤال یا ایده‌ای برای یک کامپوننت دارید؟ پیام بفرستید.",
+    contactForm: { name: "نام", email: "ایمیل", message: "پیام", submit: "ارسال پیام" },
   },
   about: {
     title: "درباره MinKits",
@@ -129,6 +134,7 @@ const fa = {
     title: "بلاگ MinKits",
     description: "مطالب کاربردی درباره UI قابل استفاده مجدد، معماری Next.js و عملکرد فرانت‌اند.",
     empty: "هنوز مطلبی منتشر نشده است.",
+    readMore: "ادامه مطلب",
   },
   footer: {
     description: "کامپوننت‌ها و کیت‌های آماده برای پروژه‌های مدرن React و Next.js.",
