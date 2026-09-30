@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Breadcrumb from "../components/breadcrumb";
-import SectionTitle from "../components/sectionTitle";
-import BlogCard from "../components/blogCard";
+import Breadcrumb from "../components/navigation/Breadcrumb";
+import SectionTitle from "../components/ui/SectionTitle";
+import BlogCard from "../components/cards/BlogCard";
 import { getBlogPosts, getContent, hasLocale, type Locale } from "@/content/site";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
