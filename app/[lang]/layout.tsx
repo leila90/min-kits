@@ -8,7 +8,6 @@ import Footer from "./components/footer";
 import { getContent, hasLocale, locales, type Locale } from "@/content/site";
 import { siteFont } from "@/app/fonts";
 
-const siteUrl = "https://minkits.com";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -20,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   if (!hasLocale(lang)) return {};
   const content = getContent(lang);
   return {
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(content.site.url),
     title: { default: content.site.name, template: `%s | ${content.site.name}` },
     description: content.site.description,
     alternates: {
