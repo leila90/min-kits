@@ -8,12 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages = locales.flatMap((locale) =>
     staticPaths.map((path) => ({
       url: `${siteUrl}/${locale}${path}`,
-      lastModified: new Date("2026-09-30"),
       alternates: {
         languages: Object.fromEntries(locales.map((other) => [other, `${siteUrl}/${other}${path}`])),
       },
     })),
   );
+
   const posts = locales.flatMap((locale) =>
     getBlogPosts(locale).map((post) => ({
       url: `${siteUrl}/${locale}/blog/${post.slug}`,
@@ -23,5 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     })),
   );
+
   return [...pages, ...posts];
 }
