@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Dialog, DialogPanel } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import Link from "next/link";
 import LanguageDropdown from "./languageDropdown";
+import NavbarLinks from "./navbarLinks";
+import MobileMenu from "./mobileMenu";
 import type { Locale, SiteContent } from "@/content/site";
 
 type Props = { lang: Locale; content: SiteContent };
@@ -35,35 +36,23 @@ export default function Navbar({ lang, content }: Props) {
         </Link>
 
         <div className="hidden items-center gap-8 lg:flex">
-          {links.map(([href, label]) => <Link key={href} href={href} className="text-sm font-semibold hover:text-white/70">{label}</Link>)}
+          <NavbarLinks links={links} />
           <LanguageDropdown />
         </div>
 
-        <button type="button" onClick={() => setMobileMenuOpen(true)} className="p-2 lg:hidden" aria-label="Open menu">
+        <button type="button" onClick={() => setMobileMenuOpen(true)} className="p-2 lg:hidden" aria-label={content.navigation.openMenu}>
           <Bars3Icon className="size-6" />
         </button>
       </nav>
 
-      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-white px-6 py-6 text-zinc-900 shadow-xl">
-          <div className="flex items-center justify-between">
-            <Link href={`/${lang}`} onClick={() => setMobileMenuOpen(false)}>
-              <Image src="/logo-bb.png" alt={content.site.name} width={140} height={70} className="h-16 w-auto object-contain" />
-            </Link>
-            <button type="button" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu" className="p-2">
-              <XMarkIcon className="size-6" />
-            </button>
-          </div>
-          <div className="mt-8 space-y-2">
-            {links.map(([href, label]) => (
-              <Link key={href} href={href} onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-3 font-semibold hover:bg-zinc-100">
-                {label}
-              </Link>
-            ))}
-          </div>
-          <div className="mt-6 border-t pt-6"><LanguageDropdown /></div>
-        </DialogPanel>
-      </Dialog>
+      <MobileMenu
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+        homeHref={`/${lang}`}
+        siteName={content.site.name}
+        links={links}
+        closeLabel={content.navigation.closeMenu}
+      />
     </header>
   );
 }
