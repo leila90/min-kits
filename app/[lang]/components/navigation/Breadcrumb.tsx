@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import {usePathname} from "next/navigation";
-import { getContent, type Locale } from "@/content/site";
+import { getBlogPost, getContent, type Locale } from "@/content/site";
 
 type Props = {
     lang: Locale
@@ -10,6 +10,10 @@ type Props = {
 export default function Breadcrumb({lang}: Props) {
     const pathname = usePathname();
     const content = getContent(lang);
+    const labels: Record<string, string> = {
+        about: content.navigation.about,
+        blog: content.navigation.blog,
+    };
     // مسیر را جدا می‌کنیم
     const [, ...segments] = pathname.split("/").filter(Boolean);
     return (
@@ -39,7 +43,7 @@ export default function Breadcrumb({lang}: Props) {
                                     <path d="m9 18 6-6-6-6"/>
                                 </svg>
                                 <Link href={href} className={`${index+1 < segments.length ? "flex items-center text-sm text-zinc-500 dark:text-neutral-400 hover:text-zinc-900 dark:hover:text-neutral-300 focus:outline-hidden focus:text-zinc-900 dark:focus:text-neutral-300" :  "inline-flex items-center text-sm font-semibold text-zinc-800 dark:text-neutral-200 truncate" }`}>
-                                    {decodeURIComponent(segment)}
+                                    {labels[segment] ?? getBlogPost(lang, segment)?.title ?? decodeURIComponent(segment)}
                                 </Link>
                             </li>
                         );
