@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { getBlogPosts, locales } from "@/content/site";
+import { getBlogPosts, getContent, locales, defaultLocale } from "@/content/site";
 
-const siteUrl = "https://minkits.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUrl = getContent(defaultLocale).site.url;
   const staticPaths = ["", "/about", "/blog"];
   const pages = locales.flatMap((locale) =>
     staticPaths.map((path) => ({
