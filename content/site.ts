@@ -27,6 +27,7 @@ const en = {
     contact: "Contact",
     openMenu: "Open menu",
     closeMenu: "Close menu",
+    languageNames: { fa: "Persian", en: "English" },
   },
   home: {
     heroEyebrow: "Production-ready UI kits for developers",
@@ -101,6 +102,7 @@ const fa = {
     contact: "تماس با ما",
     openMenu: "باز کردن منو",
     closeMenu: "بستن منو",
+    languageNames: { fa: "فارسی", en: "انگلیسی" },
   },
   home: {
     heroEyebrow: "کیت‌های آماده برای توسعه‌دهندگان",
@@ -198,7 +200,7 @@ const posts = {
       excerpt: "A few architecture decisions that keep a growing UI site fast and maintainable.",
       date: "2026-09-15",
       lastModified: "2026-09-15",
-      category: "Performance",
+      category: "عملکرد",
       image: "/images/blog/3.png",
       author: "MinKits",
       content: [
