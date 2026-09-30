@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import NextTopLoader from "nextjs-toploader";
 import "../styles/globals.css";
-import LenisScroll from "./components/lenis";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
+import LenisScroll from "./components/providers/LenisScroll";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 import { getContent, hasLocale, locales, type Locale } from "@/content/site";
 import { siteFont } from "@/app/fonts";
 
