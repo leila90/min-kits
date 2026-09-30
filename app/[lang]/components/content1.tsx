@@ -114,7 +114,7 @@ export default function Content1({lang}: Props) {
                             <div>
                                 <span className="text-xl font-bold text-white/80">About us</span>
                                 <h3 className="mt-3 text-xl text-white leading-snug text-justify">
-                                    I'm absolutely floored by the level of care and attention to detail the team at Preline have put into this project and for one can guarantee that we will be a return customer.
+                                    I&apos;m absolutely floored by the level of care and attention to detail the team at Preline have put into this project and for one can guarantee that we will be a return customer.
                                 </h3>
                             </div>                        </div>
                     </div>

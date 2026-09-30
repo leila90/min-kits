@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { Card } from "./data";
 
 type Props = {
-    card: any;
+    card: Card;
     onClose: () => void;
 };
 

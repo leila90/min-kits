@@ -84,7 +84,6 @@ type props = {
     lang: "fa" | "en"
 }
 export default function FormBlog({lang}: props  ) {
-    console.log("props blog =>", lang)
     return (
         <section id={"blog"} className="md:my-10 md:mx-30 my-5 mx-5 ">
 

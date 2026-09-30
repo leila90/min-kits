@@ -1,4 +1,6 @@
-import {getDictionary} from "../../dictionaries";
+import type {Metadata} from "next";
+import {notFound} from "next/navigation";
+import {getDictionary, hasLocale} from "../../dictionaries";
 import Header from "../components/header";
 import FooterHeader from "../components/footerHeader";
 import Breadcrumb from "@/app/[lang]/components/breadcrumb";
@@ -102,14 +104,11 @@ const posts = [
     // More posts...
 
 ]
-type PageProps = {
-    params: {
-        lang: "fa" | "en";
-        slug: string;
-    };
-};
-export default async function Page({params}: PageProps) {
+export const metadata: Metadata = {title: "Blog"};
+
+export default async function Page({params}: {params: Promise<{lang: string}>}) {
     const {lang} = await params
+    if (!hasLocale(lang)) notFound();
     const dict = await getDictionary(lang);
     return (
         <>

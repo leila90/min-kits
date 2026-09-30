@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import { cards } from "./data";
+import { cards, type Card } from "./data";
 import AppStoreCard from "../appStore/appStoreCard";
 import ExpandedCard from "../appStore/expandedCard";
 
 export default function AppStore() {
-    const [active, setActive] = useState<any | null>(null);
+    const [active, setActive] = useState<Card | null>(null);
 
     useEffect(() => {
         document.body.style.overflow = active ? "hidden" : "auto";

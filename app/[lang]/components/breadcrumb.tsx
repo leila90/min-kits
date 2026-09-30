@@ -2,18 +2,15 @@
 
 import Link from "next/link";
 import {usePathname} from "next/navigation";
-import {lang} from "@/app/dictionaries";
-import {remove} from "next/dist/build/webpack/loaders/resolve-url-loader/lib/file-protocol";
+import type {Lang} from "@/app/dictionaries";
 
 type Props = {
-    lang: "fa" | "en"
+    lang: Lang
 }
 export default function Breadcrumb({lang}: Props) {
     const pathname = usePathname();
-    console.log(pathname);
     // مسیر را جدا می‌کنیم
-    const segments = pathname.split("/").filter(Boolean);
-    {segments.shift()}
+    const [, ...segments] = pathname.split("/").filter(Boolean);
     return (
 
         <section className="mt-20 md:mx-30 mx-5 bg-transparent">
@@ -21,7 +18,7 @@ export default function Breadcrumb({lang}: Props) {
                 <ol className="flex items-center whitespace-nowrap py-2 border-y border-zinc-400 dark:border-neutral-700">
                     <li className="inline-flex items-center">
                         <Link className="flex items-center text-sm text-zinc-500 dark:text-neutral-400 hover:text-zinc-900 dark:hover:text-neutral-300 focus:outline-hidden focus:text-zinc-900 dark:focus:text-neutral-300"
-                           href={lang === "en" ? "/en" : "/fa"}>
+                           href={`/${lang}`}>
                             <svg className="shrink-0 me-3 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                  viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
                                  strokeLinecap="round" strokeLinejoin="round">
@@ -32,9 +29,7 @@ export default function Breadcrumb({lang}: Props) {
                         </Link>
                     </li>
                     {segments.map((segment, index) => {
-                        const href = lang === "en" ? "/en/"+segment : "/fa/"+segment;
-                        console.log("href ", index, " =>", href);
-                        console.log("length ", " =>", segments.length);
+                        const href = `/${lang}/${segments.slice(0, index + 1).join("/")}`;
                         return (
                             <li key={href} className="flex items-center">
                                 <svg className={`shrink-0 mx-2 size-4 text-zinc-400 dark:text-neutral-500 ${ lang === "en" ? "" :" rotate-180"}`}

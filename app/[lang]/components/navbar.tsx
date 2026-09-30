@@ -13,7 +13,6 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import LanguageDropdown from "../components/languageDropdown";
-// import { getDictionary, hasLocale } from '../../dictionaries'
 
 
 type NavbarProps = {
@@ -30,8 +29,6 @@ type NavbarProps = {
 }
 
 export default function Navbar({ lang, dict }: NavbarProps) {
-    console.log("navbarProps =>", lang)
-    console.log("navbarProps =>", dict)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false);
     useEffect(() => {
@@ -54,9 +51,9 @@ export default function Navbar({ lang, dict }: NavbarProps) {
             className={`fixed md:my-10 md:mx-20 my-5 mx-5 rounded-2xl border-1 backdrop-blur border-black top-0 left-0 right-0 z-50 duration-300 ${scrolled ? "bg-black/80 shadow-md  text-white" : "bg-black/80 shadow-md text-white"}  ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8">
                 <div className="flex lg:flex-1">
-                    <Link href="/" className="justify-items-center">
+                    <Link href={`/${lang}`} className="justify-items-center">
                         <Image
-                            alt=""
+                            alt="MinKits"
                             src="/logo-ww.png"
                             width={150}
                             height={150}
@@ -77,19 +74,19 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                 </div>
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
 
-                    <Link href="/about" className="text-sm/6 font-semibold">
+                    <Link href={`/${lang}/about`} className="text-sm/6 font-semibold">
                         {dict.mainMenus?.["About Us"] ?? 'No translation'}
                     </Link>
-                    <Link href="/blog" className="text-sm/6 font-semibold">
+                    <Link href={`/${lang}/blog`} className="text-sm/6 font-semibold">
                         {dict.mainMenus?.["Blogs"] ?? 'No translation'}
                     </Link>
                     <Link href="#" className="text-sm/6 font-semibold">
                         {dict.mainMenus?.["Group Companies"] ?? 'No translation'}
                     </Link>
-                    <Link href="#countactUs" className="text-sm/6 font-semibold">
+                    <Link href={`/${lang}#countactUs`} className="text-sm/6 font-semibold">
                         {dict.mainMenus?.["Contact Us"] ?? 'No translation'}
                     </Link>
-                    <Link href="/" className="text-sm/6 font-semibold">
+                    <Link href={`/${lang}`} className="text-sm/6 font-semibold">
                         {dict.mainMenus?.["Career Opportunities"]?? 'No translation'}
                     </Link>
                 </PopoverGroup>
@@ -107,7 +104,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                 <DialogPanel
                     className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-zinc-900/10">
                     <div className="flex items-center justify-between">
-                        <Link href="/" className="justify-items-center">
+                        <Link href={`/${lang}`} className="justify-items-center">
                             <Image
                                 alt=""
                                 src="/logo-bb.png"
@@ -130,14 +127,14 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                             <div className="space-y-2 py-6">
 
                                 <Link
-                                    href="/about"
+                                    href={`/${lang}/about`}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
                                 >
                                     {dict.mainMenus?.["About Us"] ?? 'No translation'}
                                 </Link>
 
                                 <Link
-                                    href="/blog"
+                                    href={`/${lang}/blog`}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
                                 >
                                     {dict.mainMenus?.["Blogs"] ?? 'No translation'}
@@ -149,13 +146,13 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                     {dict.mainMenus?.["Group Companies"] ?? 'No translation'}
                                 </Link>
                                 <Link
-                                    href="#countactUs"
+                                    href={`/${lang}#countactUs`}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
                                 >
                                     {dict.mainMenus?.["Contact Us"] ?? 'No translation'}
                                 </Link>
                                 <Link
-                                    href="/"
+                                    href={`/${lang}`}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-gray-50"
                                 >
                                     {dict.mainMenus?.["Career Opportunities"] ?? 'No translation'}

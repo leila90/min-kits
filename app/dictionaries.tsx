@@ -1,13 +1,17 @@
-import 'server-only'
+import "server-only";
 
 const dictionaries = {
-    en: () => import('./dictionaries/en.json').then((module) => module.default),
-    fa: () => import('./dictionaries/fa.json').then((module) => module.default),
-}
+    en: () => import("./dictionaries/en.json").then((module) => module.default),
+    fa: () => import("./dictionaries/fa.json").then((module) => module.default),
+};
 
-export type lang = keyof typeof dictionaries
+export type Lang = keyof typeof dictionaries;
+/** @deprecated use `Lang` */
+export type lang = Lang;
 
-export const hasLocale = (lang: string): lang is lang =>
-    lang in dictionaries
+export const locales = Object.keys(dictionaries) as Lang[];
+export const defaultLocale: Lang = "en";
 
-export const getDictionary = async (lang: lang) => dictionaries[lang]()
+export const hasLocale = (lang: string): lang is Lang => lang in dictionaries;
+
+export const getDictionary = async (lang: Lang) => dictionaries[lang]();
