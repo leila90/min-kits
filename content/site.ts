@@ -57,6 +57,7 @@ const en = {
       "MinKits exists to make the repetitive parts of frontend development easier without hiding the implementation behind a black box.",
       "The project focuses on readable React and Next.js source code, sensible Tailwind styling, accessibility and performance. Components should be useful on their own and easy to adapt to a real product.",
     ],
+    principlesTitle: "Our principles",
     principles: [
       "Readable source code",
       "Reusable components",
@@ -123,6 +124,7 @@ const fa = {
       "هدف MinKits ساده‌تر کردن بخش‌های تکراری توسعه فرانت‌اند است؛ بدون اینکه پیاده‌سازی را پشت یک جعبه سیاه پنهان کند.",
       "تمرکز پروژه روی کد خوانا در React و Next.js، استایل منطقی با Tailwind، دسترس‌پذیری و عملکرد مناسب است. هر کامپوننت باید به‌تنهایی مفید و برای یک محصول واقعی قابل تغییر باشد.",
     ],
+    principlesTitle: "اصول ما",
     principles: [
       "سورس‌کد خوانا",
       "کامپوننت‌های قابل استفاده مجدد",
