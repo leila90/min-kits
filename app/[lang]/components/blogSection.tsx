@@ -1,13 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Locale, SiteContent } from "@/content/site";
+import { getBlogPosts, type Locale, type SiteContent } from "@/content/site";
 import SectionTitle from "./sectionTitle";
 
 type Props = { lang: Locale; content: SiteContent };
 
 export default function BlogSection({ lang, content }: Props) {
-  const posts = lang === "fa" ? content : content;
-  const { getBlogPosts } = require("@/content/site") as typeof import("@/content/site");
   const items = getBlogPosts(lang);
 
   return (
