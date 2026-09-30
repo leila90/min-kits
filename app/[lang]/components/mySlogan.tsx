@@ -1,13 +1,12 @@
 import Image from "next/image";
 type sloganProps = {
-    lang: "fa" | "en",
     dict: {
         slogan: string,
         mainSlogan: string
     }
 }
 
-export default function MySlogan({ lang, dict }: sloganProps) {
+export default function MySlogan({ dict }: sloganProps) {
     return (
         <section className="md:-my-10 md:mx-30 -mt-10 mx-5 relative z-3">
             <div className="wrapper myContainer mx-auto w-full px-0 min-w-[90%] lg:min-w-[1224px]">

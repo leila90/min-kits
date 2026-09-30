@@ -28,3 +28,6 @@ export const cards = [
         imageStyle: "bottom-[-100px]",
     },
 ];
+
+
+export type Card = (typeof cards)[number];

@@ -50,6 +50,10 @@ const LANGUAGES: Language[] = [
     }
 ];
 
+function setLocaleCookie(code: string) {
+    document.cookie = `NEXT_LOCALE=${code}; path=/; max-age=31536000; samesite=lax`;
+}
+
 export default function LanguageDropdown() {
     const [open, setOpen] = useState(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -82,6 +86,7 @@ export default function LanguageDropdown() {
 
         const segments = pathname.split("/");
         segments[1] = lang.code;
+        setLocaleCookie(lang.code);
 
         router.push(segments.join("/"));
     };

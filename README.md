@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MinKits
 
-## Getting Started
+Production-ready UI kits landing site built with Next.js (App Router), React 19, Tailwind CSS v4 and TypeScript.
+Bilingual: English (`/en`) and Persian (`/fa`, RTL).
 
-First, run the development server:
+## Getting started
 
 ```bash
+cp .env.example .env.local
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. You are redirected to your locale (cookie `NEXT_LOCALE`, then `Accept-Language`, then `en`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script | Purpose |
+|---|---|
+| `npm run dev` | Dev server |
+| `npm run build` | Production build (locales are statically generated) |
+| `npm run start` | Serve the production build |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | `tsc --noEmit` |
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `proxy.ts`: locale detection and redirect
+- `app/[lang]/`: localized routes (`/`, `/about`, `/blog`, `/blog/[slug]`)
+- `app/dictionaries/`: translation JSON files (`en.json`, `fa.json`)
+- `app/sitemap.ts`, `app/robots.ts`: SEO
+- `public/`: static assets
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Public site URL used for canonical links and the sitemap |
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Requires Node.js >= 20.9.
