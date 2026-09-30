@@ -1,7 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
-
-const locales = ["fa", "en"] as const;
-const defaultLocale = "en";
+import { defaultLocale, locales } from "@/content/site";
 
 function getLocale(request: NextRequest): string {
     const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value;
