@@ -12,9 +12,10 @@ type Props = {
   homeHref: string;
   siteName: string;
   links: readonly (readonly [string, string])[];
+  closeLabel: string;
 };
 
-export default function MobileMenu({ open, onClose, homeHref, siteName, links }: Props) {
+export default function MobileMenu({ open, onClose, homeHref, siteName, links, closeLabel }: Props) {
   return (
     <Dialog open={open} onClose={onClose} className="lg:hidden">
       <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-white px-6 py-6 text-zinc-900 shadow-xl">
@@ -22,7 +23,7 @@ export default function MobileMenu({ open, onClose, homeHref, siteName, links }:
           <Link href={homeHref} onClick={() => onClose(false)}>
             <Image src="/logo-bb.png" alt={siteName} width={140} height={70} className="h-16 w-auto object-contain" />
           </Link>
-          <button type="button" onClick={() => onClose(false)} aria-label="Close menu" className="p-2">
+          <button type="button" onClick={() => onClose(false)} aria-label={closeLabel} className="p-2">
             <XMarkIcon className="size-6" />
           </button>
         </div>
