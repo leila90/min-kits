@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192"
+     style="width:100%;height:100%;transform:translate3d(0,0,0);content-visibility:visible" viewBox="0 0 192 192">
+    <defs>
+        <filter id="a" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table"/>
+            </feComponentTransfer>
+        </filter>
+        <filter id="c" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table"/>
+            </feComponentTransfer>
+        </filter>
+        <filter id="f" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table"/>
+            </feComponentTransfer>
+        </filter>
+        <filter id="h" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table"/>
+            </feComponentTransfer>
+        </filter>
+        <filter id="j" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table"/>
+            </feComponentTransfer>
+        </filter>
+        <filter id="l" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table"/>
+            </feComponentTransfer>
+        </filter>
+        <filter id="n" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table"/>
+            </feComponentTransfer>
+        </filter>
+        <filter id="p" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table"/>
+            </feComponentTransfer>
+        </filter>
+        <mask id="C" mask-type="alpha" maskUnits="userSpaceOnUse">
+            <g filter="url(#a)">
+                <path fill="#fff" d="M0 0h192v192H0z" opacity="0"/>
+                <use xmlns:ns1="http://www.w3.org/1999/xlink" ns1:href="#b"/>
+            </g>
+        </mask>
+        <mask id="B" mask-type="alpha" maskUnits="userSpaceOnUse">
+            <g filter="url(#c)">
+                <path fill="#fff" d="M0 0h192v192H0z" opacity="0"/>
+                <use xmlns:ns2="http://www.w3.org/1999/xlink" ns2:href="#d"/>
+            </g>
+        </mask>
+        <mask id="z" mask-type="alpha" maskUnits="userSpaceOnUse">
+            <g filter="url(#f)">
+                <path fill="#fff" d="M0 0h192v192H0z" opacity="0"/>
+                <use xmlns:ns3="http://www.w3.org/1999/xlink" ns3:href="#g"/>
+            </g>
+        </mask>
+        <mask id="A" mask-type="alpha" maskUnits="userSpaceOnUse">
+            <g filter="url(#h)">
+                <path fill="#fff" d="M0 0h192v192H0z" opacity="0"/>
+                <use xmlns:ns4="http://www.w3.org/1999/xlink" ns4:href="#i"/>
+            </g>
+        </mask>
+        <mask id="y" mask-type="alpha" maskUnits="userSpaceOnUse">
+            <g filter="url(#j)">
+                <path fill="#fff" d="M0 0h192v192H0z" opacity="0"/>
+                <use xmlns:ns5="http://www.w3.org/1999/xlink" ns5:href="#k"/>
+            </g>
+        </mask>
+        <mask id="w" mask-type="alpha" maskUnits="userSpaceOnUse">
+            <g filter="url(#l)">
+                <path fill="#fff" d="M0 0h192v192H0z" opacity="0"/>
+                <use xmlns:ns6="http://www.w3.org/1999/xlink" ns6:href="#m"/>
+            </g>
+        </mask>
+        <mask id="v" mask-type="alpha" maskUnits="userSpaceOnUse">
+            <g filter="url(#n)">
+                <path fill="#fff" d="M0 0h192v192H0z" opacity="0"/>
+                <use xmlns:ns7="http://www.w3.org/1999/xlink" ns7:href="#o"/>
+            </g>
+        </mask>
+        <mask id="u" mask-type="alpha" maskUnits="userSpaceOnUse">
+            <g filter="url(#p)">
+                <path fill="#fff" d="M0 0h192v192H0z" opacity="0"/>
+                <use xmlns:ns8="http://www.w3.org/1999/xlink" ns8:href="#q"/>
+            </g>
+        </mask>
+        <g id="k" style="display:none">
+            <path/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <g id="i" clip-path="url(#r)" style="display:none">
+            <g style="display:none">
+                <path/>
+                <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round" class="primary"/>
+                <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round" class="primary"/>
+            </g>
+            <g style="display:none">
+                <path/>
+                <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+        </g>
+        <g id="d" style="display:none">
+            <path/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <g id="g" style="display:none">
+            <path/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <g id="q" style="display:block">
+            <path fill="#FFF"
+                  d="M19.42 172.521c-.102-10.049-.185-36.783-.08-46.795.064-6.088 1.051-6.964 9.17-6.894 13.243.115 41.221-.277 55.826-.118 8.75.095 9.607 1.239 9.824 6.906.391 10.254.614 36.7.564 46.693"/>
+            <path fill-opacity="0" stroke="#282829" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"
+                  d="M19.42 172.521c-.102-10.049-.185-36.783-.08-46.795.064-6.088 1.051-6.964 9.17-6.894 13.243.115 41.221-.277 55.826-.118 8.75.095 9.607 1.239 9.824 6.906.391 10.254.614 36.7.564 46.693"
+                  class="primary"/>
+            <path fill-opacity="0" stroke="#282829" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"
+                  d="M25.118 167.746c-.128-7.508-.135-30.689-.046-38.075.054-4.491.889-5.138 7.754-5.086 11.197.085 34.854-.204 47.203-.087 7.399.07 8.125.915 8.308 5.095.331 7.565.264 30.649.288 38.237"
+                  class="primary"/>
+            <path fill="#FFF"
+                  d="M97.211 173.968c-.062 1.021-2.65 5.3-10.179 5.239-14.163-.115-43.766-.18-59.385.001-8.291.096-10.964-3.829-10.972-5.085-.006-.895-.028-3.299-.026-3.793.006-1.226 1.954-1.157 10.972-1.199 3.677-.017 8.085-.03 12.873-.039 1.523-.003 3.435 3.252 5.024 3.25 1.602-.002 17.004.049 22.999.051 1.526.001 3.085-3.316 4.551-3.315 5.367.004 10.265.01 14.203.018 7.224.014 9.916.025 9.958.76.036.627.027 3.371-.018 4.112"/>
+            <path fill-opacity="0" stroke="#282829" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"
+                  d="M97.211 173.968c-.062 1.021-2.65 5.3-10.179 5.239-14.163-.115-43.766-.18-59.385.001-8.291.096-10.964-3.829-10.972-5.085-.006-.895-.028-3.299-.026-3.793.006-1.226 1.954-1.157 10.972-1.199 3.677-.017 8.085-.03 12.873-.039 1.523-.003 3.435 3.252 5.024 3.25 1.602-.002 17.004.049 22.999.051 1.526.001 3.085-3.316 4.551-3.315 5.367.004 10.265.01 14.203.018 7.224.014 9.916.025 9.958.76.036.627.027 3.371-.018 4.112m-51.832-34.762c-3.237 1.488-12.273 8.206-12.238 10.106.039 2.06 10.869 9.251 12.183 9.918m20.113-19.875c3.237 1.488 12.273 8.206 12.238 10.106-.039 2.06-10.869 9.251-12.183 9.918m-13.003-.18c1.916-4.715 5.54-15.302 7.184-19.58"
+                  class="primary"/>
+        </g>
+        <clipPath id="s">
+            <path d="M0 0h192v192H0z"/>
+        </clipPath>
+        <clipPath id="x">
+            <path d="M0 0h192v192H0z"/>
+        </clipPath>
+        <clipPath id="r">
+            <path d="M0 0h192v192H0z"/>
+        </clipPath>
+        <clipPath id="t">
+            <path d="M0 0h192v192H0z"/>
+        </clipPath>
+        <path id="o" fill="red"
+              d="M73.84 40.81C64.22 53 65.75 64.73 64.59 66.6c-2.9-1.46-11.79-37.67 5.47-49.78 2.67-1.88 5.93 2.31 9.95.92 8.22-2.84 18.74-10.03 27.71-7.39 2.36.69 4.14 6.84 6.57 7.99 9.28 4.36 22.73 12.39 23.55 14.53 4.08 10.61-9.9 36.19-9.91 36-.89-20.38-20.68-17.6-24.53-35.02-.02-.09-22.74-1.67-29.56 6.96"
+              style="display:block"/>
+        <path id="b" style="display:none"/>
+        <path id="m" fill="red"
+              d="M-40.261.176c.062-1.021 2.65-5.3 10.179-5.239 14.163.115 43.766.18 59.385-.001C37.594-5.16 40.267-1.235 40.275.021c.006.895.028 3.299.026 3.793-.006 1.226-1.954 1.157-10.972 1.199-3.677.017-8.085.03-12.873.039-1.523.003-3.435-3.252-5.024-3.25-1.602.002-17.004-.049-22.999-.051-1.526-.001-3.085 3.316-4.551 3.315-5.367-.004-10.265-.01-14.203-.018-7.224-.014-9.916-.025-9.958-.76-.036-.627-.027-3.371.018-4.112"
+              style="display:block" transform="rotate(180 28.475 87.072)"/>
+    </defs>
+    <g clip-path="url(#s)">
+        <g clip-path="url(#t)" style="display:block">
+            <g mask="url(#u)" style="display:block">
+                <path fill="none" stroke="#282829" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.004"
+                      d="M112.641 96.839c2.317 17.173 19.74 14.661 23.24 15.663 21.288 6.098 16.985 57.928 15.902 57.916-18.089-.2-110.87.438-111.802-.034-.263-.134-7.533-45.819 15.575-56.771 15.851-7.513 20.548-1.822 26.562-16.71"
+                      class="primary"/>
+            </g>
+            <path fill="none" stroke="#282829" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                  d="M20.153-3.478C15.492 2.062 8.312 4.581-.613 4.373c-9.362-.217-15.171-3.672-19.54-8.758"
+                  class="primary" style="display:block" transform="translate(96.756 110.642)"/>
+            <g fill="none" stroke="#282829" stroke-linecap="round" stroke-linejoin="round" mask="url(#v)"
+               style="display:block">
+                <path stroke-width="1.999"
+                      d="M66.036 74.632c-7.673 8.072-15.03-7.204-2.471-8.319m64.887 8.437c2.185 0 4.701.798 6.833-.115 3.618-1.551 1.538-12.663-7.225-6.239"
+                      class="primary"/>
+                <path stroke-width="2.996"
+                      d="M67.741 40.167c7.441-11.903 21.932-13.897 29.66-14.022 24.698-.4 28.802 14.793 30.683 23.59 1.956 9.143 1.901 28.476-11.522 42.796-1.647 1.758-4.493 4.4-6.538 5.675-13.928 8.682-28.516.897-36.54-10.893-4.19-6.157-8.005-18.933-7.967-19.379.044-.514-2.52-20.177 2.224-27.767"
+                      class="primary"/>
+            </g>
+            <g fill="none" stroke="#282829" stroke-linecap="round" stroke-linejoin="round" style="display:block">
+                <path stroke-width="1.999" d="M126.289 48.331c-4.416-3.149-14.404-11.01-14.954-20.186" class="primary"/>
+                <path stroke-width="2.998"
+                      d="M73.844 40.813c-9.621 12.187-8.09 23.92-9.252 25.782-2.906-1.452-11.794-37.67 5.465-49.779 2.67-1.875 5.934 2.31 9.95.924 8.224-2.836 18.738-10.032 27.713-7.394 2.361.694 4.136 6.846 6.568 7.989 9.282 4.361 22.73 12.391 23.554 14.531 4.079 10.612-9.9 36.198-9.908 36.006-.898-20.384-20.688-17.598-24.538-35.027-.017-.081-22.735-1.669-29.552 6.968"
+                      class="primary"/>
+            </g>
+            <path fill="none" stroke="#282829" stroke-dasharray="49 6" stroke-dashoffset="-46" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="2" d="M.417 19.803c2.778-12.681 2.916-45.421-14.08-60.755"
+                  class="primary" style="display:block" transform="translate(161.166 149.441)"/>
+            <path fill="none" stroke="#282829" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M-.621 21.163C-5.345 6.601-3.353-10.918 2.766-20.913q.225-.368.467-.734" class="primary"
+                  style="display:block" transform="translate(52.978 39.543)"/>
+            <path fill="none" stroke="#282829" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M18.399.102C8.553.076-9.638.013-18.399-.102" class="primary" style="display:block"
+                  transform="translate(123.051 162.323)"/>
+            <g mask="url(#w)" style="display:block">
+                <path fill="none" stroke="#c4c4c4" stroke-linecap="round" stroke-linejoin="round"
+                      d="M27.675 176.996c-.128-7.508-.192-37.439-.103-44.825.054-4.491.889-5.138 7.754-5.086 11.197.085 34.854-.204 47.203-.087 7.399.07 8.125.915 8.308 5.095.331 7.565.321 37.399.345 44.987"
+                      class="secondary"/>
+                <path fill="#c4c4c4"
+                      d="M27.675 176.996c-.128-7.508-.192-37.439-.103-44.825.054-4.491.889-5.138 7.754-5.086 11.197.085 34.854-.204 47.203-.087 7.399.07 8.125.915 8.308 5.095.331 7.565.321 37.399.345 44.987"
+                      class="secondary"/>
+            </g>
+            <g fill="none" stroke="#282829" stroke-linecap="round" stroke-linejoin="round" style="display:block">
+                <path stroke-width="3"
+                      d="M19.403 168.746c-.102-10.049-.168-33.008-.063-43.02.064-6.088 1.051-6.964 9.17-6.894 13.243.115 41.221-.277 55.826-.118 8.75.095 9.607 1.239 9.824 6.906.391 10.254.577 33.539.527 43.532"
+                      class="primary"/>
+                <path stroke-width="2"
+                      d="M25.118 167.746c-.128-7.508-.135-30.689-.046-38.075.054-4.491.889-5.138 7.754-5.086 11.197.085 34.854-.204 47.203-.087 7.399.07 8.125.915 8.308 5.095.331 7.565.264 30.649.288 38.237m8.586 6.138c-.062 1.021-2.65 5.3-10.179 5.239-14.163-.115-43.766-.18-59.385.001-8.291.096-10.964-3.829-10.972-5.085-.006-.895-.028-3.299-.026-3.793.006-1.226 1.954-1.157 10.972-1.199 3.677-.017 8.085-.03 12.873-.039 1.523-.003 3.435 3.252 5.024 3.25 1.602-.002 17.004.049 22.999.051 1.526.001 3.085-3.316 4.551-3.315 5.367.004 10.265.01 14.203.018 7.224.014 9.916.025 9.958.76.036.627.027 3.371-.018 4.112"
+                      class="primary"/>
+                <path stroke-width="2"
+                      d="M45.379 139.206c-3.237 1.488-12.273 8.206-12.238 10.106.039 2.06 10.869 9.251 12.183 9.918"
+                      class="primary"/>
+                <path stroke-width="1.969"
+                      d="M65.437 139.355c3.237 1.488 12.273 8.206 12.238 10.106-.039 2.06-10.869 9.251-12.183 9.918"
+                      class="primary"/>
+                <path stroke-width="1.999" d="M52.489 159.199c1.916-4.715 5.54-15.302 7.184-19.58" class="primary"/>
+            </g>
+        </g>
+        <g clip-path="url(#x)" style="display:none">
+            <g mask="url(#y)" style="display:none">
+                <path fill="none" class="primary"/>
+            </g>
+            <g mask="url(#z)" style="display:none">
+                <path fill="none" class="primary"/>
+            </g>
+            <g fill="none" mask="url(#A)" style="display:none">
+                <path class="primary"/>
+                <path class="primary"/>
+                <path class="primary"/>
+            </g>
+            <g fill="none" mask="url(#B)" style="display:none">
+                <path class="primary"/>
+                <path class="primary"/>
+            </g>
+            <path fill="none" class="primary" style="display:none"/>
+            <path fill="none" class="primary" style="display:none"/>
+            <path fill="none" class="primary" style="display:none"/>
+            <g mask="url(#C)" style="display:none">
+                <path fill="none" class="secondary"/>
+                <path class="secondary"/>
+            </g>
+            <g fill="none" style="display:none">
+                <path class="primary"/>
+                <path class="primary"/>
+                <path class="primary"/>
+                <path class="primary"/>
+                <path class="primary"/>
+                <path class="primary"/>
+            </g>
+        </g>
+    </g>
+</svg>
