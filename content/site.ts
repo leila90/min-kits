@@ -25,6 +25,8 @@ const en = {
     about: "About",
     blog: "Blog",
     contact: "Contact",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
   },
   home: {
     heroEyebrow: "Production-ready UI kits for developers",
@@ -92,6 +94,8 @@ const fa = {
     about: "درباره ما",
     blog: "بلاگ",
     contact: "تماس با ما",
+    openMenu: "باز کردن منو",
+    closeMenu: "بستن منو",
   },
   home: {
     heroEyebrow: "کیت‌های آماده برای توسعه‌دهندگان",
