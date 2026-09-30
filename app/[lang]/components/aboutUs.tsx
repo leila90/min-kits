@@ -12,12 +12,10 @@ export default function AboutUs({ lang, content }: Props) {
         <div className="space-y-6 text-base leading-8 text-zinc-600">
           <p>{content.aboutText}</p>
           <ul className="space-y-4 text-zinc-700">
-            <li>— {lang === "fa" ? "سورس‌کد خوانا و قابل تغییر" : "Readable, adaptable source code"}</li>
-            <li>— {lang === "fa" ? "تمرکز بر React و Next.js مدرن" : "Modern React and Next.js"}</li>
-            <li>— {lang === "fa" ? "طراحی ساده و قابل استفاده مجدد" : "Simple reusable patterns"}</li>
+            {content.aboutBullets.map((item) => <li key={item}>— {item}</li>)}
           </ul>
         </div>
-        <Image src="/images/about1.jpg" alt={content.aboutTitle} width={900} height={650} className="w-full rounded-3xl object-cover shadow-xl" />
+        <Image src="/images/about1.webp" alt={content.aboutTitle} width={900} height={650} className="w-full rounded-3xl object-cover shadow-xl" />
       </div>
     </section>
   );
