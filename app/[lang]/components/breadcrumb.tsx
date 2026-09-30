@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import {usePathname} from "next/navigation";
-import type {Locale} from "@/content/site";
+import { getContent, type Locale } from "@/content/site";
 
 type Props = {
     lang: Locale
 }
 export default function Breadcrumb({lang}: Props) {
     const pathname = usePathname();
+    const content = getContent(lang);
     // مسیر را جدا می‌کنیم
     const [, ...segments] = pathname.split("/").filter(Boolean);
     return (
@@ -25,7 +26,7 @@ export default function Breadcrumb({lang}: Props) {
                                 <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                                 <polyline points="9 22 9 12 15 12 15 22"/>
                             </svg>
-                            Home
+                            {content.navigation.home}
                         </Link>
                     </li>
                     {segments.map((segment, index) => {
