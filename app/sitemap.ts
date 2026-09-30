@@ -1,19 +1,27 @@
 import type { MetadataRoute } from "next";
-import { locales } from "./dictionaries";
+import { getBlogPosts, locales } from "@/content/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vira-co.com";
-const paths = ["", "/about", "/blog"];
+const siteUrl = "https://minkits.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    return locales.flatMap((lang) =>
-        paths.map((path) => ({
-            url: `${siteUrl}/${lang}${path}`,
-            lastModified: new Date(),
-            alternates: {
-                languages: Object.fromEntries(
-                    locales.map((l) => [l, `${siteUrl}/${l}${path}`])
-                ),
-            },
-        }))
-    );
+  const staticPaths = ["", "/about", "/blog"];
+  const pages = locales.flatMap((locale) =>
+    staticPaths.map((path) => ({
+      url: `${siteUrl}/${locale}${path}`,
+      lastModified: new Date("2026-09-30"),
+      alternates: {
+        languages: Object.fromEntries(locales.map((other) => [other, `${siteUrl}/${other}${path}`])),
+      },
+    })),
+  );
+  const posts = locales.flatMap((locale) =>
+    getBlogPosts(locale).map((post) => ({
+      url: `${siteUrl}/${locale}/blog/${post.slug}`,
+      lastModified: new Date(post.lastModified),
+      alternates: {
+        languages: Object.fromEntries(locales.map((other) => [other, `${siteUrl}/${other}/blog/${post.slug}`])),
+      },
+    })),
+  );
+  return [...pages, ...posts];
 }
