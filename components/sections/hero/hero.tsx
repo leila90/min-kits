@@ -7,8 +7,6 @@ type HeroProps = { dict: { eyebrow: string; title: string; description: string; 
 
 export default function Hero({ dict }: HeroProps) {
     return (
-        // <div className="relative min-h-screen w-full md:bg-[url('/images/banner.png')] bg-[url('/images/banner.png')] bg-cover bg-no-repeat flex md:justify-start justify-center items-center">
-        // <div className="relative min-h-screen w-full bg-white bg-cover bg-no-repeat flex md:justify-start justify-center items-center">
         <div className="relative min-h-screen w-full overflow-hidden flex justify-center items-center">
             <div className="absolute inset-0 z-10 bg-white/50"/>
             <video
@@ -48,18 +46,7 @@ export default function Hero({ dict }: HeroProps) {
                         <Button variant="secondary">
                             {dict.components}
                         </Button>
-                    </div>
-
-                    {/*    <button*/}
-                    {/*        className="md:px-15 px-5 mx-5 text-sm font-semibold p-1 tracking-tight text-balance py-3 text-white rounded-xl border-2 border-black bg-black cursor-pointer">*/}
-                    {/*        Explore Kits*/}
-                    {/*    </button>*/}
-                    {/*    <button*/}
-                    {/*        className="md:px-15 px-5 mx-5 text-sm font-semibold p-1 tracking-tight text-balance py-3 text-white rounded-xl border-2 border-black bg-black cursor-pointer">*/}
-                    {/*        View Components*/}
-                    {/*    </button>*/}
-                    {/*</div>*/}
-                </motion.div>
+                    </div>                    {/*        className="md:px-15 px-5 mx-5 text-sm font-semibold p-1 tracking-tight text-balance py-3 text-white rounded-xl border-2 border-black bg-black cursor-pointer">*/}                    {/*    </button>*/}                    {/*        className="md:px-15 px-5 mx-5 text-sm font-semibold p-1 tracking-tight text-balance py-3 text-white rounded-xl border-2 border-black bg-black cursor-pointer">*/}                    {/*    </button>*/}                </motion.div>
             </Container>
         </div>
     )
