@@ -1,5 +1,5 @@
 import {notFound} from "next/navigation";
-import {getDictionary, hasLocale} from "../../../dictionaries";
+import {hasLocale} from "../../../dictionaries";
 import Header from "../../components/header";
 import FooterHeader from "../../components/footerHeader";
 import Breadcrumb from "@/app/[lang]/components/breadcrumb";
@@ -14,7 +14,6 @@ export function generateStaticParams() {
 export default async function Page({params}: {params: Promise<{lang: string; slug: string}>}) {
     const {lang} = await params
     if (!hasLocale(lang)) notFound();
-    const dict = await getDictionary(lang);
     return (
         <>
             {/*<PageHeader />*/}
