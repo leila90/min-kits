@@ -48,12 +48,12 @@ export default function Footer({ lang, dict }: FooterProps) {
                                     type="email"
                                     placeholder={dict.emailPlaceholder}
                                     required
-                                    className="h-full rounded-full border-0 bg-transparent px-6 text-sm text-footer-heading focus:border-0"
+                                    className="h-full rounded-[20px] border-0 bg-transparent px-6 text-sm text-footer-heading focus:border-0"
                                 />
                                 <Button
                                     type="button"
                                     size="sm"
-                                    className="me-1.5 h-10 shrink-0 rounded-full bg-linear-to-b from-footer-button-start to-footer-button-end px-5 text-sm text-footer-button-text hover:bg-linear-to-b hover:from-footer-button-hover-start hover:to-footer-button-hover-end"
+                                    className="me-1.5 h-10 shrink-0 rounded-[20px] bg-linear-to-b from-footer-button-start to-footer-button-end px-5 text-sm text-footer-button-text hover:bg-linear-to-b hover:from-footer-button-hover-start hover:to-footer-button-hover-end"
                                 >
                                     {dict.button}
                                 </Button>
