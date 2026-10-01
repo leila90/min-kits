@@ -1,55 +1,49 @@
-import Image from "next/image";
-type sloganProps = {
+"use client";
+
+import Container from "@/components/ui/container";
+
+type SloganProps = {
     dict: {
-        slogan: string,
-        mainSlogan: string
-    }
-}
+        slogan: string;
+        mainSlogan: string;
+    };
+};
 
-export default function MySlogan({ dict }: sloganProps) {
+const patternPath =
+    "M44.7881 154.576L133.211 154.576L177.423 78L133.211 1.42382L44.7881 1.42383L0.576176 78L44.7881 154.576Z";
+
+const patterns = [
+    "bottom-0 end-4 lg:end-8 opacity-20",
+    "-bottom-5 end-20 lg:-bottom-12 lg:end-56 opacity-30",
+    "bottom-0 start-4 lg:start-8 opacity-30",
+    "-bottom-5 start-20 lg:-bottom-12 lg:start-56 opacity-20",
+];
+
+export default function MySlogan({ dict }: SloganProps) {
     return (
-        <section className="md:-my-10 md:mx-30 -mt-10 mx-5 relative z-3">
-            <div className="wrapper myContainer mx-auto w-full px-0 min-w-[90%] lg:min-w-[1224px]">
-                <div className="w-full flex flex-col gap-6 text-start">
-                    <div style={{ opacity: 1, transform: 'none' }}>
-                        <div className="relative bg-black shadow-2xl rounded-2xl text-center lg:text-base text-xs lg:py-10 py-6 px-[14px] whitespace-pre-line overflow-hidden max-h-[140px]">
-                            <p className="w-full h-fit text-white">
-                                {dict.slogan} <em> “</em><em>{dict.mainSlogan}</em><em>” </em>
-                            </p>
+        <section className="relative z-10 -mt-10 md:-mt-10">
+            <Container>
+                <div className="relative min-h-[140px] overflow-hidden rounded-2xl bg-slogan-background px-3.5 py-6 text-center text-xs shadow-2xl lg:py-10 lg:text-base">
+                    <p className="h-fit w-full whitespace-pre-line text-slogan-text">
+                        {dict.slogan} <em> “</em><em>{dict.mainSlogan}</em><em>” </em>
+                    </p>
 
-                            {/* شکل‌های SVG به صورت absolute در اطراف */}
-                            <Image
-                                width={100}
-                                height={100}
-                                className="absolute bottom-0 right-4 lg:right-8 w-16 lg:w-auto"
-                                src="data:image/svg+xml,%3csvg%20width='178'%20height='91'%20viewBox='0%200%20178%2091'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M44.7881%20154.576L133.211%20154.576L177.423%2078L133.211%201.42382L44.7881%201.42383L0.576176%2078L44.7881%20154.576Z'%20stroke='white'%20stroke-opacity='0.2'/%3e%3c/svg%3e"
-                                alt=""
-                            />
-                            <Image
-                                width={100}
-                                height={100}
-                                className="absolute -bottom-5 lg:-bottom-12 right-20 lg:right-56 w-16 lg:w-auto"
-                                src="data:image/svg+xml,%3csvg%20width='178'%20height='91'%20viewBox='0%200%20178%2091'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M44.7881%20154.576L133.211%20154.576L177.423%2078L133.211%201.42382L44.7881%201.42383L0.576176%2078L44.7881%20154.576Z'%20stroke='white'%20stroke-opacity='0.3'/%3e%3c/svg%3e"
-                                alt=""
-                            />
-                            <Image
-                                width={100}
-                                height={100}
-                                className="absolute bottom-0 left-4 lg:left-8 w-16 lg:w-auto"
-                                src="data:image/svg+xml,%3csvg%20width='178'%20height='91'%20viewBox='0%200%20178%2091'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M44.7881%20154.576L133.211%20154.576L177.423%2078L133.211%201.42382L44.7881%201.42383L0.576176%2078L44.7881%20154.576Z'%20stroke='white'%20stroke-opacity='0.3'/%3e%3c/svg%3e"
-                                alt=""
-                            />
-                            <Image
-                                width={100}
-                                height={100}
-                                className="absolute -bottom-5 lg:-bottom-12 left-20 lg:left-56 w-16 lg:w-auto"
-                                src="data:image/svg+xml,%3csvg%20width='178'%20height='91'%20viewBox='0%200%20178%2091'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M44.7881%20154.576L133.211%20154.576L177.423%2078L133.211%201.42382L44.7881%201.42383L0.576176%2078L44.7881%20154.576Z'%20stroke='white'%20stroke-opacity='0.2'/%3e%3c/svg%3e"
-                                alt=""
-                            />
-                        </div>
-                    </div>
+                    {patterns.map((className, index) => (
+                        <svg
+                            key={index}
+                            width="178"
+                            height="91"
+                            viewBox="0 0 178 91"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            className={`absolute w-16 text-slogan-pattern lg:w-auto ${className}`}
+                        >
+                            <path d={patternPath} stroke="currentColor" />
+                        </svg>
+                    ))}
                 </div>
-            </div>
+            </Container>
         </section>
-    )
+    );
 }
