@@ -6,6 +6,18 @@ import Breadcrumb from "@/app/[lang]/components/breadcrumb";
 import {MagazineEditorialColumns} from "@/app/[lang]/components/magazine-editorial-columns";
 
 
+export async function generateMetadata({params}: {params: Promise<{lang: string; slug: string}>}): Promise<import("next").Metadata> {
+    const {lang, slug} = await params;
+    if (!hasLocale(lang)) return {};
+    const title = `Blog ${slug}`;
+    return {
+        title,
+        description: lang === "fa"
+            ? "مطالب و منابع MinKits برای توسعه رابط کاربری."
+            : "MinKits articles and resources for UI development.",
+    };
+}
+
 export function generateStaticParams() {
     // TODO: replace with real post slugs once posts live in a data source
     return ["en", "fa"].flatMap((lang) => ["1","2","3","4","5"].map((slug) => ({lang, slug})));
