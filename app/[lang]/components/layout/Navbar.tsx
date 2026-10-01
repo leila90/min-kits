@@ -37,7 +37,7 @@ export default function Navbar({ lang, content }: Props) {
 
         <div className="hidden items-center gap-8 lg:flex">
           <NavbarLinks links={links} />
-          <LanguageDropdown />
+          <LanguageDropdown languageNames={content.navigation.languageNames} />
         </div>
 
         <button type="button" onClick={() => setMobileMenuOpen(true)} className="p-2 lg:hidden" aria-label={content.navigation.openMenu}>
