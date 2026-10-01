@@ -7,7 +7,7 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { getDictionary, hasLocale, locales } from "../dictionaries";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vira-co.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://minkits.com";
 
 export const dynamicParams = false;
 
@@ -30,8 +30,8 @@ export async function generateMetadata({
             template: "%s | MinKits",
         },
         description: isFa
-            ? "کیت‌های UI آماده تولید برای React، Next.js و Tailwind"
-            : "Production-ready React, Next.js and Tailwind UI kits",
+            ? "کیت‌ها و کامپوننت‌های رابط کاربری آماده استفاده برای React، Next.js و Tailwind CSS."
+            : "Production-ready UI kits and components for React, Next.js and Tailwind CSS.",
         alternates: {
             canonical: `/${lang}`,
             languages: { en: "/en", fa: "/fa" },
@@ -40,6 +40,14 @@ export async function generateMetadata({
             type: "website",
             siteName: "MinKits",
             locale: isFa ? "fa_IR" : "en_US",
+            url: `/${lang}`,
+        },
+        twitter: {
+            card: "summary_large_image",
+        },
+        robots: {
+            index: true,
+            follow: true,
         },
     };
 }
