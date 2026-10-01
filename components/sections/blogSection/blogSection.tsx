@@ -110,15 +110,15 @@ export default function BlogSection({lang, dict}: Props) {
                 {posts
                     .filter(post => post.id === 1)
                     .map(post => (<div key={post.id}
-                                       className="bg-zinc-800 rounded-2xl py-5 row-span-2 lg:basis-2/6 md:1/2">
+                                       className="min-w-0 bg-zinc-800 rounded-2xl py-5 row-span-2 lg:basis-2/6">
                             <div
-                                className="mx-6 mb-5  dark:bg-zinc-800 dark:border-zinc-700">
-                                <div className="flex justify-between items-center mb-5 text-zinc-100">
+                                className="mx-6 mb-5 min-w-0 dark:bg-zinc-800 dark:border-zinc-700">
+                                <div className="flex min-w-0 justify-between items-center mb-5 text-zinc-100">
                                     <div className="col-span-2">
-                                        <div className="relative flex items-center gap-x-4">
+                                        <div className="relative flex min-w-0 items-center gap-x-4">
                                             <Image src="/images/avatar2.jpg" alt={""} width={10} height={10}
                                                    className="size-10 rounded-full bg-zinc-50"/>
-                                            <div className="text-sm/6">
+                                            <div className="min-w-0 text-sm/6">
                                                 <p className="font-semibold text-zinc-100">
                                                     <a href={""}>
                                                         <span className="absolute inset-0"/>
@@ -166,10 +166,10 @@ export default function BlogSection({lang, dict}: Props) {
                 {posts
                     .filter(post => post.id !== 1)
                     .map(post => (
-                        <div key={post.id} className={`lg:basis-1/6 md:1/2 ${lang === "fa" ? "border-r" : "border-l" } border-zinc-900/20 my-5`}>
+                        <div key={post.id} className={`min-w-0 lg:basis-1/6 ${lang === "fa" ? "border-r" : "border-l"} border-zinc-900/20 my-5`}>
                             <div
                                 className="mx-6 mb-5  dark:bg-zinc-800 dark:border-zinc-700">
-                                <div className="flex justify-between items-center mb-5 text-zinc-900">
+                                <div className="flex min-w-0 justify-between items-center mb-5 text-zinc-900">
                                     <div className="col-span-2">
                                         <div className="relative flex items-center gap-x-4">
                                             <Image src="/images/avatar2.jpg" alt={""} width={10} height={10}
