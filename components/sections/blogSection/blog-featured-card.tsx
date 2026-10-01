@@ -7,7 +7,7 @@ type Props = {
 
 export default function BlogFeaturedCard({readMore, lang}: Props) {
     return (
-        <article className="min-w-0 row-span-2 rounded-2xl bg-zinc-800 py-5 lg:basis-2/6">
+        <article className="row-span-2 min-w-0 rounded-2xl bg-zinc-800 py-5 lg:basis-2/6">
             <div className="mx-6 mb-5 min-w-0">
                 <div className="mb-5 flex min-w-0 items-center justify-between text-zinc-100">
                     <div>
@@ -28,7 +28,7 @@ export default function BlogFeaturedCard({readMore, lang}: Props) {
                     </div>
                 </div>
                 <Image width={200} height={200} alt="blog" src="/images/blog/blog.png" className="my-5 w-full rounded-2xl"/>
-                <h2 className={`mb-2 border-white border-${lang === "fa" ? "r-10 pr-2" : "l-10 pl-2"} text-2xl font-bold tracking-tight text-white dark:text-white`}>
+                <h2 className={`mb-2 text-2xl font-bold tracking-tight text-white dark:text-white border-white ${lang === "fa" ? "border-r-10 pr-2" : "border-l-10 pl-2"}`}>
                     <a href="#">How to quickly deploy a static website</a>
                 </h2>
                 <p className="mb-5 font-light text-zinc-100 dark:text-zinc-100">
@@ -39,8 +39,8 @@ export default function BlogFeaturedCard({readMore, lang}: Props) {
                 <div className="flex items-center justify-end">
                     <a href="#" className="inline-flex items-center font-medium text-white hover:underline dark:text-primary-500">
                         {readMore}
-                        <svg className="ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
+                        <svg className={`h-4 w-4 ${lang === "fa" ? "mr-2 rotate-180" : "ml-2"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 01-1.414 1.414z" clipRule="evenodd"/>
                         </svg>
                     </a>
                 </div>
