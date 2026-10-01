@@ -1,40 +1,52 @@
 # MinKits
 
-Production-ready UI kits landing site built with Next.js (App Router), React 19, Tailwind CSS v4 and TypeScript.
-Bilingual: English (`/en`) and Persian (`/fa`, RTL).
+Production-ready UI kits and components for React, Next.js and Tailwind CSS.
+
+MinKits supports English (`/en`) and Persian (`/fa`) with RTL-aware routing.
+
+## Stack
+
+- Next.js 16 — App Router
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Headless UI
+- Heroicons
+- Framer Motion
+- Lenis
 
 ## Getting started
 
 ```bash
-cp .env.example .env.local
 npm install
 npm run dev
 ```
 
-Open http://localhost:3000. You are redirected to your locale (cookie `NEXT_LOCALE`, then `Accept-Language`, then `en`).
+Open http://localhost:3000. Requests without a locale are redirected to the detected locale using the `NEXT_LOCALE` cookie, then `Accept-Language`, with English as the fallback.
 
 ## Scripts
 
 | Script | Purpose |
 |---|---|
-| `npm run dev` | Dev server |
-| `npm run build` | Production build (locales are statically generated) |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
 | `npm run start` | Serve the production build |
-| `npm run lint` | ESLint |
-| `npm run typecheck` | `tsc --noEmit` |
+| `npm run lint` | Run ESLint |
+| `npm run typecheck` | Run TypeScript without emitting files |
 
 ## Structure
 
-- `proxy.ts`: locale detection and redirect
-- `app/[lang]/`: localized routes (`/`, `/about`, `/blog`, `/blog/[slug]`)
-- `app/dictionaries/`: translation JSON files (`en.json`, `fa.json`)
-- `app/sitemap.ts`, `app/robots.ts`: SEO
-- `public/`: static assets
+- `app/[lang]/` — localized App Router pages and UI components
+- `app/dictionaries/` — English and Persian translations
+- `app/robots.ts` — robots metadata
+- `app/sitemap.ts` — localized sitemap
+- `proxy.ts` — locale detection and routing
+- `public/` — static images, video and other assets
 
 ## Environment
 
 | Variable | Description |
 |---|---|
-| `NEXT_PUBLIC_SITE_URL` | Public site URL used for canonical links and the sitemap |
+| `NEXT_PUBLIC_SITE_URL` | Canonical public URL used by metadata, robots and sitemap |
 
-Requires Node.js >= 20.9.
+Requires Node.js 20.9 or newer.
