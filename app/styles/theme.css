@@ -110,6 +110,16 @@
   --contact-social-telegram: #0088cc;
   --contact-social-x: #000000;
   --contact-social-whatsapp: #128c7e;
+  --footer-background: #000000;
+  --footer-heading: #ffffff;
+  --footer-muted: rgb(255 255 255 / 60%);
+  --footer-border: rgb(255 255 255 / 20%);
+  --footer-divider: rgb(255 255 255 / 50%);
+  --footer-divider-start: rgb(255 255 255 / 25%);
+  --footer-divider-end: #000000;
+  --footer-button-start: #52525b;
+  --footer-button-end: #3f3f46;
+  --footer-button-text: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -198,6 +208,16 @@
   --color-contact-social-telegram: var(--contact-social-telegram);
   --color-contact-social-x: var(--contact-social-x);
   --color-contact-social-whatsapp: var(--contact-social-whatsapp);
+  --color-footer-background: var(--footer-background);
+  --color-footer-heading: var(--footer-heading);
+  --color-footer-muted: var(--footer-muted);
+  --color-footer-border: var(--footer-border);
+  --color-footer-divider: var(--footer-divider);
+  --color-footer-divider-start: var(--footer-divider-start);
+  --color-footer-divider-end: var(--footer-divider-end);
+  --color-footer-button-start: var(--footer-button-start);
+  --color-footer-button-end: var(--footer-button-end);
+  --color-footer-button-text: var(--footer-button-text);
 }
 
 @keyframes team-card-shine {
