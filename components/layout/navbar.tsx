@@ -124,7 +124,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                     href={`/${lang}/about`}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
                                 >
-                                    {dict.mainMenus?.["About Us"] ?? 'No translation'}
+                                    {dict.nav.about}
                                 </Link>
 
                                 <Link
