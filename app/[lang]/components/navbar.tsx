@@ -69,19 +69,19 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
 
                     <Link href={`/${lang}/about`} className="text-sm/6 font-semibold">
-                        {dict.nav?.["About Us"] ?? 'No translation'}
+                        {dict.nav.about}
                     </Link>
                     <Link href={`/${lang}/blog`} className="text-sm/6 font-semibold">
-                        {dict.mainMenus?.["Blogs"] ?? 'No translation'}
+                        {dict.nav.blog}
                     </Link>
                     <Link href="#" className="text-sm/6 font-semibold">
-                        {dict.mainMenus?.["Group Companies"] ?? 'No translation'}
+                        {dict.nav.companies}
                     </Link>
                     <Link href={`/${lang}#countactUs`} className="text-sm/6 font-semibold">
-                        {dict.mainMenus?.["Contact Us"] ?? 'No translation'}
+                        {dict.nav.contact}
                     </Link>
                     <Link href={`/${lang}`} className="text-sm/6 font-semibold">
-                        {dict.mainMenus?.["Career Opportunities"]?? 'No translation'}
+                        {dict.nav.careers}
                     </Link>
                 </PopoverGroup>
 
@@ -131,25 +131,25 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                     href={`/${lang}/blog`}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
                                 >
-                                    {dict.mainMenus?.["Blogs"] ?? 'No translation'}
+                                    {dict.nav.blog}
                                 </Link>
                                 <Link
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
                                 >
-                                    {dict.mainMenus?.["Group Companies"] ?? 'No translation'}
+                                    {dict.nav.companies}
                                 </Link>
                                 <Link
                                     href={`/${lang}#countactUs`}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
                                 >
-                                    {dict.mainMenus?.["Contact Us"] ?? 'No translation'}
+                                    {dict.nav.contact}
                                 </Link>
                                 <Link
                                     href={`/${lang}`}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-gray-50"
                                 >
-                                    {dict.mainMenus?.["Career Opportunities"] ?? 'No translation'}
+                                    {dict.nav.careers}
                                 </Link>
                             </div>
                             <div className="py-6">
