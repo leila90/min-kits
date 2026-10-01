@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-type FooterProps = { dict: { description: string; important: string; social: string; subscribe: string; emailPlaceholder: string; button: string; terms: string; privacy: string; copyright: string } };
+type FooterProps = { lang: "fa" | "en"; dict: { description: string; important: string; social: string; subscribe: string; emailPlaceholder: string; button: string; terms: string; privacy: string; copyright: string } };
 
 export default function Footer({ dict }: FooterProps) {
     return (
@@ -8,7 +8,7 @@ export default function Footer({ dict }: FooterProps) {
             <footer className='bg-black pt-30 pb-12 px-4 sm:px-6 lg:px-8'>
                 <div className='w-full max-w-7xl mx-auto'>
                     <div className="w-full flex flex-col mb-20 items-center text-center">
-                        <a href="https://prebuiltui.com">
+                        <a href={`/${lang}`} aria-label="MinKits">
                             <Image src={'/logo-ww.png'} alt={'logo'} height={150} width={150}/>
                         </a>
                         <div
@@ -36,14 +36,14 @@ export default function Footer({ dict }: FooterProps) {
                             <h3 className='text-sm text-white font-medium'>{dict.important}</h3>
                             <div className="flex flex-col gap-2 mt-6">
                                 <a href="#"
-                                   className='text-sm text-white/60 hover:text-white transition-colors'>Home</a>
+                                   className='text-sm text-white/60 hover:text-white transition-colors'>{lang === "fa" ? "خانه" : "Home"}</a>
                                 <a href="#"
-                                   className='text-sm text-white/60 hover:text-white transition-colors'>About</a>
+                                   className='text-sm text-white/60 hover:text-white transition-colors'>{lang === "fa" ? "درباره ما" : "About"}</a>
                                 <a href="#"
-                                   className='text-sm text-white/60 hover:text-white transition-colors'>Portfolio</a>
+                                   className='text-sm text-white/60 hover:text-white transition-colors'>{lang === "fa" ? "نمونه‌کارها" : "Portfolio"}</a>
                                 <a href="#"
-                                   className='text-sm text-white/60 hover:text-white transition-colors'>Contact</a>
-                                <a href="#" className='text-sm text-white/60 hover:text-white transition-colors'>FAQ</a>
+                                   className='text-sm text-white/60 hover:text-white transition-colors'>{lang === "fa" ? "ارتباط با ما" : "Contact"}</a>
+                                <a href="#" className='text-sm text-white/60 hover:text-white transition-colors'>{lang === "fa" ? "سؤالات متداول" : "FAQ"}</a>
                             </div>
                         </div>
 
@@ -83,11 +83,9 @@ export default function Footer({ dict }: FooterProps) {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         <p className='text-xs text-white/60'>{dict.copyright}</p>
                         <div className="flex items-center gap-6">
-                            <a href='#' className='text-xs text-white/60 hover:text-white transition-colors'>Terms &
-                                Conditions</a>
+                            <a href='#' className='text-xs text-white/60 hover:text-white transition-colors'>{dict.terms}</a>
                             <div className='w-px h-4 bg-white/20'></div>
-                            <a href='#' className='text-xs text-white/60 hover:text-white transition-colors'>Privacy
-                                Policy</a>
+                            <a href='#' className='text-xs text-white/60 hover:text-white transition-colors'>{dict.privacy}</a>
                         </div>
                     </div>
                 </div>
