@@ -59,6 +59,25 @@
   --blog-card-border: rgb(24 24 27 / 20%);
   --blog-card-accent: #8b5cf6;
   --blog-avatar-background: #fafafa;
+  --team-card-background: #ffffff;
+  --team-card-border: #e4e4e7;
+  --team-card-hover-border: #71717a;
+  --team-card-heading: #18181b;
+  --team-card-role: #71717a;
+  --team-avatar-background: #ffffff;
+  --team-avatar-start: #ffffff;
+  --team-avatar-end: #71717a;
+  --team-contact-background: #ffffff;
+  --team-contact-muted: #4b5563;
+  --team-contact-heading: #111827;
+  --team-contact-border: #d1d5db;
+  --team-contact-focus: #3b82f6;
+  --team-contact-focus-ring: #dbeafe;
+  --team-contact-button: #3b82f6;
+  --team-contact-button-hover: #2563eb;
+  --team-contact-map: #d1d5db;
+  --team-contact-link: #3b82f6;
+  --team-contact-note: #6b7280;
 }
 
 @media (prefers-color-scheme: dark) {
