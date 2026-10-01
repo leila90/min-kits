@@ -1,5 +1,4 @@
-import SectionTitle from "@/components/common/sectionTitle";
-import {CheckBadgeIcon, CheckCircleIcon, LockClosedIcon} from "@heroicons/react/16/solid";
+import {CheckBadgeIcon} from "@heroicons/react/16/solid";
 import Image from "next/image";
 
 type Props = {
@@ -126,11 +125,3 @@ export default function Content1({lang}: Props) {
     )
 }
 
-function Stat({value, label}: { value: string; label: string }) {
-    return (
-        <div className="flex flex-col items-center">
-            <p className="text-2xl font-semibold text-zinc-900">{value}</p>
-            <p className="text-sm text-zinc-700">{label}</p>
-        </div>
-    )
-}
