@@ -7,7 +7,7 @@ type HeroProps = { dict: { eyebrow: string; title: string; description: string; 
 
 export default function Hero({ dict }: HeroProps) {
     return (
-        <div className="relative min-h-screen w-full overflow-hidden flex justify-center items-center">
+        <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
             <div className="absolute inset-0 z-10 bg-white/50"/>
             <video
                 autoPlay
@@ -16,7 +16,7 @@ export default function Hero({ dict }: HeroProps) {
                 playsInline
                 preload="metadata"
                 poster="/images/hero-bg.jpg"
-                className="absolute inset-0 z-0 object-cover"
+                className="absolute inset-0 z-0 h-full w-full object-cover"
             >
                 <source src="/videos/hero2.mp4" type="video/mp4"/>
             </video>
@@ -28,17 +28,17 @@ export default function Hero({ dict }: HeroProps) {
                     transition={{type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.1 + 0.1}}
                     className="p-6"
                 >
-                    <h6 className="font-thin p-1 text-zinc-600"> {dict.eyebrow} </h6>
-                    <h1 className="text-2xl md:text-3xl lg:text-4xl tracking-tight text-black">
+                    <h6 className="p-1 font-thin text-zinc-600">{dict.eyebrow}</h6>
+                    <h1 className="text-2xl tracking-tight text-black md:text-3xl lg:text-4xl">
                         {dict.title}{" "}
                         <span className="font-bold">MinKits</span>
                     </h1>
 
-                    <h4 className="text-sm md:text-base lg:text-xl font-light text-zinc-600 mt-3">
+                    <h4 className="mt-3 text-sm font-light text-zinc-600 md:text-base lg:text-xl">
                         {dict.description}
                     </h4>
 
-                    <div className="mt-8 flex items-center gap-4">
+                    <div className="mt-8 flex items-center justify-center gap-4">
                         <Button variant="primary">
                             {dict.explore}
                         </Button>
@@ -46,8 +46,9 @@ export default function Hero({ dict }: HeroProps) {
                         <Button variant="secondary">
                             {dict.components}
                         </Button>
-                    </div>                    {/*        className="md:px-15 px-5 mx-5 text-sm font-semibold p-1 tracking-tight text-balance py-3 text-white rounded-xl border-2 border-black bg-black cursor-pointer">*/}                    {/*    </button>*/}                    {/*        className="md:px-15 px-5 mx-5 text-sm font-semibold p-1 tracking-tight text-balance py-3 text-white rounded-xl border-2 border-black bg-black cursor-pointer">*/}                    {/*    </button>*/}                </motion.div>
+                    </div>
+                </motion.div>
             </Container>
-        </div>
+        </section>
     )
 }
