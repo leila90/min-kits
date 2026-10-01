@@ -4,6 +4,7 @@ export { default as AboutUs } from "./aboutUs/aboutUs";
 export { default as MyFeatures } from "./myFeatures/myFeatures";
 export { default as BlogSection } from "./blogSection/blogSection";
 export { default as TeamSection } from "./teamSection/teamSection";
+export { default as TeamContact } from "./teamContact/teamContact";
 export { default as LatestBlog } from "./latestBlog/latestBlog";
 export { default as ContactUs } from "./contactUs/contactUs";
 export { default as Ctr } from "./ctr/ctr";
