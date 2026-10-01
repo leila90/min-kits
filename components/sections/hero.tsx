@@ -1,6 +1,7 @@
 'use client'
 
 import {motion} from 'framer-motion';
+import {Button} from '@/components/ui';
 
 type HeroProps = { dict: { eyebrow: string; title: string; description: string; explore: string; components: string } };
 
@@ -40,13 +41,13 @@ export default function Hero({ dict }: HeroProps) {
                     </h4>
 
                     <div className="mt-8 flex items-center gap-4">
-                        <button className="px-6 py-3 rounded-xl bg-black text-white text-sm font-semibold">
+                        <Button variant="primary">
                             {dict.explore}
-                        </button>
+                        </Button>
 
-                        <button className="px-6 py-3 rounded-xl border border-black text-black text-sm font-semibold">
+                        <Button variant="secondary">
                             {dict.components}
-                        </button>
+                        </Button>
                     </div>
                         {/*<Link*/}
                         {/*    href="#"*/}
@@ -65,7 +66,7 @@ export default function Hero({ dict }: HeroProps) {
                         {/*    className="rainbow relative z-0 bg-black/30 overflow-hidden p-0.5 flex items-center justify-center rounded-full transition duration-300 active:scale-100">*/}
                         {/*    <button*/}
                         {/*        className="px-15 text-sm py-3 text-black rounded-full font-medium bg-white backdrop-blur cursor-pointer">*/}
-                        {/*        Get More ...*/}
+                        {/*        About Us*/}
                         {/*    </button>*/}
                         {/*</div>*/}
                     {/*    <button*/}
