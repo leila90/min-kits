@@ -12,7 +12,7 @@ import LatestBlog from "./components/latestBlog";
 import TeamSection from "./components/teamSection";
 import BlogSection from "./components/blogSection";
 import Ctr from "./components/ctr";
-import { getDictionary, isLang } from "../i18n";
+import { getDictionary, hasLocale } from "../dictionaries";
 
 export const metadata: Metadata = {
     title: { absolute: "MinKits | Production-ready UI kits" },
@@ -20,22 +20,22 @@ export const metadata: Metadata = {
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
-    if (!isLang(lang)) notFound();
+    if (!hasLocale(lang)) notFound();
     const dict = await getDictionary(lang);
 
     return (
         <>
-            <Hero dict={dict.hero} />
+            <Hero />
             <Header />
-            <MySlogan dict={dict.slogan} />
-            <AboutUs lang={lang} dict={dict.about} />
-            <MyFeatures lang={lang} dict={dict.features} />
-            <Ctr dict={dict.hero} />
-            <BlogSection lang={lang} dict={dict.blog} />
-            <TeamSection lang={lang} dict={dict.team} />
-            <LatestBlog lang={lang} dict={dict.blog} />
-            <ContactUs lang={lang} dict={dict.contact} />
-            <Logo dict={dict.team} />
+            <MySlogan dict={dict} />
+            <AboutUs lang={lang} />
+            <MyFeatures lang={lang} />
+            <Ctr />
+            <BlogSection lang={lang} />
+            <TeamSection lang={lang} />
+            <LatestBlog />
+            <ContactUs lang={lang} />
+            <Logo />
             <FooterHeader />
         </>
     );
