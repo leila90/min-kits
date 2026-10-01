@@ -9,7 +9,7 @@ type Props = {
 
 export default function ContactUs({lang}: Props) {
     return (
-        <section className="md:my-10 md:mx-30 my-5 mx-5">
+        <section id="contactUs" className="md:my-10 md:mx-30 my-5 mx-5">
             <SectionTitle brand='MinKits Team' title='Contact Us' subTitle='Contact Us' lang={lang}/>
             <div className="relative flex flex-col md:flex-row justify-center">
                 <div className="basis-1/2 relative p-10">
