@@ -13,7 +13,7 @@ export default function Footer({ lang, dict }: FooterProps) {
                             <Image src={'/logo-ww.png'} alt={'logo'} height={150} width={150}/>
                         </a>
                         <div
-                            className='w-full h-px mt-8 bg-linear-to-r from-black via-white/50 to-black'></div>
+                            className={`w-full h-px mt-8 ${lang === "fa" ? "bg-linear-to-l" : "bg-linear-to-r"} from-black via-white/50 to-black`}></div>
                         <p className='mt-6 text-sm leading-relaxed text-footer-muted'>
                             {dict.description}
                         </p>
@@ -26,14 +26,14 @@ export default function Footer({ lang, dict }: FooterProps) {
                                 MinKits Team
                             </h4>
                             <div
-                                className='my-4 h-px w-full bg-linear-to-r from-footer-divider-start to-footer-divider-end'></div>
+                                className={`my-4 h-px w-full ${lang === "fa" ? "bg-linear-to-l" : "bg-linear-to-r"} from-footer-divider-start to-footer-divider-end`}></div>
                             <p className='max-w-sm text-sm leading-relaxed text-footer-muted'>
                                 {dict.description}
                             </p>
                         </div>
 
                         <div
-                            className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-left">
+                            className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-start">
                             <h3 className='text-sm font-medium text-footer-heading'>{dict.important}</h3>
                             <div className="flex flex-col gap-2 mt-6">
                                 <a href="#"
@@ -49,7 +49,7 @@ export default function Footer({ lang, dict }: FooterProps) {
                         </div>
 
                         <div
-                            className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-left">
+                            className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-start">
                             <h3 className='text-sm text-white font-medium'>{dict.social}</h3>
                             <div className="flex flex-col gap-2 mt-6">
                                 <a href="#"
@@ -64,7 +64,7 @@ export default function Footer({ lang, dict }: FooterProps) {
                         </div>
 
                         <div
-                            className="w-full md:w-[45%] lg:w-[25%] flex flex-col items-center md:items-start text-center md:text-left">
+                            className="w-full md:w-[45%] lg:w-[25%] flex flex-col items-center md:items-start text-center md:text-start">
                             <h3 className='text-sm text-white font-medium'>{dict.subscribe}</h3>
                             <div
                                 className="mt-4 flex h-13 w-full max-w-80 min-w-0 items-center gap-2 overflow-hidden rounded-full border border-footer-border">
@@ -72,7 +72,7 @@ export default function Footer({ lang, dict }: FooterProps) {
                                        className="h-full min-w-0 flex-1 bg-transparent px-6 text-sm text-footer-heading outline-none placeholder:text-xs placeholder:text-footer-muted"
                                        required/>
                                 <button type="button"
-                                        className="mr-1.5 h-10 shrink-0 rounded-full bg-linear-to-b from-footer-button-start to-footer-button-end px-5 text-sm text-footer-button-text transition active:scale-95">{dict.button}
+                                        className="me-1.5 h-10 shrink-0 rounded-full bg-linear-to-b from-footer-button-start to-footer-button-end px-5 text-sm text-footer-button-text transition active:scale-95">{dict.button}
                                 </button>
                             </div>
                         </div>
