@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import clsx from "clsx";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 type Language = {
     code: "fa" | "en";
@@ -54,11 +54,12 @@ function setLocaleCookie(code: string) {
     document.cookie = `NEXT_LOCALE=${code}; path=/; max-age=31536000; samesite=lax`;
 }
 
-type Props = { languageNames: { fa: string; en: string } };\n\nexport default function LanguageDropdown({ languageNames }: Props) {
+type Props = { languageNames: { fa: string; en: string } };
+
+export default function LanguageDropdown({ languageNames }: Props) {
     const [open, setOpen] = useState(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
-    const router = useRouter();
     const pathname = usePathname();
 
     // ✅ derive active language from URL (NO state)
@@ -88,7 +89,7 @@ type Props = { languageNames: { fa: string; en: string } };\n\nexport default fu
         segments[1] = lang.code;
         setLocaleCookie(lang.code);
 
-        router.push(segments.join("/"));
+        window.location.assign(segments.join("/"));
     };
 
     return (
