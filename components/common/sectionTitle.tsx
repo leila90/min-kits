@@ -4,7 +4,7 @@ type Props = { brand: string; title: string; subTitle: string; marginTop?: strin
 export default function SectionTitle({ brand, title, subTitle, marginTop, lang }: Props) {
   const marginClass = marginTop === "16" ? "mt-16" : "mt-20";
   return <motion.div initial={{ y: 60, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ type: "spring", stiffness: 250, damping: 70 }}>
-    <div className={"text-2xl lg:text-3xl font-bold mb-4 " + marginClass}>
+    <div className={"text-2xl lg:text-3xl font-bold mb-10 md:mb-12 " + marginClass}>
       <div className="font-light text-base flex items-center gap-2">
         <span className="text-black lg:text-[28px] text-base font-extralight">{title}</span>
         <div className="relative flex flex-col items-end w-[70px] lg:w-[240px]">
