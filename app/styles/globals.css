@@ -49,6 +49,11 @@ html[lang="en"] {
   height: 100%;
   overflow: hidden;
 }
+
+body {
+  overflow-x: clip;
+}
+
 .circles li{
   position: absolute;
   display: block;
@@ -211,12 +216,6 @@ html[lang="en"] {
 
   20% {
     transform: scaleY(1);
-  }
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
   }
 }
 
