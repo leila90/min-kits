@@ -1,6 +1,6 @@
 'use client'
 
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import {
     Dialog,
     DialogPanel,
@@ -24,25 +24,11 @@ type NavbarProps = {
 
 export default function Navbar({ lang, dict }: NavbarProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const [scrolled, setScrolled] = useState(false);
-    useEffect(() => {
-        function handleScroll() {
-            // اگر صفحه بیشتر از 50 پیکسل اسکرول شد
-            if (window.scrollY > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        }
-
-        window.addEventListener("scroll", handleScroll);
-
-        // تمیز کردن event listener هنگام unmount شدن
-        return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
     }, []);
     return (
         <header
-            className={`fixed md:my-10 md:mx-20 my-5 mx-5 rounded-2xl border-1 backdrop-blur border-black top-0 left-0 right-0 z-50 duration-300 ${scrolled ? "bg-black/80 shadow-md  text-white" : "bg-black/80 shadow-md text-white"}  ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
+            className={`fixed md:my-10 md:mx-20 my-5 mx-5 rounded-2xl border-1 backdrop-blur border-black top-0 left-0 right-0 z-50 duration-300 bg-black/80 shadow-md text-white  ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8">
                 <div className="flex lg:flex-1">
                     <Link href={`/${lang}`} className="justify-items-center">
@@ -140,7 +126,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                     {dict.nav.companies}
                                 </Link>
                                 <Link
-                                    href={`/${lang}#countactUs`}
+                                    href={`/${lang}#contactUs`}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
                                 >
                                     {dict.nav.contact}
