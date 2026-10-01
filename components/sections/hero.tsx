@@ -41,7 +41,7 @@ export default function Hero({ dict }: HeroProps) {
 
                     <div className="mt-8 flex items-center gap-4">
                         <button className="px-6 py-3 rounded-xl bg-black text-white text-sm font-semibold">
-                            Explore Kits
+                            {dict.explore}
                         </button>
 
                         <button className="px-6 py-3 rounded-xl border border-black text-black text-sm font-semibold">
