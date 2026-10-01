@@ -8,7 +8,7 @@ type HeroProps = { dict: { eyebrow: string; title: string; description: string; 
 export default function Hero({ dict }: HeroProps) {
     return (
         <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 z-10 bg-white/50"/>
+            <div className="absolute inset-0 z-10 bg-hero-overlay"/>
             <video
                 autoPlay
                 muted
@@ -28,13 +28,13 @@ export default function Hero({ dict }: HeroProps) {
                     transition={{type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.1 + 0.1}}
                     className="p-6"
                 >
-                    <h6 className="p-1 font-thin text-zinc-600">{dict.eyebrow}</h6>
-                    <h1 className="text-2xl tracking-tight text-black md:text-3xl lg:text-4xl">
+                    <h6 className="p-1 font-thin text-hero-muted-text">{dict.eyebrow}</h6>
+                    <h1 className="text-2xl tracking-tight text-hero-text md:text-3xl lg:text-4xl">
                         {dict.title}{" "}
                         <span className="font-bold">MinKits</span>
                     </h1>
 
-                    <h4 className="mt-3 text-sm font-light text-zinc-600 md:text-base lg:text-xl">
+                    <h4 className="mt-3 text-sm font-light text-hero-muted-text md:text-base lg:text-xl">
                         {dict.description}
                     </h4>
 
