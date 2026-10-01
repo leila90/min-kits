@@ -47,7 +47,7 @@ export default function LatestBlog({ dict }: LatestBlogProps) {
                                 href="#"
                                 className="inline-flex justify-center items-center w-52 rounded-full border border-zinc-300 py-3.5 px-7 font-semibold text-zinc-900 transition hover:bg-zinc-100"
                             >
-                                View All
+                                {dict.viewAll}
                             </a>
                         </div>
 
@@ -123,7 +123,7 @@ export default function LatestBlog({ dict }: LatestBlogProps) {
                                             href="#"
                                             className="inline-flex items-center gap-2 text-indigo-700 font-semibold"
                                         >
-                                            Read more
+                                            {dict.readMore}
                                             <svg
                                                 width="15"
                                                 height="12"
