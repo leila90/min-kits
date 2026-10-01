@@ -41,14 +41,12 @@ const features = [
     //     icon: "/images/icons/featuresIcons/interface-settings.svg",
     // },
 ]
-type Props = {
-    lang: "fa" | "en"
-}
+type Props = { lang: "fa" | "en"; dict: { title: string; subtitle: string; items: { title: string; desc: string }[] } }
 
-export default function MyFeatures({lang}: Props) {
+export default function MyFeatures({lang, dict}: Props) {
     return (
         <section id={"aboutUs"} className="md:my-10 md:mx-30 my-5 mx-5 bg-transparent">
-            <SectionTitle brand='MinKits Team' title='Why MinKits?' subTitle='Build faster, stay consistent, and focus on creating better products.' lang={lang}/>
+            <SectionTitle brand='MinKits Team' title={dict.title} subTitle={dict.subtitle} lang={lang}/>
             <div className="max-w-7xl mx-auto px-6">
 
                 {/*/!* Header *!/*/}
@@ -81,12 +79,12 @@ export default function MyFeatures({lang}: Props) {
                                 </div>
 
                                 <h3 className="text-lg font-semibold text-zinc-900">
-                                    {item.title}
+                                    {dict.items[i]?.title ?? item.title}
                                 </h3>
                                 <div
                                     className='w-full h-px my-5 bg-linear-to-r from-white/25 via-zinc-500 to-white/25'></div>
                                 <p className="text-zinc-500 text-sm leading-relaxed">
-                                    {item.desc}
+                                    {dict.items[i]?.desc ?? item.desc}
                                 </p>
                             </div>
                         )
