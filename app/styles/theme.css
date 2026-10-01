@@ -42,6 +42,10 @@
   --slogan-background: #000000;
   --slogan-text: #ffffff;
   --slogan-pattern: #ffffff;
+  --about-text: #3f3f46;
+  --about-list: #52525b;
+  --about-heading: #18181b;
+  --about-icon: rgb(0 0 0 / 50%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -73,4 +77,8 @@
   --color-slogan-background: var(--slogan-background);
   --color-slogan-text: var(--slogan-text);
   --color-slogan-pattern: var(--slogan-pattern);
+  --color-about-text: var(--about-text);
+  --color-about-list: var(--about-list);
+  --color-about-heading: var(--about-heading);
+  --color-about-icon: var(--about-icon);
 }
