@@ -84,7 +84,7 @@ export default function ContactUs({lang, dict}: Props) {
                         </div>
 
                         <div className="flex flex-col items-center px-4 sm:px-10">
-                            <div className="mt-8 h-px w-full bg-linear-to-r from-white/25 via-black to-white/25" />
+                            <div className="mt-8 h-px w-full bg-linear-to-r from-contact-divider-start via-contact-divider-mid to-contact-divider-start" />
                             <p className="mt-6 text-sm leading-relaxed text-contact-text">
                                 PrebuiltUI is a growing collection of beautifully designed, production-ready Tailwind
                                 CSS UI components.
@@ -125,7 +125,7 @@ export default function ContactUs({lang, dict}: Props) {
                                 </span>
                                 <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-contact-social-x">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512" aria-hidden="true">
-                                        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42" />
+                                        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42"" />
                                     </svg>
                                 </span>
                                 <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-contact-social-whatsapp">
