@@ -36,6 +36,8 @@
   --button-secondary-hover: #000000;
   --button-text: #000000;
   --button-focus: #000000;
+  --hero-text: #000000;
+  --hero-muted-text: #52525b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,4 +63,6 @@
   --color-button-secondary-hover: var(--button-secondary-hover);
   --color-button-text: var(--button-text);
   --color-button-focus: var(--button-focus);
+  --color-hero-text: var(--hero-text);
+  --color-hero-muted-text: var(--hero-muted-text);
 }
