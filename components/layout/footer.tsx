@@ -43,12 +43,12 @@ export default function Footer({ lang, dict }: FooterProps) {
                         </div>
                         <div className="w-full md:w-[45%] lg:w-[25%] flex flex-col items-center md:items-start text-center md:text-start">
                             <h3 className='text-sm text-white font-medium'>{dict.subscribe}</h3>
-                            <div className="mt-4 flex h-13 w-full max-w-80 min-w-0 items-center gap-2 overflow-hidden rounded-full border border-footer-border">
+                            <div className="mt-4 flex h-10 w-full max-w-80 min-w-0 items-center gap-2 overflow-hidden rounded-[20px] border border-footer-border">
                                 <Input
                                     type="email"
                                     placeholder={dict.emailPlaceholder}
                                     required
-                                    className="h-10 rounded-[20px] border-0 bg-transparent px-6 text-sm text-footer-heading focus:border-0"
+                                    className="h-10 min-w-0 flex-1 rounded-[20px] border-0 bg-transparent px-6 text-sm text-footer-heading focus:border-0"
                                 />
                                 <Button
                                     type="button"
