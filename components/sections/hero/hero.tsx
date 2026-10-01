@@ -59,7 +59,7 @@ export default function Hero({ dict }: HeroProps) {
                         {/*    className="rainbow relative z-0 bg-black overflow-hidden p-0.5 flex items-center justify-center rounded-full transition duration-300 active:scale-100">*/}
                         {/*    <button*/}
                         {/*        className="px-15 text-sm py-3 text-white rounded-full font-medium bg-black backdrop-blur cursor-pointer">*/}
-                        {/*        About Us*/}
+                        {/*        Get More ...*/}
                         {/*    </button>*/}
                         {/*</div>*/}
                         {/*<div*/}
