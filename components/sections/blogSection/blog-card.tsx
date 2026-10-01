@@ -12,9 +12,9 @@ export default function BlogCard({readMore, lang}: Props) {
                 <div className="mb-5 flex min-w-0 items-center justify-between text-blog-card-text">
                     <div>
                         <div className="relative flex items-center gap-x-4">
-                            <Image src="/images/avatar2.jpg" alt="" width={10} height={10} className="size-10 rounded-full bg-zinc-50"/>
+                            <Image src="/images/avatar2.jpg" alt="" width={10} height={10} className="size-10 rounded-full bg-blog-avatar-background"/>
                             <div className="text-sm/6">
-                                <p className="font-semibold text-zinc-900">
+                                <p className="font-semibold text-blog-card-text">
                                     <a href="">
                                         <span className="absolute inset-0"/>
                                         Jese Leos
@@ -24,7 +24,7 @@ export default function BlogCard({readMore, lang}: Props) {
                         </div>
                     </div>
                     <div className={`flex items-center ${lang === "fa" ? "justify-end" : "justify-start"} text-xs`}>
-                        <time dateTime="2020-03-16" className="text-zinc-900">Mar 16, 2020</time>
+                        <time dateTime="2020-03-16" className="text-blog-card-text">Mar 16, 2020</time>
                     </div>
                 </div>
                 <h2 className={`mb-2 border-blog-card-text ${lang === "fa" ? "border-r-10 pr-2" : "border-l-10 pl-2"} text-2xl font-bold tracking-tight text-zinc-900 dark:text-white`}>
