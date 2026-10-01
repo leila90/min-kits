@@ -49,7 +49,7 @@ export default function ContactUs({lang, dict}: Props) {
                             </p>
                             <button type="submit"
                                     className='bg-linear-to-r from-zinc-950 to-zinc-600 hover:from-zinc-600 hover:to-zinc-950 text-white text-sm px-8 md:px-16 py-3 rounded-full transition duration-300 cursor-pointer'>
-                                Submit
+                                {dict.submit}
                             </button>
                         </div>
                     </form>
