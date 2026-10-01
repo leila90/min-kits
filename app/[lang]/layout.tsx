@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import NextTopLoader from "nextjs-toploader";
 import "../styles/globals.css";
-import LenisScroll from "./components/lenis";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
+import LenisScroll from "./components/layout/lenis";
+import Navbar from "./components/layout/navbar";
+import Footer from "./components/layout/footer";
 import { getDictionary, isLang, locales } from "../i18n";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://minkits.com";
