@@ -12,7 +12,7 @@ import LatestBlog from "./components/latestBlog";
 import TeamSection from "./components/teamSection";
 import BlogSection from "./components/blogSection";
 import Ctr from "./components/ctr";
-import { getDictionary, hasLocale } from "../dictionaries";
+import { getDictionary, isLang } from "../i18n";
 
 export const metadata: Metadata = {
     title: { absolute: "MinKits | Production-ready UI kits" },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
-    if (!hasLocale(lang)) notFound();
+    if (!isLang(lang)) notFound();
     const dict = await getDictionary(lang);
 
     return (
