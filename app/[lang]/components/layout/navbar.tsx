@@ -12,7 +12,7 @@ import {
 } from '@heroicons/react/24/outline'
 import Link from "next/link";
 import Image from "next/image";
-import LanguageDropdown from "../components/languageDropdown";
+import LanguageDropdown from "../common/languageDropdown";
 
 
 type NavbarProps = {
