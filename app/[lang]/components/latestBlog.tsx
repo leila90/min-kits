@@ -1,6 +1,7 @@
 "use client";
 import {Swiper,SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper/modules";
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import type {Messages} from "@/app/i18n/messages";
