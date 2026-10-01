@@ -1,19 +1,20 @@
 import Image from "next/image";
+import Container from "@/components/ui/container";
 
 type FooterProps = { lang: "fa" | "en"; dict: { description: string; important: string; social: string; subscribe: string; emailPlaceholder: string; button: string; terms: string; privacy: string; copyright: string } };
 
 export default function Footer({ lang, dict }: FooterProps) {
     return (
-        <section id="footer">
-            <footer className='bg-black pt-30 pb-12 px-4 sm:px-6 lg:px-8'>
-                <div className='w-full max-w-7xl mx-auto'>
+        <section id="footer" className="scroll-mt-36 md:scroll-mt-44">
+            <footer className="bg-footer-background pt-20 pb-12 md:pt-28">
+                <Container>
                     <div className="w-full flex flex-col mb-20 items-center text-center">
                         <a href={`/${lang}`} aria-label="MinKits">
                             <Image src={'/logo-ww.png'} alt={'logo'} height={150} width={150}/>
                         </a>
                         <div
                             className='w-full h-px mt-8 bg-linear-to-r from-black via-white/50 to-black'></div>
-                        <p className='text-sm text-white/60 mt-6 leading-relaxed'>
+                        <p className='mt-6 text-sm leading-relaxed text-footer-muted'>
                             {dict.description}
                         </p>
                     </div>
@@ -21,22 +22,22 @@ export default function Footer({ lang, dict }: FooterProps) {
 
                         <div
                             className="w-full md:w-[45%] lg:w-[35%] flex flex-col items-center md:items-start text-center md:text-left">
-                            <h4 className="text-2xl font-semibold tracking-tight text-balance text-white">
+                            <h4 className="text-balance text-2xl font-semibold tracking-tight text-footer-heading">
                                 MinKits Team
                             </h4>
                             <div
-                                className='w-full  h-px my-4 bg-linear-to-r from-white/25 to-black'></div>
-                            <p className='text-sm text-white/60 max-w-sm leading-relaxed'>
+                                className='my-4 h-px w-full bg-linear-to-r from-footer-divider-start to-footer-divider-end'></div>
+                            <p className='max-w-sm text-sm leading-relaxed text-footer-muted'>
                                 {dict.description}
                             </p>
                         </div>
 
                         <div
                             className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-left">
-                            <h3 className='text-sm text-white font-medium'>{dict.important}</h3>
+                            <h3 className='text-sm font-medium text-footer-heading'>{dict.important}</h3>
                             <div className="flex flex-col gap-2 mt-6">
                                 <a href="#"
-                                   className='text-sm text-white/60 hover:text-white transition-colors'>{lang === "fa" ? "خانه" : "Home"}</a>
+                                   className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{lang === "fa" ? "خانه" : "Home"}</a>
                                 <a href="#"
                                    className='text-sm text-white/60 hover:text-white transition-colors'>{lang === "fa" ? "درباره ما" : "About"}</a>
                                 <a href="#"
@@ -66,29 +67,29 @@ export default function Footer({ lang, dict }: FooterProps) {
                             className="w-full md:w-[45%] lg:w-[25%] flex flex-col items-center md:items-start text-center md:text-left">
                             <h3 className='text-sm text-white font-medium'>{dict.subscribe}</h3>
                             <div
-                                className="flex items-center border gap-2 border-white/20 h-13 max-w-80 w-full rounded-full overflow-hidden mt-4">
+                                className="mt-4 flex h-13 w-full max-w-80 min-w-0 items-center gap-2 overflow-hidden rounded-full border border-footer-border">
                                 <input type="email" placeholder={dict.emailPlaceholder}
-                                       className="w-full h-full pl-6 outline-none text-sm bg-transparent text-white placeholder-white/60 placeholder:text-xs"
+                                       className="h-full min-w-0 flex-1 bg-transparent px-6 text-sm text-footer-heading outline-none placeholder:text-xs placeholder:text-footer-muted"
                                        required/>
-                                <button type="submit"
-                                        className="bg-linear-to-b from-zinc-700 to-zinc-500 active:scale-95 transition w-56 h-10 rounded-full text-sm text-white cursor-pointer mr-1.5">{dict.button}
+                                <button type="button"
+                                        className="mr-1.5 h-10 shrink-0 rounded-full bg-linear-to-b from-footer-button-start to-footer-button-end px-5 text-sm text-footer-button-text transition active:scale-95">{dict.button}
                                 </button>
                             </div>
                         </div>
 
                     </div>
 
-                    <div className='w-full h-px mt-16 mb-4 bg-white/50'></div>
+                    <div className='mb-4 mt-16 h-px w-full bg-footer-divider'></div>
 
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <p className='text-xs text-white/60'>{dict.copyright}</p>
+                        <p className='text-xs text-footer-muted'>{dict.copyright}</p>
                         <div className="flex items-center gap-6">
-                            <a href='#' className='text-xs text-white/60 hover:text-white transition-colors'>{dict.terms}</a>
-                            <div className='w-px h-4 bg-white/20'></div>
+                            <a href='#' className='text-xs text-footer-muted transition-colors hover:text-footer-heading'>{dict.terms}</a>
+                            <div className='h-4 w-px bg-footer-border'></div>
                             <a href='#' className='text-xs text-white/60 hover:text-white transition-colors'>{dict.privacy}</a>
                         </div>
                     </div>
-                </div>
+                </Container>
             </footer>
         </section>
     );
