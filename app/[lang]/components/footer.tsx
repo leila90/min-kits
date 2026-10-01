@@ -1,6 +1,8 @@
 import Image from "next/image";
 
-export default function Footer() {
+type FooterProps = { dict: { description: string; important: string; social: string; subscribe: string; emailPlaceholder: string; button: string; terms: string; privacy: string; copyright: string } };
+
+export default function Footer({ dict }: FooterProps) {
     return (
         <section id="footer">
             <footer className='bg-black pt-30 pb-12 px-4 sm:px-6 lg:px-8'>
@@ -12,8 +14,7 @@ export default function Footer() {
                         <div
                             className='w-full h-px mt-8 bg-linear-to-r from-black via-white/50 to-black'></div>
                         <p className='text-sm text-white/60 mt-6 leading-relaxed'>
-                            PrebuiltUI is a growing collection of beautifully designed, production-ready Tailwind
-                            CSS UI components.
+                            {dict.description}
                         </p>
                     </div>
                     <div className="flex flex-wrap justify-between gap-y-12 lg:gap-x-8">
@@ -26,8 +27,7 @@ export default function Footer() {
                             <div
                                 className='w-full  h-px my-4 bg-linear-to-r from-white/25 to-black'></div>
                             <p className='text-sm text-white/60 max-w-sm leading-relaxed'>
-                                PrebuiltUI is a growing collection of beautifully designed, production-ready Tailwind
-                                CSS UI components.
+                                {dict.description}
                             </p>
                         </div>
 
