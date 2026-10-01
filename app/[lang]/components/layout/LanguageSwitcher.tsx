@@ -54,7 +54,7 @@ function setLocaleCookie(code: string) {
     document.cookie = `NEXT_LOCALE=${code}; path=/; max-age=31536000; samesite=lax`;
 }
 
-export default function LanguageDropdown() {
+type Props = { languageNames: { fa: string; en: string } };\n\nexport default function LanguageDropdown({ languageNames }: Props) {
     const [open, setOpen] = useState(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -109,7 +109,7 @@ export default function LanguageDropdown() {
                 {active && (
                     <>
                         {active.flag}
-                        <span>{active.label}</span>
+                        <span>{languageNames[active.code]}</span>
                     </>
                 )}
 
@@ -151,7 +151,7 @@ export default function LanguageDropdown() {
                         )}
                     >
                         {lang.flag}
-                        {lang.label}
+                        {languageNames[lang.code]}
                     </button>
                 ))}
             </div>
