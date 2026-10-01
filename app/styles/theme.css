@@ -64,6 +64,8 @@
   --team-card-hover-border: #71717a;
   --team-card-heading: #18181b;
   --team-card-role: #71717a;
+  --team-card-glow: rgb(255 255 255 / 55%);
+  --team-card-shine: rgb(255 255 255 / 70%);
   --team-avatar-background: #ffffff;
   --team-avatar-start: #ffffff;
   --team-avatar-end: #71717a;
@@ -126,4 +128,19 @@
   --color-blog-card-border: var(--blog-card-border);
   --color-blog-card-accent: var(--blog-card-accent);
   --color-blog-avatar-background: var(--blog-avatar-background);
+  --color-team-card-background: var(--team-card-background);
+  --color-team-card-border: var(--team-card-border);
+  --color-team-card-hover-border: var(--team-card-hover-border);
+  --color-team-card-heading: var(--team-card-heading);
+  --color-team-card-role: var(--team-card-role);
+  --color-team-avatar-background: var(--team-avatar-background);
+  --color-team-avatar-start: var(--team-avatar-start);
+  --color-team-avatar-end: var(--team-avatar-end);
+  --color-team-card-glow: var(--team-card-glow);
+  --color-team-card-shine: var(--team-card-shine);
+}
+
+@keyframes team-card-shine {
+  from { transform: translateX(-140%) rotate(18deg); }
+  to { transform: translateX(140%) rotate(18deg); }
 }
