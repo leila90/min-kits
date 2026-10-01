@@ -12,8 +12,8 @@ export default function SectionTitle({ brand, title, subTitle, marginTop, lang }
           <p className="m-0 lg:text-[9px] text-[7px] font-bold absolute bottom-1">{brand}</p>
         </div>
       </div>
-      <div className="mt-5 text-base text-section-title-subtitle">
-        <div className="icon-display">
+      <div className="mt-5 flex items-center gap-2 text-base text-section-title-subtitle">
+        <div className="icon-display shrink-0">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="0" fill="currentColor">
               <animate attributeName="r" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" repeatCount="indefinite" values="0;11" />
@@ -21,7 +21,7 @@ export default function SectionTitle({ brand, title, subTitle, marginTop, lang }
             </circle>
           </svg>
         </div>
-        {subTitle}
+        <span>{subTitle}</span>
       </div>
     </div>
   </motion.div>;
