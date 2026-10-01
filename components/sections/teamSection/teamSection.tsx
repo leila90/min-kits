@@ -16,9 +16,9 @@ const team = [
 
 export default function TeamSection({lang, dict}: Props) {
     return (
-        <section id="team" className="scroll-mt-36 py-16 md:scroll-mt-44 md:py-20">
+        <section id="team" className="scroll-mt-36 pt-4 pb-16 md:scroll-mt-44 md:pt-8 md:pb-20">
             <Container>
-                <SectionTitle brand="MinKits Team" title={dict.title} subTitle={dict.subtitle} lang={lang}/>
+                <SectionTitle brand="MinKits Team" title={dict.title} subTitle={dict.subtitle} marginTop="16" lang={lang}/>
                 <div className="my-20 grid min-w-0 grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {team.map((member) => (
                         <TeamCard key={member.name} {...member}/>
