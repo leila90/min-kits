@@ -1,12 +1,11 @@
 import type {Metadata} from "next";
 import {notFound} from "next/navigation";
-import {getDictionary, hasLocale} from "../../dictionaries";
+import {hasLocale} from "../../dictionaries";
 import Header from "../components/header";
 import FooterHeader from "../components/footerHeader";
 import Breadcrumb from "@/app/[lang]/components/breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
-import SectionTitle from "@/app/[lang]/components/sectionTitle";
 
 const posts = [
 
@@ -109,7 +108,6 @@ export const metadata: Metadata = {title: "Blog"};
 export default async function Page({params}: {params: Promise<{lang: string}>}) {
     const {lang} = await params
     if (!hasLocale(lang)) notFound();
-    const dict = await getDictionary(lang);
     return (
         <>
             {/*<PageHeader />*/}
