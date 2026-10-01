@@ -38,6 +38,7 @@
   --button-focus: #000000;
   --hero-text: #000000;
   --hero-muted-text: #52525b;
+  --loader-color: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -65,4 +66,5 @@
   --color-button-focus: var(--button-focus);
   --color-hero-text: var(--hero-text);
   --color-hero-muted-text: var(--hero-muted-text);
+  --color-loader: var(--loader-color);
 }
