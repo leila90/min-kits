@@ -77,7 +77,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                     <Link href="#" className="text-sm/6 font-semibold">
                         {dict.nav.companies}
                     </Link>
-                    <Link href={`/${lang}#countactUs`} className="text-sm/6 font-semibold">
+                    <Link href={`/${lang}#contactUs`} className="text-sm/6 font-semibold">
                         {dict.nav.contact}
                     </Link>
                     <Link href={`/${lang}`} className="text-sm/6 font-semibold">
