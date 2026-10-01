@@ -6,6 +6,6 @@ export { default as Card } from "./card";
 export { default as AnimatedGallery } from "./animatedGallery";
 export { default as FeaturesNavs } from "./featuresNavs";
 export { default as SlideSwiper } from "./slideSwiper";
-export { default as Error404ExampleWithTags } from "./error404-example-with-tags";
+export { Error404ExampleWithTags } from "./error404-example-with-tags";
 export { default as Content } from "./content";
 export { default as Content1 } from "./content1";
