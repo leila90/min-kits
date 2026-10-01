@@ -45,7 +45,7 @@ type Props = { lang: "fa" | "en"; dict: { title: string; subtitle: string; items
 
 export default function MyFeatures({lang, dict}: Props) {
     return (
-        <section id={"aboutUs"} className="md:my-10 md:mx-30 my-5 mx-5 bg-transparent">
+        <section id={"features"} className="md:my-10 md:mx-30 my-5 mx-5 bg-transparent">
             <SectionTitle brand='MinKits Team' title={dict.title} subTitle={dict.subtitle} lang={lang}/>
             <div className="max-w-7xl mx-auto px-6">
 
