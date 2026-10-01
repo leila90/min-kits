@@ -83,7 +83,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                     <Link href="#" className="text-sm/6 font-semibold">
                         {dict.mainMenus?.["Group Companies"] ?? 'No translation'}
                     </Link>
-                    <Link href={`/${lang}#countactUs`} className="text-sm/6 font-semibold">
+                    <Link href={`/${lang}#contactUs`} className="text-sm/6 font-semibold">
                         {dict.mainMenus?.["Contact Us"] ?? 'No translation'}
                     </Link>
                     <Link href={`/${lang}`} className="text-sm/6 font-semibold">
@@ -146,7 +146,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                     {dict.mainMenus?.["Group Companies"] ?? 'No translation'}
                                 </Link>
                                 <Link
-                                    href={`/${lang}#countactUs`}
+                                    href={`/${lang}#contactUs`}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
                                 >
                                     {dict.mainMenus?.["Contact Us"] ?? 'No translation'}
