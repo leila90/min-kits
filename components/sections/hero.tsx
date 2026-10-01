@@ -45,7 +45,7 @@ export default function Hero({ dict }: HeroProps) {
                         </button>
 
                         <button className="px-6 py-3 rounded-xl border border-black text-black text-sm font-semibold">
-                            View Components
+                            {dict.components}
                         </button>
                     </div>
                         {/*<Link*/}
