@@ -103,7 +103,16 @@ const posts = [
     // More posts...
 
 ]
-export const metadata: Metadata = {title: "Blog"};
+export async function generateMetadata({params}: {params: Promise<{lang: string}>}): Promise<Metadata> {
+    const {lang} = await params;
+    const isFa = lang === "fa";
+    return {
+        title: isFa ? "وبلاگ" : "Blog",
+        description: isFa
+            ? "مقالات و مطالب MinKits درباره توسعه رابط کاربری و وب."
+            : "Articles and resources from MinKits about UI and web development.",
+    };
+}
 
 export default async function Page({params}: {params: Promise<{lang: string}>}) {
     const {lang} = await params
