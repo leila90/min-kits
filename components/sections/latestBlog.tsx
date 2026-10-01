@@ -2,6 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper/modules"
+import Image from "next/image"
 
 import "swiper/css"
 import "swiper/css/navigation"
@@ -105,11 +106,7 @@ export default function LatestBlog({ dict }: LatestBlogProps) {
                             {blogs.map((blog, i) => (
                                 <SwiperSlide key={i}>
                                     <div className="group">
-                                        <img
-                                            src={blog.image}
-                                            alt={blog.title}
-                                            className="mb-8 rounded-2xl w-full object-cover"
-                                        />
+                                        <Image src={blog.image} alt={blog.title} width={600} height={400} className="mb-8 rounded-2xl w-full object-cover" />
 
                                         <h3 className="mb-4 text-xl font-medium text-zinc-900 group-hover:text-indigo-600 transition">
                                             {blog.title}
