@@ -30,6 +30,12 @@
   --rainbow-start: #bcbcbc;
   --rainbow-mid: #e4e4e4;
   --rainbow-end: #ffffff;
+  --button-primary: #000000;
+  --button-primary-hover: #27272a;
+  --button-secondary: transparent;
+  --button-secondary-hover: #000000;
+  --button-text: #000000;
+  --button-focus: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,4 +55,10 @@
   --color-loading-third: var(--loading-third);
   --color-loading-fourth: var(--loading-fourth);
   --color-loading-fifth: var(--loading-fifth);
+  --color-button-primary: var(--button-primary);
+  --color-button-primary-hover: var(--button-primary-hover);
+  --color-button-secondary: var(--button-secondary);
+  --color-button-secondary-hover: var(--button-secondary-hover);
+  --color-button-text: var(--button-text);
+  --color-button-focus: var(--button-focus);
 }
