@@ -1,38 +1,9 @@
+import type {Metadata} from "next";
 import {notFound} from "next/navigation";
-import {hasLocale} from "../../../dictionaries";
-import Header from "../../components/header";
-import FooterHeader from "../../components/footerHeader";
-import Breadcrumb from "@/app/[lang]/components/breadcrumb";
-import {MagazineEditorialColumns} from "@/app/[lang]/components/magazine-editorial-columns";
-
-
-export async function generateMetadata({params}: {params: Promise<{lang: string; slug: string}>}): Promise<import("next").Metadata> {
-    const {lang, slug} = await params;
-    if (!hasLocale(lang)) return {};
-    const title = `Blog ${slug}`;
-    return {
-        title,
-        description: lang === "fa"
-            ? "مطالب و منابع MinKits برای توسعه رابط کاربری."
-            : "MinKits articles and resources for UI development.",
-    };
-}
-
-export function generateStaticParams() {
-    // TODO: replace with real post slugs once posts live in a data source
-    return ["en", "fa"].flatMap((lang) => ["1","2","3","4","5"].map((slug) => ({lang, slug})));
-}
-
-export default async function Page({params}: {params: Promise<{lang: string; slug: string}>}) {
-    const {lang} = await params
-    if (!hasLocale(lang)) notFound();
-    return (
-        <>
-            {/*<PageHeader />*/}
-            <Header/>
-            <Breadcrumb lang={lang}/>
-            <MagazineEditorialColumns />
-            <FooterHeader/>
-        </>
-    )
-}
+import {getDictionary,isLang} from "@/app/i18n";
+import {Header,FooterHeader} from "../../components/layout";
+import {Breadcrumb} from "../../components/common";
+import {MagazineEditorialColumns} from "../../components/blog";
+export function generateStaticParams(){return ["en","fa"].flatMap(lang=>["1","2","3"].map(slug=>({lang,slug})));}
+export async function generateMetadata({params}:{params:Promise<{lang:string;slug:string}>}):Promise<Metadata>{const {lang,slug}=await params;if(!isLang(lang))return{};const d=await getDictionary(lang);const post=d.blog.posts[(Number(slug)-1)%d.blog.posts.length];return{title:post.title,description:post.description};}
+export default async function Page({params}:{params:Promise<{lang:string;slug:string}>}){const {lang,slug}=await params;if(!isLang(lang))notFound();const d=await getDictionary(lang);return <><Header/><Breadcrumb lang={lang} dict={d.breadcrumbs}/><section className="mx-5 md:mx-30"><h1 className="mt-10 text-3xl font-bold">{d.blog.posts[(Number(slug)-1)%d.blog.posts.length].title}</h1><p className="mt-5 text-zinc-600">{d.blog.posts[(Number(slug)-1)%d.blog.posts.length].description}</p></section><MagazineEditorialColumns/><FooterHeader/></>}
