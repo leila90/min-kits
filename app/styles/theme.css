@@ -39,6 +39,9 @@
   --hero-text: #000000;
   --hero-muted-text: #52525b;
   --loader-color: #000000;
+  --slogan-background: #000000;
+  --slogan-text: #ffffff;
+  --slogan-pattern: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -67,4 +70,7 @@
   --color-hero-text: var(--hero-text);
   --color-hero-muted-text: var(--hero-muted-text);
   --color-loader: var(--loader-color);
+  --color-slogan-background: var(--slogan-background);
+  --color-slogan-text: var(--slogan-text);
+  --color-slogan-pattern: var(--slogan-pattern);
 }
