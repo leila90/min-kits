@@ -63,8 +63,7 @@ export default function MyFeatures({lang, dict}: Props) {
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {features.map((item, i) => {
-                        const Icon = item.icon
-                        return (
+                                        return (
                             <div
                                 key={i}
                                 className={` hover:animate-pulse cursor-pointer
