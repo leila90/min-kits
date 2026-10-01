@@ -1,0 +1,9 @@
+export { default as Hero } from "../hero";
+export { default as MySlogan } from "../mySlogan";
+export { default as AboutUs } from "../aboutUs";
+export { default as MyFeatures } from "../myFeatures";
+export { default as BlogSection } from "../blogSection";
+export { default as TeamSection } from "../teamSection";
+export { default as ContactUs } from "../contactUs";
+export { default as LatestBlog } from "../latestBlog";
+export { default as Ctr } from "../ctr";
