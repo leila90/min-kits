@@ -25,16 +25,16 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
     return (
         <>
-            <Hero />
+            <Hero dict={dict.hero} />
             <Header />
-            <MySlogan dict={dict} />
-            <AboutUs lang={lang} />
-            <MyFeatures lang={lang} />
+            <MySlogan dict={{ slogan: dict.slogan.text, mainSlogan: dict.slogan.value }} />
+            <AboutUs lang={lang} dict={dict.about} />
+            <MyFeatures lang={lang} dict={dict.features} />
             <Ctr />
-            <BlogSection lang={lang} />
-            <TeamSection lang={lang} />
-            <LatestBlog />
-            <ContactUs lang={lang} />
+            <BlogSection lang={lang} dict={dict.blog} />
+            <TeamSection lang={lang} dict={dict.team} />
+            <LatestBlog dict={{ title: dict.blog.title, subtitle: dict.blog.subtitle, viewAll: dict.blog.viewAll, readMore: dict.blog.readMore }} />
+            <ContactUs lang={lang} dict={dict.contact} />
             <Logo />
             <FooterHeader />
         </>
