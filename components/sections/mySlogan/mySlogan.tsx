@@ -1,5 +1,3 @@
-"use client";
-
 import Container from "@/components/ui/container";
 
 type SloganProps = {
@@ -21,7 +19,7 @@ const patterns = [
 
 export default function MySlogan({ dict }: SloganProps) {
     return (
-        <section className="relative z-10 -mt-10 md:-mt-10">
+        <section className="relative z-10 -mt-10 md:-my-10">
             <Container>
                 <div className="relative min-h-[140px] overflow-hidden rounded-2xl bg-slogan-background px-3.5 py-6 text-center text-xs shadow-2xl lg:py-10 lg:text-base">
                     <p className="h-fit w-full whitespace-pre-line text-slogan-text">
