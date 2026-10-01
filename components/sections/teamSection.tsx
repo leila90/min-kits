@@ -26,7 +26,7 @@ export default function TeamSection({lang, dict}: Props) {
     ]
 
     return (
-        <section id={"aboutUs"} className="md:my-10 md:mx-30 my-5 mx-5 bg-transparent">
+        <section id={"team"} className="md:my-10 md:mx-30 my-5 mx-5 bg-transparent">
             <SectionTitle brand='MinKits Team' title='Our Exceptional Team' subTitle='Empowered by passion and skill, our Exceptional Team turns
                         challenges into opportunities for growth.' lang={lang}/>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
