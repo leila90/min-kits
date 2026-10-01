@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { locales } from "./dictionaries";
+import { locales } from "./i18n";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://minkits.com";
 
