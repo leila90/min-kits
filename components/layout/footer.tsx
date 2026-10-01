@@ -2,7 +2,7 @@ import Image from "next/image";
 
 type FooterProps = { lang: "fa" | "en"; dict: { description: string; important: string; social: string; subscribe: string; emailPlaceholder: string; button: string; terms: string; privacy: string; copyright: string } };
 
-export default function Footer({ dict }: FooterProps) {
+export default function Footer({ lang, dict }: FooterProps) {
     return (
         <section id="footer">
             <footer className='bg-black pt-30 pb-12 px-4 sm:px-6 lg:px-8'>
@@ -71,7 +71,7 @@ export default function Footer({ dict }: FooterProps) {
                                        className="w-full h-full pl-6 outline-none text-sm bg-transparent text-white placeholder-white/60 placeholder:text-xs"
                                        required/>
                                 <button type="submit"
-                                        className="bg-linear-to-b from-zinc-700 to-zinc-500 active:scale-95 transition w-56 h-10 rounded-full text-sm text-white cursor-pointer mr-1.5">Subscribe
+                                        className="bg-linear-to-b from-zinc-700 to-zinc-500 active:scale-95 transition w-56 h-10 rounded-full text-sm text-white cursor-pointer mr-1.5">{dict.button}
                                 </button>
                             </div>
                         </div>
