@@ -1,5 +1,6 @@
 import SectionTitle from "@/components/common/sectionTitle";
 import Image from "next/image";
+import Container from "@/components/ui/container";
 
 const posts = [
 
@@ -101,10 +102,11 @@ type Props = { lang: "fa" | "en"; dict: { title: string; subtitle: string; readM
 
 export default function BlogSection({lang, dict}: Props) {
     return (
-        <section id={"blogSection"} className="md:my-10 md:mx-30 my-5 mx-5 bg-transparent">
-            <SectionTitle brand='MinKits Team' title={dict.title} subTitle={dict.subtitle} lang={lang}/>
-            <div
-                className="grid lg:grid-flow-col lg:grid-cols-3 md:grid-flow-col md:grid-cols-2 md:grid-rows-3 lg:grid-rows-2 gap-4 justify-center text-justify py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <section id="blogSection" className="scroll-mt-36 py-16 md:scroll-mt-44 md:py-20">
+            <Container>
+                <SectionTitle brand="MinKits Team" title={dict.title} subTitle={dict.subtitle} lang={lang}/>
+                <div
+                className="grid min-w-0 gap-4 text-justify lg:grid-flow-col lg:grid-cols-3 lg:grid-rows-2 md:grid-flow-col md:grid-cols-2 md:grid-rows-3">
                 {posts
                     .filter(post => post.id === 1)
                     .map(post => (<div key={post.id}
@@ -216,7 +218,8 @@ export default function BlogSection({lang, dict}: Props) {
                             </div>
                         </div>
                     ))}
-            </div>
+                </div>
+            </Container>
         </section>
     )
 }
