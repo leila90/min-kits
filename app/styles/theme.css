@@ -52,6 +52,13 @@
   --features-grid-border: #ffffff;
   --section-title-circle: #000000;
   --section-title-subtitle: #939393;
+  --blog-featured-background: #27272a;
+  --blog-featured-text: #f4f4f5;
+  --blog-card-text: #18181b;
+  --blog-card-muted: #71717a;
+  --blog-card-border: rgb(24 24 27 / 20%);
+  --blog-card-accent: #8b5cf6;
+  --blog-avatar-background: #fafafa;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -93,4 +100,11 @@
   --color-features-grid-border: var(--features-grid-border);
   --color-section-title-circle: var(--section-title-circle);
   --color-section-title-subtitle: var(--section-title-subtitle);
+  --color-blog-featured-background: var(--blog-featured-background);
+  --color-blog-featured-text: var(--blog-featured-text);
+  --color-blog-card-text: var(--blog-card-text);
+  --color-blog-card-muted: var(--blog-card-muted);
+  --color-blog-card-border: var(--blog-card-border);
+  --color-blog-card-accent: var(--blog-card-accent);
+  --color-blog-avatar-background: var(--blog-avatar-background);
 }
