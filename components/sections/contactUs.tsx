@@ -27,7 +27,7 @@ export default function ContactUs({lang, dict}: Props) {
                             <input
                                 type="email"
                                 required
-                                placeholder="Eden@example.com"
+                                placeholder={dict.emailPlaceholder}
                                 className='w-full bg-white border border-black/20 rounded-lg px-4 py-3 text-black/80 placeholder:text-black/40 placeholder:text-sm focus:outline-none focus:border-black/50 transition'
                             />
                         </div>
