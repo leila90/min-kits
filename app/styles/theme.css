@@ -123,6 +123,15 @@
   --logo-background: #ffffff;
   --logo-text: #71717a;
   --logo-text-hover: #d4d4d8;
+  --input-background: transparent;
+  --input-text: #18181b;
+  --input-border: rgb(0 0 0 / 20%);
+  --input-border-focus: rgb(0 0 0 / 50%);
+  --input-placeholder: rgb(0 0 0 / 40%);
+  --divider: rgb(0 0 0 / 20%);
+  --divider-gradient-start: rgb(0 0 0 / 25%);
+  --divider-gradient-mid: rgb(0 0 0 / 50%);
+  --divider-gradient-end: rgb(0 0 0 / 25%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -224,6 +233,15 @@
   --color-logo-background: var(--logo-background);
   --color-logo-text: var(--logo-text);
   --color-logo-text-hover: var(--logo-text-hover);
+  --color-input-background: var(--input-background);
+  --color-input-text: var(--input-text);
+  --color-input-border: var(--input-border);
+  --color-input-border-focus: var(--input-border-focus);
+  --color-input-placeholder: var(--input-placeholder);
+  --color-divider: var(--divider);
+  --color-divider-gradient-start: var(--divider-gradient-start);
+  --color-divider-gradient-mid: var(--divider-gradient-mid);
+  --color-divider-gradient-end: var(--divider-gradient-end);
 }
 
 @keyframes team-card-shine {
