@@ -103,7 +103,16 @@ const posts = [
     // More posts...
 
 ]
-export const metadata: Metadata = {title: "About"};
+export async function generateMetadata({params}: {params: Promise<{lang: string}>}): Promise<Metadata> {
+    const {lang} = await params;
+    const isFa = lang === "fa";
+    return {
+        title: isFa ? "درباره ما" : "About Us",
+        description: isFa
+            ? "با MinKits و رویکرد ما به ساخت رابط‌های کاربری آماده تولید آشنا شوید."
+            : "Learn about MinKits and our approach to production-ready UI development.",
+    };
+}
 
 export default async function Page({params}: {params: Promise<{lang: string}>}) {
     const {lang} = await params
