@@ -244,7 +244,7 @@ const posts = {
       excerpt: "چند تصمیم معماری که یک سایت UI در حال رشد را سریع و قابل نگهداری نگه می‌دارد.",
       date: "2026-09-15",
       lastModified: "2026-09-15",
-      category: "Performance",
+      category: "عملکرد",
       image: "/images/blog/3.png",
       author: "MinKits",
       content: [
