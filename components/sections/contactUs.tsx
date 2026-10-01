@@ -1,9 +1,10 @@
 import SectionTitle from "@/components/common/sectionTitle";
+import type { Messages } from "@/app/i18n/messages";
 import {motion} from 'framer-motion';
 import Image from "next/image";
 import {ClockIcon} from "@heroicons/react/16/solid";
 
-type Props = { lang: "fa" | "en"; dict: { title: string; subtitle: string; name: string; email: string; message: string; messagePlaceholder: string; legal: string; submit: string } }
+type Props = { lang: "fa" | "en"; dict: Messages["contact"] }
 
 export default function ContactUs({lang, dict}: Props) {
     return (
