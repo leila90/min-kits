@@ -2,7 +2,9 @@
 
 import {motion} from 'framer-motion';
 
-export default function Hero() {
+type HeroProps = { dict: { eyebrow: string; title: string; description: string; explore: string; components: string } };
+
+export default function Hero({ dict }: HeroProps) {
     return (
         // <div className="relative min-h-screen w-full md:bg-[url('/images/banner.png')] bg-[url('/images/banner.png')] bg-cover bg-no-repeat flex md:justify-start justify-center items-center">
         // <div className="relative min-h-screen w-full bg-white bg-cover bg-no-repeat flex md:justify-start justify-center items-center">
@@ -27,14 +29,14 @@ export default function Hero() {
                     transition={{type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.1 + 0.1}}
                     className={`relative p-6`}
                 >
-                    <h6 className="font-thin p-1 text-zinc-600"> Production-ready UI Kits for developers by: </h6>
+                    <h6 className="font-thin p-1 text-zinc-600"> {dict.eyebrow} </h6>
                     <h1 className="text-2xl md:text-3xl lg:text-4xl tracking-tight text-black">
-                        Ship production-ready UI faster with{" "}
+                        {dict.title}
                         <span className="font-bold">MinKits</span>
                     </h1>
 
                     <h4 className="text-sm md:text-base lg:text-xl font-light text-zinc-600 mt-3">
-                        Premium React, Next.js and Tailwind UI kits built to help developers ship faster, cleaner and better products.
+                        {dict.description}
                     </h4>
 
                     <div className="mt-8 flex items-center gap-4">
