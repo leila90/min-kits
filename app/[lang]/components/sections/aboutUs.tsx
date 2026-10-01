@@ -1,4 +1,4 @@
-import SectionTitle from "@/app/[lang]/components/sectionTitle";
+import SectionTitle from "@/app/[lang]/components/common/sectionTitle";
 import Image from "next/image";
 import {CloudArrowUpIcon, LockClosedIcon} from "@heroicons/react/16/solid";
 import {ServerIcon} from "@heroicons/react/24/outline";
