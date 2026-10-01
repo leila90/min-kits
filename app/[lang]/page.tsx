@@ -35,7 +35,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <BlogSection lang={lang} dict={dict.blog} />
             <TeamSection lang={lang} dict={dict.team} />
             <TeamContact lang={lang} dict={dict.contact} />
-            <LatestBlog dict={{ title: dict.blog.title, subtitle: dict.blog.subtitle, viewAll: dict.blog.viewAll, readMore: dict.blog.readMore }} />
+            <LatestBlog lang={lang} dict={{ title: dict.blog.title, subtitle: dict.blog.subtitle, viewAll: dict.blog.viewAll, readMore: dict.blog.readMore }} />
             <ContactUs lang={lang} dict={dict.contact} />
             <Logo />
             <FooterHeader />
