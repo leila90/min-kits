@@ -1,2 +1,2 @@
 export { default as FormBlog } from "./formBlog";
-export { default as MagazineEditorialColumns } from "./magazine-editorial-columns";
+export { MagazineEditorialColumns } from "./magazine-editorial-columns";
