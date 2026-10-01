@@ -120,6 +120,9 @@
   --footer-button-start: #52525b;
   --footer-button-end: #3f3f46;
   --footer-button-text: #ffffff;
+  --logo-background: #ffffff;
+  --logo-text: #71717a;
+  --logo-text-hover: #d4d4d8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -218,6 +221,9 @@
   --color-footer-button-start: var(--footer-button-start);
   --color-footer-button-end: var(--footer-button-end);
   --color-footer-button-text: var(--footer-button-text);
+  --color-logo-background: var(--logo-background);
+  --color-logo-text: var(--logo-text);
+  --color-logo-text-hover: var(--logo-text-hover);
 }
 
 @keyframes team-card-shine {
