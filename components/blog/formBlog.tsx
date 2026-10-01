@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Messages } from "@/app/i18n/messages";
-import SectionTitle from "@/app/[lang]/components/sectionTitle";
+import SectionTitle from "@/components/sectionTitle";
 
 const posts = [
 

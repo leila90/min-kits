@@ -1,4 +1,4 @@
-import SectionTitle from "../common/sectionTitle";
+import SectionTitle from "@/components/common/sectionTitle";
 import {motion} from 'framer-motion';
 import Image from "next/image";
 import {ClockIcon} from "@heroicons/react/16/solid";

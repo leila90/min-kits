@@ -1,4 +1,4 @@
-import SectionTitle from "@/app/[lang]/components/common/sectionTitle";
+import SectionTitle from "@/components/common/sectionTitle";
 import {CheckBadgeIcon, CheckCircleIcon, LockClosedIcon} from "@heroicons/react/16/solid";
 import Image from "next/image";
 

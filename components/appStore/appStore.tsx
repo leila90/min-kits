@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { cards, type Card } from "./data";
-import AppStoreCard from "../appStore/appStoreCard";
-import ExpandedCard from "../appStore/expandedCard";
+import AppStoreCard from "@/components/appStore/appStoreCard";
+import ExpandedCard from "@/components/appStore/expandedCard";
 
 export default function AppStore() {
     const [active, setActive] = useState<Card | null>(null);

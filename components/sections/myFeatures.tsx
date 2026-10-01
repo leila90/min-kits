@@ -6,7 +6,7 @@ import {
     GiftTopIcon,
     HeartIcon
 } from "@heroicons/react/24/outline"
-import SectionTitle from "@/app/[lang]/components/common/sectionTitle";
+import SectionTitle from "@/components/common/sectionTitle";
 import Image from "next/image";
 
 const features = [
