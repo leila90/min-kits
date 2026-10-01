@@ -18,13 +18,7 @@ import LanguageDropdown from "../components/languageDropdown";
 type NavbarProps = {
     lang: "fa" | "en",
     dict: {
-        mainMenus: {
-            "About Us": string,
-            "Blogs": string,
-            "Group Companies": string,
-            "Contact Us": string,
-            "Career Opportunities": string
-        }
+        nav: { home: string; about: string; blog: string; companies: string; contact: string; careers: string }
     }
 }
 
@@ -75,7 +69,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
 
                     <Link href={`/${lang}/about`} className="text-sm/6 font-semibold">
-                        {dict.mainMenus?.["About Us"] ?? 'No translation'}
+                        {dict.nav?.["About Us"] ?? 'No translation'}
                     </Link>
                     <Link href={`/${lang}/blog`} className="text-sm/6 font-semibold">
                         {dict.mainMenus?.["Blogs"] ?? 'No translation'}
