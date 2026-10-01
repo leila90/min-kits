@@ -3,19 +3,17 @@ import {motion} from 'framer-motion';
 import Image from "next/image";
 import {ClockIcon} from "@heroicons/react/16/solid";
 
-type Props = {
-    lang: "fa" | "en"
-}
+type Props = { lang: "fa" | "en"; dict: { title: string; subtitle: string; name: string; email: string; message: string; messagePlaceholder: string; legal: string; submit: string } }
 
-export default function ContactUs({lang}: Props) {
+export default function ContactUs({lang, dict}: Props) {
     return (
         <section className="md:my-10 md:mx-30 my-5 mx-5">
-            <SectionTitle brand='MinKits Team' title='Contact Us' subTitle='Contact Us' lang={lang}/>
+            <SectionTitle brand='MinKits Team' title={dict.title} subTitle={dict.subtitle} lang={lang}/>
             <div className="relative flex flex-col md:flex-row justify-center">
                 <div className="basis-1/2 relative p-10">
                     <form className='space-y-6'>
                         <div>
-                            <label className='block text-black text-sm mb-2'>Name</label>
+                            <label className='block text-black text-sm mb-2'>{dict.name}</label>
                             <input
                                 type="text"
                                 required
@@ -25,7 +23,7 @@ export default function ContactUs({lang}: Props) {
                         </div>
 
                         <div>
-                            <label className='block text-black text-sm mb-2'>Email</label>
+                            <label className='block text-black text-sm mb-2'>{dict.email}</label>
                             <input
                                 type="email"
                                 required
@@ -35,9 +33,9 @@ export default function ContactUs({lang}: Props) {
                         </div>
 
                         <div>
-                            <label className='block text-black text-sm mb-2'>Message</label>
+                            <label className='block text-black text-sm mb-2'>{dict.message}</label>
                             <textarea
-                                placeholder="Write your message here..."
+                                placeholder={dict.messagePlaceholder}
                                 // rows="4"
                                 required
                                 className='w-full bg-white border border-black/20 rounded-lg px-4 py-3 text-black/80 placeholder:text-black/40 placeholder:text-sm focus:outline-none focus:border-black/50 transition resize-none'
