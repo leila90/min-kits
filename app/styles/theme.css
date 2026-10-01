@@ -90,6 +90,24 @@
   --latest-blog-button-hover-text: #ffffff;
   --latest-blog-view-all-border: #d4d4d8;
   --latest-blog-view-all-hover: #f4f4f5;
+  --contact-background: #ffffff;
+  --contact-heading: #000000;
+  --contact-text: rgb(0 0 0 / 60%);
+  --contact-border: rgb(0 0 0 / 20%);
+  --contact-border-focus: rgb(0 0 0 / 50%);
+  --contact-placeholder: rgb(0 0 0 / 40%);
+  --contact-button-start: #09090b;
+  --contact-button-end: #52525b;
+  --contact-button-hover-start: #52525b;
+  --contact-button-hover-end: #09090b;
+  --contact-social-github: #333333;
+  --contact-social-facebook: #1877f2;
+  --contact-social-instagram: #c13584;
+  --contact-social-google: #ea4335;
+  --contact-social-linkedin: #0077b5;
+  --contact-social-telegram: #0088cc;
+  --contact-social-x: #000000;
+  --contact-social-whatsapp: #128c7e;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -158,6 +176,24 @@
   --color-latest-blog-view-all-border: var(--latest-blog-view-all-border);
   --color-latest-blog-view-all-hover: var(--latest-blog-view-all-hover);
   --color-team-card-shine: var(--team-card-shine);
+  --color-contact-background: var(--contact-background);
+  --color-contact-heading: var(--contact-heading);
+  --color-contact-text: var(--contact-text);
+  --color-contact-border: var(--contact-border);
+  --color-contact-border-focus: var(--contact-border-focus);
+  --color-contact-placeholder: var(--contact-placeholder);
+  --color-contact-button-start: var(--contact-button-start);
+  --color-contact-button-end: var(--contact-button-end);
+  --color-contact-button-hover-start: var(--contact-button-hover-start);
+  --color-contact-button-hover-end: var(--contact-button-hover-end);
+  --color-contact-social-github: var(--contact-social-github);
+  --color-contact-social-facebook: var(--contact-social-facebook);
+  --color-contact-social-instagram: var(--contact-social-instagram);
+  --color-contact-social-google: var(--contact-social-google);
+  --color-contact-social-linkedin: var(--contact-social-linkedin);
+  --color-contact-social-telegram: var(--contact-social-telegram);
+  --color-contact-social-x: var(--contact-social-x);
+  --color-contact-social-whatsapp: var(--contact-social-whatsapp);
 }
 
 @keyframes team-card-shine {
