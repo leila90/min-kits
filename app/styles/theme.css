@@ -100,6 +100,8 @@
   --contact-button-end: #52525b;
   --contact-button-hover-start: #52525b;
   --contact-button-hover-end: #09090b;
+  --contact-divider-start: rgb(255 255 255 / 25%);
+  --contact-divider-mid: #000000;
   --contact-social-github: #333333;
   --contact-social-facebook: #1877f2;
   --contact-social-instagram: #c13584;
@@ -186,6 +188,8 @@
   --color-contact-button-end: var(--contact-button-end);
   --color-contact-button-hover-start: var(--contact-button-hover-start);
   --color-contact-button-hover-end: var(--contact-button-hover-end);
+  --color-contact-divider-start: var(--contact-divider-start);
+  --color-contact-divider-mid: var(--contact-divider-mid);
   --color-contact-social-github: var(--contact-social-github);
   --color-contact-social-facebook: var(--contact-social-facebook);
   --color-contact-social-instagram: var(--contact-social-instagram);
