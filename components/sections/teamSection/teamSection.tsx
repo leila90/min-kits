@@ -1,7 +1,6 @@
 import SectionTitle from "@/components/common/sectionTitle";
 import Container from "@/components/ui/container";
 import TeamCard from "./team-card";
-import TeamContact from "./team-contact";
 
 type Props = {
     lang: "fa" | "en";
@@ -24,7 +23,6 @@ export default function TeamSection({lang, dict}: Props) {
                         <TeamCard key={member.name} {...member}/>
                     ))}
                 </div>
-                <TeamContact/>
             </Container>
         </section>
     );
