@@ -27,8 +27,7 @@ export default function TeamSection({lang, dict}: Props) {
 
     return (
         <section id={"team"} className="md:my-10 md:mx-30 my-5 mx-5 bg-transparent">
-            <SectionTitle brand='MinKits Team' title='Our Exceptional Team' subTitle='Empowered by passion and skill, our Exceptional Team turns
-                        challenges into opportunities for growth.' lang={lang}/>
+            <SectionTitle brand='MinKits Team' title={dict.title} subTitle={dict.subtitle} lang={lang}/>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-20">
