@@ -80,6 +80,16 @@
   --team-contact-map: #d1d5db;
   --team-contact-link: #3b82f6;
   --team-contact-note: #6b7280;
+  --latest-blog-background: #d4d4d8;
+  --latest-blog-heading: #18181b;
+  --latest-blog-muted: #71717a;
+  --latest-blog-accent: #4338ca;
+  --latest-blog-button-border: #4f46e5;
+  --latest-blog-button-hover: #4f46e5;
+  --latest-blog-button-text: #4f46e5;
+  --latest-blog-button-hover-text: #ffffff;
+  --latest-blog-view-all-border: #d4d4d8;
+  --latest-blog-view-all-hover: #f4f4f5;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -137,6 +147,16 @@
   --color-team-avatar-start: var(--team-avatar-start);
   --color-team-avatar-end: var(--team-avatar-end);
   --color-team-card-glow: var(--team-card-glow);
+  --color-latest-blog-background: var(--latest-blog-background);
+  --color-latest-blog-heading: var(--latest-blog-heading);
+  --color-latest-blog-muted: var(--latest-blog-muted);
+  --color-latest-blog-accent: var(--latest-blog-accent);
+  --color-latest-blog-button-border: var(--latest-blog-button-border);
+  --color-latest-blog-button-hover: var(--latest-blog-button-hover);
+  --color-latest-blog-button-text: var(--latest-blog-button-text);
+  --color-latest-blog-button-hover-text: var(--latest-blog-button-hover-text);
+  --color-latest-blog-view-all-border: var(--latest-blog-view-all-border);
+  --color-latest-blog-view-all-hover: var(--latest-blog-view-all-hover);
   --color-team-card-shine: var(--team-card-shine);
 }
 
