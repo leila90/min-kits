@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import clsx from "clsx";
 import { usePathname, useRouter } from "next/navigation";
+import { locales, type Lang } from "@/app/i18n/config";
 
 type Language = {
     code: "fa" | "en";
@@ -85,6 +86,7 @@ export default function LanguageDropdown() {
         setOpen(false);
 
         const segments = pathname.split("/");
+        if (!locales.includes(lang.code as Lang)) return;
         segments[1] = lang.code;
         setLocaleCookie(lang.code);
 
