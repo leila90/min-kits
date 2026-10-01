@@ -97,15 +97,12 @@ const posts = [
     // More posts...
 
 ]
-type Props = {
-    lang: "fa" | "en"
-}
+type Props = { lang: "fa" | "en"; dict: { title: string; subtitle: string; readMore: string; viewAll: string } }
 
-export default function BlogSection({lang}: Props) {
+export default function BlogSection({lang, dict}: Props) {
     return (
         <section id={"blogSection"} className="md:my-10 md:mx-30 my-5 mx-5 bg-transparent">
-            <SectionTitle brand='MinKits Team' title='Blogs' subTitle='We use an agile approach to
-                        test assumptions and connect with the needs of your audience early and often.' lang={lang}/>
+            <SectionTitle brand='MinKits Team' title={dict.title} subTitle={dict.subtitle} lang={lang}/>
             <div
                 className="grid lg:grid-flow-col lg:grid-cols-3 md:grid-flow-col md:grid-cols-2 md:grid-rows-3 lg:grid-rows-2 gap-4 justify-center text-justify py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                 {posts
@@ -152,7 +149,7 @@ export default function BlogSection({lang}: Props) {
                                 <div className="flex justify-end items-center">
                                     <a href="#"
                                        className="inline-flex items-center font-medium  text-white dark:text-primary-500 hover:underline">
-                                        Read more
+                                        {dict.readMore}
                                         <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path fillRule="evenodd"
@@ -207,7 +204,7 @@ export default function BlogSection({lang}: Props) {
                                 <div className="flex justify-end items-center">
                                     <a href="#"
                                        className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
-                                        Read more
+                                        {dict.readMore}
                                         <svg className={`${lang === "fa" ? "mr-2 rotate-180" : "ml-2" } w-4 h-4`} fill="currentColor" viewBox="0 0 20 20"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path fillRule="evenodd"
