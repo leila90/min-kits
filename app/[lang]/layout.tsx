@@ -5,7 +5,7 @@ import "../styles/globals.css";
 import LenisScroll from "./components/lenis";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
-import { getDictionary, hasLocale, locales } from "../dictionaries";
+import { getDictionary, isLang, locales } from "../i18n";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://minkits.com";
 
@@ -61,7 +61,7 @@ export default async function RootLayout({
 }) {
     const { lang } = await params;
 
-    if (!hasLocale(lang)) {
+    if (!isLang(lang)) {
         notFound();
     }
 
