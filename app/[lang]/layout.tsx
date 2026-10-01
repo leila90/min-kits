@@ -83,7 +83,7 @@ export default async function RootLayout({
                 />
                 <Navbar lang={lang} dict={dict} />
                 {children}
-                <Footer lang={lang} dict={dict} />
+                <Footer lang={lang} dict={dict.footer} />
             </body>
         </html>
     );
