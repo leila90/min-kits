@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Messages } from "@/app/i18n/messages";
 import SectionTitle from "@/app/[lang]/components/sectionTitle";
 
 const posts = [
@@ -80,14 +81,12 @@ const posts = [
     // More posts...
 
 ]
-type props = {
-    lang: "fa" | "en"
-}
-export default function FormBlog({lang}: props  ) {
+type props = { lang: "fa" | "en"; dict: Messages["blog"] }
+export default function FormBlog({lang, dict}: props  ) {
     return (
         <section id={"blog"} className="md:my-10 md:mx-30 my-5 mx-5 ">
 
-            <SectionTitle brand='MinKits Team' title='Blogs' subTitle='همراه با مجله دات وان، همیشه به روز باشید.' lang={lang}/>
+            <<SectionTitle brand='MinKits' title={dict.title} subTitle={dict.subtitle} lang={lang}/>
             {/*<div className="text-center" dir={"rtl"}>*/}
             {/*    <p className="lg:mt-10 md:mt-10 mt-20 text-sm text-zinc-700">*/}
             {/*        همراه با مجله دات وان، همیشه به روز باشید.*/}
@@ -160,9 +159,8 @@ export default function FormBlog({lang}: props  ) {
                                 {/*</div>*/}
                             </div>
                             <div className="flex items-center justify-end">
-                                <Link href={'/blogs'}
-                                      className="text-xs text-white border-black border rounded-md p-2 cursor-pointer bg-black hover:bg-white hover:text-black">مطالعه
-                                    بیشتر</Link>
+                                <Link href={`/${lang}/blog`}
+                                      className="text-xs text-white border-black border rounded-md p-2 cursor-pointer bg-black hover:bg-white hover:text-black">{dict.readMore}</Link>
                             </div>
                         </div>
                     </article>
@@ -170,8 +168,7 @@ export default function FormBlog({lang}: props  ) {
             </div>
             <div className="flex items-center justify-end pt-15">
                 <Link href={'/blogs'}
-                      className="text-sm text-white border-zinc-900 border rounded-md p-2 cursor-pointer bg-zinc-900 hover:bg-gray-700">مشاهده
-                    همه اخبار و مقالات</Link>
+                      className="text-sm text-white border-zinc-900 border rounded-md p-2 cursor-pointer bg-zinc-900 hover:bg-gray-700">{dict.viewAll}</Link>
             </div>
 
         </section>
