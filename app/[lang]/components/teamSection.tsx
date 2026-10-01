@@ -1,11 +1,9 @@
 import SectionTitle from "@/app/[lang]/components/sectionTitle";
 import Image from "next/image";
 
-type Props = {
-    lang: "fa" | "en"
-}
+type Props = { lang: "fa" | "en"; dict: { title: string; subtitle: string } }
 
-export default function TeamSection({lang}: Props) {
+export default function TeamSection({lang, dict}: Props) {
     const team = [
         {
             name: "Priya Bhatt",
