@@ -31,7 +31,7 @@ export default function Hero({ dict }: HeroProps) {
                 >
                     <h6 className="font-thin p-1 text-zinc-600"> {dict.eyebrow} </h6>
                     <h1 className="text-2xl md:text-3xl lg:text-4xl tracking-tight text-black">
-                        {dict.title}
+                        {dict.title}{" "}
                         <span className="font-bold">MinKits</span>
                     </h1>
 
