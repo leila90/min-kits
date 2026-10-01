@@ -29,7 +29,9 @@ const blogs = [
     },
 ]
 
-export default function LatestBlog() {
+type LatestBlogProps = { dict: { title: string; subtitle: string; viewAll: string; readMore: string } };
+
+export default function LatestBlog({ dict }: LatestBlogProps) {
     return (
         <section className="py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-zinc-300 p-10">
@@ -38,13 +40,8 @@ export default function LatestBlog() {
                     {/* Left content */}
                     <div className="w-full lg:w-2/5 flex flex-col justify-between">
                         <div className="text-center lg:text-left">
-                            <h2 className="text-4xl font-bold text-zinc-500 mb-5">
-                                Our latest <span className="text-white">blogs</span>
-                            </h2>
-                            <p className="text-zinc-500 mb-10 max-w-xl mx-auto lg:mx-0">
-                                Welcome to our blog section, where knowledge meets inspiration.
-                                Explore insightful articles, expert tips, and the latest trends.
-                            </p>
+                            <h2 className="text-4xl font-bold text-zinc-500 mb-5">{dict.title}</h2>
+                            <p className="text-zinc-500 mb-10 max-w-xl mx-auto lg:mx-0">{dict.subtitle}</p>
 
                             <a
                                 href="#"
