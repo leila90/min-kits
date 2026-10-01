@@ -1,21 +1,11 @@
 import type {Metadata} from "next";
 import {notFound} from "next/navigation";
-import {getDictionary, hasLocale} from "../../dictionaries";
+import {hasLocale} from "../../dictionaries";
 import Header from "../components/header";
 import FooterHeader from "../components/footerHeader";
 import Breadcrumb from "@/app/[lang]/components/breadcrumb";
-import Image from "next/image";
-import Link from "next/link";
 import SectionTitle from "@/app/[lang]/components/sectionTitle";
-import SlideSwiper from "@/app/[lang]/components/slideSwiper";
-import LenisScroll from "@/app/[lang]/components/lenis";
-import LatestBlog from "@/app/[lang]/components/latestBlog";
-import FeaturesNavs from "@/app/[lang]/components/featuresNavs";
-import Ctr from "@/app/[lang]/components/ctr";
-import Content from "@/app/[lang]/components/content";
 import Content1 from "@/app/[lang]/components/content1";
-import {CloudArrowUpIcon, LockClosedIcon} from "@heroicons/react/16/solid";
-import {ServerIcon} from "@heroicons/react/24/outline";
 
 const posts = [
 
@@ -118,7 +108,6 @@ export const metadata: Metadata = {title: "About"};
 export default async function Page({params}: {params: Promise<{lang: string}>}) {
     const {lang} = await params
     if (!hasLocale(lang)) notFound();
-    const dict = await getDictionary(lang);
     return (
         <>
             {/*<PageHeader />*/}
