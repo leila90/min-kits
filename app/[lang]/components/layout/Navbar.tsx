@@ -52,6 +52,7 @@ export default function Navbar({ lang, content }: Props) {
         siteName={content.site.name}
         links={links}
         closeLabel={content.navigation.closeMenu}
+        languageNames={content.navigation.languageNames}
       />
     </header>
   );
