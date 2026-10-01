@@ -45,8 +45,7 @@ export default function ContactUs({lang, dict}: Props) {
 
                         <div className='flex items-center justify-between'>
                             <p className='text-xs md:text-sm text-black/60 max-w-3xs'>
-                                By submitting, you agree to our <span className='text-black'>Terms</span> and <span
-                                className='text-black'>Privacy Policy</span>.
+                                {dict.legal}
                             </p>
                             <button type="submit"
                                     className='bg-linear-to-r from-zinc-950 to-zinc-600 hover:from-zinc-600 hover:to-zinc-950 text-white text-sm px-8 md:px-16 py-3 rounded-full transition duration-300 cursor-pointer'>
