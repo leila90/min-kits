@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "@/components/ui/container";
+import {Button, Input} from "@/components/ui";
 
 type FooterProps = { lang: "fa" | "en"; dict: { description: string; important: string; social: string; subscribe: string; emailPlaceholder: string; button: string; terms: string; privacy: string; copyright: string } };
 
@@ -68,12 +69,19 @@ export default function Footer({ lang, dict }: FooterProps) {
                             <h3 className='text-sm text-white font-medium'>{dict.subscribe}</h3>
                             <div
                                 className="mt-4 flex h-13 w-full max-w-80 min-w-0 items-center gap-2 overflow-hidden rounded-full border border-footer-border">
-                                <input type="email" placeholder={dict.emailPlaceholder}
-                                       className="h-full min-w-0 flex-1 bg-transparent px-6 text-sm text-footer-heading outline-none placeholder:text-xs placeholder:text-footer-muted"
-                                       required/>
-                                <button type="button"
-                                        className="me-1.5 h-10 shrink-0 rounded-full bg-linear-to-b from-footer-button-start to-footer-button-end px-5 text-sm text-footer-button-text transition active:scale-95">{dict.button}
-                                </button>
+                                <Input
+                                    type="email"
+                                    placeholder={dict.emailPlaceholder}
+                                    required
+                                    className="h-full rounded-full border-0 bg-transparent px-6 text-sm text-footer-heading focus:border-0"
+                                />
+                                <Button
+                                    type="button"
+                                    size="sm"
+                                    className="me-1.5 h-10 shrink-0 rounded-full bg-linear-to-b from-footer-button-start to-footer-button-end px-5 text-sm text-footer-button-text hover:bg-linear-to-b hover:from-footer-button-hover-start hover:to-footer-button-hover-end"
+                                >
+                                    {dict.button}
+                                </Button>
                             </div>
                         </div>
 
