@@ -34,7 +34,7 @@ export default function MobileMenu({ open, onClose, homeHref, siteName, links, c
             </Link>
           ))}
         </div>
-        <div className="mt-6 border-t pt-6"><LanguageDropdown /></div>
+        <div className="mt-6 border-t pt-6"><LanguageDropdown languageNames={languageNames} /></div>
       </DialogPanel>
     </Dialog>
   );
