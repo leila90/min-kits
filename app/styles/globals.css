@@ -325,6 +325,5 @@ html[dir="rtl"] .animate-marquee {
   background-size: 50% 30%;
   filter: blur(6px);
   background-image: linear-gradient(var(--rainbow-start), var(--rainbow-mid), var(--rainbow-end));
-  /*background-color: #000000;*/
   animation: rotate 4s linear infinite;
 }
