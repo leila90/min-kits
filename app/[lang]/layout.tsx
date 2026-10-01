@@ -81,9 +81,9 @@ export default async function RootLayout({
                     speed={200}
                     easing="ease"
                 />
-                <Navbar lang={lang} dict={{ mainMenus: dict.mainMenus }} />
+                <Navbar lang={lang} dict={dict} />
                 {children}
-                <Footer />
+                <Footer lang={lang} dict={dict} />
             </body>
         </html>
     );
