@@ -16,7 +16,7 @@ type Props = {
   languageNames: { fa: string; en: string };
 };
 
-export default function MobileMenu({ open, onClose, homeHref, siteName, links, closeLabel }: Props) {
+export default function MobileMenu({ open, onClose, homeHref, siteName, links, closeLabel, languageNames }: Props) {
   return (
     <Dialog open={open} onClose={onClose} className="lg:hidden">
       <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-white px-6 py-6 text-zinc-900 shadow-xl">
