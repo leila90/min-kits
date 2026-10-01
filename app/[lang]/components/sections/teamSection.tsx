@@ -1,4 +1,4 @@
-import SectionTitle from "@/app/[lang]/components/sectionTitle";
+import SectionTitle from "@/app/[lang]/components/common/sectionTitle";
 import Image from "next/image";
 
 type Props = { lang: "fa" | "en"; dict: { title: string; subtitle: string } }
