@@ -32,12 +32,13 @@ const blogs = [
 ]
 
 type LatestBlogProps = {
-    dict: {title: string; subtitle: string; viewAll: string; readMore: string}
+    lang: "fa" | "en";
+    dict: {title: string; subtitle: string; viewAll: string; readMore: string};
 };
 
-export default function LatestBlog({dict}: LatestBlogProps) {
+export default function LatestBlog({lang, dict}: LatestBlogProps) {
     return (
-        <section id="latestBlog" className="scroll-mt-36 py-16 md:scroll-mt-44 md:py-20">
+        <section id="latestBlog" dir={lang === "fa" ? "rtl" : "ltr"} className="scroll-mt-36 py-16 md:scroll-mt-44 md:py-20">
             <Container>
                 <div className="min-w-0 rounded-2xl bg-latest-blog-background p-6 sm:p-8 lg:p-10">
                     <div className="grid min-w-0 gap-10 lg:grid-cols-[2fr_3fr] lg:items-stretch">
