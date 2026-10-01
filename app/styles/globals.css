@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./theme.css";
 
 @font-face {
   font-family: RokhFaNum;
@@ -39,45 +40,7 @@ html[lang="en"] {
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@theme {
-  --color-darkpurple: #2E073F;
-  --color-gray-100: oklch(0.968 0.007 247.896);
-  --color-gray-200: oklch(0.929 0.013 255.508);
-  --color-gray-300: oklch(0.869 0.022 252.894);
-  --color-gray-400: oklch(0.704 0.04 256.788);
-  --color-gray-500: oklch(0.554 0.046 257.417);
-  --color-gray-600: oklch(0.446 0.043 257.281);
-  --color-gray-700: oklch(0.372 0.044 257.287);
-  --color-gray-800: oklch(0.279 0.041 260.031);
-  --color-gray-900: oklch(0.208 0.042 265.755);
-  --color-gray-950: oklch(0.129 0.042 264.695);
-}
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  /*--font-sans: var(--font-geist-sans);*/
-  /*--font-mono: var(--font-geist-mono);*/
-  /*--font-rohk: var(RokhFaNum);*/
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  /*font-family: Arial, Helvetica, sans-serif;*/
-}
 .circles{
   position: absolute;
   top: 0;
@@ -92,7 +55,7 @@ body {
   list-style: none;
   width: 20px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--hero-overlay);
   animation: animate 25s linear infinite;
   bottom: -150px;
 }
@@ -188,17 +151,17 @@ body {
 }
 .my-custom-class {
   font-weight: 900;
-  color: red;
+  color: var(--custom-color);
 }
 
 .loading {
   --speed-of-animation: 0.9s;
   --gap: 6px;
-  --first-color: #4c86f9;
-  --second-color: #49a84c;
-  --third-color: #f6bb02;
-  --fourth-color: #f6bb02;
-  --fifth-color: #2196f3;
+  --first-color: var(--loading-first);
+  --second-color: var(--loading-second);
+  --third-color: var(--loading-third);
+  --fourth-color: var(--loading-fourth);
+  --fifth-color: var(--loading-fifth);
 
   display: flex;
   justify-content: center;
@@ -313,13 +276,6 @@ html[dir="rtl"] .animate-marquee {
   animation: float 5s ease-in-out infinite;
 }
 
-@theme {
-  --color-primary: #8b5cf6;
-  --color-primary-hover: #7c3aed;
-  --color-secondary: #ec4899;
-  --color-dark-bg: #0f172a;
-  --color-dark-card: #1e293b;
-}
 
 @layer utilities {
   .glass-panel {
@@ -369,7 +325,7 @@ html[dir="rtl"] .animate-marquee {
   background-repeat: no-repeat;
   background-size: 50% 30%;
   filter: blur(6px);
-  background-image: linear-gradient(#bcbcbc, #e4e4e4, #ffffff);
+  background-image: linear-gradient(var(--rainbow-start), var(--rainbow-mid), var(--rainbow-end));
   /*background-color: #000000;*/
   animation: rotate 4s linear infinite;
 }
