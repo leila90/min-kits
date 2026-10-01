@@ -6,7 +6,7 @@ type FooterProps = { lang: "fa" | "en"; dict: { description: string; important: 
 export default function Footer({ lang, dict }: FooterProps) {
     return (
         <section id="footer" className="scroll-mt-36 md:scroll-mt-44">
-            <footer className="bg-footer-background pt-20 pb-12 md:pt-28">
+            <footer dir={lang === "fa" ? "rtl" : "ltr"} className="bg-footer-background pt-20 pb-12 md:pt-28">
                 <Container>
                     <div className="w-full flex flex-col mb-20 items-center text-center">
                         <a href={`/${lang}`} aria-label="MinKits">
@@ -21,7 +21,7 @@ export default function Footer({ lang, dict }: FooterProps) {
                     <div className="flex flex-wrap justify-between gap-y-12 lg:gap-x-8">
 
                         <div
-                            className="w-full md:w-[45%] lg:w-[35%] flex flex-col items-center md:items-start text-center md:text-left">
+                            className="w-full md:w-[45%] lg:w-[35%] flex flex-col items-center md:items-start text-center md:text-start">
                             <h4 className="text-balance text-2xl font-semibold tracking-tight text-footer-heading">
                                 MinKits Team
                             </h4>
@@ -39,7 +39,7 @@ export default function Footer({ lang, dict }: FooterProps) {
                                 <a href="#"
                                    className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{lang === "fa" ? "خانه" : "Home"}</a>
                                 <a href="#"
-                                   className='text-sm text-white/60 hover:text-white transition-colors'>{lang === "fa" ? "درباره ما" : "About"}</a>
+                                   className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{lang === "fa" ? "درباره ما" : "About"}</a>
                                 <a href="#"
                                    className='text-sm text-white/60 hover:text-white transition-colors'>{lang === "fa" ? "نمونه‌کارها" : "Portfolio"}</a>
                                 <a href="#"
