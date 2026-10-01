@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Hero from "@/components/sections/hero";
+import Hero from "@/components/sections/hero/hero";
 import Header from "@/components/layout/header";
-import MySlogan from "@/components/sections/mySlogan";
-import ContactUs from "@/components/sections/contactUs";
+import MySlogan from "@/components/sections/mySlogan/mySlogan";
+import ContactUs from "@/components/sections/contactUs/contactUs";
 import Logo from "@/components/layout/logo";
-import AboutUs from "@/components/sections/aboutUs";
+import AboutUs from "@/components/sections/aboutUs/aboutUs";
 import FooterHeader from "@/components/layout/footerHeader";
-import MyFeatures from "@/components/sections/myFeatures";
-import LatestBlog from "@/components/sections/latestBlog";
-import TeamSection from "@/components/sections/teamSection";
-import BlogSection from "@/components/sections/blogSection";
-import Ctr from "@/components/sections/ctr";
+import MyFeatures from "@/components/sections/myFeatures/myFeatures";
+import LatestBlog from "@/components/sections/latestBlog/latestBlog";
+import TeamSection from "@/components/sections/teamSection/teamSection";
+import BlogSection from "@/components/sections/blogSection/blogSection";
+import Ctr from "@/components/sections/ctr/ctr";
 import { getDictionary, isLang } from "../i18n";
 
 export const metadata: Metadata = {
