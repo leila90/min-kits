@@ -41,7 +41,7 @@ export default function MyFeatures({lang, dict}: Props) {
                                 "lg:[&:nth-child(3n+2)]:border-s lg:[&:nth-child(3n)]:border-s",
                                 "md:[&:nth-child(n+3)]:border-t",
                                 "lg:[&:nth-child(n+4)]:border-t",
-                                "border-features-divider",
+                                "border-features-grid-border",
                             ].join(" ")}
                         >
                             <div className="flex justify-center">
