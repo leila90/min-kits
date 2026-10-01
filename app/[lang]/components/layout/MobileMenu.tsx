@@ -13,6 +13,7 @@ type Props = {
   siteName: string;
   links: readonly (readonly [string, string])[];
   closeLabel: string;
+  languageNames: { fa: string; en: string };
 };
 
 export default function MobileMenu({ open, onClose, homeHref, siteName, links, closeLabel }: Props) {
