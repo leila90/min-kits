@@ -1,11 +1,3 @@
-import {
-    ChartPieIcon,
-    HandThumbUpIcon,
-    PauseCircleIcon,
-    ChartBarIcon,
-    GiftTopIcon,
-    HeartIcon
-} from "@heroicons/react/24/outline"
 import SectionTitle from "@/components/common/sectionTitle";
 import Image from "next/image";
 
