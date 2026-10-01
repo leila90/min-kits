@@ -48,7 +48,7 @@ export default function Footer({ lang, dict }: FooterProps) {
                                     type="email"
                                     placeholder={dict.emailPlaceholder}
                                     required
-                                    className="h-full rounded-[20px] border-0 bg-transparent px-6 text-sm text-footer-heading focus:border-0"
+                                    className="h-10 rounded-[20px] border-0 bg-transparent px-6 text-sm text-footer-heading focus:border-0"
                                 />
                                 <Button
                                     type="button"
