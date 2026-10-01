@@ -24,8 +24,6 @@ type NavbarProps = {
 
 export default function Navbar({ lang, dict }: NavbarProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
     return (
         <header
             className={`fixed md:my-10 md:mx-20 my-5 mx-5 rounded-2xl border-1 backdrop-blur border-black top-0 left-0 right-0 z-50 duration-300 bg-black/80 shadow-md text-white  ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
