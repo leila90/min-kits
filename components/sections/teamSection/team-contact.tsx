@@ -1,7 +1,7 @@
 export default function TeamContact() {
     return (
-        <div className="relative flex flex-wrap px-5 py-24">
-            <div className="relative overflow-hidden rounded-lg bg-team-contact-map p-10 sm:mr-10 lg:w-2/3 md:w-1/2">
+        <div className="grid min-w-0 grid-cols-1 gap-10 py-24 md:grid-cols-2 lg:grid-cols-3">
+            <div className="relative min-w-0 overflow-hidden rounded-lg bg-team-contact-map p-10 md:col-span-1 lg:col-span-2">
                 <iframe
                     width="100%"
                     height="100%"
