@@ -10,6 +10,7 @@ import FooterHeader from "@/components/layout/footerHeader";
 import MyFeatures from "@/components/sections/myFeatures/myFeatures";
 import LatestBlog from "@/components/sections/latestBlog/latestBlog";
 import TeamSection from "@/components/sections/teamSection/teamSection";
+import TeamContact from "@/components/sections/teamContact/teamContact";
 import BlogSection from "@/components/sections/blogSection/blogSection";
 import Ctr from "@/components/sections/ctr/ctr";
 import { getDictionary, isLang } from "../i18n";
@@ -33,6 +34,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <Ctr />
             <BlogSection lang={lang} dict={dict.blog} />
             <TeamSection lang={lang} dict={dict.team} />
+            <TeamContact lang={lang} dict={dict.contact} />
             <LatestBlog dict={{ title: dict.blog.title, subtitle: dict.blog.subtitle, viewAll: dict.blog.viewAll, readMore: dict.blog.readMore }} />
             <ContactUs lang={lang} dict={dict.contact} />
             <Logo />
