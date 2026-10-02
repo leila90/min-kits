@@ -101,13 +101,11 @@ export default async function Page({
                 <Header />
 
                 <section className="pt-28 pb-8 md:pt-32 md:pb-10">
-                    <Container>
-                        <MagazineEditorialColumns
-                            lang={lang}
-                            title={post.title}
-                            description={post.description}
-                        />
-                    </Container>
+                    <MagazineEditorialColumns
+                        lang={lang}
+                        title={post.title}
+                        description={post.description}
+                    />
                 </section>
             </main>
             <FooterHeader />
