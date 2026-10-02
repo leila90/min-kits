@@ -3,6 +3,7 @@ import {notFound} from "next/navigation";
 import Container from "../../../../components/ui/container";
 import ComponentDemoTabs from "../../../../components/sections/componentCatalog/componentDemoTabs";
 import {getComponentSource} from "../../../../components/registry/source";
+import {Button, Divider, FormField, Input, Textarea} from "../../../../components/ui";
 import {getDictionary, isLang, type Lang} from "../../../i18n";
 import {componentRegistry} from "../../../../components/registry";
 
@@ -96,28 +97,49 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         preview={
                             <>
                                 {component.slug === "button" && (
-                                    <button type="button" className="rounded-xl bg-zinc-900 px-7 py-3 text-sm font-semibold text-white">
+                                    <Button size="lg" radius="full">
                                         {lang === "fa" ? "ادامه" : "Continue"}
-                                    </button>
+                                    </Button>
                                 )}
+
                                 {component.slug === "input" && (
                                     <div className="w-full max-w-md">
-                                        <div className="h-12 rounded-xl border border-zinc-300 bg-white" />
+                                        <Input
+                                            type="text"
+                                            placeholder={lang === "fa" ? "متن را وارد کنید" : "Enter text"}
+                                            aria-label={lang === "fa" ? "نمونه ورودی" : "Input example"}
+                                        />
                                     </div>
                                 )}
+
                                 {component.slug === "textarea" && (
                                     <div className="w-full max-w-md">
-                                        <div className="h-32 rounded-xl border border-zinc-300 bg-white" />
+                                        <Textarea
+                                            placeholder={lang === "fa" ? "متن خود را وارد کنید" : "Enter your message"}
+                                            aria-label={lang === "fa" ? "نمونه ناحیه متن" : "Textarea example"}
+                                        />
                                     </div>
                                 )}
+
                                 {component.slug === "form-field" && (
                                     <div className="w-full max-w-md">
-                                        <div className="mb-2 h-3 w-20 rounded bg-zinc-300" />
-                                        <div className="h-12 rounded-xl border border-zinc-300 bg-white" />
+                                        <FormField
+                                            label={lang === "fa" ? "نام" : "Name"}
+                                            htmlFor="component-form-field-preview"
+                                        >
+                                            <Input
+                                                id="component-form-field-preview"
+                                                type="text"
+                                                placeholder={lang === "fa" ? "نام خود را وارد کنید" : "Enter your name"}
+                                            />
+                                        </FormField>
                                     </div>
                                 )}
+
                                 {component.slug === "divider" && (
-                                    <div className="h-px w-full max-w-md bg-zinc-300" />
+                                    <div className="w-full max-w-md">
+                                        <Divider />
+                                    </div>
                                 )}
                             </>
                         }
