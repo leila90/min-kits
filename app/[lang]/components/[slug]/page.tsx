@@ -99,7 +99,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                 </Container>
             </section>
 
-            <Header />
+            <Header overlap={false} />
 
             <section className="pt-28 pb-8 md:pt-32 md:pb-10">
                 <Container>
