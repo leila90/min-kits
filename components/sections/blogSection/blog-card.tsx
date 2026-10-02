@@ -27,7 +27,7 @@ export default function BlogCard({readMore, lang}: Props) {
                         <time dateTime="2020-03-16" className="text-blog-card-text">Mar 16, 2020</time>
                     </div>
                 </div>
-                <h2 className={`mb-2 border-blog-card-text ${lang === "fa" ? "border-r-10 pr-2" : "border-l-10 pl-2"} text-2xl font-bold tracking-tight text-zinc-900 dark:text-white`}>
+                <h2 className={`mb-2 border-blog-card-text ${lang === "fa" ? "border-r-10 pr-2" : "border-l-10 pl-2"} text-2xl font-bold tracking-tight text-blog-card-text`}>
                     <a href="#">How to quickly deploy a static website</a>
                 </h2>
                 <p className="mb-5 line-clamp-3 font-light text-blog-card-muted">
