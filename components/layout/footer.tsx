@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Container from "@/components/ui/container";
-import {Button, Input} from "@/components/ui";
+import {Button, Divider, Input} from "@/components/ui";
 
 type FooterProps = { lang: "fa" | "en"; dict: { description: string; important: string; social: string; subscribe: string; emailPlaceholder: string; button: string; terms: string; privacy: string; copyright: string } };
 
@@ -13,13 +13,13 @@ export default function Footer({ lang, dict }: FooterProps) {
                         <a href={`/${lang}`} aria-label="MinKits">
                             <Image src={'/logo-ww.png'} alt={'logo'} height={150} width={150}/>
                         </a>
-                        <div className={`w-full h-px mt-8 ${lang === "fa" ? "bg-linear-to-l" : "bg-linear-to-r"} from-black via-white/50 to-black`}></div>
+                        <div className="mt-8 w-full"><Divider variant="gradient" direction={lang === "fa" ? "rtl" : "ltr"} className="from-black via-white/50 to-black" /></div>
                         <p className='mt-6 text-sm leading-relaxed text-footer-muted'>{dict.description}</p>
                     </div>
                     <div className="flex flex-wrap justify-between gap-y-12 lg:gap-x-8">
                         <div className="w-full md:w-[45%] lg:w-[35%] flex flex-col items-center md:items-start text-center md:text-start">
                             <h4 className="text-balance text-2xl font-semibold tracking-tight text-footer-heading">MinKits Team</h4>
-                            <div className={`my-4 h-px w-full ${lang === "fa" ? "bg-linear-to-l" : "bg-linear-to-r"} from-footer-divider-start to-footer-divider-end`}></div>
+                            <div className="my-4 w-full"><Divider variant="gradient" direction={lang === "fa" ? "rtl" : "ltr"} className="from-footer-divider-start to-footer-divider-end" /></div>
                             <p className='max-w-sm text-sm leading-relaxed text-footer-muted'>{dict.description}</p>
                         </div>
                         <div className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-start">
@@ -61,7 +61,7 @@ export default function Footer({ lang, dict }: FooterProps) {
                             </div>
                         </div>
                     </div>
-                    <div className='mb-4 mt-16 h-px w-full bg-footer-divider'></div>
+                    <div className="mb-4 mt-16 w-full"><Divider /></div>
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         <p className='text-xs text-footer-muted'>{dict.copyright}</p>
                         <div className="flex items-center gap-6">
