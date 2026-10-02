@@ -28,7 +28,6 @@ export default async function ComponentPacksPage({params}: Props) {
   const dict=await getDictionary(lang);
   const copy=dict.componentPacks;
   return <>
-    <Header />
     <main className="min-h-screen bg-white text-zinc-900">
     <section className="relative overflow-hidden border-b border-black/8 bg-[#f7f6f2]">
       <div className="absolute inset-0 opacity-60 [background-image:linear-gradient(to_right,rgba(0,0,0,.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,.045)_1px,transparent_1px)] [background-size:48px_48px]" />
@@ -50,6 +49,8 @@ export default async function ComponentPacksPage({params}: Props) {
         <div className="mt-16 grid max-w-3xl grid-cols-3 border-t border-black/10 pt-6">{copy.stats.map((stat)=><div key={stat.label} className={`${lang==="fa" ? "text-right" : "text-left"}`}><p className="text-xl font-semibold text-zinc-950 md:text-2xl">{stat.value}</p><p className="mt-1 text-xs font-medium text-zinc-500 md:text-sm">{stat.label}</p></div>)}</div>
       </div></Container>
     </section>
+
+    <Header />
 
     <section id="blocks" className="scroll-mt-28 py-20 md:py-28"><Container>
       <div className="flex flex-col gap-7 border-b border-black/10 pb-10 md:flex-row md:items-end md:justify-between"><div className={`${lang==="fa" ? "text-right" : "text-left"}`}><p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">01 / Collection</p><h2 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950 md:text-4xl">{copy.browse}</h2></div><div className="flex flex-wrap gap-2">{copy.categories.map((category,index)=><span key={category} className={`rounded-full border px-4 py-2 text-xs font-semibold ${index===0 ? "border-zinc-900 bg-zinc-900 text-white" : "border-black/10 bg-white text-zinc-500"}`}>{category}</span>)}</div></div>
