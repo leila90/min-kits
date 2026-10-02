@@ -2,7 +2,7 @@ import Image from "next/image";
 import type {Messages} from "@/app/i18n/messages";
 import SectionTitle from "@/components/common/sectionTitle";
 import Container from "@/components/ui/container";
-import Button from "@/components/ui/button";
+import {Button, Input, Textarea} from "@/components/ui";
 
 type Props = {
     lang: "fa" | "en";
@@ -18,19 +18,19 @@ export default function ContactUs({lang, dict}: Props) {
                     <form className="min-w-0 space-y-6">
                         <div>
                             <label htmlFor="contact-name" className="mb-2 block text-sm text-contact-heading">{dict.name}</label>
-                            <input id="contact-name" name="name" type="text" required placeholder={dict.namePlaceholder} className="w-full min-w-0 rounded-lg border border-contact-border bg-contact-background px-4 py-3 text-contact-heading outline-none transition focus:border-contact-border-focus" />
+                            <Input id="contact-name" name="name" type="text" required placeholder={dict.namePlaceholder} className="h-auto rounded-lg border-contact-border bg-contact-background py-3 text-contact-heading focus:border-contact-border-focus" />
                         </div>
                         <div>
                             <label htmlFor="contact-email" className="mb-2 block text-sm text-contact-heading">{dict.email}</label>
-                            <input id="contact-email" name="email" type="email" required placeholder={dict.emailPlaceholder} className="w-full min-w-0 rounded-lg border border-contact-border bg-contact-background px-4 py-3 text-contact-heading outline-none transition focus:border-contact-border-focus" />
+                            <Input id="contact-email" name="email" type="email" required placeholder={dict.emailPlaceholder} className="h-auto rounded-lg border-contact-border bg-contact-background py-3 text-contact-heading focus:border-contact-border-focus" />
                         </div>
                         <div>
                             <label htmlFor="contact-message" className="mb-2 block text-sm text-contact-heading">{dict.message}</label>
-                            <textarea id="contact-message" name="message" placeholder={dict.messagePlaceholder} required className="min-h-32 w-full min-w-0 resize-none rounded-lg border border-contact-border bg-contact-background px-4 py-3 text-contact-heading outline-none transition focus:border-contact-border-focus" />
+                            <Textarea id="contact-message" name="message" placeholder={dict.messagePlaceholder} required className="min-h-32 resize-none rounded-lg border-contact-border bg-contact-background text-contact-heading focus:border-contact-border-focus" />
                         </div>
                         <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                             <p className="max-w-3xs text-xs text-contact-text md:text-sm">{dict.legal}</p>
-                            <Button type="submit" size="md" className="w-full rounded-full bg-linear-to-r from-contact-button-start to-contact-button-end px-8 py-3 text-sm text-white hover:from-contact-button-hover-start hover:to-contact-button-hover-end sm:w-auto md:px-16">
+                            <Button type="submit" size="md" radius="full" className="w-full bg-linear-to-r from-contact-button-start to-contact-button-end px-8 py-3 text-sm text-white hover:from-contact-button-hover-start hover:to-contact-button-hover-end sm:w-auto md:px-16">
                                 {dict.submit}
                             </Button>
                         </div>
