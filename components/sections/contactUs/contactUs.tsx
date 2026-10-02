@@ -40,7 +40,7 @@ export default function ContactUs({lang, dict}: Props) {
                         <div className="flex flex-col items-center px-4 sm:px-10">
                             <div className="mt-8 h-px w-full bg-linear-to-r from-contact-divider-start via-contact-divider-mid to-contact-divider-start" />
                             <p className="mt-6 text-sm leading-relaxed text-contact-text">
-                                PrebuiltUI is a growing collection of beautifully designed, production-ready Tailwind CSS UI components.
+                                {dict.brandDescription}
                             </p>
                         </div>
                         <div className="flex items-center justify-center px-4 pt-8 sm:px-10">
