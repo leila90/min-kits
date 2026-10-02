@@ -7,3 +7,5 @@ export type {TextareaProps} from "./textarea";
 export {default as Divider} from "./divider";
 export {default as Container} from "./container";
 export type {ContainerProps} from "./container";
+export {default as FormField} from "./form-field";
+export type {FormFieldProps} from "./form-field";
