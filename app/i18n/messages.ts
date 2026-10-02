@@ -31,7 +31,8 @@ export const messages = {
       principleText: "Every block is created around a practical implementation problem: hierarchy, spacing, responsiveness, and reuse. Start from a solid structure and make it yours.",
       ctaTitle: "Get early access to the first collection.",
       ctaText: "The Component Packs collection is coming soon. Join the early-access list to be notified when the first blocks are released.",
-      cta: "Request early access"
+      cta: "Request early access",
+      collectionLabel: "Collection", philosophyLabel: "Philosophy", earlyAccessLabel: "Early access", previewLabel: "MINKITS / BLOCKS"
     },
     blog: { title: "Blog", subtitle: "Practical articles and resources for modern UI development.", readMore: "Read more", viewAll: "View all articles", posts: [{ title: "Building better interfaces with reusable components", description: "A practical look at structuring reusable UI without losing flexibility." }, { title: "A cleaner approach to Tailwind CSS", description: "Patterns that keep utility-first interfaces readable and maintainable." }, { title: "Designing production-ready React components", description: "What to consider when turning a visual idea into a reusable component." }] },
     team: { title: "Our Team", subtitle: "A small team focused on making frontend development simpler." },
@@ -67,7 +68,8 @@ export const messages = {
       principleText: "هر بلاک حول یک مسئله واقعی پیاده‌سازی طراحی شده است: سلسله‌مراتب، فاصله‌گذاری، واکنش‌گرایی و استفاده مجدد. از یک ساختار محکم شروع کنید و آن را برای محصول خودتان تغییر دهید.",
       ctaTitle: "برای دسترسی زودهنگام به اولین مجموعه آماده شوید.",
       ctaText: "مجموعه Component Packs به‌زودی منتشر می‌شود. برای دریافت اطلاع‌رسانی زمان انتشار اولین بلاک‌ها، به فهرست دسترسی زودهنگام بپیوندید.",
-      cta: "درخواست دسترسی زودهنگام"
+      cta: "درخواست دسترسی زودهنگام",
+      collectionLabel: "مجموعه", philosophyLabel: "رویکرد", earlyAccessLabel: "دسترسی زودهنگام", previewLabel: "MINKITS / BLOCKS"
     },
     blog: { title: "بلاگ", subtitle: "مقالات و منابع کاربردی برای توسعه رابط کاربری مدرن.", readMore: "مطالعه بیشتر", viewAll: "مشاهده همه مقالات", posts: [{ title: "ساخت رابط‌های بهتر با کامپوننت‌های قابل استفاده مجدد", description: "نگاهی کاربردی به ساختاردهی کامپوننت‌های قابل استفاده مجدد بدون از دست دادن انعطاف‌پذیری." }, { title: "رویکردی تمیزتر به Tailwind CSS", description: "الگوهایی برای خوانایی و نگهداری بهتر رابط‌های ساخته‌شده با رویکرد utility-first." }, { title: "طراحی کامپوننت‌های React آماده تولید", description: "نکاتی که هنگام تبدیل یک ایده بصری به یک کامپوننت قابل استفاده مجدد باید در نظر گرفت." }] },
     team: { title: "تیم ما", subtitle: "تیمی کوچک که روی ساده‌تر کردن توسعه فرانت‌اند تمرکز دارد." },
