@@ -27,7 +27,7 @@ export default function ContactUs({lang, dict}: Props) {
                         </FormField>
                         <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                             <p className="max-w-3xs text-xs text-contact-text md:text-sm">{dict.legal}</p>
-                            <Button type="submit" size="md" radius="full" className="w-full bg-linear-to-r from-contact-button-start to-contact-button-end px-8 py-3 text-sm text-white hover:from-contact-button-hover-start hover:to-contact-button-hover-end sm:w-auto md:px-16">
+                            <Button type="submit" size="md" variant="form" className="w-full sm:w-auto md:px-16">
                                 {dict.submit}
                             </Button>
                         </div>
