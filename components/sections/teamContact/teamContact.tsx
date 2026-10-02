@@ -1,5 +1,6 @@
 import SectionTitle from "@/components/common/sectionTitle";
 import Container from "@/components/ui/container";
+import {Button, Input, Textarea} from "@/components/ui";
 import type {Messages} from "@/app/i18n/messages";
 
 type Props = {
@@ -53,39 +54,40 @@ export default function TeamContact({lang, dict}: Props) {
 
                         <div className="relative mb-4">
                             <label htmlFor="team-contact-name" className="text-sm leading-7 text-team-contact-muted">Name</label>
-                            <input
+                            <Input
                                 type="text"
                                 id="team-contact-name"
                                 name="name"
-                                className="w-full rounded border border-team-contact-border bg-team-contact-background px-3 py-1 text-base leading-8 text-team-contact-muted outline-none transition-colors duration-200 ease-in-out focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
+                                className="h-auto rounded border-team-contact-border bg-team-contact-background px-3 py-1 text-base leading-8 text-team-contact-muted focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
                             />
                         </div>
 
                         <div className="relative mb-4">
                             <label htmlFor="team-contact-email" className="text-sm leading-7 text-team-contact-muted">Email</label>
-                            <input
+                            <Input
                                 type="email"
                                 id="team-contact-email"
                                 name="email"
-                                className="w-full rounded border border-team-contact-border bg-team-contact-background px-3 py-1 text-base leading-8 text-team-contact-muted outline-none transition-colors duration-200 ease-in-out focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
+                                className="h-auto rounded border-team-contact-border bg-team-contact-background px-3 py-1 text-base leading-8 text-team-contact-muted focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
                             />
                         </div>
 
                         <div className="relative mb-4">
                             <label htmlFor="team-contact-message" className="text-sm leading-7 text-team-contact-muted">Message</label>
-                            <textarea
+                            <Textarea
                                 id="team-contact-message"
                                 name="message"
-                                className="h-32 w-full resize-none rounded border border-team-contact-border bg-team-contact-background px-3 py-1 text-base leading-6 text-team-contact-muted outline-none transition-colors duration-200 ease-in-out focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
+                                className="h-32 resize-none rounded border-team-contact-border bg-team-contact-background px-3 py-1 text-base leading-6 text-team-contact-muted focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
                             />
                         </div>
 
-                        <button
+                        <Button
                             type="button"
-                            className="rounded border-0 bg-team-contact-button px-6 py-2 text-lg text-white transition-colors hover:bg-team-contact-button-hover focus:outline-none"
+                            size="md"
+                            className="rounded border-0 bg-team-contact-button px-6 py-2 text-lg font-normal text-white hover:bg-team-contact-button-hover focus:outline-none"
                         >
                             Button
-                        </button>
+                        </Button>
                         <p className="mt-3 text-xs text-team-contact-note">Chicharrones blog helvetica normcore iceland tousled
                             brook viral artisan.</p>
                     </div>
