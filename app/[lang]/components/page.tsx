@@ -1,5 +1,6 @@
 import {notFound} from "next/navigation";
 import Container from "../../../components/ui/container";
+import FooterHeader from "../../../components/layout/footerHeader";
 import SectionTitle from "../../../components/common/sectionTitle";
 import ComponentCatalogBrowser from "../../../components/sections/componentCatalog/componentCatalogBrowser";
 import {getDictionary, isLang, type Lang} from "../../i18n";
@@ -69,6 +70,7 @@ export default async function ComponentsPage({params}: ComponentsPageProps) {
                     />
                 </Container>
             </section>
+            <FooterHeader />
         </main>
     );
 }
