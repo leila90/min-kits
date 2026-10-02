@@ -108,11 +108,13 @@ export default function ComponentDemoTabs({
     return (
         <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 bg-zinc-50 px-4 py-3 md:px-5">
-                <div className="flex items-center gap-1 rounded-xl bg-zinc-100 p-1" role="tablist" aria-label={previewLabel}>
+                <div className="flex items-center gap-1 rounded-xl bg-zinc-100 p-1" role="tablist" aria-label={`${previewLabel} / ${sourceLabel}`}>
                     <button
                         type="button"
                         role="tab"
                         aria-selected={activeTab === "preview"}
+                        aria-controls="component-demo-preview"
+                        id="component-demo-tab-preview"
                         onClick={() => setActiveTab("preview")}
                         className={[
                             "rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
@@ -125,6 +127,8 @@ export default function ComponentDemoTabs({
                         type="button"
                         role="tab"
                         aria-selected={activeTab === "source"}
+                        aria-controls="component-demo-source"
+                        id="component-demo-tab-source"
                         onClick={() => setActiveTab("source")}
                         className={[
                             "rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
@@ -147,11 +151,11 @@ export default function ComponentDemoTabs({
             </div>
 
             {activeTab === "preview" ? (
-                <div role="tabpanel" className="flex min-h-64 min-w-0 items-center justify-center overflow-hidden p-6 md:min-h-72 md:p-6">
+                <div id="component-demo-preview" role="tabpanel" aria-labelledby="component-demo-tab-preview" className="flex min-h-64 min-w-0 items-center justify-center overflow-hidden p-6 md:min-h-72 md:p-6">
                     {preview}
                 </div>
             ) : (
-                <div role="tabpanel" className="min-w-0 p-0">
+                <div id="component-demo-source" role="tabpanel" aria-labelledby="component-demo-tab-source" className="min-w-0 p-0">
                     <SourceCode source={source} />
                 </div>
             )}
