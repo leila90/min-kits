@@ -11,7 +11,15 @@ export type ComponentProp = {
     };
 };
 
-export type ComponentUsageExample = {\n    title: {\n        en: string;\n        fa: string;\n    };\n    code: string;\n};\n\nexport type ComponentRegistryItem = {
+export type ComponentUsageExample = {
+    title: {
+        en: string;
+        fa: string;
+    };
+    code: string;
+};
+
+export type ComponentRegistryItem = {
     slug: string;
     category: ComponentCategory;
     name: {
