@@ -18,7 +18,7 @@ const LANGUAGES: Language[] = [
         label: "فارسی",
         dir: "rtl",
         flag: (
-            <svg className="size-4 rounded-full" viewBox="0 0 512 512">
+            <svg aria-hidden="true" className="size-4 rounded-full" viewBox="0 0 512 512">
                 <path fill="#239f40" d="M0 0h512v170.7H0z" />
                 <path fill="#fff" d="M0 170.7h512v170.6H0z" />
                 <path fill="#da0000" d="M0 341.3h512V512H0z" />
@@ -30,7 +30,7 @@ const LANGUAGES: Language[] = [
         label: "English",
         dir: "ltr",
         flag: (
-            <svg className="shrink-0 size-3.5 rounded-full" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us"
+            <svg aria-hidden="true" className="shrink-0 size-3.5 rounded-full" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us"
                  viewBox="0 0 512 512">
                 <g fillRule="evenodd">
                     <g strokeWidth="1pt">
@@ -105,7 +105,7 @@ export default function LanguageDropdown() {
                     "inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm w-30",
                     "bg-white text-zinc-800 hover:bg-zinc-50",
                     "focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500",
-                    "dark:bg-neutral-900 dark:text-black dark:hover:bg-neutral-800"
+                    "dark:bg-neutral-900 dark:text-white dark:hover:bg-neutral-800"
                 )}
             >
                 {active && (
@@ -116,6 +116,7 @@ export default function LanguageDropdown() {
                 )}
 
                 <svg
+                    aria-hidden="true"
                     className={clsx(
                         "size-4 transition-transform ml-2",
                         open && "rotate-180"
