@@ -84,9 +84,9 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                 <DialogPanel
                     className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-navbar-mobile-background px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-navbar-mobile-ring">
                     <div className="flex items-center justify-between">
-                        <Link href={`/${lang}`} className="justify-items-center">
+                        <Link href={`/${lang}`} className="justify-items-center" aria-label="MinKits">
                             <Image
-                                alt=""
+                                alt="MinKits"
                                 src="/logo-bb.png"
                                 width={250}
                                 height={250}
