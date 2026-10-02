@@ -66,7 +66,8 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
         notFound();
     }
 
-    const copy = (await getDictionary(lang)).componentsCatalog;
+    const dictionary = await getDictionary(lang);
+    const copy = dictionary.componentsCatalog;
     const source = getComponentSource(component);
     const componentIndex = componentRegistry.findIndex((item) => item.slug === component.slug);
     const categoryLabel = {
@@ -114,7 +115,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         <div className="min-w-0 lg:col-start-2">
                             <Breadcrumb
                                 lang={lang}
-                                dict={(await getDictionary(lang)).breadcrumbs}
+                                dict={dictionary.breadcrumbs}
                                 page="components"
                                 currentLabel={component.name[lang]}
                             />
