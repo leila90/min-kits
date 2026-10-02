@@ -71,6 +71,8 @@
   --component-store-stage-border: rgb(0 0 0 / 10%);
   --component-store-stage-line: rgb(0 0 0 / 10%);
   --component-store-stage-strong: #18181b;
+  --component-store-stage-shape: #b8b8b8;
+  --component-store-stage-shape-surface: rgb(255 255 255 / 82%);
   --component-store-stage-soft: #e4e2dc;
   --component-store-stage-muted: #71717a;
   --section-title-circle: #000000;
@@ -230,6 +232,8 @@
   --color-component-store-stage-border: var(--component-store-stage-border);
   --color-component-store-stage-line: var(--component-store-stage-line);
   --color-component-store-stage-strong: var(--component-store-stage-strong);
+  --color-component-store-stage-shape: var(--component-store-stage-shape);
+  --color-component-store-stage-shape-surface: var(--component-store-stage-shape-surface);
   --color-component-store-stage-soft: var(--component-store-stage-soft);
   --color-component-store-stage-muted: var(--component-store-stage-muted);
   --color-section-title-circle: var(--section-title-circle);
