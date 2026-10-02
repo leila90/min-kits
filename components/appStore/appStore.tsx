@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { cards, type Card } from "./data";
 import AppStoreCard from "@/components/appStore/appStoreCard";
 import ExpandedCard from "@/components/appStore/expandedCard";
@@ -21,7 +22,7 @@ export default function AppStore() {
                     Today
                 </h2>
                 <div className="w-10 h-10 rounded-full overflow-hidden border">
-                    <img src="/authors/matt-perry.png" alt="" />
+                    <Image src="/authors/matt-perry.png" alt="" width={40} height={40} />
                 </div>
             </header>
 
