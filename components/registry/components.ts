@@ -14,7 +14,7 @@ export const componentRegistry = [
             {name: "size", type: '"sm" | "md" | "lg"', required: false, defaultValue: '"md"', description: {en: "Button size.", fa: "اندازه دکمه."}},
             {name: "radius", type: '"default" | "full"', required: false, defaultValue: '"default"', description: {en: "Corner radius.", fa: "گردی گوشه‌ها."}},
         ],
-        examples: [{title: {en: "Primary button", fa: "دکمه اصلی"}, code: `<Button>Continue</Button>`}],
+        examples: [\n            {title: {en: "Primary button", fa: "دکمه اصلی"}, code: `<Button>Continue</Button>`},\n            {title: {en: "Secondary action", fa: "عمل ثانویه"}, code: `<Button variant="secondary" size="sm">Cancel</Button>`},\n            {title: {en: "Full radius", fa: "گوشه کاملاً گرد"}, code: `<Button radius="full">Get started</Button>`},\n        ],
     },
     {
         slug: "input",
@@ -28,7 +28,7 @@ export const componentRegistry = [
             {name: "placeholder", type: "string", required: false, description: {en: "Placeholder text.", fa: "متن راهنما."}},
             {name: "disabled", type: "boolean", required: false, defaultValue: "false", description: {en: "Disables the field.", fa: "فیلد را غیرفعال می‌کند."}},
         ],
-        examples: [{title: {en: "Text input", fa: "ورودی متنی"}, code: `<Input placeholder="Your email" />`}],
+        examples: [\n            {title: {en: "Text input", fa: "ورودی متنی"}, code: `<Input placeholder="Your email" />`},\n            {title: {en: "Disabled state", fa: "حالت غیرفعال"}, code: `<Input placeholder="Unavailable" disabled />`},\n        ],
     },
     {
         slug: "textarea",
@@ -42,7 +42,7 @@ export const componentRegistry = [
             {name: "placeholder", type: "string", required: false, description: {en: "Placeholder text.", fa: "متن راهنما."}},
             {name: "rows", type: "number", required: false, description: {en: "Visible text rows.", fa: "تعداد ردیف‌های قابل مشاهده."}},
         ],
-        examples: [{title: {en: "Multiline input", fa: "ورودی چندخطی"}, code: `<Textarea placeholder="Write a message..." rows={5} />`}],
+        examples: [\n            {title: {en: "Multiline input", fa: "ورودی چندخطی"}, code: `<Textarea placeholder="Write a message..." rows={5} />`},\n            {title: {en: "Compact message", fa: "پیام کوتاه"}, code: `<Textarea rows={3} placeholder="Add a note..." />`},\n        ],
     },
     {
         slug: "form-field",
@@ -56,7 +56,7 @@ export const componentRegistry = [
             {name: "label", type: "ReactNode", required: true, description: {en: "Field label.", fa: "برچسب فیلد."}},
             {name: "htmlFor", type: "string", required: false, description: {en: "Associated control id.", fa: "شناسه کنترل مرتبط."}},
         ],
-        examples: [{title: {en: "Labeled field", fa: "فیلد دارای برچسب"}, code: `<FormField label="Email" htmlFor="email"><Input id="email" /></FormField>`}],
+        examples: [\n            {title: {en: "Labeled field", fa: "فیلد دارای برچسب"}, code: `<FormField label="Email" htmlFor="email"><Input id="email" /></FormField>`},\n            {title: {en: "Simple label", fa: "برچسب ساده"}, code: `<FormField label="Name"><Input /></FormField>`},\n        ],
     },
     {
         slug: "divider",
@@ -70,6 +70,6 @@ export const componentRegistry = [
             {name: "variant", type: '"solid" | "gradient"', required: false, defaultValue: '"solid"', description: {en: "Divider style.", fa: "سبک جداکننده."}},
             {name: "direction", type: '"ltr" | "rtl"', required: false, defaultValue: '"ltr"', description: {en: "Gradient direction.", fa: "جهت گرادیان."}},
         ],
-        examples: [{title: {en: "Gradient divider", fa: "جداکننده گرادیانی"}, code: `<Divider variant="gradient" direction="ltr" />`}],
+        examples: [\n            {title: {en: "Solid divider", fa: "جداکننده ساده"}, code: `<Divider />`},\n            {title: {en: "Gradient divider", fa: "جداکننده گرادیانی"}, code: `<Divider variant="gradient" direction="ltr" />`},\n        ],
     },
 ] satisfies ComponentRegistry;
