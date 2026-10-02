@@ -108,7 +108,7 @@ export default function ComponentDemoTabs({
     return (
         <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 bg-white px-4 py-3 md:px-5">
-                <div className="flex items-center gap-1 rounded-xl bg-zinc-100 p-1" role="tablist" aria-label="Component demo">
+                <div className="flex items-center gap-1 rounded-xl bg-zinc-100 p-1" role="tablist" aria-label={previewLabel}>
                     <button
                         type="button"
                         role="tab"
@@ -147,11 +147,11 @@ export default function ComponentDemoTabs({
             </div>
 
             {activeTab === "preview" ? (
-                <div role="tabpanel" className="flex min-h-80 items-center justify-center p-8 md:min-h-96">
+                <div role="tabpanel" className="flex min-h-80 min-w-0 items-center justify-center overflow-hidden p-6 md:min-h-96 md:p-10">
                     {preview}
                 </div>
             ) : (
-                <div role="tabpanel" className="p-0">
+                <div role="tabpanel" className="min-w-0 p-0">
                     <SourceCode source={source} />
                 </div>
             )}
