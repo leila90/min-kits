@@ -147,7 +147,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                     </span>
                                 </div>
 
-                                <div className="divide-y divide-[#E4E0D7]">
+                                <div className="divide-y divide-zinc-200">
                                     {component.examples.map((example, index) => (
                                         <div key={example.code} className="p-5 md:p-6">
                                             <div className="mb-3 flex items-center gap-3">
@@ -156,7 +156,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                                 </span>
                                                 <h3 className="font-semibold text-zinc-900">{example.title[lang]}</h3>
                                             </div>
-                                            <pre dir="ltr" className="overflow-x-auto rounded-2xl bg-zinc-900 p-4 text-sm leading-7 text-[#F8F7F4] shadow-sm">
+                                            <pre dir="ltr" className="overflow-x-auto rounded-2xl bg-zinc-900 p-4 text-sm leading-7 text-zinc-100 shadow-sm">
                                                 <code>{example.code}</code>
                                             </pre>
                                         </div>
@@ -164,14 +164,14 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                 </div>
                             </section>
 
-                            <section className="overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50" aria-labelledby="component-api">
-                                <div className="border-b border-zinc-200 bg-zinc-100 px-6 py-5 md:px-8">
+                            <section className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50" aria-labelledby="component-api">
+                                <div className="border-b border-zinc-200 bg-zinc-100 px-5 py-4 md:px-6">
                                     <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                                         <div>
                                             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">{copy.api}</p>
                                             <h2 id="component-api" className="mt-1.5 text-xl font-bold tracking-tight text-zinc-900">{copy.props}</h2>
                                         </div>
-                                        <span className="rounded-full bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-[#E4E0D7]">
+                                        <span className="rounded-full bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-200">
                                             {component.props.length} {lang === "fa" ? "پراپ مستند" : "documented props"}
                                         </span>
                                     </div>
