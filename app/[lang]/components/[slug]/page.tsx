@@ -1,9 +1,10 @@
 import Link from "next/link";
 import {notFound} from "next/navigation";
 import Container from "../../../../components/ui/container";
+import ComponentCatalogSidebar from "../../../../components/sections/componentCatalog/componentCatalogSidebar";
+import ComponentPreview from "../../../../components/sections/componentCatalog/componentPreview";
 import ComponentDemoTabs from "../../../../components/sections/componentCatalog/componentDemoTabs";
 import {getComponentSource} from "../../../../components/registry/source";
-import {Button, Divider, FormField, Input, Textarea} from "../../../../components/ui";
 import {getDictionary, isLang, type Lang} from "../../../i18n";
 import {componentRegistry} from "../../../../components/registry";
 
@@ -91,64 +92,31 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                 </Container>
             </section>
 
-            <section className="py-16 md:py-20">
+            <section className="py-12 md:py-16">
                 <Container>
-                    <ComponentDemoTabs
-                        preview={
-                            <>
-                                {component.slug === "button" && (
-                                    <Button size="lg" radius="full">
-                                        {lang === "fa" ? "ادامه" : "Continue"}
-                                    </Button>
-                                )}
+                    <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-start lg:gap-12">
+                        <ComponentCatalogSidebar
+                            lang={lang}
+                            activeSlug={component.slug}
+                            registry={componentRegistry}
+                        />
 
-                                {component.slug === "input" && (
-                                    <div className="w-full max-w-md">
-                                        <Input
-                                            type="text"
-                                            placeholder={lang === "fa" ? "متن را وارد کنید" : "Enter text"}
-                                            aria-label={lang === "fa" ? "نمونه ورودی" : "Input example"}
-                                        />
-                                    </div>
-                                )}
-
-                                {component.slug === "textarea" && (
-                                    <div className="w-full max-w-md">
-                                        <Textarea
-                                            placeholder={lang === "fa" ? "متن خود را وارد کنید" : "Enter your message"}
-                                            aria-label={lang === "fa" ? "نمونه ناحیه متن" : "Textarea example"}
-                                        />
-                                    </div>
-                                )}
-
-                                {component.slug === "form-field" && (
-                                    <div className="w-full max-w-md">
-                                        <FormField
-                                            label={lang === "fa" ? "نام" : "Name"}
-                                            htmlFor="component-form-field-preview"
-                                        >
-                                            <Input
-                                                id="component-form-field-preview"
-                                                type="text"
-                                                placeholder={lang === "fa" ? "نام خود را وارد کنید" : "Enter your name"}
-                                            />
-                                        </FormField>
-                                    </div>
-                                )}
-
-                                {component.slug === "divider" && (
-                                    <div className="w-full max-w-md">
-                                        <Divider />
-                                    </div>
-                                )}
-                            </>
-                        }
-                        source={source}
-                        previewLabel={copy.preview}
-                        sourceLabel={copy.source}
-                        copyLabel={copy.copy}
-                        copiedLabel={copy.copied}
-                    />
+                        <div className="min-w-0">
+                            <ComponentDemoTabs
+                                preview={
+                                    <ComponentPreview
+                                        slug={component.slug}
+                                        lang={lang}
+                                    />
+                                }
+                                source={source}
+                                previewLabel={copy.preview}
+                                sourceLabel={copy.source}
+                                copyLabel={copy.copy}
+                                copiedLabel={copy.copied}
+                            />
+                        </div>
+                    </div>
                 </Container>
             </section>
         </main>
