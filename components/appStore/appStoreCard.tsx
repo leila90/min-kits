@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import type { Card } from "./data";
 
 type Props = {
@@ -24,9 +25,11 @@ export default function AppStoreCard({ card, onClick }: Props) {
                     layoutId={`image-${card.id}`}
                     className="relative h-full overflow-hidden"
                 >
-                    <img
+                    <Image
                         src={card.image}
-                        alt=""
+                        alt={card.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 40vw"
                         className={`absolute ${card.imageStyle}`}
                     />
                 </motion.div>
