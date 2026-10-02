@@ -51,6 +51,10 @@
   --features-text: #71717a;
   --features-grid-border: #ffffff;
   --section-title-circle: #000000;
+  --section-title-heading: #000000;
+  --section-title-gradient-start: rgb(0 0 0 / 25%);
+  --section-title-gradient-mid: rgb(0 0 0 / 50%);
+  --section-title-gradient-end: rgb(255 255 255 / 25%);
   --section-title-subtitle: #939393;
   --blog-featured-background: #27272a;
   --blog-featured-text: #f4f4f5;
@@ -167,6 +171,10 @@
   --color-features-text: var(--features-text);
   --color-features-grid-border: var(--features-grid-border);
   --color-section-title-circle: var(--section-title-circle);
+  --color-section-title-heading: var(--section-title-heading);
+  --color-section-title-gradient-start: var(--section-title-gradient-start);
+  --color-section-title-gradient-mid: var(--section-title-gradient-mid);
+  --color-section-title-gradient-end: var(--section-title-gradient-end);
   --color-section-title-subtitle: var(--section-title-subtitle);
   --color-blog-featured-background: var(--blog-featured-background);
   --color-blog-featured-text: var(--blog-featured-text);
