@@ -67,7 +67,7 @@ export default function TeamContact({lang, dict}: Props) {
                         <Button
                             type="button"
                             size="md"
-                            className="border-0 bg-team-contact-button text-white hover:bg-team-contact-button-hover focus:outline-none"
+                            variant="form"
                         >
                             Button
                         </Button>
