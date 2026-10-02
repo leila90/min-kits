@@ -24,6 +24,8 @@ type NavbarProps = {
 
 export default function Navbar({ lang, dict }: NavbarProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+    const closeMobileMenu = () => setMobileMenuOpen(false)
     return (
         <header
             className={`fixed md:my-10 md:mx-20 my-5 mx-5 rounded-2xl border-1 backdrop-blur border-navbar-border top-0 left-0 right-0 z-50 duration-300 bg-navbar-background shadow-md text-navbar-text  ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
@@ -106,6 +108,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
 
                                 <Link
                                     href={`/${lang}/about`}
+                                    onClick={closeMobileMenu}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
                                 >
                                     {dict.nav.about}
@@ -113,6 +116,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
 
                                 <Link
                                     href={`/${lang}/blog`}
+                                    onClick={closeMobileMenu}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
                                 >
                                     {dict.nav.blog}
@@ -124,6 +128,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                 </span>
                                 <Link
                                     href={`/${lang}#contactUs`}
+                                    onClick={closeMobileMenu}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
                                 >
                                     {dict.nav.contact}
