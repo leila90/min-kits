@@ -68,6 +68,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
     const copy = (await getDictionary(lang)).componentsCatalog;
     const source = getComponentSource(component);
     const componentIndex = componentRegistry.findIndex((item) => item.slug === component.slug);
+    const componentIndex = componentRegistry.findIndex((item) => item.slug === component.slug);
     const categoryLabel = {
         form: lang === "fa" ? "فرم" : "Form",
         layout: lang === "fa" ? "چیدمان" : "Layout",
@@ -101,7 +102,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
             <section className="py-8 md:py-10">
                 <Container>
-                    <div className="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start lg:gap-8">
+                    <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-start lg:gap-8">
                         <ComponentCatalogSidebar
                             lang={lang}
                             activeSlug={component.slug}
@@ -215,6 +216,25 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
                     </div>
 
+                    <nav
+                        aria-label={copy.browseAllComponents}
+                        className="mt-8 border-t border-zinc-200 pt-6 md:mt-10 md:pt-8"
+                    >
+                        <div className="flex items-center justify-between gap-6">
+                            <Link
+                                href={componentIndex > 0 ? `/${lang}/components/${componentRegistry[componentIndex - 1].slug}` : `/${lang}/components`}
+                                className="text-sm font-semibold text-zinc-500 transition-colors hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
+                            >
+                                ← {copy.previousComponent}
+                            </Link>
+                            <Link
+                                href={componentIndex < componentRegistry.length - 1 ? `/${lang}/components/${componentRegistry[componentIndex + 1].slug}` : `/${lang}/components`}
+                                className="text-sm font-semibold text-zinc-500 transition-colors hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
+                            >
+                                {copy.nextComponent} →
+                            </Link>
+                        </div>
+                    </nav>
 
                 </Container>
             </section>
