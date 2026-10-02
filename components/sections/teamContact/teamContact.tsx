@@ -1,6 +1,6 @@
 import SectionTitle from "@/components/common/sectionTitle";
 import Container from "@/components/ui/container";
-import {Button, Input, Textarea} from "@/components/ui";
+import {Button, FormField, Input, Textarea} from "@/components/ui";
 import type {Messages} from "@/app/i18n/messages";
 
 type Props = {
@@ -52,34 +52,17 @@ export default function TeamContact({lang, dict}: Props) {
                         <p className="mb-5 leading-relaxed text-team-contact-muted">Post-ironic portland shabby chic echo park,
                             banjo fashion axe</p>
 
-                        <div className="relative mb-4">
-                            <label htmlFor="team-contact-name" className="text-sm leading-7 text-team-contact-muted">Name</label>
-                            <Input
-                                type="text"
-                                id="team-contact-name"
-                                name="name"
-                                className="rounded-xl border-team-contact-border bg-team-contact-background text-team-contact-muted focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
-                            />
-                        </div>
+                        <FormField label="Name" htmlFor="team-contact-name" className="mb-4">
+                            <Input type="text" id="team-contact-name" name="name" className="border-team-contact-border bg-team-contact-background text-team-contact-muted" />
+                        </FormField>
 
-                        <div className="relative mb-4">
-                            <label htmlFor="team-contact-email" className="text-sm leading-7 text-team-contact-muted">Email</label>
-                            <Input
-                                type="email"
-                                id="team-contact-email"
-                                name="email"
-                                className="h-auto rounded border-team-contact-border bg-team-contact-background px-3 py-1 text-base leading-8 text-team-contact-muted focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
-                            />
-                        </div>
+                        <FormField label="Email" htmlFor="team-contact-email" className="mb-4">
+                            <Input type="email" id="team-contact-email" name="email" className="border-team-contact-border bg-team-contact-background text-team-contact-muted" />
+                        </FormField>
 
-                        <div className="relative mb-4">
-                            <label htmlFor="team-contact-message" className="text-sm leading-7 text-team-contact-muted">Message</label>
-                            <Textarea
-                                id="team-contact-message"
-                                name="message"
-                                className="min-h-32 resize-none rounded-xl border-team-contact-border bg-team-contact-background text-team-contact-muted focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
-                            />
-                        </div>
+                        <FormField label="Message" htmlFor="team-contact-message" className="mb-4">
+                            <Textarea id="team-contact-message" name="message" className="min-h-32 resize-none border-team-contact-border bg-team-contact-background text-team-contact-muted" />
+                        </FormField>
 
                         <Button
                             type="button"
