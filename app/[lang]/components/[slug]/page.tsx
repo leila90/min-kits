@@ -8,6 +8,7 @@ import ComponentDemoTabs from "../../../../components/sections/componentCatalog/
 import {getComponentSource} from "../../../../components/registry/source";
 import {getDictionary, isLang, type Lang} from "../../../i18n";
 import {componentRegistry} from "../../../../components/registry";
+import Breadcrumb from "../../../../components/common/breadcrumb";
 
 type ComponentDetailPageProps = {
     params: Promise<{lang: string; slug: string}>;
@@ -111,6 +112,13 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         />
 
                         <div className="min-w-0 lg:col-start-2">
+                            <Breadcrumb
+                                lang={lang}
+                                dict={(await getDictionary(lang)).breadcrumbs}
+                                page="components"
+                                currentLabel={component.name[lang]}
+                            />
+
                             <div className="mb-3 flex items-center justify-between gap-4">
                                 <div>
                                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
