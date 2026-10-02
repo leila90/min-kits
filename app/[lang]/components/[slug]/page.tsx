@@ -122,7 +122,46 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                             />
                         </div>
 
+                        <div className="mt-8 space-y-8 lg:col-start-2">
+                            <section className="rounded-3xl border border-zinc-200 bg-white p-6 md:p-8" aria-labelledby="component-usage">
+                                <div className="mb-5">
+                                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">{copy.usage}</p>
+                                    <h2 id="component-usage" className="mt-2 text-xl font-bold tracking-tight text-zinc-900">{component.examples[0]?.title[lang] ?? component.name[lang]}</h2>
+                                </div>
+                                <pre dir="ltr" className="overflow-x-auto rounded-2xl bg-zinc-950 p-5 text-sm leading-7 text-zinc-100"><code>{component.examples[0]?.code ?? ""}</code></pre>
+                            </section>
 
+                            <section className="rounded-3xl border border-zinc-200 bg-white p-6 md:p-8" aria-labelledby="component-api">
+                                <div className="mb-5">
+                                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">{copy.api}</p>
+                                    <h2 id="component-api" className="mt-2 text-xl font-bold tracking-tight text-zinc-900">{copy.props}</h2>
+                                </div>
+                                <div className="overflow-x-auto">
+                                    <table className="w-full min-w-[720px] text-sm" dir={lang === "fa" ? "rtl" : "ltr"}>
+                                        <thead className="border-b border-zinc-200 text-zinc-500">
+                                            <tr>
+                                                <th className="px-3 py-3 font-semibold">{copy.propName}</th>
+                                                <th className="px-3 py-3 font-semibold">{copy.propType}</th>
+                                                <th className="px-3 py-3 font-semibold">{lang === "fa" ? "توضیحات" : "Description"}</th>
+                                                <th className="px-3 py-3 font-semibold">{copy.required}</th>
+                                                <th className="px-3 py-3 font-semibold">{copy.defaultValue}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {component.props.map((prop) => (
+                                                <tr key={prop.name} className="border-b border-zinc-100 last:border-0">
+                                                    <td className="px-3 py-4 font-mono text-xs font-semibold text-zinc-900">{prop.name}</td>
+                                                    <td className="px-3 py-4 font-mono text-xs text-zinc-600">{prop.type}</td>
+                                                    <td className="px-3 py-4 text-zinc-600">{prop.description[lang]}</td>
+                                                    <td className="px-3 py-4 text-zinc-600">{prop.required ? copy.required : copy.optional}</td>
+                                                    <td className="px-3 py-4 font-mono text-xs text-zinc-600">{prop.defaultValue ?? "—"}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </Container>
             </section>
