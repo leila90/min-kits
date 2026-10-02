@@ -3,7 +3,7 @@ import Link from "next/link";
 import Container from "@/components/ui/container";
 import {Button, Divider, Input} from "@/components/ui";
 
-type FooterProps = { lang: "fa" | "en"; dict: { description: string; important: string; social: string; subscribe: string; emailPlaceholder: string; button: string; terms: string; privacy: string; copyright: string } };
+type FooterProps = { lang: "fa" | "en"; dict: { description: string; important: string; social: string; subscribe: string; emailPlaceholder: string; button: string; terms: string; privacy: string; copyright: string; home: string; about: string; portfolio: string; contact: string; faq: string } };
 
 export default function Footer({ lang, dict }: FooterProps) {
     return (
@@ -26,11 +26,11 @@ export default function Footer({ lang, dict }: FooterProps) {
                         <div className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-start">
                             <h3 className='text-sm font-medium text-footer-heading'>{dict.important}</h3>
                             <div className="flex flex-col gap-2 mt-6">
-                                <Link href={`/${lang}`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{lang === "fa" ? "خانه" : "Home"}</Link>
-                                <Link href={`/${lang}/about`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{lang === "fa" ? "درباره ما" : "About"}</Link>
-                                <span className='text-sm text-footer-muted'>{lang === "fa" ? "نمونه‌کارها" : "Portfolio"}</span>
-                                <Link href={`/${lang}#contactUs`} className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>{lang === "fa" ? "ارتباط با ما" : "Contact"}</Link>
-                                <span className='text-sm text-footer-muted'>{lang === "fa" ? "سؤالات متداول" : "FAQ"}</span>
+                                <Link href={`/${lang}`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{dict.home}</Link>
+                                <Link href={`/${lang}/about`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{dict.about}</Link>
+                                <span className='text-sm text-footer-muted'>{dict.portfolio}</span>
+                                <Link href={`/${lang}#contactUs`} className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>{dict.contact}</Link>
+                                <span className='text-sm text-footer-muted'>{dict.faq}</span>
                             </div>
                         </div>
                         <div className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-start">
