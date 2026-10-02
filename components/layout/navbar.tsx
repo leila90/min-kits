@@ -131,7 +131,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                 </Link>
                                 <Link
                                     href={`/${lang}`}
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-navbar-mobile-hover"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
                                 >
                                     {dict.nav.careers}
                                 </Link>
