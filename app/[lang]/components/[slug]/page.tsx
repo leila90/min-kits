@@ -107,6 +107,17 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         />
 
                         <div className="min-w-0">
+                            <div className="mb-4 flex items-center justify-between gap-4">
+                                <div>
+                                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
+                                        {lang === "fa" ? "Interactive demo" : "Interactive demo"}
+                                    </p>
+                                </div>
+                                <span className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-500">
+                                    {component.category}
+                                </span>
+                            </div>
+
                             <ComponentDemoTabs
                                 preview={
                                     <ComponentPreview
@@ -123,42 +134,79 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         </div>
 
                         <div className="mt-8 space-y-8 lg:col-start-2">
-                            <section className="rounded-3xl border border-zinc-200 bg-white p-6 md:p-8" aria-labelledby="component-usage">
-                                <div className="mb-5">
-                                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">{copy.usage}</p>
-                                    <h2 id="component-usage" className="mt-2 text-xl font-bold tracking-tight text-zinc-900">{component.examples[0]?.title[lang] ?? component.name[lang]}</h2>
+                            <section className="overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50" aria-labelledby="component-usage">
+                                <div className="flex flex-col gap-4 border-b border-zinc-200 px-6 py-5 md:flex-row md:items-center md:justify-between md:px-8">
+                                    <div>
+                                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">{copy.usage}</p>
+                                        <h2 id="component-usage" className="mt-2 text-xl font-bold tracking-tight text-zinc-900">
+                                            {lang === "fa" ? "از اینجا شروع کنید" : "Start here"}
+                                        </h2>
+                                    </div>
+                                    <span className="text-sm text-zinc-500">
+                                        {component.examples.length} {lang === "fa" ? "مثال" : "example"}
+                                    </span>
                                 </div>
-                                <pre dir="ltr" className="overflow-x-auto rounded-2xl bg-zinc-950 p-5 text-sm leading-7 text-zinc-100"><code>{component.examples[0]?.code ?? ""}</code></pre>
+
+                                <div className="divide-y divide-zinc-200">
+                                    {component.examples.map((example, index) => (
+                                        <div key={example.code} className="p-6 md:p-8">
+                                            <div className="mb-4 flex items-center gap-3">
+                                                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-xs font-bold text-white">
+                                                    {String(index + 1).padStart(2, "0")}
+                                                </span>
+                                                <h3 className="font-semibold text-zinc-900">{example.title[lang]}</h3>
+                                            </div>
+                                            <pre dir="ltr" className="overflow-x-auto rounded-2xl bg-zinc-950 p-5 text-sm leading-7 text-zinc-100 shadow-sm">
+                                                <code>{example.code}</code>
+                                            </pre>
+                                        </div>
+                                    ))}
+                                </div>
                             </section>
 
-                            <section className="rounded-3xl border border-zinc-200 bg-white p-6 md:p-8" aria-labelledby="component-api">
-                                <div className="mb-5">
-                                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">{copy.api}</p>
-                                    <h2 id="component-api" className="mt-2 text-xl font-bold tracking-tight text-zinc-900">{copy.props}</h2>
+                            <section className="overflow-hidden rounded-3xl border border-zinc-200 bg-white" aria-labelledby="component-api">
+                                <div className="border-b border-zinc-200 bg-zinc-50 px-6 py-5 md:px-8">
+                                    <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                                        <div>
+                                            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">{copy.api}</p>
+                                            <h2 id="component-api" className="mt-2 text-xl font-bold tracking-tight text-zinc-900">{copy.props}</h2>
+                                        </div>
+                                        <span className="rounded-full bg-white px-3 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-200">
+                                            {component.props.length} {lang === "fa" ? "پراپ مستند" : "documented props"}
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="overflow-x-auto">
-                                    <table className="w-full min-w-[720px] text-sm" dir={lang === "fa" ? "rtl" : "ltr"}>
-                                        <thead className="border-b border-zinc-200 text-zinc-500">
-                                            <tr>
-                                                <th className="px-3 py-3 font-semibold">{copy.propName}</th>
-                                                <th className="px-3 py-3 font-semibold">{copy.propType}</th>
-                                                <th className="px-3 py-3 font-semibold">{lang === "fa" ? "توضیحات" : "Description"}</th>
-                                                <th className="px-3 py-3 font-semibold">{copy.required}</th>
-                                                <th className="px-3 py-3 font-semibold">{copy.defaultValue}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {component.props.map((prop) => (
-                                                <tr key={prop.name} className="border-b border-zinc-100 last:border-0">
-                                                    <td className="px-3 py-4 font-mono text-xs font-semibold text-zinc-900">{prop.name}</td>
-                                                    <td className="px-3 py-4 font-mono text-xs text-zinc-600">{prop.type}</td>
-                                                    <td className="px-3 py-4 text-zinc-600">{prop.description[lang]}</td>
-                                                    <td className="px-3 py-4 text-zinc-600">{prop.required ? copy.required : copy.optional}</td>
-                                                    <td className="px-3 py-4 font-mono text-xs text-zinc-600">{prop.defaultValue ?? "—"}</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
+
+                                <div className="divide-y divide-zinc-100">
+                                    {component.props.map((prop) => (
+                                        <article key={prop.name} className="p-6 md:p-7" dir={lang === "fa" ? "rtl" : "ltr"}>
+                                            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                                                <div className="min-w-0">
+                                                    <div className="flex flex-wrap items-center gap-2">
+                                                        <code className="rounded-lg bg-zinc-100 px-2.5 py-1 text-sm font-semibold text-zinc-900">
+                                                            {prop.name}
+                                                        </code>
+                                                        <code className="text-xs text-zinc-500">{prop.type}</code>
+                                                        {prop.required && (
+                                                            <span className="rounded-full bg-zinc-900 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
+                                                                {copy.required}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <p className="mt-3 max-w-2xl text-sm leading-6 text-zinc-600">
+                                                        {prop.description[lang]}
+                                                    </p>
+                                                </div>
+
+                                                <div className="shrink-0 rounded-xl border border-zinc-200 bg-zinc-50 px-3 py-2 text-xs text-zinc-500">
+                                                    <span className="block text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
+                                                        {copy.defaultValue}
+                                                    </span>
+                                                    <code className="mt-1 block text-zinc-700">{prop.defaultValue ?? "—"}</code>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    ))}
                                 </div>
                             </section>
                         </div>
