@@ -101,7 +101,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
             <Header />
 
-            <section className="py-8 md:py-10">
+            <section className="pt-28 pb-8 md:pt-32 md:pb-10">
                 <Container>
                     <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-start lg:gap-8">
                         <ComponentCatalogSidebar
