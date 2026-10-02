@@ -40,7 +40,7 @@ export default function TeamContact({lang, dict}: Props) {
                             </div>
                             <div className="mt-4 min-w-0 px-6 lg:mt-0 lg:w-1/2">
                                 <h2 className="text-xs font-semibold tracking-widest text-team-contact-heading">EMAIL</h2>
-                                <a className="text-team-contact-link leading-relaxed">example@email.com</a>
+                                <span className="text-team-contact-link leading-relaxed">example@email.com</span>
                                 <h2 className="mt-4 text-xs font-semibold tracking-widest text-team-contact-heading">PHONE</h2>
                                 <p className="leading-relaxed">123-456-7890</p>
                             </div>
