@@ -147,7 +147,7 @@ export default function ComponentStore({lang, dict}: Props) {
     return (
         <section
             id="component-store"
-            className="scroll-mt-36 pt-8 pb-16 md:scroll-mt-44 md:pt-10 md:pb-20"
+            className="scroll-mt-36 pt-0 pb-16 md:scroll-mt-44 md:pt-0 md:pb-20"
         >
             <Container>
                 <SectionTitle
