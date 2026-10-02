@@ -7,7 +7,7 @@ import ContactUs from "@/components/sections/contactUs/contactUs";
 import Logo from "@/components/layout/logo";
 import AboutUs from "@/components/sections/aboutUs/aboutUs";
 import FooterHeader from "@/components/layout/footerHeader";
-import MyFeatures from "@/components/sections/myFeatures/myFeatures";
+import MyFeatures from "@/components/sections/myFeatures/myFeatures";\nimport ComponentStore from "@/components/sections/componentStore/componentStore";
 import LatestBlog from "@/components/sections/latestBlog/latestBlog";
 import TeamSection from "@/components/sections/teamSection/teamSection";
 import TeamContact from "@/components/sections/teamContact/teamContact";
