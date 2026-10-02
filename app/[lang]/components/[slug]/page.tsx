@@ -225,7 +225,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                             {previousComponent ? (
                                 <Link
                                     href={`/${lang}/components/${previousComponent.slug}`}
-                                    className="group flex min-w-0 min-h-[92px] w-full items-center justify-start gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 sm:px-6",
+                                    className="group flex min-w-0 min-h-[92px] w-full items-center justify-start gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 sm:px-6"
                                 >
                                     <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 text-lg text-zinc-500 transition-colors group-hover:border-zinc-300 group-hover:bg-zinc-100 group-hover:text-zinc-900">
                                         ←
