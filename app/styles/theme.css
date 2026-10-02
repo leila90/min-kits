@@ -104,6 +104,10 @@
   --contact-social-telegram: #0088cc;
   --contact-social-x: #000000;
   --contact-social-whatsapp: #128c7e;
+  --breadcrumb-border: #a1a1aa;
+  --breadcrumb-muted: #71717a;
+  --breadcrumb-text: #18181b;
+  --footer-header-background: #ffffff;
   --navbar-background: rgb(0 0 0 / 80%);
   --navbar-border: #000000;
   --navbar-text: #ffffff;
@@ -226,6 +230,10 @@
   --color-contact-social-telegram: var(--contact-social-telegram);
   --color-contact-social-x: var(--contact-social-x);
   --color-contact-social-whatsapp: var(--contact-social-whatsapp);
+  --color-breadcrumb-border: var(--breadcrumb-border);
+  --color-breadcrumb-muted: var(--breadcrumb-muted);
+  --color-breadcrumb-text: var(--breadcrumb-text);
+  --color-footer-header-background: var(--footer-header-background);
   --color-navbar-background: var(--navbar-background);
   --color-navbar-border: var(--navbar-border);
   --color-navbar-text: var(--navbar-text);
