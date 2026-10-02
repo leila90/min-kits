@@ -198,11 +198,11 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                                     </p>
                                                 </div>
 
-                                                <div className="shrink-0 rounded-xl border border-zinc-200 bg-zinc-100 px-3 py-2 text-xs text-zinc-500">
-                                                    <span className="block text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
+                                                <div className="flex shrink-0 items-center gap-2 rounded-xl border border-zinc-200 bg-zinc-100 px-3 py-2 text-xs text-zinc-500">
+                                                    <span className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
                                                         {copy.defaultValue}
                                                     </span>
-                                                    <code className="mt-1 block text-zinc-700">{prop.defaultValue ?? "—"}</code>
+                                                    <code className="text-zinc-700">{prop.defaultValue ?? "—"}</code>
                                                 </div>
                                             </div>
                                         </article>
