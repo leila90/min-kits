@@ -18,7 +18,7 @@ import LanguageDropdown from "@/components/common/languageDropdown";
 type NavbarProps = {
     lang: "fa" | "en",
     dict: {
-        nav: { home: string; about: string; blog: string; companies: string; contact: string; careers: string }
+        nav: { home: string; about: string; blog: string; componentPacks: string; companies: string; contact: string; careers: string }
     }
 }
 
