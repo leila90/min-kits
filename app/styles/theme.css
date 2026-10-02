@@ -63,6 +63,16 @@
   --component-store-cta-border: #ffffff;
   --component-store-cta-hover: #000000;
   --component-store-focus: #ffffff;
+  --component-store-intro: #52525b;
+  --component-store-index: #71717a;
+  --component-store-index-line: #d4d4d8;
+  --component-store-divider: rgb(0 0 0 / 12%);
+  --component-store-stage: #f4f3ef;
+  --component-store-stage-border: rgb(0 0 0 / 10%);
+  --component-store-stage-line: rgb(0 0 0 / 10%);
+  --component-store-stage-strong: #18181b;
+  --component-store-stage-soft: #e4e2dc;
+  --component-store-stage-muted: #71717a;
   --section-title-circle: #000000;
   --section-title-heading: #000000;
   --section-title-gradient-start: rgb(0 0 0 / 25%);
@@ -212,6 +222,16 @@
   --color-component-store-cta-border: var(--component-store-cta-border);
   --color-component-store-cta-hover: var(--component-store-cta-hover);
   --color-component-store-focus: var(--component-store-focus);
+  --color-component-store-intro: var(--component-store-intro);
+  --color-component-store-index: var(--component-store-index);
+  --color-component-store-index-line: var(--component-store-index-line);
+  --color-component-store-divider: var(--component-store-divider);
+  --color-component-store-stage: var(--component-store-stage);
+  --color-component-store-stage-border: var(--component-store-stage-border);
+  --color-component-store-stage-line: var(--component-store-stage-line);
+  --color-component-store-stage-strong: var(--component-store-stage-strong);
+  --color-component-store-stage-soft: var(--component-store-stage-soft);
+  --color-component-store-stage-muted: var(--component-store-stage-muted);
   --color-section-title-circle: var(--section-title-circle);
   --color-section-title-heading: var(--section-title-heading);
   --color-section-title-gradient-start: var(--section-title-gradient-start);
@@ -307,4 +327,26 @@
 @keyframes team-card-shine {
   from { transform: translateX(-140%) rotate(18deg); }
   to { transform: translateX(140%) rotate(18deg); }
+}
+
+
+@keyframes component-store-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
+}
+
+@keyframes component-store-pulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes component-store-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+  }
 }
