@@ -20,8 +20,7 @@ export default function Ctr() {
                     {/*</div>*/}
                 </div>
             </Container>
-            {/*</div>*/
-
+            {/*</div>*/}
         </section>
     );
 };
