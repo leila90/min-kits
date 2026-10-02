@@ -35,8 +35,8 @@ export default async function ComponentPacksPage({params}: Props) {
   const dict=await getDictionary(lang);
   const copy=dict.componentPacks;
   return <>
-    <main className="min-h-screen bg-zinc-100 text-zinc-900">
-    <section className="relative overflow-hidden border-b border-black/8 bg-zinc-50">
+    <main className="min-h-screen bg-white text-zinc-900">
+    <section className="relative overflow-hidden border-b border-black/8 bg-zinc-100">
       <div className="absolute inset-0 opacity-60 [background-image:linear-gradient(to_right,rgba(0,0,0,.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,.045)_1px,transparent_1px)] [background-size:48px_48px]" />
       <Container className="relative"><div className="flex min-h-[700px] flex-col justify-center pb-20 pt-40 md:min-h-[760px] md:pb-28 md:pt-48">
         <Link href={`/${lang}/#component-store`} className="mb-10 inline-flex w-fit items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 hover:text-zinc-950"><span aria-hidden="true">{lang==="fa" ? "→" : "←"}</span>{copy.back}</Link>
