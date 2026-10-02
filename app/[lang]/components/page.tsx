@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {notFound} from "next/navigation";
 import Container from "../../../components/ui/container";
 import SectionTitle from "../../../components/common/sectionTitle";
