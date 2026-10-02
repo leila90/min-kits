@@ -26,7 +26,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     return (
         <header
-            className={`fixed md:my-10 md:mx-20 my-5 mx-5 rounded-2xl border-1 backdrop-blur border-black top-0 left-0 right-0 z-50 duration-300 bg-black/80 shadow-md text-white  ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
+            className={`fixed md:my-10 md:mx-20 my-5 mx-5 rounded-2xl border-1 backdrop-blur border-navbar-border top-0 left-0 right-0 z-50 duration-300 bg-navbar-background shadow-md text-navbar-text  ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8">
                 <div className="flex lg:flex-1">
                     <Link href={`/${lang}`} className="justify-items-center">
@@ -80,7 +80,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                 <div className="fixed inset-0 z-10"/>
                 <DialogPanel
-                    className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-zinc-900/10">
+                    className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-navbar-mobile-background px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-navbar-mobile-ring">
                     <div className="flex items-center justify-between">
                         <Link href={`/${lang}`} className="justify-items-center">
                             <Image
@@ -94,44 +94,44 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}
-                            className="-m-2.5 rounded-md p-2.5 text-zinc-700"
+                            className="-m-2.5 rounded-md p-2.5 text-navbar-mobile-muted"
                         >
                             <span className="sr-only">Close menu</span>
                             <XMarkIcon aria-hidden="true" className="size-6"/>
                         </button>
                     </div>
                     <div className="mt-6 flow-root">
-                        <div className="-my-6 divide-y divide-zinc-500/10">
+                        <div className="-my-6 divide-y divide-navbar-mobile-divider">
                             <div className="space-y-2 py-6">
 
                                 <Link
                                     href={`/${lang}/about`}
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
                                 >
                                     {dict.nav.about}
                                 </Link>
 
                                 <Link
                                     href={`/${lang}/blog`}
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
                                 >
                                     {dict.nav.blog}
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
                                 >
                                     {dict.nav.companies}
                                 </Link>
                                 <Link
                                     href={`/${lang}#contactUs`}
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
                                 >
                                     {dict.nav.contact}
                                 </Link>
                                 <Link
                                     href={`/${lang}`}
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-gray-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-navbar-mobile-hover"
                                 >
                                     {dict.nav.careers}
                                 </Link>
