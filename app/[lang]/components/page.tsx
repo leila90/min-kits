@@ -56,6 +56,8 @@ export default async function ComponentsPage({params}: ComponentsPageProps) {
                 </Container>
             </section>
 
+            <Header />
+
             <section className="pb-32 pt-12 md:pb-40 md:pt-16">
                 <Container>
                     <ComponentCatalogBrowser
