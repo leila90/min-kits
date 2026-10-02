@@ -221,11 +221,11 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         className="mt-8 border-t border-zinc-200 pt-6 md:mt-10 md:pt-8"
                         dir={lang === "fa" ? "rtl" : "ltr"}
                     >
-                        <div className="flex items-stretch justify-between gap-4">
+                        <div className="grid grid-cols-2 gap-4">
                             {previousComponent ? (
                                 <Link
                                     href={`/${lang}/components/${previousComponent.slug}`}
-                                    className="group flex min-w-0 w-[48%] items-center justify-start gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 sm:w-[220px] sm:px-5"
+                                    className="group flex min-w-0 min-h-[92px] w-full items-center justify-start gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 sm:px-6",
                                 >
                                     <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 text-lg text-zinc-500 transition-colors group-hover:border-zinc-300 group-hover:bg-zinc-100 group-hover:text-zinc-900">
                                         ←
@@ -240,13 +240,13 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                     </span>
                                 </Link>
                             ) : (
-                                <div aria-hidden="true" className="w-[48%] sm:w-[220px]" />
+                                <div aria-hidden="true" className="min-h-[92px] w-full" />
                             )}
 
                             {nextComponent ? (
                                 <Link
                                     href={`/${lang}/components/${nextComponent.slug}`}
-                                    className="group flex min-w-0 w-[48%] items-center justify-end gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-4 text-end shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 sm:w-[220px] sm:px-5"
+                                    className="group flex min-w-0 min-h-[92px] w-full items-center justify-end gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-4 text-end shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 sm:px-6"
                                 >
                                     <span className="min-w-0">
                                         <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-400">
