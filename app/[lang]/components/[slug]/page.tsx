@@ -75,8 +75,8 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
     }[component.category];
 
     return (
-        <main className="min-h-screen bg-zinc-50 pt-20 text-zinc-900 md:pt-24">
-            <section className="border-b border-zinc-200 py-8 md:py-10">
+        <main className="min-h-screen bg-footer-header-background pt-20 text-zinc-900 md:pt-24">
+            <section className="border-b border-zinc-200/70 py-8 md:py-10">
                 <Container>
                     <Link
                         href={`/${lang}/components`}
@@ -217,12 +217,12 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
                     <nav
                         aria-label={copy.browseAllComponents}
-                        className="relative z-10 mt-8 border-t border-zinc-200 bg-zinc-50 pt-6 md:mt-10 md:pt-8"
+                        className="relative z-10 mt-8 border-t border-zinc-200/70 pt-6 md:mt-10 md:pt-8"
                     >
                         <div className="flex items-center justify-between gap-6">
                             <Link
                                 href={componentIndex > 0 ? `/${lang}/components/${componentRegistry[componentIndex - 1].slug}` : `/${lang}/components`}
-                                className="group rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
+                                className="group rounded-lg text-sm text-zinc-600 transition-colors hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
                             >
                                 <span className="block font-semibold">← {copy.previousComponent}</span>
                                 {componentIndex > 0 && (
@@ -233,7 +233,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                             </Link>
                             <Link
                                 href={componentIndex < componentRegistry.length - 1 ? `/${lang}/components/${componentRegistry[componentIndex + 1].slug}` : `/${lang}/components`}
-                                className="group rounded-lg px-3 py-2 text-end text-sm text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
+                                className="group rounded-lg text-end text-sm text-zinc-600 transition-colors hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
                             >
                                 <span className="block font-semibold">{copy.nextComponent} →</span>
                                 {componentIndex < componentRegistry.length - 1 && (
