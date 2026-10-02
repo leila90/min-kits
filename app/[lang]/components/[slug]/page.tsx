@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {notFound} from "next/navigation";
 import Container from "../../../../components/ui/container";
-import FooterHeader from "../../../../components/layout/footerHeader";
+import {Header, FooterHeader} from "../../../../components/layout";
 import ComponentCatalogSidebar from "../../../../components/sections/componentCatalog/componentCatalogSidebar";
 import ComponentPreview from "../../../../components/sections/componentCatalog/componentPreview";
 import ComponentDemoTabs from "../../../../components/sections/componentCatalog/componentDemoTabs";
@@ -75,8 +75,8 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
     }[component.category];
 
     return (
-        <main className="min-h-screen bg-white pt-20 text-zinc-900 md:pt-24">
-            <section className="border-b border-zinc-200/70 py-8 md:py-10">
+        <main className="min-h-screen bg-white text-zinc-900">
+            <section className="border-b border-zinc-200 bg-zinc-200 py-12 md:py-16">
                 <Container>
                     <Link
                         href={`/${lang}/components`}
@@ -98,6 +98,8 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                     </div>
                 </Container>
             </section>
+
+            <Header />
 
             <section className="py-8 md:py-10">
                 <Container>
