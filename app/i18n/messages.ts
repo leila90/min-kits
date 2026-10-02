@@ -4,7 +4,7 @@ export type Messages = typeof messages.en;
 
 export const messages = {
   en: {
-    nav: { home: "Home", about: "About Us", blog: "Blog", companies: "Group Companies", contact: "Contact Us", careers: "Career Opportunities" },
+    nav: { home: "Home", about: "About Us", blog: "Blog", componentPacks: "Component Packs", companies: "Group Companies", contact: "Contact Us", careers: "Career Opportunities" },
     hero: { eyebrow: "Production-ready UI kits for developers", title: "Ship production-ready UI faster with", description: "Premium React, Next.js and Tailwind UI kits built to help developers ship faster, cleaner and better products.", explore: "Explore Kits", components: "View Components" },
     slogan: { text: "We are here to create new ideas together and move forward faster than ever with innovation; because we believe:", value: "simplicity is the power." },
     about: { title: "About Us", subtitle: "Simple tools, thoughtful interfaces, and production-ready code.", intro: "MinKits is a growing collection of practical UI components and kits for developers who want to build polished products without starting every interface from scratch.", items: [{ title: "Build with confidence", text: "Reusable components help teams move from idea to implementation with less repetition." }, { title: "Keep interfaces consistent", text: "Clear patterns and focused components make design systems easier to maintain." }, { title: "Ship faster", text: "Start from production-ready building blocks and spend more time on product decisions." }], cta: "Get Started" },
@@ -40,7 +40,7 @@ export const messages = {
     breadcrumbs: { home: "Home", about: "About Us", blog: "Blog" },
   },
   fa: {
-    nav: { home: "خانه", about: "درباره ما", blog: "بلاگ", companies: "شرکت‌های گروه", contact: "ارتباط با ما", careers: "فرصت‌های شغلی" },
+    nav: { home: "خانه", about: "درباره ما", blog: "بلاگ", componentPacks: "پک‌های کامپوننت", companies: "شرکت‌های گروه", contact: "ارتباط با ما", careers: "فرصت‌های شغلی" },
     hero: { eyebrow: "کیت‌های رابط کاربری آماده تولید برای توسعه‌دهندگان", title: "با سرعت بیشتری رابط کاربری آماده تولید با", description: "کیت‌ها و کامپوننت‌های حرفه‌ای React، Next.js و Tailwind برای ساخت محصولاتی سریع‌تر، تمیزتر و بهتر.", explore: "مشاهده کیت‌ها", components: "مشاهده کامپوننت‌ها" },
     slogan: { text: "اینجا هستیم تا با هم ایده‌های نو خلق کنیم و با نوآوری سریع‌تر از همیشه پیش برویم؛ چون باور داریم:", value: "سادگی، قدرت است." },
     about: { title: "درباره ما", subtitle: "ابزارهای ساده، رابط‌های فکرشده و کد آماده تولید.", intro: "MinKits مجموعه‌ای رو‌به‌رشد از کامپوننت‌ها و کیت‌های کاربردی رابط کاربری است؛ برای توسعه‌دهندگانی که می‌خواهند بدون شروع دوباره از صفر، محصولات حرفه‌ای بسازند.", items: [{ title: "با اطمینان بسازید", text: "کامپوننت‌های قابل استفاده مجدد، مسیر ایده تا پیاده‌سازی را با تکرار کمتر کوتاه می‌کنند." }, { title: "رابطی یکپارچه داشته باشید", text: "الگوهای روشن و کامپوننت‌های متمرکز، نگهداری سیستم طراحی را ساده‌تر می‌کنند." }, { title: "سریع‌تر منتشر کنید", text: "از بلوک‌های آماده تولید شروع کنید و زمان بیشتری برای تصمیم‌های محصول داشته باشید." }], cta: "شروع کنید" },
