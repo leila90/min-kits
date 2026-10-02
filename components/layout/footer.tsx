@@ -53,6 +53,7 @@ export default function Footer({ lang, dict }: FooterProps) {
                                 <Button
                                     type="button"
                                     size="sm"
+                                    radius="full"
                                     className="me-1.5 h-10 shrink-0 rounded-full bg-linear-to-b from-footer-button-start to-footer-button-end px-5 text-sm text-footer-button-text hover:bg-linear-to-b hover:from-footer-button-hover-start hover:to-footer-button-hover-end"
                                 >
                                     {dict.button}
