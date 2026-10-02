@@ -47,9 +47,11 @@ export default function Footer({ lang, dict }: FooterProps) {
                             <div className="mt-4 flex h-13 w-full max-w-80 min-w-0 items-center gap-2 overflow-hidden rounded-full border border-footer-border">
                                 <Input
                                     type="email"
+                                    name="newsletter-email"
+                                    autoComplete="off"
                                     placeholder={dict.emailPlaceholder}
                                     required
-                                    className="h-full rounded-full border-0 bg-transparent px-6 text-sm text-footer-heading focus:border-0"
+                                    className="h-full rounded-full border-0 bg-transparent px-6 text-sm text-footer-heading focus:border-0 [&:-webkit-autofill]:[box-shadow:0_0_0_1000px_#000_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:#fff]"
                                 />
                                 <Button
                                     type="button"
@@ -62,7 +64,7 @@ export default function Footer({ lang, dict }: FooterProps) {
                             </div>
                         </div>
                     </div>
-                    <div className="mb-4 mt-16 w-full"><Divider /></div>
+                    <div className="mb-4 mt-16 w-full"><Divider className="bg-footer-border" /></div>
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         <p className='text-xs text-footer-muted'>{dict.copyright}</p>
                         <div className="flex items-center gap-6">
