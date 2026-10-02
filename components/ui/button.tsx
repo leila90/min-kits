@@ -1,6 +1,6 @@
 import type {ButtonHTMLAttributes} from "react";
 
-type ButtonVariant = "primary" | "secondary";
+type ButtonVariant = "primary" | "secondary" | "form";
 
 type ButtonSize = "sm" | "md" | "lg";
 type ButtonRadius = "default" | "full";
@@ -14,6 +14,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 const variants: Record<ButtonVariant, string> = {
     primary: "bg-button-primary text-white border border-button-primary hover:bg-button-primary-hover",
     secondary: "bg-button-secondary text-button-text border border-button-text hover:bg-button-secondary-hover hover:text-white",
+    form: "border border-form-button-start bg-linear-to-r from-form-button-start to-form-button-end text-white hover:from-form-button-hover-start hover:to-form-button-hover-end",
 };
 
 const radiuses: Record<ButtonRadius, string> = {
