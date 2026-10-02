@@ -110,11 +110,11 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                             <div className="mb-3 flex items-center justify-between gap-4">
                                 <div>
                                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
-                                        {lang === "fa" ? "دموی تعاملی" : "Interactive demo"}
+                                        {copy.interactiveDemo}
                                     </p>
                                 </div>
                                 <span className="rounded-full border border-zinc-200 bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-500">
-                                    {component.category}
+                                    {categoryLabel}
                                 </span>
                             </div>
 
@@ -139,11 +139,11 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                     <div>
                                         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">{copy.usage}</p>
                                         <h2 id="component-usage" className="mt-1.5 text-xl font-bold tracking-tight text-zinc-900">
-                                            {lang === "fa" ? "از اینجا شروع کنید" : "Start here"}
+                                            {copy.startHere}
                                         </h2>
                                     </div>
                                     <span className="text-sm text-zinc-500">
-                                        {component.examples.length} {lang === "fa" ? "مثال" : "example"}
+                                        {component.examples.length} {component.examples.length === 1 ? copy.example : copy.examples}
                                     </span>
                                 </div>
 
@@ -172,7 +172,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                             <h2 id="component-api" className="mt-1.5 text-xl font-bold tracking-tight text-zinc-900">{copy.props}</h2>
                                         </div>
                                         <span className="rounded-full bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-200">
-                                            {component.props.length} {lang === "fa" ? "پراپ مستند" : "documented props"}
+                                            {component.props.length} {copy.documentedProps}
                                         </span>
                                     </div>
                                 </div>
