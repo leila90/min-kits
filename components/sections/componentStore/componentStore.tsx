@@ -217,7 +217,7 @@ export default function ComponentStore({lang, dict}: Props) {
                         ))}
                     </div>
 
-                    <div className="mt-8 flex flex-col gap-5 border-b border-component-store-divider pb-8 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="group mt-8 flex flex-col gap-5 border-b border-component-store-divider pb-8 sm:flex-row sm:items-center sm:justify-between">
                         <span className="text-sm text-component-store-muted">
                             {dict.badge}
                         </span>
