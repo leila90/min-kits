@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Container from "@/components/ui/container";
-import Header from "@/components/layout/header";
+import { Header, FooterHeader } from "@/components/layout";
 import { getDictionary, isLang } from "../../../i18n";
 
 type Props = { params: Promise<{ lang: string }> };
