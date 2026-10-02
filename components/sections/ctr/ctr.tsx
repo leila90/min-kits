@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Container from "@/components/ui/container";
 
 export default function Ctr() {
     return (
-        <section id="ctr" className="md:my-10 md:mx-30 my-5 mx-5">
+        <section id="ctr" className="scroll-mt-36 py-16 md:scroll-mt-44 md:py-20">
                         {/*<div className="relative flex flex-col md:flex-row justify-center">*/}
-                <div className="relative flex flex-col bg-black rounded-tl-4xl rounded-br-4xl">
+            <Container>
+                <div className="relative flex flex-col bg-ctr-background rounded-tl-4xl rounded-br-4xl">
                     <div className="flex items-center justify-center px-10">
                         <Image src={'/images/circle-temp-ww.png'} alt={'logo'} height={400} width={400}/>
                     </div>
@@ -17,7 +19,8 @@ export default function Ctr() {
                     {/*    </p>*/}
                     {/*</div>*/}
                 </div>
-            {/*</div>*/}
+            </Container>
+            {/*</div>*/
 
         </section>
     );
