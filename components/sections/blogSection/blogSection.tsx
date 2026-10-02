@@ -103,10 +103,10 @@ export default function BlogSection({lang, dict}: Props) {
                 <SectionTitle brand="MinKits Team" title={dict.title} subTitle={dict.subtitle} lang={lang}/>
                 <div className="grid min-w-0 gap-4 text-justify md:grid-flow-col md:grid-cols-2 md:grid-rows-3 lg:grid-flow-col lg:grid-cols-3 lg:grid-rows-2">
                     {posts.filter(post => post.id === 1).map(post => (
-                        <BlogFeaturedCard key={post.id} readMore={dict.readMore} lang={lang}/>
+                        <BlogFeaturedCard key={post.id} postId={post.id} readMore={dict.readMore} lang={lang}/>
                     ))}
                     {posts.filter(post => post.id !== 1).map(post => (
-                        <BlogCard key={post.id} readMore={dict.readMore} lang={lang}/>
+                        <BlogCard key={post.id} postId={post.id} readMore={dict.readMore} lang={lang}/>
                     ))}
                 </div>
             </Container>
