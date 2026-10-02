@@ -66,6 +66,11 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
     const copy = (await getDictionary(lang)).componentsCatalog;
     const source = getComponentSource(component);
+    const categoryLabel = {
+        form: lang === "fa" ? "فرم" : "Form",
+        layout: lang === "fa" ? "چیدمان" : "Layout",
+        feedback: lang === "fa" ? "بازخورد" : "Feedback",
+    }[component.category];
 
     return (
         <main className="min-h-screen bg-white text-zinc-900">
