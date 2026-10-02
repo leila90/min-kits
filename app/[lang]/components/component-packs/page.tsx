@@ -27,7 +27,9 @@ export default async function ComponentPacksPage({params}: Props) {
   if(!isLang(lang)) notFound();
   const dict=await getDictionary(lang);
   const copy=dict.componentPacks;
-  return <main className="min-h-screen bg-white text-zinc-900">
+  return <>
+    <Header />
+    <main className="min-h-screen bg-white text-zinc-900">
     <section className="relative overflow-hidden border-b border-black/8 bg-[#f7f6f2]">
       <div className="absolute inset-0 opacity-60 [background-image:linear-gradient(to_right,rgba(0,0,0,.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,.045)_1px,transparent_1px)] [background-size:48px_48px]" />
       <Container className="relative"><div className="flex min-h-[700px] flex-col justify-center pb-20 pt-40 md:min-h-[760px] md:pb-28 md:pt-48">
@@ -57,6 +59,7 @@ export default async function ComponentPacksPage({params}: Props) {
     <section className="border-y border-black/8 bg-[#f7f6f2] py-20 md:py-24"><Container><div className="grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:items-end"><div className={`${lang==="fa" ? "text-right" : "text-left"}`}><p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">02 / Philosophy</p><h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-950 md:text-4xl">{copy.principleTitle}</h2></div><p className={`max-w-2xl text-base font-medium leading-8 text-zinc-600 md:text-lg ${lang==="fa" ? "lg:ms-auto lg:text-right" : "lg:ms-auto"}`}>{copy.principleText}</p></div></Container></section>
 
     <section className="py-20 md:py-28"><Container><div className={`${lang==="fa" ? "text-right" : "text-left"} relative overflow-hidden rounded-[2.5rem] bg-zinc-950 px-7 py-12 text-white md:px-12 md:py-16`}><div className="absolute -end-24 -top-24 h-72 w-72 rounded-full border border-white/10" /><div className="absolute -end-10 -top-10 h-44 w-44 rounded-full border border-white/10" /><div className="relative max-w-2xl"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">03 / Early access</p><h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">{copy.ctaTitle}</h2><p className="mt-4 max-w-xl text-sm font-medium leading-7 text-white/60 md:text-base">{copy.ctaText}</p><Link href={`/${lang}/#contactUs`} className="mt-8 inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 text-sm font-semibold text-zinc-950 hover:-translate-y-0.5">{copy.cta}<span aria-hidden="true">{lang==="fa" ? "←" : "→"}</span></Link></div></div></Container></section>
+    </main>
     <FooterHeader />
-  </main>;
+  </>;
 }
