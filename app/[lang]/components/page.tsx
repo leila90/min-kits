@@ -44,7 +44,7 @@ export default async function ComponentsPage({params}: ComponentsPageProps) {
     const copy = (await getDictionary(lang)).componentsCatalog;
 
     return (
-        <main className="min-h-screen bg-zinc-100 text-zinc-900">
+        <main className="min-h-screen bg-white text-zinc-900">
             <section className="border-b border-zinc-200 bg-zinc-100 py-20 md:py-28">
                 <Container>
                     <SectionTitle
