@@ -222,15 +222,25 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         <div className="flex items-center justify-between gap-6">
                             <Link
                                 href={componentIndex > 0 ? `/${lang}/components/${componentRegistry[componentIndex - 1].slug}` : `/${lang}/components`}
-                                className="text-sm font-semibold text-zinc-500 transition-colors hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
+                                className="group rounded-lg px-3 py-2 text-sm text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
                             >
-                                ← {copy.previousComponent}
+                                <span className="block font-semibold">← {copy.previousComponent}</span>
+                                {componentIndex > 0 && (
+                                    <span className="mt-1 block text-xs font-medium text-zinc-400 group-hover:text-zinc-600">
+                                        {componentRegistry[componentIndex - 1].name[lang]}
+                                    </span>
+                                )}
                             </Link>
                             <Link
                                 href={componentIndex < componentRegistry.length - 1 ? `/${lang}/components/${componentRegistry[componentIndex + 1].slug}` : `/${lang}/components`}
-                                className="text-sm font-semibold text-zinc-500 transition-colors hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
+                                className="group rounded-lg px-3 py-2 text-end text-sm text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
                             >
-                                {copy.nextComponent} →
+                                <span className="block font-semibold">{copy.nextComponent} →</span>
+                                {componentIndex < componentRegistry.length - 1 && (
+                                    <span className="mt-1 block text-xs font-medium text-zinc-400 group-hover:text-zinc-600">
+                                        {componentRegistry[componentIndex + 1].name[lang]}
+                                    </span>
+                                )}
                             </Link>
                         </div>
                     </nav>
