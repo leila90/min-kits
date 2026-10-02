@@ -5,6 +5,7 @@ import Link from "next/link";
 import type {Lang} from "../../../app/i18n";
 import type {ComponentCategory, ComponentRegistryItem} from "../../registry/types";
 import ComponentCatalogSidebar from "./componentCatalogSidebar";
+import {Button, Divider, FormField, Input, Textarea} from "../../ui";
 
 type ComponentCatalogBrowserProps = {
     lang: Lang;
@@ -23,6 +24,34 @@ const categoryLabels = {
 } as const;
 
 const categoryOrder: ComponentCategory[] = ["form", "layout", "feedback"];
+
+function CatalogPreview({slug, lang}: {slug: string; lang: Lang}) {
+    if (slug === "button") {
+        return <Button size="sm" radius="full" tabIndex={-1}>{lang === "fa" ? "ادامه" : "Continue"}</Button>;
+    }
+
+    if (slug === "input") {
+        return <Input tabIndex={-1} aria-hidden="true" placeholder={lang === "fa" ? "ورودی" : "Input"} />;
+    }
+
+    if (slug === "textarea") {
+        return <Textarea tabIndex={-1} aria-hidden="true" placeholder={lang === "fa" ? "پیام شما..." : "Your message..."} />;
+    }
+
+    if (slug === "form-field") {
+        return (
+            <FormField label={lang === "fa" ? "نام" : "Name"}>
+                <Input tabIndex={-1} aria-hidden="true" />
+            </FormField>
+        );
+    }
+
+    if (slug === "divider") {
+        return <Divider variant="gradient" direction={lang === "fa" ? "rtl" : "ltr"} />;
+    }
+
+    return null;
+}
 
 export default function ComponentCatalogBrowser({
     lang,
@@ -147,20 +176,7 @@ export default function ComponentCatalogBrowser({
 
                                             <div className="mb-6 flex min-h-28 items-center justify-center rounded-xl bg-zinc-50 p-6">
                                                 <div className="w-full max-w-48">
-                                                    {component.slug === "button" && (
-                                                        <div className="mx-auto flex justify-center rounded-xl bg-zinc-900 px-6 py-3 text-sm font-semibold text-white">
-                                                            {lang === "fa" ? "ادامه" : "Continue"}
-                                                        </div>
-                                                    )}
-                                                    {component.slug === "input" && <div className="h-11 rounded-xl border border-zinc-300 bg-white" />}
-                                                    {component.slug === "textarea" && <div className="h-20 rounded-xl border border-zinc-300 bg-white" />}
-                                                    {component.slug === "form-field" && (
-                                                        <div>
-                                                            <div className="mb-2 h-3 w-20 rounded bg-zinc-300" />
-                                                            <div className="h-11 rounded-xl border border-zinc-300 bg-white" />
-                                                        </div>
-                                                    )}
-                                                    {component.slug === "divider" && <div className="h-px w-full bg-zinc-300" />}
+                                                    <CatalogPreview slug={component.slug} lang={lang} />
                                                 </div>
                                             </div>
 
