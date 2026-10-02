@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Container from "@/components/ui/container";
 import {Button, Divider, Input} from "@/components/ui";
 
@@ -10,9 +11,9 @@ export default function Footer({ lang, dict }: FooterProps) {
             <footer dir={lang === "fa" ? "rtl" : "ltr"} className="bg-footer-background pt-20 pb-12 md:pt-28">
                 <Container>
                     <div className="w-full flex flex-col mb-20 items-center text-center">
-                        <a href={`/${lang}`} aria-label="MinKits">
-                            <Image src={'/logo-ww.png'} alt={'logo'} height={150} width={150}/>
-                        </a>
+                        <Link href={`/${lang}`} aria-label="MinKits">
+                            <Image src="/logo-ww.png" alt="" height={150} width={150}/>
+                        </Link>
                         <div className="mt-8 w-full"><Divider variant="gradient" direction={lang === "fa" ? "rtl" : "ltr"} className="from-footer-divider-end via-footer-divider to-footer-divider-end" /></div>
                         <p className='mt-6 text-sm leading-relaxed text-footer-muted'>{dict.description}</p>
                     </div>
@@ -25,20 +26,20 @@ export default function Footer({ lang, dict }: FooterProps) {
                         <div className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-start">
                             <h3 className='text-sm font-medium text-footer-heading'>{dict.important}</h3>
                             <div className="flex flex-col gap-2 mt-6">
-                                <a href="#" className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{lang === "fa" ? "خانه" : "Home"}</a>
-                                <a href="#" className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{lang === "fa" ? "درباره ما" : "About"}</a>
-                                <a href="#" className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>{lang === "fa" ? "نمونه‌کارها" : "Portfolio"}</a>
-                                <a href="#" className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>{lang === "fa" ? "ارتباط با ما" : "Contact"}</a>
-                                <a href="#" className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>{lang === "fa" ? "سؤالات متداول" : "FAQ"}</a>
+                                <Link href={`/${lang}`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{lang === "fa" ? "خانه" : "Home"}</Link>
+                                <Link href={`/${lang}/about`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{lang === "fa" ? "درباره ما" : "About"}</Link>
+                                <span className='text-sm text-footer-muted'>{lang === "fa" ? "نمونه‌کارها" : "Portfolio"}</span>
+                                <Link href={`/${lang}#contactUs`} className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>{lang === "fa" ? "ارتباط با ما" : "Contact"}</Link>
+                                <span className='text-sm text-footer-muted'>{lang === "fa" ? "سؤالات متداول" : "FAQ"}</span>
                             </div>
                         </div>
                         <div className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-start">
                             <h3 className='text-sm text-footer-heading font-medium'>{dict.social}</h3>
                             <div className="flex flex-col gap-2 mt-6">
-                                <a href="#" className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>Twitter</a>
-                                <a href="#" className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>Instagram</a>
-                                <a href="#" className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>Youtube</a>
-                                <a href="#" className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>Linkedin</a>
+                                <span className='text-sm text-footer-muted'>Twitter</span>
+                                <span className='text-sm text-footer-muted'>Instagram</span>
+                                <span className='text-sm text-footer-muted'>Youtube</span>
+                                <span className='text-sm text-footer-muted'>Linkedin</span>
                             </div>
                         </div>
                         <div className="w-full md:w-[45%] lg:w-[25%] flex flex-col items-center md:items-start text-center md:text-start">
@@ -65,9 +66,9 @@ export default function Footer({ lang, dict }: FooterProps) {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         <p className='text-xs text-footer-muted'>{dict.copyright}</p>
                         <div className="flex items-center gap-6">
-                            <a href='#' className='text-xs text-footer-muted transition-colors hover:text-footer-heading'>{dict.terms}</a>
+                            <span className='text-xs text-footer-muted'>{dict.terms}</span>
                             <div className='h-4 w-px bg-footer-border'></div>
-                            <a href='#' className='text-xs text-footer-muted hover:text-footer-heading transition-colors'>{dict.privacy}</a>
+                            <span className='text-xs text-footer-muted'>{dict.privacy}</span>
                         </div>
                     </div>
                 </Container>
