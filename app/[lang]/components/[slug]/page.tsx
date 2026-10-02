@@ -191,11 +191,12 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                                             {prop.name}
                                                         </code>
                                                         <code className="text-xs text-zinc-500">{prop.type}</code>
-                                                        {prop.required && (
-                                                            <span className="rounded-full bg-zinc-800 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
-                                                                {copy.required}
-                                                            </span>
-                                                        )}
+                                                        <span className={prop.required
+                                                            ? "rounded-full bg-zinc-800 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white"
+                                                            : "rounded-full border border-zinc-200 bg-white px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-zinc-400"
+                                                        }>
+                                                            {prop.required ? copy.required : copy.optional}
+                                                        </span>
                                                     </div>
                                                     <p className="mt-3 max-w-2xl text-sm leading-6 text-zinc-500">
                                                         {prop.description[lang]}
