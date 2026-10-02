@@ -121,6 +121,34 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                 copiedLabel={copy.copied}
                             />
                         </div>
+
+                        <section className="mt-8 rounded-3xl border border-zinc-200 bg-white p-6 md:p-8" aria-labelledby="component-props">
+                            <div className="mb-5">
+                                <h2 id="component-props" className="text-xl font-bold tracking-tight text-zinc-900">{copy.props}</h2>
+                            </div>
+                            <div className="overflow-x-auto">
+                                <table className="w-full min-w-[640px] text-left text-sm" dir={lang === "fa" ? "rtl" : "ltr"}>
+                                    <thead>
+                                        <tr className="border-b border-zinc-200 text-xs text-zinc-500">
+                                            <th className="px-3 py-3 font-semibold">{copy.propName}</th>
+                                            <th className="px-3 py-3 font-semibold">{copy.propType}</th>
+                                            <th className="px-3 py-3 font-semibold">{copy.required}</th>
+                                            <th className="px-3 py-3 font-semibold">{copy.defaultValue}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {component.props.map((prop) => (
+                                            <tr key={prop.name} className="border-b border-zinc-100 last:border-0">
+                                                <td className="px-3 py-4 font-mono text-xs text-zinc-900">{prop.name}</td>
+                                                <td className="px-3 py-4 font-mono text-xs text-zinc-600">{prop.type}</td>
+                                                <td className="px-3 py-4 text-xs text-zinc-600">{prop.required ? copy.required : copy.optional}</td>
+                                                <td className="px-3 py-4 font-mono text-xs text-zinc-500">{prop.defaultValue ?? "—"}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
                     </div>
                 </Container>
             </section>
