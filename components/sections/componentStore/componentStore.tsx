@@ -201,7 +201,7 @@ export default function ComponentStore({lang, dict}: Props) {
                                     <Link
                                         href={`/${lang}${product.href}`}
                                         aria-label={product.action}
-                                        className="group/button mt-auto inline-flex w-fit self-end items-center gap-3 border-b-2 border-component-store-cta pb-2 pt-7 text-sm font-semibold text-component-store-cta transition-all duration-200 hover:gap-4 hover:text-component-store-cta-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-component-store-focus"
+                                        className="group/button mt-auto inline-flex w-fit self-end items-center gap-3 rounded-full border border-component-store-cta bg-component-store-cta px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-component-store-cta-hover hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-component-store-focus"
                                     >
                                         <span>{product.action}</span>
                                         <span aria-hidden="true" className="text-base transition-transform duration-300 group-hover/button:translate-x-1">
