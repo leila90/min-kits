@@ -58,7 +58,7 @@ export default function TeamContact({lang, dict}: Props) {
                                 type="text"
                                 id="team-contact-name"
                                 name="name"
-                                className="h-auto rounded border-team-contact-border bg-team-contact-background px-3 py-1 text-base leading-8 text-team-contact-muted focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
+                                className="rounded-xl border-team-contact-border bg-team-contact-background text-team-contact-muted focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
                             />
                         </div>
 
@@ -77,14 +77,14 @@ export default function TeamContact({lang, dict}: Props) {
                             <Textarea
                                 id="team-contact-message"
                                 name="message"
-                                className="h-32 resize-none rounded border-team-contact-border bg-team-contact-background px-3 py-1 text-base leading-6 text-team-contact-muted focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
+                                className="min-h-32 resize-none rounded-xl border-team-contact-border bg-team-contact-background text-team-contact-muted focus:border-team-contact-focus focus:ring-2 focus:ring-team-contact-focus-ring"
                             />
                         </div>
 
                         <Button
                             type="button"
                             size="md"
-                            className="rounded border-0 bg-team-contact-button px-6 py-2 text-lg font-normal text-white hover:bg-team-contact-button-hover focus:outline-none"
+                            className="border-0 bg-team-contact-button text-white hover:bg-team-contact-button-hover focus:outline-none"
                         >
                             Button
                         </Button>
