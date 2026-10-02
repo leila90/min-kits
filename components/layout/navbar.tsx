@@ -27,7 +27,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
     return (
         <header
             className={`fixed md:my-10 md:mx-20 my-5 mx-5 rounded-2xl border-1 backdrop-blur border-navbar-border top-0 left-0 right-0 z-50 duration-300 bg-navbar-background shadow-md text-navbar-text  ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
-            <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8">
+            <nav aria-label={lang === "fa" ? "ناوبری اصلی" : "Main navigation"} className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8">
                 <div className="flex lg:flex-1">
                     <Link href={`/${lang}`} className="justify-items-center">
                         <Image
@@ -46,7 +46,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                         onClick={() => setMobileMenuOpen(true)}
                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
                     >
-                        <span className="sr-only">Open main menu</span>
+                        <span className="sr-only">{lang === "fa" ? "باز کردن منوی اصلی" : "Open main menu"}</span>
                         <Bars3Icon aria-hidden="true" className="size-6"/>
                     </button>
                 </div>
@@ -96,7 +96,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                             onClick={() => setMobileMenuOpen(false)}
                             className="-m-2.5 rounded-md p-2.5 text-navbar-mobile-muted"
                         >
-                            <span className="sr-only">Close menu</span>
+                            <span className="sr-only">{lang === "fa" ? "بستن منو" : "Close menu"}</span>
                             <XMarkIcon aria-hidden="true" className="size-6"/>
                         </button>
                     </div>
