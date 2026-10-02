@@ -105,7 +105,7 @@
   --contact-social-x: #000000;
   --contact-social-whatsapp: #128c7e;
   --ctr-background: #000000;
-  --breadcrumb-border: #a1a1aa;
+  --breadcrumb-border: #a1a1a1;
   --breadcrumb-muted: #71717a;
   --breadcrumb-text: #18181b;
   --footer-header-background: #ffffff;
@@ -127,6 +127,8 @@
   --footer-divider-end: #000000;
   --footer-button-start: #52525b;
   --footer-button-end: #3f3f46;
+  --footer-button-hover-start: #3f3f46;
+  --footer-button-hover-end: #52525b;
   --footer-button-text: #ffffff;
   --logo-background: #ffffff;
   --logo-text: #71717a;
@@ -254,6 +256,8 @@
   --color-footer-divider-end: var(--footer-divider-end);
   --color-footer-button-start: var(--footer-button-start);
   --color-footer-button-end: var(--footer-button-end);
+  --color-footer-button-hover-start: var(--footer-button-hover-start);
+  --color-footer-button-hover-end: var(--footer-button-hover-end);
   --color-footer-button-text: var(--footer-button-text);
   --color-logo-background: var(--logo-background);
   --color-logo-text: var(--logo-text);
