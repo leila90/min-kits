@@ -87,10 +87,10 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
                             {categoryLabel}
                         </span>
-                        <h1 className="mt-2 text-4xl" font-bold tracking-tight md:text-5xl">
+                        <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
                             {component.name[lang]}
                         </h1>
-                        <p className="mt-3 text-base" leading-7 text-zinc-500 md:text-lg">
+                        <p className="mt-3 text-base leading-7 text-zinc-500 md:text-lg">
                             {component.description[lang]}
                         </p>
                     </div>
