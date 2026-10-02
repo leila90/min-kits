@@ -31,6 +31,7 @@ export type ComponentRegistryItem = {
         fa: string;
     };
     props: readonly ComponentProp[];
+    examples: readonly ComponentUsageExample[];
 };
 
 export type ComponentRegistry = readonly ComponentRegistryItem[];
