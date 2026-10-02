@@ -88,7 +88,7 @@ export default async function Page({
                     <p className="mt-5 text-blog-card-muted">{post.description}</p>
                 </section>
             </Container>
-            <MagazineEditorialColumns />
+            <MagazineEditorialColumns lang={lang} title={post.title} description={post.description} />
             <FooterHeader />
         </>
     );
