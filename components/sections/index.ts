@@ -2,6 +2,7 @@ export { default as Hero } from "./hero/hero";
 export { default as MySlogan } from "./mySlogan/mySlogan";
 export { default as AboutUs } from "./aboutUs/aboutUs";
 export { default as MyFeatures } from "./myFeatures/myFeatures";
+export { default as ComponentStore } from "./componentStore/componentStore";
 export { default as BlogSection } from "./blogSection/blogSection";
 export { default as TeamSection } from "./teamSection/teamSection";
 export { default as TeamContact } from "./teamContact/teamContact";

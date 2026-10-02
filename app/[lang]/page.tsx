@@ -8,6 +8,7 @@ import Logo from "@/components/layout/logo";
 import AboutUs from "@/components/sections/aboutUs/aboutUs";
 import FooterHeader from "@/components/layout/footerHeader";
 import MyFeatures from "@/components/sections/myFeatures/myFeatures";
+import ComponentStore from "@/components/sections/componentStore/componentStore";
 import LatestBlog from "@/components/sections/latestBlog/latestBlog";
 import TeamSection from "@/components/sections/teamSection/teamSection";
 import TeamContact from "@/components/sections/teamContact/teamContact";
@@ -31,6 +32,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <MySlogan dict={{ slogan: dict.slogan.text, mainSlogan: dict.slogan.value }} />
             <AboutUs lang={lang} dict={dict.about} />
             <MyFeatures lang={lang} dict={dict.features} />
+            <ComponentStore lang={lang} dict={dict.componentStore} />
             <Ctr />
             <BlogSection lang={lang} dict={dict.blog} />
             <TeamSection lang={lang} dict={dict.team} />

@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 type Props = { brand: string; title: string; subTitle: string; marginTop?: string; lang: "fa" | "en" };
 export default function SectionTitle({ brand, title, subTitle, marginTop, lang }: Props) {
-  const marginClass = marginTop === "16" ? "mt-16" : "mt-20";
+  const marginClass = marginTop === "0" ? "mt-0" : marginTop === "16" ? "mt-16" : "mt-20";
   return <motion.div initial={{ y: 60, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ type: "spring", stiffness: 250, damping: 70 }}>
     <div className={"text-2xl lg:text-3xl font-bold mb-10 md:mb-12 " + marginClass}>
       <div className="min-w-0 font-light text-base flex items-center gap-2">

@@ -27,7 +27,7 @@ type Props = {
 
 export default function MyFeatures({lang, dict}: Props) {
     return (
-        <section id="features" className="scroll-mt-36 py-16 md:scroll-mt-44 md:py-20">
+        <section id="features" className="scroll-mt-36 pt-16 pb-8 md:scroll-mt-44 md:pt-20 md:pb-10">
             <Container>
                 <SectionTitle brand="MinKits Team" title={dict.title} subTitle={dict.subtitle} lang={lang}/>
 

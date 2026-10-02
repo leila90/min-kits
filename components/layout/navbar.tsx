@@ -18,7 +18,7 @@ import LanguageDropdown from "@/components/common/languageDropdown";
 type NavbarProps = {
     lang: "fa" | "en",
     dict: {
-        nav: { home: string; about: string; blog: string; companies: string; contact: string; careers: string }
+        nav: { home: string; about: string; blog: string; componentPacks: string; companies: string; contact: string; careers: string }
     }
 }
 
@@ -59,6 +59,9 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                     </Link>
                     <Link href={`/${lang}/blog`} className="text-sm/6 font-semibold">
                         {dict.nav.blog}
+                    </Link>
+                    <Link href={`/${lang}/components/component-packs`} className="text-sm/6 font-semibold">
+                        {dict.nav.componentPacks}
                     </Link>
                     <span className="text-sm/6 font-semibold">
                         {dict.nav.companies}
@@ -121,6 +124,14 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                 >
                                     {dict.nav.blog}
                                 </Link>
+                                <Link
+                                    href={`/${lang}/components/component-packs`}
+                                    onClick={closeMobileMenu}
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
+                                >
+                                    {dict.nav.componentPacks}
+                                </Link>
+
                                 <span
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text"
                                 >
