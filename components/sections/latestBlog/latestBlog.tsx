@@ -73,7 +73,7 @@ export default function LatestBlog({lang, dict}: LatestBlogProps) {
                                         aria-hidden="true"
                                     >
                                         <path
-                                            d="M21 12H5M10 6L5 11.293c-.333.333-.5.374.5.707L10 18"
+                                            d="M21 12H5M10 6L5 11.293c-.333.333-.5.5-.5.707 0 .207.167.374.5.707L10 18"
                                             stroke="currentColor"
                                             strokeWidth="2"
                                             strokeLinecap="round"
