@@ -1,5 +1,16 @@
 export type ComponentCategory = "form" | "layout" | "feedback";
 
+export type ComponentProp = {
+    name: string;
+    type: string;
+    required: boolean;
+    defaultValue?: string;
+    description: {
+        en: string;
+        fa: string;
+    };
+};
+
 export type ComponentRegistryItem = {
     slug: string;
     category: ComponentCategory;
@@ -11,6 +22,7 @@ export type ComponentRegistryItem = {
         en: string;
         fa: string;
     };
+    props: readonly ComponentProp[];
 };
 
 export type ComponentRegistry = readonly ComponentRegistryItem[];
