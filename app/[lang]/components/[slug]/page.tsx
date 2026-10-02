@@ -1,6 +1,8 @@
 import Link from "next/link";
 import {notFound} from "next/navigation";
 import Container from "../../../../components/ui/container";
+import ComponentDemoTabs from "../../../../components/sections/componentCatalog/componentDemoTabs";
+import {getComponentSource} from "../../../../components/registry/source";
 import {getDictionary, isLang, type Lang} from "../../../i18n";
 import {componentRegistry} from "../../../../components/registry";
 
@@ -61,6 +63,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
     }
 
     const copy = (await getDictionary(lang)).componentsCatalog;
+    const source = getComponentSource(component);
 
     return (
         <main className="min-h-screen bg-white text-zinc-900">
@@ -89,34 +92,41 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
             <section className="py-16 md:py-20">
                 <Container>
-                    <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50">
-                        <div className="flex min-h-80 items-center justify-center p-8 md:min-h-96">
-                            {component.slug === "button" && (
-                                <button type="button" className="rounded-xl bg-zinc-900 px-7 py-3 text-sm font-semibold text-white">
-                                    {lang === "fa" ? "ادامه" : "Continue"}
-                                </button>
-                            )}
-                            {component.slug === "input" && (
-                                <div className="w-full max-w-md">
-                                    <div className="h-12 rounded-xl border border-zinc-300 bg-white" />
-                                </div>
-                            )}
-                            {component.slug === "textarea" && (
-                                <div className="w-full max-w-md">
-                                    <div className="h-32 rounded-xl border border-zinc-300 bg-white" />
-                                </div>
-                            )}
-                            {component.slug === "form-field" && (
-                                <div className="w-full max-w-md">
-                                    <div className="mb-2 h-3 w-20 rounded bg-zinc-300" />
-                                    <div className="h-12 rounded-xl border border-zinc-300 bg-white" />
-                                </div>
-                            )}
-                            {component.slug === "divider" && (
-                                <div className="w-full max-w-md h-px bg-zinc-300" />
-                            )}
-                        </div>
-                    </div>
+                    <ComponentDemoTabs
+                        preview={
+                            <>
+                                {component.slug === "button" && (
+                                    <button type="button" className="rounded-xl bg-zinc-900 px-7 py-3 text-sm font-semibold text-white">
+                                        {lang === "fa" ? "ادامه" : "Continue"}
+                                    </button>
+                                )}
+                                {component.slug === "input" && (
+                                    <div className="w-full max-w-md">
+                                        <div className="h-12 rounded-xl border border-zinc-300 bg-white" />
+                                    </div>
+                                )}
+                                {component.slug === "textarea" && (
+                                    <div className="w-full max-w-md">
+                                        <div className="h-32 rounded-xl border border-zinc-300 bg-white" />
+                                    </div>
+                                )}
+                                {component.slug === "form-field" && (
+                                    <div className="w-full max-w-md">
+                                        <div className="mb-2 h-3 w-20 rounded bg-zinc-300" />
+                                        <div className="h-12 rounded-xl border border-zinc-300 bg-white" />
+                                    </div>
+                                )}
+                                {component.slug === "divider" && (
+                                    <div className="h-px w-full max-w-md bg-zinc-300" />
+                                )}
+                            </>
+                        }
+                        source={source}
+                        previewLabel={copy.preview}
+                        sourceLabel={copy.source}
+                        copyLabel={copy.copy}
+                        copiedLabel={copy.copied}
+                    />
                 </Container>
             </section>
         </main>
