@@ -80,7 +80,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                 <Container>
                     <Link
                         href={`/${lang}/components`}
-                        className="text-sm font-semibold text-zinc-500 transition-colors hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
+                        className="rounded-lg px-3 py-2 text-sm font-semibold text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
                     >
                         {copy.backToCatalog}
                     </Link>
@@ -217,7 +217,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
                     <nav
                         aria-label={copy.browseAllComponents}
-                        className="mt-8 border-t border-zinc-200 pt-6 md:mt-10 md:pt-8"
+                        className="relative z-10 mt-8 border-t border-zinc-200 bg-zinc-50 pt-6 md:mt-10 md:pt-8"
                     >
                         <div className="flex items-center justify-between gap-6">
                             <Link
