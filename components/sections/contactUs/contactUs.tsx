@@ -18,7 +18,7 @@ export default function ContactUs({lang, dict}: Props) {
                     <form className="min-w-0 space-y-6">
                         <div>
                             <label htmlFor="contact-name" className="mb-2 block text-sm text-contact-heading">{dict.name}</label>
-                            <Input id="contact-name" name="name" type="text" required placeholder={dict.namePlaceholder} className="h-auto rounded-lg border-contact-border bg-contact-background py-3 text-contact-heading focus:border-contact-border-focus" />
+                            <Input id="contact-name" name="name" type="text" required placeholder={dict.namePlaceholder} className="rounded-xl border-contact-border bg-contact-background text-contact-heading focus:border-contact-border-focus" />
                         </div>
                         <div>
                             <label htmlFor="contact-email" className="mb-2 block text-sm text-contact-heading">{dict.email}</label>
@@ -26,7 +26,7 @@ export default function ContactUs({lang, dict}: Props) {
                         </div>
                         <div>
                             <label htmlFor="contact-message" className="mb-2 block text-sm text-contact-heading">{dict.message}</label>
-                            <Textarea id="contact-message" name="message" placeholder={dict.messagePlaceholder} required className="min-h-32 resize-none rounded-lg border-contact-border bg-contact-background text-contact-heading focus:border-contact-border-focus" />
+                            <Textarea id="contact-message" name="message" placeholder={dict.messagePlaceholder} required className="min-h-32 resize-none rounded-xl border-contact-border bg-contact-background text-contact-heading focus:border-contact-border-focus" />
                         </div>
                         <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                             <p className="max-w-3xs text-xs text-contact-text md:text-sm">{dict.legal}</p>
