@@ -265,7 +265,6 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                             )}
                         </div>
                     </nav>
-                    </div>
                 </Container>
             </section>
         </main>
