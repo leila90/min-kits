@@ -15,7 +15,7 @@ export default function ContactUs({lang, dict}: Props) {
             <Container>
                 <SectionTitle brand="MinKits Team" title={dict.title} subTitle={dict.subtitle} marginTop="16" lang={lang} />
                 <div className="grid min-w-0 grid-cols-1 gap-10 lg:grid-cols-2">
-                    <form className="min-w-0 space-y-6">
+                    <form className="min-w-0 space-y-6" action="#" onSubmit={(event) => event.preventDefault()}>
                         <FormField label={dict.name} htmlFor="contact-name">
                             <Input id="contact-name" name="name" type="text" required placeholder={dict.namePlaceholder} className="border-contact-border bg-contact-background text-contact-heading" />
                         </FormField>
