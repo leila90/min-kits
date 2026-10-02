@@ -37,8 +37,9 @@ export default function ComponentCatalogSidebar({
 
                         return (
                             <div key={category}>
-                                <div className="mb-1 px-2 text-xs font-semibold text-zinc-400">
-                                    {labels[lang][category]}
+                                <div className="mb-1 flex items-center justify-between px-2">
+                                    <span className="text-xs font-semibold text-zinc-400">{labels[lang][category]}</span>
+                                    <span className="text-[10px] font-semibold tabular-nums text-zinc-300">{String(items.length).padStart(2, "0")}</span>
                                 </div>
                                 <div className="space-y-0.5">
                                     {items.map((item) => {
@@ -61,7 +62,7 @@ export default function ComponentCatalogSidebar({
                                                     aria-hidden="true"
                                                     className={active ? "text-zinc-400" : "text-zinc-300"}
                                                 >
-                                                    →
+                                                    {lang === "fa" ? "←" : "→"}
                                                 </span>
                                             </Link>
                                         );
