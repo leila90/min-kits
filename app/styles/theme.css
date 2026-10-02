@@ -123,6 +123,7 @@
   --logo-background: #ffffff;
   --logo-text: #71717a;
   --logo-text-hover: #d4d4d8;
+  --form-label: #000000;
   --input-background: transparent;
   --input-text: #18181b;
   --input-border: rgb(0 0 0 / 20%);
@@ -233,6 +234,7 @@
   --color-logo-background: var(--logo-background);
   --color-logo-text: var(--logo-text);
   --color-logo-text-hover: var(--logo-text-hover);
+  --color-form-label: var(--form-label);
   --color-input-background: var(--input-background);
   --color-input-text: var(--input-text);
   --color-input-border: var(--input-border);
