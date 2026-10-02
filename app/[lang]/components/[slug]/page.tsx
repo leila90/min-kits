@@ -66,6 +66,9 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
     const copy = (await getDictionary(lang)).componentsCatalog;
     const source = getComponentSource(component);
+    const componentIndex = componentRegistry.findIndex((item) => item.slug === component.slug);
+    const previousComponent = componentIndex > 0 ? componentRegistry[componentIndex - 1] : null;
+    const nextComponent = componentIndex < componentRegistry.length - 1 ? componentRegistry[componentIndex + 1] : null;
     const categoryLabel = {
         form: lang === "fa" ? "فرم" : "Form",
         layout: lang === "fa" ? "چیدمان" : "Layout",
@@ -210,6 +213,46 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                 </div>
                             </section>
                         </div>
+
+                        <nav
+                            aria-label={copy.browseAllComponents}
+                            className="grid gap-3 border-t border-zinc-200 pt-6 sm:grid-cols-2"
+                            dir={lang === "fa" ? "rtl" : "ltr"}
+                        >
+                            {previousComponent ? (
+                                <Link
+                                    href={`/${lang}/components/${previousComponent.slug}`}
+                                    className="group rounded-2xl border border-zinc-200 bg-zinc-50 p-4 transition-colors hover:border-zinc-300 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500"
+                                >
+                                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-400">
+                                        {copy.previousComponent}
+                                    </span>
+                                    <span className="mt-2 flex items-center gap-2 font-semibold text-zinc-900">
+                                        <span aria-hidden="true" className="text-zinc-400 transition-transform group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0.5">←</span>
+                                        {previousComponent.name[lang]}
+                                    </span>
+                                </Link>
+                            ) : (
+                                <div aria-hidden="true" className="hidden sm:block" />
+                            )}
+
+                            {nextComponent ? (
+                                <Link
+                                    href={`/${lang}/components/${nextComponent.slug}`}
+                                    className="group rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-start transition-colors hover:border-zinc-300 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 sm:text-end"
+                                >
+                                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-400">
+                                        {copy.nextComponent}
+                                    </span>
+                                    <span className="mt-2 flex items-center justify-end gap-2 font-semibold text-zinc-900">
+                                        {nextComponent.name[lang]}
+                                        <span aria-hidden="true" className="text-zinc-400 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5">→</span>
+                                    </span>
+                                </Link>
+                            ) : (
+                                <div aria-hidden="true" className="hidden sm:block" />
+                            )}
+                        </nav>
                     </div>
                 </Container>
             </section>
