@@ -1,13 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
     title: string;
     desc: string;
     image: string;
     readMore: string;
+    href: string;
 };
 
-export default function LatestBlogCard({title, desc, image, readMore}: Props) {
+export default function LatestBlogCard({title, desc, image, readMore, href}: Props) {
     return (
         <article className="group min-w-0">
             <Image
@@ -26,8 +28,8 @@ export default function LatestBlogCard({title, desc, image, readMore}: Props) {
                 {desc}
             </p>
 
-            <a
-                href="#"
+            <Link
+                href={href}
                 className="inline-flex min-w-0 items-center gap-2 font-semibold text-latest-blog-accent"
             >
                 {readMore}
@@ -46,7 +48,7 @@ export default function LatestBlogCard({title, desc, image, readMore}: Props) {
                         strokeLinejoin="round"
                     />
                 </svg>
-            </a>
+            </Link>
         </article>
     );
 }
