@@ -9,12 +9,19 @@ export default function FormField({
     label,
     children,
     className = "",
+    htmlFor,
     ...props
 }: FormFieldProps) {
     return (
-        <label className={["block min-w-0", className].filter(Boolean).join(" ")} {...props}>
-            <span className="mb-2 block text-sm text-form-label">{label}</span>
+        <div className="min-w-0">
+            <label
+                htmlFor={htmlFor}
+                className={["mb-2 block text-sm text-form-label", className].filter(Boolean).join(" ")}
+                {...props}
+            >
+                {label}
+            </label>
             {children}
-        </label>
+        </div>
     );
 }
