@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import type { Card } from "./data";
 
 type Props = {
@@ -37,9 +38,12 @@ export default function ExpandedCard({ card, onClose }: Props) {
                         layoutId={`image-${card.id}`}
                         className="absolute inset-0"
                     >
-                        <img
+                        <Image
                             src={card.image}
-                            className="w-full h-full object-cover"
+                            alt={card.title}
+                            fill
+                            sizes="90vw"
+                            className="object-cover"
                         />
                     </motion.div>
 
