@@ -162,10 +162,9 @@ export default function ComponentCatalogBrowser({
 
                                 <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                                     {items.map((component) => (
-                                        <Link
+                                        <article
                                             key={component.slug}
-                                            href={`/${lang}/components/${component.slug}`}
-                                            className="group rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-200 hover:-translate-y-1 hover:border-zinc-400 hover:shadow-[0_18px_45px_rgb(0_0_0_/0.07)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-900"
+                                            className="group rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-200 hover:-translate-y-1 hover:border-zinc-400 hover:shadow-[0_18px_45px_rgb(0_0_0_/0.07)]"
                                         >
                                             <div className="mb-10 flex items-center justify-between gap-4">
                                                 <span className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-semibold text-zinc-600">
@@ -183,11 +182,14 @@ export default function ComponentCatalogBrowser({
                                             <h3 className="text-lg font-bold tracking-tight text-zinc-900">{component.name[lang]}</h3>
                                             <p className="mt-2 text-sm leading-6 text-zinc-600">{component.description[lang]}</p>
 
-                                            <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-900 transition-transform duration-200 group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
+                                            <Link
+                                                href={`/${lang}/components/${component.slug}`}
+                                                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-900 transition-transform duration-200 hover:translate-x-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-900 rtl:hover:-translate-x-1"
+                                            >
                                                 {copy.viewComponent}
                                                 <span aria-hidden="true">{lang === "fa" ? "←" : "→"}</span>
-                                            </span>
-                                        </Link>
+                                            </Link>
+                                        </article>
                                     ))}
                                 </div>
                             </section>
