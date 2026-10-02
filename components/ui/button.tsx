@@ -3,15 +3,22 @@ import type {ButtonHTMLAttributes} from "react";
 type ButtonVariant = "primary" | "secondary";
 
 type ButtonSize = "sm" | "md" | "lg";
+type ButtonRadius = "default" | "full";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     variant?: ButtonVariant;
     size?: ButtonSize;
+    radius?: ButtonRadius;
 };
 
 const variants: Record<ButtonVariant, string> = {
     primary: "bg-button-primary text-white border border-button-primary hover:bg-button-primary-hover",
     secondary: "bg-button-secondary text-button-text border border-button-text hover:bg-button-secondary-hover hover:text-white",
+};
+
+const radiuses: Record<ButtonRadius, string> = {
+    default: "rounded-xl",
+    full: "rounded-full",
 };
 
 const sizes: Record<ButtonSize, string> = {
@@ -23,6 +30,7 @@ const sizes: Record<ButtonSize, string> = {
 export default function Button({
     variant = "primary",
     size = "md",
+    radius = "default",
     className = "",
     type = "button",
     children,
@@ -32,10 +40,11 @@ export default function Button({
         <button
             type={type}
             className={[
-                "inline-flex items-center justify-center rounded-xl font-semibold transition-colors duration-200",
+                "inline-flex items-center justify-center font-semibold transition-colors duration-200",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-button-focus",
                 "disabled:pointer-events-none disabled:opacity-50",
                 variants[variant],
+                radiuses[radius],
                 sizes[size],
                 className,
             ].filter(Boolean).join(" ")}
