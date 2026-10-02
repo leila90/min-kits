@@ -6,9 +6,9 @@ export default function SectionTitle({ brand, title, subTitle, marginTop, lang }
   return <motion.div initial={{ y: 60, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ type: "spring", stiffness: 250, damping: 70 }}>
     <div className={"text-2xl lg:text-3xl font-bold mb-10 md:mb-12 " + marginClass}>
       <div className="min-w-0 font-light text-base flex items-center gap-2">
-        <span className="min-w-0 shrink break-words text-black lg:text-[28px] text-base font-extralight">{title}</span>
+        <span className="min-w-0 shrink break-words text-section-title-heading lg:text-[28px] text-base font-extralight">{title}</span>
         <div className="relative flex shrink-0 flex-col items-end w-[70px] lg:w-[240px]">
-          <div className={"w-full h-px bg-linear-to-r " + (lang === "fa" ? "from-white/25 via-black/50 to-black/25" : "from-black via-black/50 to-white/25")} />
+          <div className={"w-full h-px bg-linear-to-r " + (lang === "fa" ? "from-section-title-gradient-start via-section-title-gradient-mid to-section-title-gradient-end" : "from-section-title-gradient-end via-section-title-gradient-mid to-section-title-gradient-start")} />
           <p className="m-0 lg:text-[9px] text-[7px] font-bold absolute bottom-1">{brand}</p>
         </div>
       </div>
