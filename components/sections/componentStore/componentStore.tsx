@@ -92,7 +92,7 @@ function ComponentStage({index}: {index: number}) {
                         </div>
                     </div>
                 </div>
-                <span className="absolute start-5 top-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-component-store-stage-muted">
+                <span className="absolute end-5 top-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-component-store-stage-muted">
                     {stageLabels[1].join(" · ")}
                 </span>
             </div>
@@ -164,7 +164,7 @@ export default function ComponentStore({lang, dict}: Props) {
                         {dict.products.map((product, index) => (
                             <article
                                 key={product.title}
-                                className="group grid min-w-0 gap-8 py-10 md:py-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-center lg:gap-14"
+                                className="group grid min-w-0 gap-8 py-10 md:py-12 lg:grid-cols-2 lg:items-center lg:gap-14"
                             >
                                 <div className={lang === "fa" ? "lg:order-1 lg:text-right" : "lg:order-2 lg:text-left"}>
                                     <div className="flex items-center gap-4 lg:justify-start">
@@ -177,11 +177,11 @@ export default function ComponentStore({lang, dict}: Props) {
                                         </span>
                                     </div>
 
-                                    <h3 className="mt-5 text-2xl font-semibold tracking-tight text-component-store-heading md:text-3xl">
+                                    <h3 className="mt-5 text-2xl font-bold tracking-tight text-component-store-heading md:text-3xl">
                                         {product.title}
                                     </h3>
 
-                                    <p className="mt-4 max-w-lg text-sm leading-7 text-component-store-muted md:text-base">
+                                    <p className="mt-4 max-w-lg text-base font-medium leading-7 text-component-store-muted md:text-[17px]">
                                         {product.description}
                                     </p>
 
@@ -189,13 +189,22 @@ export default function ComponentStore({lang, dict}: Props) {
                                         {product.features.map((feature) => (
                                             <li
                                                 key={feature}
-                                                className="flex items-center gap-2 text-xs text-component-store-text md:text-sm"
+                                                className="flex items-center gap-2 text-xs font-medium text-component-store-text md:text-sm"
                                             >
                                                 <span className="h-1.5 w-1.5 rounded-full bg-component-store-dot" />
                                                 {feature}
                                             </li>
                                         ))}
                                     </ul>
+                                    <Link
+                                        href={`/${lang}${product.href}`}
+                                        className="mt-7 inline-flex items-center gap-2 rounded-full border border-component-store-cta px-5 py-2.5 text-sm font-semibold text-component-store-cta transition-all duration-200 hover:bg-component-store-cta hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-component-store-focus"
+                                    >
+                                        <span>{product.action}</span>
+                                        <span aria-hidden="true" className="text-base transition-transform duration-300 group-hover:translate-x-1">
+                                            {lang === "fa" ? "←" : "→"}
+                                        </span>
+                                    </Link>
                                 </div>
 
                                 <div className={lang === "fa" ? "lg:order-2" : "lg:order-1"}>
