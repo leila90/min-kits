@@ -66,7 +66,7 @@ function SourceCode({source}: {source: string}) {
                 <code>
                     {source.split("\n").map((line, index) => (
                         <div key={index} className="flex min-h-6">
-                            <span className="sticky left-0 w-12 shrink-0 select-none border-r border-zinc-800 bg-zinc-950 pr-4 text-right text-[#6D6A62]">
+                            <span className="sticky left-0 w-12 shrink-0 select-none border-r border-zinc-800 bg-zinc-950 pr-4 text-right text-zinc-500">
                                 {index + 1}
                             </span>
                             <span className="pl-5">
@@ -139,7 +139,7 @@ export default function ComponentDemoTabs({
                     <button
                         type="button"
                         onClick={copySource}
-                        className="rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-[#6D6A62] transition-colors hover:border-[#A8A397] hover:text-zinc-900"
+                        className="rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-500 transition-colors hover:border-zinc-300 hover:text-zinc-900"
                     >
                         {copied ? copiedLabel : copyLabel}
                     </button>
