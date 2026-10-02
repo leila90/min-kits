@@ -22,9 +22,9 @@ const radiuses: Record<ButtonRadius, string> = {
 };
 
 const sizes: Record<ButtonSize, string> = {
-    sm: "px-4 py-2 text-xs",
-    md: "px-6 py-3 text-sm",
-    lg: "px-8 py-3.5 text-base",
+    sm: "h-10 px-4 text-xs",
+    md: "h-12 px-6 text-sm",
+    lg: "h-14 px-8 text-base",
 };
 
 export default function Button({
