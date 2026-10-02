@@ -168,7 +168,7 @@ export default function ComponentStore({lang, dict}: Props) {
                                 key={product.title}
                                 className="group grid min-w-0 gap-8 py-10 md:py-12 lg:grid-cols-2 lg:items-center lg:gap-14"
                             >
-                                <div className={lang === "fa" ? "lg:order-1 lg:text-right" : "lg:order-2 lg:text-left"}>
+                                <div className={lang === "fa" ? "flex h-full flex-col lg:order-1 lg:text-right" : "flex h-full flex-col lg:order-2 lg:text-left"}>
                                     <div className="flex items-center gap-4 lg:justify-start">
                                         <span className="font-mono text-xs font-semibold tracking-[0.2em] text-component-store-index">
                                             0{index + 1}
@@ -200,10 +200,11 @@ export default function ComponentStore({lang, dict}: Props) {
                                     </ul>
                                     <Link
                                         href={`/${lang}${product.href}`}
-                                        className="mt-7 inline-flex items-center gap-2 rounded-full border border-component-store-cta px-5 py-2.5 text-sm font-semibold text-component-store-cta transition-all duration-200 hover:bg-component-store-cta hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-component-store-focus"
+                                        aria-label={product.action}
+                                        className="group/button mt-auto inline-flex w-fit self-end items-center gap-3 border-b-2 border-component-store-cta pb-2 pt-7 text-sm font-semibold text-component-store-cta transition-all duration-200 hover:gap-4 hover:text-component-store-cta-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-component-store-focus"
                                     >
                                         <span>{product.action}</span>
-                                        <span aria-hidden="true" className="text-base transition-transform duration-300 group-hover:translate-x-1">
+                                        <span aria-hidden="true" className="text-base transition-transform duration-300 group-hover/button:translate-x-1">
                                             {lang === "fa" ? "←" : "→"}
                                         </span>
                                     </Link>
