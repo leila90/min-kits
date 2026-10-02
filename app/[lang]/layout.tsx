@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import NextTopLoader from "nextjs-toploader";
 import "../styles/globals.css";
-import LenisScroll from "./components/lenis";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
-import { getDictionary, hasLocale, locales } from "../dictionaries";
+import LenisScroll from "@/components/layout/lenis";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
+import { getDictionary, isLang, locales } from "../i18n";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vira-co.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://minkits.com";
 
 export const dynamicParams = false;
 
@@ -30,8 +30,8 @@ export async function generateMetadata({
             template: "%s | MinKits",
         },
         description: isFa
-            ? "کیت‌های UI آماده تولید برای React، Next.js و Tailwind"
-            : "Production-ready React, Next.js and Tailwind UI kits",
+            ? "کیت‌ها و کامپوننت‌های رابط کاربری آماده استفاده برای React، Next.js و Tailwind CSS."
+            : "Production-ready UI kits and components for React, Next.js and Tailwind CSS.",
         alternates: {
             canonical: `/${lang}`,
             languages: { en: "/en", fa: "/fa" },
@@ -40,6 +40,14 @@ export async function generateMetadata({
             type: "website",
             siteName: "MinKits",
             locale: isFa ? "fa_IR" : "en_US",
+            url: `/${lang}`,
+        },
+        twitter: {
+            card: "summary_large_image",
+        },
+        robots: {
+            index: true,
+            follow: true,
         },
     };
 }
@@ -53,7 +61,7 @@ export default async function RootLayout({
 }) {
     const { lang } = await params;
 
-    if (!hasLocale(lang)) {
+    if (!isLang(lang)) {
         notFound();
     }
 
@@ -64,7 +72,7 @@ export default async function RootLayout({
             <body>
                 <LenisScroll />
                 <NextTopLoader
-                    color="#000"
+                    color="var(--loader-color)"
                     initialPosition={0.08}
                     crawlSpeed={200}
                     height={3}
@@ -73,9 +81,9 @@ export default async function RootLayout({
                     speed={200}
                     easing="ease"
                 />
-                <Navbar lang={lang} dict={{ mainMenus: dict.mainMenus }} />
+                <Navbar lang={lang} dict={dict} />
                 {children}
-                <Footer />
+                <Footer lang={lang} dict={dict.footer} />
             </body>
         </html>
     );
