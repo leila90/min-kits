@@ -7,7 +7,7 @@ export default function Textarea({className = "", ...props}: TextareaProps) {
         <textarea
             className={[
                 "min-h-32 w-full min-w-0 resize-y rounded-xl border border-input-border bg-input-background px-4 py-3 text-sm text-input-text outline-none transition-colors",
-                "placeholder:text-input-placeholder focus:border-input-border-focus",
+                "placeholder:text-input-placeholder focus:border-input-border-focus focus:ring-0",
                 "disabled:pointer-events-none disabled:opacity-50",
                 className,
             ].filter(Boolean).join(" ")}
