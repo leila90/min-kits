@@ -1,11 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { defaultLocale, isLang, locales } from "@/app/i18n/config";
 
-const locales = ["fa", "en"] as const;
-const defaultLocale = "en";
-
-function getLocale(request: NextRequest): string {
+function getLocale(request: NextRequest) {
     const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value;
-    if (cookieLocale && (locales as readonly string[]).includes(cookieLocale)) {
+
+    if (cookieLocale && isLang(cookieLocale)) {
         return cookieLocale;
     }
 
@@ -14,7 +13,7 @@ function getLocale(request: NextRequest): string {
         .split(",")
         .map((part) => part.trim().split(";")[0].slice(0, 2).toLowerCase());
 
-    return preferred.find((l) => (locales as readonly string[]).includes(l)) ?? defaultLocale;
+    return preferred.find(isLang) ?? defaultLocale;
 }
 
 export function proxy(request: NextRequest) {
@@ -26,7 +25,7 @@ export function proxy(request: NextRequest) {
     }
 
     const pathnameHasLocale = locales.some(
-        (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)
+        (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
     );
 
     if (!pathnameHasLocale) {
