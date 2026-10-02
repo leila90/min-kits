@@ -34,26 +34,26 @@ function ComponentStage({index}: {index: number}) {
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(0_0_0_/_5%)_1px,transparent_1px),linear-gradient(to_bottom,rgb(0_0_0_/_5%)_1px,transparent_1px)] bg-size-[24px_24px]" />
                 <div className="relative flex h-full items-center justify-center">
                     <div className="relative w-full max-w-md">
-                        <div className="absolute -start-2 top-8 h-20 w-20 rounded-2xl border border-component-store-stage-line bg-white/70 [animation:component-store-float_5s_ease-in-out_infinite] md:-start-5">
-                            <span className="absolute inset-x-4 top-4 h-2 rounded-full bg-component-store-stage-strong" />
+                        <div className="absolute -start-2 top-8 h-20 w-20 rounded-2xl border border-component-store-stage-line bg-component-store-stage-shape-surface [animation:component-store-float_5s_ease-in-out_infinite] md:-start-5">
+                            <span className="absolute inset-x-4 top-4 h-2 rounded-full bg-component-store-stage-shape" />
                             <span className="absolute inset-x-4 top-9 h-2 w-8 rounded-full bg-component-store-stage-soft" />
                         </div>
-                        <div className="relative mx-auto w-52 rounded-2xl border border-component-store-stage-line bg-white p-4 shadow-[0_20px_50px_rgb(0_0_0_/_10%)] [animation:component-store-float_6s_ease-in-out_infinite] md:w-60">
+                        <div className="relative mx-auto w-52 rounded-2xl border border-component-store-stage-line bg-component-store-stage-shape-surface p-4 shadow-[0_20px_50px_rgb(0_0_0_/_10%)] [animation:component-store-float_6s_ease-in-out_infinite] md:w-60">
                             <div className="flex items-center justify-between">
-                                <span className="h-2 w-16 rounded-full bg-component-store-stage-strong" />
+                                <span className="h-2 w-16 rounded-full bg-component-store-stage-shape" />
                                 <span className="h-6 w-6 rounded-full border border-component-store-stage-line" />
                             </div>
                             <div className="mt-5 h-9 rounded-lg border border-component-store-stage-line bg-component-store-stage-soft" />
                             <div className="mt-3 flex gap-2">
-                                <span className="h-9 flex-1 rounded-lg bg-component-store-stage-strong" />
+                                <span className="h-9 flex-1 rounded-lg bg-component-store-stage-shape" />
                                 <span className="h-9 w-16 rounded-lg border border-component-store-stage-line" />
                             </div>
                         </div>
-                        <div className="absolute -end-1 bottom-4 flex h-16 w-24 items-end gap-1 rounded-2xl border border-component-store-stage-line bg-white/80 p-3 [animation:component-store-float_4s_ease-in-out_1s_infinite] md:-end-6">
+                        <div className="absolute -end-1 bottom-4 flex h-16 w-24 items-end gap-1 rounded-2xl border border-component-store-stage-line bg-component-store-stage-shape-surface p-3 [animation:component-store-float_4s_ease-in-out_1s_infinite] md:-end-6">
                             <span className="h-5 w-2 rounded-full bg-component-store-stage-soft" />
-                            <span className="h-8 w-2 rounded-full bg-component-store-stage-strong" />
+                            <span className="h-8 w-2 rounded-full bg-component-store-stage-shape" />
                             <span className="h-4 w-2 rounded-full bg-component-store-stage-soft" />
-                            <span className="h-10 w-2 rounded-full bg-component-store-stage-strong" />
+                            <span className="h-10 w-2 rounded-full bg-component-store-stage-shape" />
                         </div>
                     </div>
                 </div>
@@ -71,9 +71,9 @@ function ComponentStage({index}: {index: number}) {
                 <div className="absolute start-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-component-store-stage-line [animation:component-store-spin_18s_linear_infinite]" />
                 <div className="absolute start-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-component-store-stage-line [animation:component-store-spin_12s_linear_infinite_reverse]" />
                 <div className="relative flex h-full items-center justify-center">
-                    <div className="w-full max-w-md rounded-2xl border border-component-store-stage-line bg-white p-4 shadow-[0_20px_50px_rgb(0_0_0_/_9%)]">
+                    <div className="w-full max-w-md rounded-2xl border border-component-store-stage-line bg-component-store-stage-shape-surface p-4 shadow-[0_20px_50px_rgb(0_0_0_/_9%)]">
                         <div className="flex gap-2 border-b border-component-store-stage-line pb-3">
-                            <span className="h-2 w-12 rounded-full bg-component-store-stage-strong" />
+                            <span className="h-2 w-12 rounded-full bg-component-store-stage-shape" />
                             <span className="h-2 w-16 rounded-full bg-component-store-stage-soft" />
                             <span className="ms-auto h-2 w-8 rounded-full bg-component-store-stage-soft" />
                         </div>
@@ -86,7 +86,7 @@ function ComponentStage({index}: {index: number}) {
                                 </div>
                             </div>
                             <div className="rounded-xl border border-component-store-stage-line p-3">
-                                <span className="block h-2 w-12 rounded-full bg-component-store-stage-strong" />
+                                <span className="block h-2 w-12 rounded-full bg-component-store-stage-shape" />
                                 <span className="mt-4 block h-16 rounded-lg bg-component-store-stage-soft" />
                             </div>
                         </div>
@@ -104,8 +104,8 @@ function ComponentStage({index}: {index: number}) {
             <div className="absolute inset-y-0 start-1/3 w-px bg-component-store-stage-line" />
             <div className="absolute inset-x-0 top-1/3 h-px bg-component-store-stage-line" />
             <div className="relative grid h-full grid-cols-[0.35fr_0.65fr] gap-3">
-                <div className="rounded-xl border border-component-store-stage-line bg-white p-3">
-                    <span className="block h-2 w-10 rounded-full bg-component-store-stage-strong" />
+                <div className="rounded-xl border border-component-store-stage-line bg-component-store-stage-shape-surface p-3">
+                    <span className="block h-2 w-10 rounded-full bg-component-store-stage-shape" />
                     <div className="mt-6 space-y-3">
                         <span className="block h-7 rounded-lg bg-component-store-stage-soft" />
                         <span className="block h-7 rounded-lg border border-component-store-stage-line" />
@@ -114,22 +114,22 @@ function ComponentStage({index}: {index: number}) {
                     </div>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
-                    <div className="rounded-xl border border-component-store-stage-line bg-white p-3 [animation:component-store-pulse_5s_ease-in-out_infinite]">
-                        <span className="block h-2 w-10 rounded-full bg-component-store-stage-strong" />
+                    <div className="rounded-xl border border-component-store-stage-line bg-component-store-stage-shape-surface p-3 [animation:component-store-pulse_5s_ease-in-out_infinite]">
+                        <span className="block h-2 w-10 rounded-full bg-component-store-stage-shape" />
                         <span className="mt-5 block h-12 rounded-lg bg-component-store-stage-soft" />
                     </div>
-                    <div className="rounded-xl border border-component-store-stage-line bg-white p-3 [animation:component-store-pulse_5s_ease-in-out_1s_infinite]">
-                        <span className="block h-2 w-8 rounded-full bg-component-store-stage-strong" />
+                    <div className="rounded-xl border border-component-store-stage-line bg-component-store-stage-shape-surface p-3 [animation:component-store-pulse_5s_ease-in-out_1s_infinite]">
+                        <span className="block h-2 w-8 rounded-full bg-component-store-stage-shape" />
                         <span className="mt-5 block h-12 rounded-lg border border-component-store-stage-line" />
                     </div>
-                    <div className="col-span-2 rounded-xl border border-component-store-stage-line bg-white p-3 [animation:component-store-float_6s_ease-in-out_0.5s_infinite]">
+                    <div className="col-span-2 rounded-xl border border-component-store-stage-line bg-component-store-stage-shape-surface p-3 [animation:component-store-float_6s_ease-in-out_0.5s_infinite]">
                         <div className="flex items-end gap-1">
                             <span className="h-8 w-1/6 rounded-t bg-component-store-stage-soft" />
-                            <span className="h-12 w-1/6 rounded-t bg-component-store-stage-strong" />
+                            <span className="h-12 w-1/6 rounded-t bg-component-store-stage-shape" />
                             <span className="h-10 w-1/6 rounded-t bg-component-store-stage-soft" />
-                            <span className="h-16 w-1/6 rounded-t bg-component-store-stage-strong" />
+                            <span className="h-16 w-1/6 rounded-t bg-component-store-stage-shape" />
                             <span className="h-11 w-1/6 rounded-t bg-component-store-stage-soft" />
-                            <span className="h-14 w-1/6 rounded-t bg-component-store-stage-strong" />
+                            <span className="h-14 w-1/6 rounded-t bg-component-store-stage-shape" />
                         </div>
                     </div>
                 </div>
@@ -166,8 +166,8 @@ export default function ComponentStore({lang, dict}: Props) {
                                 key={product.title}
                                 className="group grid min-w-0 gap-8 py-10 md:py-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-center lg:gap-14"
                             >
-                                <div className={lang === "fa" ? "lg:order-2" : "lg:order-1"}>
-                                    <div className="flex items-center gap-4">
+                                <div className={lang === "fa" ? "lg:order-1 lg:text-right" : "lg:order-2 lg:text-left"}>
+                                    <div className="flex items-center gap-4 lg:justify-start">
                                         <span className="font-mono text-xs font-semibold tracking-[0.2em] text-component-store-index">
                                             0{index + 1}
                                         </span>
@@ -198,7 +198,7 @@ export default function ComponentStore({lang, dict}: Props) {
                                     </ul>
                                 </div>
 
-                                <div className={lang === "fa" ? "lg:order-1" : "lg:order-2"}>
+                                <div className={lang === "fa" ? "lg:order-2" : "lg:order-1"}>
                                     <ComponentStage index={index} />
                                 </div>
                             </article>
