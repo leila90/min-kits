@@ -1,11 +1,7 @@
 import {CheckBadgeIcon} from "@heroicons/react/16/solid";
 import Image from "next/image";
 
-type Props = {
-    lang: "fa" | "en"
-}
-
-export default function Content1({lang}: Props) {
+export default function Content1() {
 
     return (
         <section id={"aboutUs"} className="pb-10 mx-5 bg-transparent">
