@@ -222,7 +222,7 @@ export default function ComponentStore({lang, dict}: Props) {
                             {dict.badge}
                         </span>
                         <Link
-                            href={"/" + lang + "#contactUs"}
+                            href={`/${lang}/components/component-packs`}
                             className="inline-flex w-fit items-center gap-3 text-sm font-semibold text-component-store-cta transition-colors duration-200 hover:text-component-store-cta-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-component-store-focus"
                         >
                             <span>{dict.cta}</span>
