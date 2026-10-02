@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {notFound} from "next/navigation";
 import Container from "../../../../components/ui/container";
+import FooterHeader from "../../../../components/layout/footerHeader";
 import ComponentCatalogSidebar from "../../../../components/sections/componentCatalog/componentCatalogSidebar";
 import ComponentPreview from "../../../../components/sections/componentCatalog/componentPreview";
 import ComponentDemoTabs from "../../../../components/sections/componentCatalog/componentDemoTabs";
@@ -67,8 +68,6 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
     const copy = (await getDictionary(lang)).componentsCatalog;
     const source = getComponentSource(component);
     const componentIndex = componentRegistry.findIndex((item) => item.slug === component.slug);
-    const previousComponent = componentIndex > 0 ? componentRegistry[componentIndex - 1] : null;
-    const nextComponent = componentIndex < componentRegistry.length - 1 ? componentRegistry[componentIndex + 1] : null;
     const categoryLabel = {
         form: lang === "fa" ? "فرم" : "Form",
         layout: lang === "fa" ? "چیدمان" : "Layout",
@@ -76,7 +75,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
     }[component.category];
 
     return (
-        <main className="min-h-screen bg-zinc-50 text-zinc-900">
+        <main className="min-h-screen bg-zinc-50 pt-20 text-zinc-900 md:pt-24">
             <section className="border-b border-zinc-200 py-8 md:py-10">
                 <Container>
                     <Link
@@ -216,57 +215,10 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
                     </div>
 
-                    <nav
-                        aria-label={copy.browseAllComponents}
-                        className="mt-8 border-t border-zinc-200 pt-6 md:mt-10 md:pt-8"
-                        dir={lang === "fa" ? "rtl" : "ltr"}
-                    >
-                        <div className="grid grid-cols-2 gap-4">
-                            {previousComponent ? (
-                                <Link
-                                    href={`/${lang}/components/${previousComponent.slug}`}
-                                    className="group flex min-w-0 min-h-[92px] w-full items-center justify-start gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 sm:px-6"
-                                >
-                                    <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 text-lg text-zinc-500 transition-colors group-hover:border-zinc-300 group-hover:bg-zinc-100 group-hover:text-zinc-900">
-                                        ←
-                                    </span>
-                                    <span className="min-w-0">
-                                        <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-400">
-                                            {copy.previousComponent}
-                                        </span>
-                                        <span className="mt-1 block truncate text-sm font-semibold text-zinc-900">
-                                            {previousComponent.name[lang]}
-                                        </span>
-                                    </span>
-                                </Link>
-                            ) : (
-                                <div aria-hidden="true" className="min-h-[92px] w-full" />
-                            )}
 
-                            {nextComponent ? (
-                                <Link
-                                    href={`/${lang}/components/${nextComponent.slug}`}
-                                    className="group flex min-w-0 min-h-[92px] w-full items-center justify-end gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-4 text-end shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 sm:px-6"
-                                >
-                                    <span className="min-w-0">
-                                        <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-400">
-                                            {copy.nextComponent}
-                                        </span>
-                                        <span className="mt-1 block truncate text-sm font-semibold text-zinc-900">
-                                            {nextComponent.name[lang]}
-                                        </span>
-                                    </span>
-                                    <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 text-lg text-zinc-500 transition-colors group-hover:border-zinc-300 group-hover:bg-zinc-100 group-hover:text-zinc-900">
-                                        →
-                                    </span>
-                                </Link>
-                            ) : (
-                                <div aria-hidden="true" className="w-[48%] sm:w-[220px]" />
-                            )}
-                        </div>
-                    </nav>
                 </Container>
             </section>
+            <FooterHeader />
         </main>
     );
 }
