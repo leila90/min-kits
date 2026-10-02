@@ -34,7 +34,7 @@ export default async function ComponentPacksPage({params}: Props) {
       <Container className="relative"><div className="flex min-h-[700px] flex-col justify-center pb-20 pt-40 md:min-h-[760px] md:pb-28 md:pt-48">
         <Link href={`/${lang}/#component-store`} className="mb-10 inline-flex w-fit items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 hover:text-zinc-950"><span aria-hidden="true">{lang==="fa" ? "→" : "←"}</span>{copy.back}</Link>
         <div className="grid items-end gap-14 lg:grid-cols-[1.05fr_.95fr]">
-          <div className={`${lang==="fa" ? "text-right" : "text-left"}`}>
+          <div className="text-center">
             <span className="inline-flex rounded-full border border-black/10 bg-white/75 px-3 py-1.5 text-xs font-semibold text-zinc-600">{copy.badge}</span>
             <p className="mt-7 text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">{copy.eyebrow}</p>
             <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.035em] text-zinc-950 md:text-6xl md:leading-[1.05]">{copy.title}</h1>
