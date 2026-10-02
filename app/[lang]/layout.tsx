@@ -72,7 +72,7 @@ export default async function RootLayout({
             <body>
                 <LenisScroll />
                 <NextTopLoader
-                    color="#000"
+                    color="var(--loader-color)"
                     initialPosition={0.08}
                     crawlSpeed={200}
                     height={3}
