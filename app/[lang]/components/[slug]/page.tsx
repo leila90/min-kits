@@ -76,7 +76,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
     return (
         <main className="min-h-screen bg-white text-zinc-900">
-            <section className="border-b border-zinc-200 bg-zinc-200 py-12 md:py-16">
+            <section className="border-b border-zinc-200 bg-zinc-200 pb-12 pt-32 md:pb-16 md:pt-40">
                 <Container>
                     <Link
                         href={`/${lang}/components`}
