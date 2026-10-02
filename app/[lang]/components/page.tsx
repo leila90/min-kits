@@ -1,6 +1,6 @@
 import {notFound} from "next/navigation";
 import Container from "../../../components/ui/container";
-import FooterHeader from "../../../components/layout/footerHeader";
+import {Header, FooterHeader} from "../../../components/layout";
 import SectionTitle from "../../../components/common/sectionTitle";
 import ComponentCatalogBrowser from "../../../components/sections/componentCatalog/componentCatalogBrowser";
 import {getDictionary, isLang, type Lang} from "../../i18n";
@@ -45,7 +45,7 @@ export default async function ComponentsPage({params}: ComponentsPageProps) {
 
     return (
         <main className="min-h-screen bg-white text-zinc-900">
-            <section className="border-b border-zinc-200 bg-zinc-100 py-20 md:py-28">
+            <section className="border-b border-zinc-200 bg-zinc-200 py-20 md:py-28">
                 <Container>
                     <SectionTitle
                         brand="MinKits"
