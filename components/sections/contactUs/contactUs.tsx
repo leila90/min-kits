@@ -2,7 +2,7 @@ import Image from "next/image";
 import type {Messages} from "@/app/i18n/messages";
 import SectionTitle from "@/components/common/sectionTitle";
 import Container from "@/components/ui/container";
-import {Button, Input, Textarea} from "@/components/ui";
+import {Button, FormField, Input, Textarea} from "@/components/ui";
 
 type Props = {
     lang: "fa" | "en";
@@ -16,18 +16,15 @@ export default function ContactUs({lang, dict}: Props) {
                 <SectionTitle brand="MinKits Team" title={dict.title} subTitle={dict.subtitle} marginTop="16" lang={lang} />
                 <div className="grid min-w-0 grid-cols-1 gap-10 lg:grid-cols-2">
                     <form className="min-w-0 space-y-6">
-                        <div>
-                            <label htmlFor="contact-name" className="mb-2 block text-sm text-contact-heading">{dict.name}</label>
-                            <Input id="contact-name" name="name" type="text" required placeholder={dict.namePlaceholder} className="rounded-xl border-contact-border bg-contact-background text-contact-heading focus:border-contact-border-focus" />
-                        </div>
-                        <div>
-                            <label htmlFor="contact-email" className="mb-2 block text-sm text-contact-heading">{dict.email}</label>
-                            <Input id="contact-email" name="email" type="email" required placeholder={dict.emailPlaceholder} className="h-auto rounded-lg border-contact-border bg-contact-background py-3 text-contact-heading focus:border-contact-border-focus" />
-                        </div>
-                        <div>
-                            <label htmlFor="contact-message" className="mb-2 block text-sm text-contact-heading">{dict.message}</label>
-                            <Textarea id="contact-message" name="message" placeholder={dict.messagePlaceholder} required className="min-h-32 resize-none rounded-xl border-contact-border bg-contact-background text-contact-heading focus:border-contact-border-focus" />
-                        </div>
+                        <FormField label={dict.name} htmlFor="contact-name">
+                            <Input id="contact-name" name="name" type="text" required placeholder={dict.namePlaceholder} className="border-contact-border bg-contact-background text-contact-heading" />
+                        </FormField>
+                        <FormField label={dict.email} htmlFor="contact-email">
+                            <Input id="contact-email" name="email" type="email" required placeholder={dict.emailPlaceholder} className="border-contact-border bg-contact-background text-contact-heading" />
+                        </FormField>
+                        <FormField label={dict.message} htmlFor="contact-message">
+                            <Textarea id="contact-message" name="message" placeholder={dict.messagePlaceholder} required className="min-h-32 resize-none border-contact-border bg-contact-background text-contact-heading" />
+                        </FormField>
                         <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                             <p className="max-w-3xs text-xs text-contact-text md:text-sm">{dict.legal}</p>
                             <Button type="submit" size="md" radius="full" className="w-full bg-linear-to-r from-contact-button-start to-contact-button-end px-8 py-3 text-sm text-white hover:from-contact-button-hover-start hover:to-contact-button-hover-end sm:w-auto md:px-16">
