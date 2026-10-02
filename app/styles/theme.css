@@ -104,6 +104,7 @@
   --contact-social-telegram: #0088cc;
   --contact-social-x: #000000;
   --contact-social-whatsapp: #128c7e;
+  --ctr-background: #000000;
   --breadcrumb-border: #a1a1aa;
   --breadcrumb-muted: #71717a;
   --breadcrumb-text: #18181b;
@@ -230,6 +231,7 @@
   --color-contact-social-telegram: var(--contact-social-telegram);
   --color-contact-social-x: var(--contact-social-x);
   --color-contact-social-whatsapp: var(--contact-social-whatsapp);
+  --color-ctr-background: var(--ctr-background);
   --color-breadcrumb-border: var(--breadcrumb-border);
   --color-breadcrumb-muted: var(--breadcrumb-muted);
   --color-breadcrumb-text: var(--breadcrumb-text);
