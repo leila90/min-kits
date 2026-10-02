@@ -6,6 +6,8 @@ type Product = {
     title: string;
     description: string;
     badge: string;
+    action: string;
+    href: string;
     features: string[];
 };
 
