@@ -1,6 +1,6 @@
 import type {ComponentRegistry} from "./types";
 
-export const componentRegistry = [
+export const componentRegistry: ComponentRegistry = [
     {
         slug: "button",
         category: "form",
@@ -88,4 +88,4 @@ export const componentRegistry = [
             {title: {en: "Gradient divider", fa: "جداکننده گرادیانی"}, code: `<Divider variant="gradient" direction="ltr" />`},
         ],
     },
-] satisfies ComponentRegistry;
+ ];
