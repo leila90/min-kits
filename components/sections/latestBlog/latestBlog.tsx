@@ -5,6 +5,7 @@ import {Navigation} from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"
 
+import Link from "next/link"
 import Container from "@/components/ui/container"
 import LatestBlogCard from "./latest-blog-card"
 
@@ -51,18 +52,18 @@ export default function LatestBlog({lang, dict}: LatestBlogProps) {
                                     {dict.subtitle}
                                 </p>
 
-                                <a
-                                    href="#"
+                                <Link
+                                    href={`/${lang}/blog`}
                                     className="inline-flex w-52 items-center justify-center rounded-full border border-latest-blog-view-all-border px-7 py-3.5 font-semibold text-latest-blog-heading transition-colors hover:bg-latest-blog-view-all-hover"
                                 >
                                     {dict.viewAll}
-                                </a>
+                                </Link>
                             </div>
 
                             <div className="mt-10 flex justify-center gap-6 lg:justify-start">
                                 <button
                                     type="button"
-                                    aria-label="Previous blog"
+                                    aria-label={lang === "fa" ? "مقاله قبلی" : "Previous blog"}
                                     className="blog-prev group flex h-11 w-11 items-center justify-center rounded-full border border-latest-blog-button-border transition-colors hover:bg-latest-blog-button-hover"
                                 >
                                     <svg
@@ -72,7 +73,7 @@ export default function LatestBlog({lang, dict}: LatestBlogProps) {
                                         aria-hidden="true"
                                     >
                                         <path
-                                            d="M21 12H5M10 6L5 11.293c-.333.333-.5.5-.5.707 0 .207.167.374.5.707L10 18"
+                                            d="M21 12H5M10 6L5 11.293c-.333.333-.5.374.5.707L10 18"
                                             stroke="currentColor"
                                             strokeWidth="2"
                                             strokeLinecap="round"
@@ -83,7 +84,7 @@ export default function LatestBlog({lang, dict}: LatestBlogProps) {
 
                                 <button
                                     type="button"
-                                    aria-label="Next blog"
+                                    aria-label={lang === "fa" ? "مقاله بعدی" : "Next blog"}
                                     className="blog-next group flex h-11 w-11 items-center justify-center rounded-full border border-latest-blog-button-border transition-colors hover:bg-latest-blog-button-hover"
                                 >
                                     <svg
@@ -93,7 +94,7 @@ export default function LatestBlog({lang, dict}: LatestBlogProps) {
                                         aria-hidden="true"
                                     >
                                         <path
-                                            d="M3 12h16M14 18l5.293-5.293c.333-.333.5-.5.5-.707 0-.207-.167-.374-.5-.707L14 6"
+                                            d="M3 12h16M14 18l5.293-5.293c.333-.333.5-.375-.5-.707L14 6"
                                             stroke="currentColor"
                                             strokeWidth="2"
                                             strokeLinecap="round"
@@ -125,6 +126,7 @@ export default function LatestBlog({lang, dict}: LatestBlogProps) {
                                             desc={blog.desc}
                                             image={blog.image}
                                             readMore={dict.readMore}
+                                            href={`/${lang}/blog/${(i % 3) + 1}`}
                                         />
                                     </SwiperSlide>
                                 ))}
