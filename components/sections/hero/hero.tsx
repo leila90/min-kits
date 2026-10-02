@@ -28,15 +28,15 @@ export default function Hero({ dict }: HeroProps) {
                     transition={{type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.1 + 0.1}}
                     className="p-6"
                 >
-                    <h6 className="p-1 font-thin text-hero-muted-text">{dict.eyebrow}</h6>
+                    <p className="p-1 font-thin text-hero-muted-text">{dict.eyebrow}</p>
                     <h1 className="text-2xl tracking-tight text-hero-text md:text-3xl lg:text-4xl">
                         {dict.title}{" "}
                         <span className="font-bold">MinKits</span>
                     </h1>
 
-                    <h4 className="mt-3 text-sm font-light text-hero-muted-text md:text-base lg:text-xl">
+                    <p className="mt-3 text-sm font-light text-hero-muted-text md:text-base lg:text-xl">
                         {dict.description}
-                    </h4>
+                    </p>
 
                     <div className="mt-8 flex items-center justify-center gap-4">
                         <Button variant="primary">
