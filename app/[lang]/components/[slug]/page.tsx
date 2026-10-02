@@ -75,7 +75,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
     }[component.category];
 
     return (
-        <main className="min-h-screen bg-footer-header-background pt-20 text-zinc-900 md:pt-24">
+        <main className="min-h-screen bg-zinc-100 pt-20 text-zinc-900 md:pt-24">
             <section className="border-b border-zinc-200/70 py-8 md:py-10">
                 <Container>
                     <Link
