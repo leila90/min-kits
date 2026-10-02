@@ -50,23 +50,23 @@ function tokenizeLine(line: string): Token[] {
 }
 
 const tokenClasses: Record<Token["kind"], string> = {
-    plain: "text-[#D8D4CA]",
-    keyword: "text-[#B9A7D9]",
-    string: "text-[#9FB79B]",
-    comment: "text-[#7A766C]",
-    type: "text-[#9EB8C6]",
-    number: "text-[#D5B56A]",
-    tag: "text-[#C89FA8]",
+    plain: "text-zinc-300",
+    keyword: "text-zinc-200",
+    string: "text-zinc-300",
+    comment: "text-zinc-500",
+    type: "text-zinc-300",
+    number: "text-zinc-200",
+    tag: "text-zinc-300",
 };
 
 function SourceCode({source}: {source: string}) {
     return (
-        <div className="overflow-x-auto bg-[#1F1F1F]">
+        <div className="overflow-x-auto bg-zinc-950">
             <pre dir="ltr" className="min-w-max text-left font-mono text-[13px] leading-6">
                 <code>
                     {source.split("\n").map((line, index) => (
                         <div key={index} className="flex min-h-6">
-                            <span className="sticky left-0 w-12 shrink-0 select-none border-r border-[#3A3935] bg-[#1F1F1F] pr-4 text-right text-[#6D6A62]">
+                            <span className="sticky left-0 w-12 shrink-0 select-none border-r border-zinc-800 bg-zinc-950 pr-4 text-right text-[#6D6A62]">
                                 {index + 1}
                             </span>
                             <span className="pl-5">
@@ -106,9 +106,9 @@ export default function ComponentDemoTabs({
     }
 
     return (
-        <div className="overflow-hidden rounded-3xl border border-[#E4E0D7] bg-zinc-50">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E4E0D7] bg-[#F8F7F4] px-4 py-3 md:px-5">
-                <div className="flex items-center gap-1 rounded-xl bg-[#E9E5DC] p-1" role="tablist" aria-label={previewLabel}>
+        <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 bg-zinc-50 px-4 py-3 md:px-5">
+                <div className="flex items-center gap-1 rounded-xl bg-zinc-100 p-1" role="tablist" aria-label={previewLabel}>
                     <button
                         type="button"
                         role="tab"
@@ -116,7 +116,7 @@ export default function ComponentDemoTabs({
                         onClick={() => setActiveTab("preview")}
                         className={[
                             "rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
-                            activeTab === "preview" ? "bg-[#F8F7F4] text-[#2B2B2B] shadow-sm" : "text-[#7A766C] hover:text-[#2B2B2B]",
+                            activeTab === "preview" ? "bg-zinc-50 text-zinc-900 shadow-sm" : "text-zinc-500 hover:text-zinc-900",
                         ].join(" ")}
                     >
                         {previewLabel}
@@ -128,7 +128,7 @@ export default function ComponentDemoTabs({
                         onClick={() => setActiveTab("source")}
                         className={[
                             "rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
-                            activeTab === "source" ? "bg-[#F8F7F4] text-[#2B2B2B] shadow-sm" : "text-[#7A766C] hover:text-[#2B2B2B]",
+                            activeTab === "source" ? "bg-zinc-50 text-zinc-900 shadow-sm" : "text-zinc-500 hover:text-zinc-900",
                         ].join(" ")}
                     >
                         {sourceLabel}
@@ -139,7 +139,7 @@ export default function ComponentDemoTabs({
                     <button
                         type="button"
                         onClick={copySource}
-                        className="rounded-full border border-[#E4E0D7] px-3 py-1.5 text-xs font-semibold text-[#6D6A62] transition-colors hover:border-[#A8A397] hover:text-[#2B2B2B]"
+                        className="rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-[#6D6A62] transition-colors hover:border-[#A8A397] hover:text-zinc-900"
                     >
                         {copied ? copiedLabel : copyLabel}
                     </button>
@@ -147,7 +147,7 @@ export default function ComponentDemoTabs({
             </div>
 
             {activeTab === "preview" ? (
-                <div role="tabpanel" className="flex min-h-80 min-w-0 items-center justify-center overflow-hidden p-6 md:min-h-96 md:p-10">
+                <div role="tabpanel" className="flex min-h-64 min-w-0 items-center justify-center overflow-hidden p-6 md:min-h-72 md:p-6">
                     {preview}
                 </div>
             ) : (
