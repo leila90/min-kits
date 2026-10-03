@@ -61,12 +61,12 @@ const tokenClasses: Record<Token["kind"], string> = {
 
 function SourceCode({source}: {source: string}) {
     return (
-        <div className="overflow-x-auto bg-zinc-950">
+        <div className="overflow-x-auto bg-zinc-800">
             <pre dir="ltr" className="min-w-max text-left font-mono text-[13px] leading-6">
                 <code>
                     {source.split("\n").map((line, index) => (
                         <div key={index} className="flex min-h-6">
-                            <span className="sticky left-0 w-12 shrink-0 select-none border-r border-zinc-800 bg-zinc-950 pr-4 text-right text-zinc-500">
+                            <span className="sticky left-0 w-12 shrink-0 select-none border-r border-zinc-400 bg-zinc-800 pr-4 text-right text-zinc-500">
                                 {index + 1}
                             </span>
                             <span className="pl-5">
@@ -106,9 +106,9 @@ export default function ComponentDemoTabs({
     }
 
     return (
-        <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
+        <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-transparent">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 bg-zinc-50 px-4 py-3 md:px-5">
-                <div className="flex items-center gap-1 rounded-xl bg-zinc-100 p-1" role="tablist" aria-label={`${previewLabel} / ${sourceLabel}`}>
+                <div className="flex items-center gap-1 rounded-xl border border-zinc-400 p-1" role="tablist" aria-label={`${previewLabel} / ${sourceLabel}`}>
                     <button
                         type="button"
                         role="tab"
@@ -118,7 +118,7 @@ export default function ComponentDemoTabs({
                         onClick={() => setActiveTab("preview")}
                         className={[
                             "rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
-                            activeTab === "preview" ? "bg-zinc-50 text-zinc-900 shadow-sm" : "text-zinc-500 hover:text-zinc-900",
+                            activeTab === "preview" ? "bg-zinc-900 text-zinc-50 shadow-sm" : "text-zinc-500 hover:text-zinc-900",
                         ].join(" ")}
                     >
                         {previewLabel}
@@ -132,7 +132,7 @@ export default function ComponentDemoTabs({
                         onClick={() => setActiveTab("source")}
                         className={[
                             "rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
-                            activeTab === "source" ? "bg-zinc-50 text-zinc-900 shadow-sm" : "text-zinc-500 hover:text-zinc-900",
+                            activeTab === "source" ? "bg-zinc-900 text-zinc-50 shadow-sm" : "text-zinc-500 hover:text-zinc-900",
                         ].join(" ")}
                     >
                         {sourceLabel}
@@ -143,7 +143,7 @@ export default function ComponentDemoTabs({
                     <button
                         type="button"
                         onClick={copySource}
-                        className="rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-500 transition-colors hover:border-zinc-300 hover:text-zinc-900"
+                        className="rounded-2xl border border-zinc-400 px-3 py-1.5 text-xs font-semibold text-zinc-900 transition-colors hover:border-zinc-600 hover:text-zinc-900"
                     >
                         {copied ? copiedLabel : copyLabel}
                     </button>

@@ -52,16 +52,16 @@ export default function ComponentCatalogSidebar({
     };
 
     return (
-        <aside className="lg:sticky lg:top-28 lg:self-start">
+        <aside className="lg:sticky lg:top-40 lg:self-start">
             <nav
-                aria-label={labels[lang].catalog}
-                className="rounded-2xl border border-zinc-200 bg-white p-3"
+                // aria-label={labels[lang].catalog}
+                className="rounded-2xl border border-zinc-300 bg-white"
             >
-                <div className="mb-2 px-2 py-1 text-xs font-bold uppercase tracking-[0.16em] text-zinc-500">
+                <div className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-white bg-black rounded-t-2xl py-5 px-3">
                     {labels[lang].catalog}
                 </div>
 
-                <div className="space-y-1">
+                <div className="space-y-1 p-3">
                     {categoryOrder.map((category) => {
                         const items = registry.filter((item) => item.category === category);
                         if (items.length === 0) return null;
@@ -118,16 +118,16 @@ export default function ComponentCatalogSidebar({
                                                     lang === "fa" ? "pr-7" : "pl-7",
                                                     active
                                                         ? "bg-zinc-900 text-white"
-                                                        : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950",
+                                                        : "text-zinc-600 hover:bg-zinc-200 hover:text-zinc-950",
                                                 ].join(" ")}
                                             >
                                                 <span>{item.name[lang]}</span>
-                                                <span
-                                                    aria-hidden="true"
-                                                    className={active ? "text-zinc-400" : "text-zinc-300"}
-                                                >
-                                                    {lang === "fa" ? "←" : "→"}
-                                                </span>
+                                                {/*<span*/}
+                                                {/*    aria-hidden="true"*/}
+                                                {/*    className={active ? "text-zinc-400" : "text-zinc-300"}*/}
+                                                {/*>*/}
+                                                {/*    {lang === "fa" ? "←" : "→"}*/}
+                                                {/*</span>*/}
                                             </Link>
                                         );
                                     })}
