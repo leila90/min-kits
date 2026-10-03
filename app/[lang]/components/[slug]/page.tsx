@@ -104,6 +104,13 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
             <Header />
 
             <section className="pt-28 pb-8 md:pt-32 md:pb-10">
+                <Breadcrumb
+                    lang={lang}
+                    dict={dictionary.breadcrumbs}
+                    page="components"
+                    currentLabel={component.name[lang]}
+                />
+
                 <Container>
                     <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-start lg:gap-8">
                         <ComponentCatalogSidebar
@@ -113,13 +120,6 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         />
 
                         <div className="min-w-0 lg:col-start-2">
-                            <Breadcrumb
-                                lang={lang}
-                                dict={dictionary.breadcrumbs}
-                                page="components"
-                                currentLabel={component.name[lang]}
-                            />
-
                             <div className="mb-3 flex items-center justify-between gap-4">
                                 <div>
                                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
