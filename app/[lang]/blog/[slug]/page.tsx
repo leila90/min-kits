@@ -26,7 +26,7 @@ export async function generateMetadata({
     params,
 }: {
     params: Promise<{ lang: string; slug: string }>;
-}): Promise<Metadata> {
+): Promise<Metadata> {
     const { lang, slug } = await params;
 
     if (!isLang(lang)) {
@@ -80,15 +80,34 @@ export default async function Page({
 
     return (
         <>
-            <Header />
-            <Breadcrumb lang={lang} dict={d.breadcrumbs} page="blog" />
-            <Container>
-                <section className="py-10">
-                    <h2 className="text-3xl font-bold">{post.title}</h2>
-                    <p className="mt-5 text-blog-card-muted">{post.description}</p>
+            <main className="min-h-screen bg-white text-zinc-900">
+                <section className="border-b border-zinc-200 bg-zinc-200 pb-12 pt-32 md:pb-30 md:pt-40">
+                    <Container>
+                        <Breadcrumb lang={lang} dict={d.breadcrumbs} page="blog" />
+                        <div className="mt-7 max-w-3xl">
+                            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
+                                {d.blog.title}
+                            </span>
+                            <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
+                                {post.title}
+                            </h1>
+                            <p className="mt-3 text-base leading-7 text-zinc-500 md:text-lg">
+                                {post.description}
+                            </p>
+                        </div>
+                    </Container>
                 </section>
-            </Container>
-            <MagazineEditorialColumns lang={lang} title={post.title} description={post.description} />
+
+                <Header />
+
+                <section className="pt-28 pb-8 md:pt-32 md:pb-10">
+                    <MagazineEditorialColumns
+                        lang={lang}
+                        title={post.title}
+                        description={post.description}
+                    />
+                </section>
+            </main>
             <FooterHeader />
         </>
     );
