@@ -1,10 +1,11 @@
 "use client";
 
 import {cloneElement, useId, type ReactElement, type ReactNode} from "react";
+import type {HTMLAttributes} from "react";
 
 export type TooltipProps = {
     content: ReactNode;
-    children: ReactElement;
+    children: ReactElement<HTMLAttributes<HTMLElement>>;
 };
 
 export default function Tooltip({content, children}: TooltipProps) {
