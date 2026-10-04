@@ -35,6 +35,7 @@ export default async function SearchPage({params, searchParams}: SearchPageProps
     const {q} = await searchParams;
     const rawQuery = Array.isArray(q) ? q[0] ?? "" : q ?? "";
     const query = rawQuery.trim().toLocaleLowerCase();
+    const categoryLabels = dictionary.componentsCatalog.categories;
 
     const componentResults = query
         ? componentRegistry.filter((item) =>
@@ -103,7 +104,7 @@ export default async function SearchPage({params, searchParams}: SearchPageProps
                     {query && (
                         <div className="mt-12">
                             <p className="text-sm text-zinc-500">
-                                {hasResults ? dictionary.search.resultsFor.replace("{query}", rawQuery) : dictionary.search.noResults.replace("{query}", q)}
+                                {hasResults ? dictionary.search.resultsFor.replace("{query}", rawQuery) : dictionary.search.noResults.replace("{query}", rawQuery)}
                             </p>
 
                             {hasResults && (
@@ -114,7 +115,7 @@ export default async function SearchPage({params, searchParams}: SearchPageProps
                                             <div className="mt-4 grid gap-4 md:grid-cols-2">
                                                 {componentResults.map((item) => (
                                                     <Link key={item.slug} href={`/${lang}/components/${item.slug}`} className="rounded-2xl border border-zinc-200 p-5 transition-shadow hover:shadow-md">
-                                                        <Badge>{item.category}</Badge>
+                                                        <Badge>{categoryLabels[item.category]}</Badge>
                                                         <h3 className="mt-3 font-semibold">{item.name[lang]}</h3>
                                                         <p className="mt-2 text-sm leading-6 text-zinc-500">{item.description[lang]}</p>
                                                     </Link>
