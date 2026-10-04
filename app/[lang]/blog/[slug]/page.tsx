@@ -22,10 +22,13 @@ function getPostIndex(slug: string, postCount: number) {
     return index;
 }
 
+type BlogDetailPageProps = {
+    params: Promise<{ lang: string; slug: string }>;
+};
+
 export async function generateMetadata({
     params,
-}: {
-    params: Promise<{ lang: string; slug: string }>;
+}: BlogDetailPageProps {
 ): Promise<Metadata> {
     const { lang, slug } = await params;
 
