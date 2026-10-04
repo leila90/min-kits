@@ -5,22 +5,27 @@ import "../styles/globals.css";
 import LenisScroll from "@/components/layout/lenis";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
-import { getDictionary, isLang, locales } from "../i18n";
+import {getDictionary, getDirection, isLang, locales} from "../i18n";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://minkits.com";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-    return locales.map((lang) => ({ lang }));
+    return locales.map((lang) => ({lang}));
 }
 
 export async function generateMetadata({
     params,
 }: {
-    params: Promise<{ lang: string }>;
+    params: Promise<{lang: string}>;
 }): Promise<Metadata> {
-    const { lang } = await params;
+    const {lang} = await params;
+
+    if (!isLang(lang)) {
+        return {};
+    }
+
     const isFa = lang === "fa";
 
     return {
@@ -34,7 +39,7 @@ export async function generateMetadata({
             : "Production-ready UI kits and components for React, Next.js and Tailwind CSS.",
         alternates: {
             canonical: `/${lang}`,
-            languages: { en: "/en", fa: "/fa" },
+            languages: {en: "/en", fa: "/fa"},
         },
         openGraph: {
             type: "website",
@@ -44,6 +49,10 @@ export async function generateMetadata({
         },
         twitter: {
             card: "summary_large_image",
+            title: "MinKits",
+            description: isFa
+                ? "کیت‌ها و کامپوننت‌های رابط کاربری آماده استفاده برای React، Next.js و Tailwind CSS."
+                : "Production-ready UI kits and components for React, Next.js and Tailwind CSS.",
         },
         robots: {
             index: true,
@@ -57,9 +66,9 @@ export default async function RootLayout({
     params,
 }: {
     children: React.ReactNode;
-    params: Promise<{ lang: string }>;
+    params: Promise<{lang: string}>;
 }) {
-    const { lang } = await params;
+    const {lang} = await params;
 
     if (!isLang(lang)) {
         notFound();
@@ -68,9 +77,9 @@ export default async function RootLayout({
     const dict = await getDictionary(lang);
 
     return (
-        <html lang={lang} dir={lang === "fa" ? "rtl" : "ltr"}>
+        <html lang={lang} dir={getDirection(lang)}>
             <body>
-                <LenisScroll />
+                <LenisScroll/>
                 <NextTopLoader
                     color="var(--loader-color)"
                     initialPosition={0.08}
@@ -81,9 +90,9 @@ export default async function RootLayout({
                     speed={200}
                     easing="ease"
                 />
-                <Navbar lang={lang} dict={dict} />
+                <Navbar lang={lang} dict={dict}/>
                 {children}
-                <Footer lang={lang} dict={dict.footer} />
+                <Footer lang={lang} dict={dict.footer}/>
             </body>
         </html>
     );
