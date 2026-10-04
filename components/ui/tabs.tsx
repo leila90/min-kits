@@ -13,9 +13,10 @@ export type TabsProps = {
     defaultValue?: string;
     ariaLabel?: string;
     className?: string;
+    dir?: "ltr" | "rtl";
 };
 
-export default function Tabs({items, defaultValue, ariaLabel = "Tabs", className = ""}: TabsProps) {
+export default function Tabs({items, defaultValue, ariaLabel = "Tabs", className = "", dir = "ltr"}: TabsProps) {
     const baseId = useId();
     const initial = defaultValue && items.some((item) => item.id === defaultValue)
         ? defaultValue
@@ -42,7 +43,7 @@ export default function Tabs({items, defaultValue, ariaLabel = "Tabs", className
     const activeItem = items.find((item) => item.id === active) ?? items[0];
 
     return (
-        <div className={`w-full ${className}`}>
+        <div dir={dir} className={`w-full ${className}`}>
             <div role="tablist" aria-label={ariaLabel} className="flex gap-1 border-b border-zinc-200">
                 {items.map((item) => {
                     const selected = item.id === active;
@@ -60,10 +61,13 @@ export default function Tabs({items, defaultValue, ariaLabel = "Tabs", className
                             tabIndex={selected ? 0 : -1}
                             onClick={() => setActive(item.id)}
                             onKeyDown={(event) => {
-                                if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+                                const forwardKey = dir === "rtl" ? "ArrowLeft" : "ArrowRight";
+                                const backwardKey = dir === "rtl" ? "ArrowRight" : "ArrowLeft";
+
+                                if (event.key === forwardKey || event.key === "ArrowDown") {
                                     event.preventDefault();
                                     selectByOffset(item.id, 1);
-                                } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+                                } else if (event.key === backwardKey || event.key === "ArrowUp") {
                                     event.preventDefault();
                                     selectByOffset(item.id, -1);
                                 } else if (event.key === "Home") {
@@ -75,7 +79,7 @@ export default function Tabs({items, defaultValue, ariaLabel = "Tabs", className
                                 }
                             }}
                             className={[
-                                "border-b-2 px-4 py-2.5 text-sm font-semibold transition-colors",
+                                "border-b-2 px-4 py-2.5 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500",
                                 selected
                                     ? "border-zinc-900 text-zinc-950"
                                     : "border-transparent text-zinc-500 hover:text-zinc-900",
