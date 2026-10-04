@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import {notFound} from "next/navigation";
 import {getDictionary, isLang, locales} from "@/app/i18n";
+import {messages} from "@/app/i18n/messages";
 import {Header, FooterHeader} from "@/components/layout";
 import {Breadcrumb} from "@/components/common";
 import {MagazineEditorialColumns} from "@/components/blog";
@@ -8,7 +9,7 @@ import Container from "@/components/ui/container";
 
 export function generateStaticParams() {
     return locales.flatMap((lang) =>
-        ["1", "2", "3"].map((slug) => ({lang, slug}))
+        messages[lang].blog.posts.map((_, index) => ({lang, slug: String(index + 1)}))
     );
 }
 
@@ -107,7 +108,6 @@ export default async function Page({
 
                     <MagazineEditorialColumns
                         lang={lang}
-                        title={post.title}
                         description={post.description}
                     />
                 </Container>

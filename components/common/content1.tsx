@@ -5,9 +5,6 @@ export default function Content1() {
 
     return (
         <section id={"aboutUs"} className="pb-10 mx-5 bg-transparent">
-            {/*<SectionTitle brand='MinKits Team' title='Our Exceptional Team' subTitle='Empowered by passion and skill, our Exceptional Team turns*/}
-            {/*            challenges into opportunities for growth.' lang={lang}/>*/}
-            {/*<section className="py-24 bg-transparent">*/}
             <div className="mx-auto max-w-7xl">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
 
@@ -36,16 +33,8 @@ export default function Content1() {
                                     </li>
                                 ))}
                             </ul>
-                            {/* Stats */}
-                            {/*<div className="grid grid-cols-3 gap-6 border-t border-zinc-900 pt-6">*/}
-                            {/*    <Stat value="5.6M+" label="Downloads"/>*/}
-                            {/*    <Stat value="3.2+" label="Active Users"/>*/}
-                            {/*    <Stat value="4.9" label="Ratings"/>*/}
-                            {/*</div>*/}
-                            {/* Stats */}
                             <div className="bg-white dark:bg-neutral-800">
                                 <div className="max-w-5xl px-4 xl:px-0 py-10 mx-auto">
-                                    {/*<div className="border border-gray-200 dark:border-neutral-700 rounded-xl">*/}
                                         <div className="p-4 lg:p-8">
                                             <div className="grid grid-cols-1 sm:grid-cols-3 items-center gap-y-20 gap-x-12">
                                                 {/* Stats */}
@@ -81,7 +70,6 @@ export default function Content1() {
                                                 {/* End Stats */}
                                             </div>
                                         </div>
-                                    {/*</div>*/}
                                 </div>
                             </div>
                             {/* End Stats */}
@@ -116,7 +104,6 @@ export default function Content1() {
 
                 </div>
             </div>
-            {/*</section>*/}
         </section>
     )
 }

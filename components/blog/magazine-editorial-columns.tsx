@@ -2,15 +2,11 @@ import Image from "next/image";
 
 type Props = {
     lang: "fa" | "en";
-    title: string;
     description: string;
 };
 
 const editorialCopy = {
     en: {
-        masthead: "The Editorial Review",
-        season: "Spring 2026",
-        label: "Essay",
         byline: "By MinKits Editorial",
         photography: "Photography: MinKits",
         quote: "Good interfaces use proportion, rhythm, and hierarchy to guide attention.",
@@ -26,9 +22,6 @@ const editorialCopy = {
             "Typography adds another layer of hierarchy. Size, weight, and line length create a path through the content, while generous whitespace gives important ideas room to breathe. The result is an interface that feels considered rather than crowded.",
     },
     fa: {
-        masthead: "مرور تحریریه",
-        season: "بهار ۲۰۲۶",
-        label: "مقاله",
         byline: "نوشته تحریریه MinKits",
         photography: "تصویر: MinKits",
         quote: "رابط‌های خوب با استفاده از تناسب، ریتم و سلسله‌مراتب، توجه کاربر را هدایت می‌کنند.",
@@ -45,42 +38,19 @@ const editorialCopy = {
     },
 } as const;
 
-export function MagazineEditorialColumns({lang, title, description}: Props) {
+export function MagazineEditorialColumns({lang, description}: Props) {
     const copy = editorialCopy[lang];
 
     return (
         <section dir={lang === "fa" ? "rtl" : "ltr"} className="mb-16 bg-white">
             <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
-                {/*<div className="mb-8 flex items-center justify-between border-y border-black py-2">*/}
-                {/*    <span className="font-sans text-xs font-bold tracking-[0.25em] uppercase">*/}
-                {/*        {copy.masthead}*/}
-                {/*    </span>*/}
-                {/*    <span className="font-sans text-xs tracking-widest text-neutral-500 uppercase">*/}
-                {/*        {copy.season}*/}
-                {/*    </span>*/}
-                {/*</div>*/}
-
                 <div className="relative mb-8 overflow-hidden">
-                    {/*<div className="pointer-events-none absolute inset-0 flex items-end select-none" aria-hidden="true">*/}
-                    {/*    <span className="block font-sans text-[clamp(4rem,15vw,10rem)] leading-none font-black tracking-tighter text-black/[0.05]">*/}
-                    {/*        MinKits*/}
-                    {/*    </span>*/}
-                    {/*</div>*/}
-
                     <div className="relative">
-                        {/*<h2 className="mb-2 font-sans text-[11px] font-bold tracking-[0.3em] text-neutral-500 uppercase">*/}
-                        {/*    {copy.label}*/}
-                        {/*</h2>*/}
-                        {/*<h1 className="font-serif text-[clamp(1.8rem,4.5vw,3rem)] leading-[1.1] font-bold text-black">*/}
-                        {/*    {title}*/}
-                        {/*</h1>*/}
                         <p className="mt-3 font-sans text-sm text-neutral-500">
                             {copy.byline} &nbsp;·&nbsp; {copy.photography}
                         </p>
                     </div>
                 </div>
-
-                {/*<div className="mb-8 border-t-4 border-black" />*/}
 
                 <figure className="max-w-full mx-auto text-center pb-10 px-20">
                     <svg className="w-11 h-11 text-heading mb-4 mx-auto" aria-hidden="true"
@@ -94,7 +64,6 @@ export function MagazineEditorialColumns({lang, title, description}: Props) {
                         </p>
                     </blockquote>
                 </figure>
-
 
                 <div className="mb-8 py-2">
                     <div className="flex flex-col">

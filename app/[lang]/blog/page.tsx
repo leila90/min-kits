@@ -2,7 +2,7 @@ import type {Metadata} from "next";
 import {notFound} from "next/navigation";
 import {getDictionary, isLang} from "@/app/i18n";
 import {Header, FooterHeader} from "@/components/layout";
-import {Breadcrumb, SectionTitle} from "@/components/common";
+import {Breadcrumb} from "@/components/common";
 import BlogBrowser from "@/components/sections/blogCatalog/blogBrowser";
 import Container from "@/components/ui/container";
 
