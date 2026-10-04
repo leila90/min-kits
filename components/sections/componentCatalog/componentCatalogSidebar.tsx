@@ -37,7 +37,7 @@ export default function ComponentCatalogSidebar({
     };
 
     return (
-        <aside className="lg:sticky lg:top-40 lg:self-start">
+        <aside className="lg:sticky lg:top-32 lg:self-start">
             <nav aria-label={copy.title} className="rounded-2xl border border-zinc-300 bg-white">
                 <div className="mb-2 rounded-t-2xl bg-black px-3 py-5 text-xs font-bold uppercase tracking-[0.16em] text-white">
                     {copy.title}
