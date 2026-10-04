@@ -9,7 +9,7 @@ import Badge from "@/components/ui/badge";
 
 type SearchPageProps = {
     params: Promise<{lang: string}>;
-    searchParams: Promise<{q?: string}>;
+    searchParams: Promise<{q?: string | string[]}>;
 };
 
 export async function generateMetadata({params}: SearchPageProps): Promise<Metadata> {
@@ -32,8 +32,9 @@ export default async function SearchPage({params, searchParams}: SearchPageProps
     if (!isLang(lang)) notFound();
 
     const dictionary = await getDictionary(lang);
-    const {q = ""} = await searchParams;
-    const query = q.trim().toLocaleLowerCase();
+    const {q} = await searchParams;
+    const rawQuery = Array.isArray(q) ? q[0] ?? "" : q ?? "";
+    const query = rawQuery.trim().toLocaleLowerCase();
 
     const componentResults = query
         ? componentRegistry.filter((item) =>
@@ -87,7 +88,7 @@ export default async function SearchPage({params, searchParams}: SearchPageProps
                         <input
                             id="site-search"
                             name="q"
-                            defaultValue={q}
+                            defaultValue={rawQuery}
                             placeholder={dictionary.search.placeholder}
                             className="min-w-0 flex-1 rounded-xl border border-zinc-300 px-4 py-3 text-sm outline-none focus:border-zinc-900 focus:ring-2 focus:ring-zinc-200"
                         />
@@ -102,7 +103,7 @@ export default async function SearchPage({params, searchParams}: SearchPageProps
                     {query && (
                         <div className="mt-12">
                             <p className="text-sm text-zinc-500">
-                                {hasResults ? dictionary.search.resultsFor.replace("{query}", q) : dictionary.search.noResults.replace("{query}", q)}
+                                {hasResults ? dictionary.search.resultsFor.replace("{query}", rawQuery) : dictionary.search.noResults.replace("{query}", q)}
                             </p>
 
                             {hasResults && (
