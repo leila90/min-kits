@@ -36,7 +36,7 @@ export const messages = {
     },
     pageKits: { title: "Page Kits", description: "Complete page sections and layouts for faster product assembly.", back: "Back to component store", badge: "Coming soon", cta: "Request early access" },
     componentsCatalog: { previousComponent: "Previous component", nextComponent: "Next component", browseAllComponents: "Browse all components", title: "Components", subtitle: "Production-ready building blocks you can explore, reuse, and adapt.", viewComponent: "View component", metaTitle: "Components", metaDescription: "Explore reusable, production-ready UI components from MinKits.", backToCatalog: "Back to components", preview: "Preview", source: "Source code", copy: "Copy", copied: "Copied", searchPlaceholder: "Search components...", allCategories: "All", noResults: "No components match your search.", usage: "Usage", startHere: "Start here", interactiveDemo: "Interactive demo", example: "example", examples: "examples", documentedProps: "documented props", api: "API", props: "Props", propName: "Name", propType: "Type", required: "Required", optional: "Optional", defaultValue: "Default",
-      categories: { form: "Form", layout: "Layout" },
+      categories: { form: "Form", layout: "Layout", feedback: "Feedback", navigation: "Navigation" },
       sidebar: { expand: "Expand", collapse: "Collapse" },
       demo: {
         click: "Click me", done: "Done ✓", secondary: "Secondary", formButton: "Form",
@@ -107,7 +107,7 @@ export const messages = {
     },
     pageKits: { title: "کیت صفحات", description: "صفحات و بخش‌های کامل برای ساخت سریع‌تر محصولات.", back: "بازگشت به فروشگاه کامپوننت", badge: "به‌زودی", cta: "درخواست دسترسی زودهنگام" },
     componentsCatalog: { previousComponent: "کامپوننت قبلی", nextComponent: "کامپوننت بعدی", browseAllComponents: "مشاهده همه کامپوننت‌ها", title: "کامپوننت‌ها", subtitle: "بلوک‌های رابط کاربری آماده تولید برای مشاهده، استفاده مجدد و شخصی‌سازی.", viewComponent: "مشاهده کامپوننت", metaTitle: "کامپوننت‌ها", metaDescription: "مجموعه‌ای از کامپوننت‌های رابط کاربری آماده تولید و قابل استفاده مجدد در MinKits.", backToCatalog: "بازگشت به کامپوننت‌ها", preview: "پیش‌نمایش", source: "سورس کد", copy: "کپی", copied: "کپی شد", searchPlaceholder: "جستجوی کامپوننت‌ها...", allCategories: "همه", noResults: "کامپوننتی با این جستجو پیدا نشد.", usage: "نحوه استفاده", startHere: "از اینجا شروع کنید", interactiveDemo: "دموی تعاملی", example: "مثال", examples: "مثال", documentedProps: "پراپ مستند", api: "API", props: "پراپ‌ها", propName: "نام", propType: "نوع", required: "الزامی", optional: "اختیاری", defaultValue: "پیش‌فرض",
-      categories: { form: "فرم", layout: "چیدمان" },
+      categories: { form: "فرم", layout: "چیدمان", feedback: "بازخورد", navigation: "ناوبری" },
       sidebar: { expand: "باز کردن", collapse: "بستن" },
       demo: {
         click: "کلیک کنید", done: "انجام شد ✓", secondary: "ثانویه", formButton: "فرم",
