@@ -119,6 +119,7 @@ export const messages = {
         inputSample: "ورودی", textareaSample: "پیام شما...", nameLabel: "نام"
       }
     },
+    search: { title: "جست‌وجوی MinKits", description: "کامپوننت‌ها، پک‌های کامپوننت و مقالات را از یکجا جست‌وجو کنید.", placeholder: "جست‌وجو در MinKits...", inputLabel: "عبارت جست‌وجو", submit: "جست‌وجو", resultsFor: "نتایج برای «{query}»", noResults: "نتیجه‌ای برای «{query}» پیدا نشد.", components: "کامپوننت‌ها", packs: "پک‌های کامپوننت", blog: "بلاگ" },
     uiKits: { title: "کیت‌های UI", description: "مجموعه‌های بزرگ‌تر برای ساخت رابط‌های یکپارچه در محصول.", back: "بازگشت به فروشگاه کامپوننت", badge: "به‌زودی", cta: "درخواست دسترسی زودهنگام" },
     blog: {
       title: "بلاگ",
