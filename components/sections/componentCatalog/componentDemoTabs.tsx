@@ -65,18 +65,18 @@ function SourceCode({source}: {source: string}) {
             <pre dir="ltr" className="min-w-max text-left font-mono text-[13px] leading-6">
                 <code>
                     {source.split("\n").map((line, index) => (
-                        <div key={index} className="flex min-h-6">
+                        <span key={index} className="flex min-h-6">
                             <span className="sticky left-0 w-12 shrink-0 select-none border-r border-zinc-400 bg-zinc-800 pr-4 text-right text-zinc-500">
                                 {index + 1}
                             </span>
-                                <span className="pl-5">
+                                    <span className="pl-5">
                                 {tokenizeLine(line).map((token, tokenIndex) => (
                                     <span key={tokenIndex} className={tokenClasses[token.kind]}>
                                         {token.value}
                                     </span>
                                 ))}
                             </span>
-                        </div>
+                        </span>
                     ))}
                 </code>
             </pre>
