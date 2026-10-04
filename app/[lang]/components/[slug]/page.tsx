@@ -81,12 +81,11 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
         <main className="min-h-screen bg-white text-zinc-900">
             <section className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-40">
                 <Container>
-
                     <div className="max-w-3xl">
                         <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
                             {categoryLabel}
                         </span>
-                        <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl text-zinc-200">
+                        <h1 className="mt-2 text-4xl font-bold tracking-tight text-zinc-200 md:text-5xl">
                             {component.name[lang]}
                         </h1>
                     </div>
@@ -211,41 +210,39 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                 </div>
                             </section>
                         </div>
-
                     </div>
 
                     <nav
                         aria-label={copy.browseAllComponents}
-                        className="relative z-10 mt-8 border-t border-zinc-200 pt-6 md:mt-10 md:pt-8 mb-8"
+                        className="mb-8 mt-8 grid grid-cols-1 gap-3 border-t border-zinc-200 pt-6 md:mt-10 md:grid-cols-2 md:gap-4 md:pt-8"
                     >
-                        <div className="flex items-center justify-between gap-6">
-                            <Link
-                                href={previousComponent ? `/${lang}/components/${previousComponent.slug}` : `/${lang}/components`}
-                                className="group rounded-lg text-sm text-zinc-600 transition-colors hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
-                            >
-                                <span className="block font-semibold">← {copy.previousComponent}</span>
-                                {previousComponent && (
-                                    <span className="mt-1 block text-xs font-medium text-zinc-400 group-hover:text-zinc-600">
-                                        {previousComponent.name[lang]}
-                                    </span>
-                                )}
-                            </Link>
-                            <Link
-                                href={nextComponent ? `/${lang}/components/${nextComponent.slug}` : `/${lang}/components`}
-                                className="group rounded-lg text-end text-sm text-zinc-600 transition-colors hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
-                            >
-                                <span className="block font-semibold">{copy.nextComponent} →</span>
-                                {nextComponent && (
-                                    <span className="mt-1 block text-xs font-medium text-zinc-400 group-hover:text-zinc-600">
-                                        {nextComponent.name[lang]}
-                                    </span>
-                                )}
-                            </Link>
-                        </div>
-                    </nav>
+                        <Link
+                            href={previousComponent ? `/${lang}/components/${previousComponent.slug}` : `/${lang}/components`}
+                            className="group flex min-h-24 flex-col justify-center rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-start transition-colors hover:border-zinc-400 hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500 md:px-6"
+                        >
+                            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-400">
+                                ← {copy.previousComponent}
+                            </span>
+                            <span className="mt-2 text-sm font-semibold text-zinc-700 group-hover:text-zinc-950">
+                                {previousComponent ? previousComponent.name[lang] : copy.browseAllComponents}
+                            </span>
+                        </Link>
 
+                        <Link
+                            href={nextComponent ? `/${lang}/components/${nextComponent.slug}` : `/${lang}/components`}
+                            className="group flex min-h-24 flex-col justify-center rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-end transition-colors hover:border-zinc-400 hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500 md:px-6"
+                        >
+                            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-400">
+                                {copy.nextComponent} →
+                            </span>
+                            <span className="mt-2 text-sm font-semibold text-zinc-700 group-hover:text-zinc-950">
+                                {nextComponent ? nextComponent.name[lang] : copy.browseAllComponents}
+                            </span>
+                        </Link>
+                    </nav>
                 </Container>
             </section>
+
             <FooterHeader />
         </main>
     );
