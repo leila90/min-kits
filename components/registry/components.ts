@@ -3,6 +3,7 @@ import type {ComponentRegistry} from "./types";
 export const componentRegistry: ComponentRegistry = [
     {
         slug: "button",
+        sourceFile: "components/ui/button.tsx",
         category: "form",
         name: {en: "Button", fa: "دکمه"},
         description: {
@@ -27,6 +28,7 @@ export const componentRegistry: ComponentRegistry = [
     },
     {
         slug: "input",
+        sourceFile: "components/ui/input.tsx",
         category: "form",
         name: {en: "Input", fa: "ورودی"},
         description: {
@@ -53,6 +55,7 @@ export const componentRegistry: ComponentRegistry = [
     },
     {
         slug: "textarea",
+        sourceFile: "components/ui/textarea.tsx",
         category: "form",
         name: {en: "Textarea", fa: "ناحیه متن"},
         description: {
@@ -78,6 +81,7 @@ export const componentRegistry: ComponentRegistry = [
     },
     {
         slug: "form-field",
+        sourceFile: "components/ui/form-field.tsx",
         category: "form",
         name: {en: "Form Field", fa: "فیلد فرم"},
         description: {
@@ -97,6 +101,7 @@ export const componentRegistry: ComponentRegistry = [
     },
     {
         slug: "divider",
+        sourceFile: "components/ui/divider.tsx",
         category: "layout",
         name: {en: "Divider", fa: "جداکننده"},
         description: {
@@ -114,4 +119,4 @@ export const componentRegistry: ComponentRegistry = [
             {title: {en: "RTL gradient", fa: "گرادیان راست به چپ"}, code: `<Divider variant="gradient" direction="rtl" />`},
         ],
     },
- ];
+];
