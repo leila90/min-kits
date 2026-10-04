@@ -18,7 +18,7 @@ export default function Breadcrumb({lang, dict, page, currentLabel}: Props) {
             : dict.components;
 
     return (
-        <section className="mt-8 mb-8 scroll-mt-36 md:mt-10 md:mb-10 md:scroll-mt-44">
+        <section className="mt-3 mb-8 scroll-mt-36 md:mt-4 md:mb-10 md:scroll-mt-44">
             <Container>
                 <nav aria-label="Breadcrumb">
                     <ol className="flex items-center gap-2 whitespace-nowrap border-y border-breadcrumb-border py-2">
