@@ -12,7 +12,7 @@ export type ModalProps = {
     className?: string;
 };
 
-export default function Modal({open, onClose, title, children, className = ""}: ModalProps) {
+export default function Modal({open, onClose, title, ariaLabel, children, className = ""}: ModalProps) {
     return (
         <Dialog open={open} onClose={onClose} className="relative z-[100]">
             <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" aria-hidden="true"/>
