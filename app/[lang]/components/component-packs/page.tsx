@@ -71,7 +71,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     return {
         title,
         description,
-        alternates: {canonical: `/${lang}/components/component-packs`},
+        alternates: {canonical: `/${lang}/components/component-packs`, languages: {en: "/en/components/component-packs", fa: "/fa/components/component-packs"}},
         openGraph: {title, description, url: `/${lang}/components/component-packs`},
     };
 }
