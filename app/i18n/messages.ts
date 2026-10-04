@@ -47,6 +47,7 @@ export const messages = {
         inputSample: "Input", textareaSample: "Your message...", nameLabel: "Name"
       }
     },
+    search: { title: "Search MinKits", description: "Search components, component packs, and articles from one place.", placeholder: "Search MinKits...", inputLabel: "Search query", submit: "Search", resultsFor: "Results for \"{query}\"", noResults: "No results found for \"{query}\".", components: "Components", packs: "Component Packs", blog: "Blog" },
     uiKits: { title: "UI Kits", description: "Larger UI collections for consistent product interfaces.", back: "Back to component store", badge: "Coming soon", cta: "Request early access" },
     blog: {
       title: "Blog",
@@ -71,7 +72,7 @@ export const messages = {
     },
     team: { title: "Our Team", subtitle: "A small team focused on making frontend development simpler." },
     contact: { title: "Contact Us", subtitle: "Have a question or an idea? Send us a message.", name: "Name", email: "Email", message: "Message", namePlaceholder: "Your name", emailPlaceholder: "you@example.com", messagePlaceholder: "Write your message here...", legal: "By submitting, you agree to our Terms and Privacy Policy.", submit: "Submit", brandDescription: "MinKits is a growing collection of practical, production-ready UI components and kits for modern web development." },
-    footer: { description: "MinKits is a growing collection of practical, production-ready UI components and kits for modern web development.", important: "Important Links", social: "Social Links", subscribe: "Subscribe for news", emailPlaceholder: "Enter your email..", button: "Subscribe", home: "Home", about: "About", componentPacks: "Component Packs", portfolio: "Portfolio", contact: "Contact", faq: "FAQ", terms: "Terms & Conditions", privacy: "Privacy Policy", copyright: "© 2026 MinKits" },
+    footer: { search: "Search", description: "MinKits is a growing collection of practical, production-ready UI components and kits for modern web development.", important: "Important Links", social: "Social Links", subscribe: "Subscribe for news", emailPlaceholder: "Enter your email..", button: "Subscribe", home: "Home", about: "About", componentPacks: "Component Packs", portfolio: "Portfolio", contact: "Contact", faq: "FAQ", terms: "Terms & Conditions", privacy: "Privacy Policy", copyright: "© 2026 MinKits" },
     breadcrumbs: { home: "Home", about: "About Us", blog: "Blog", components: "Components" },
   },
   fa: {
@@ -142,7 +143,7 @@ export const messages = {
     },
     team: { title: "تیم ما", subtitle: "تیمی کوچک که روی ساده‌تر کردن توسعه فرانت‌اند تمرکز دارد." },
     contact: { title: "ارتباط با ما", subtitle: "سؤال یا ایده‌ای دارید؟ برای ما پیام بفرستید.", name: "نام", email: "ایمیل", message: "پیام", namePlaceholder: "نام شما", emailPlaceholder: "you@example.com", messagePlaceholder: "پیام خود را بنویسید...", legal: "با ارسال فرم، با شرایط استفاده و سیاست حریم خصوصی موافقت می‌کنید.", submit: "ارسال", brandDescription: "MinKits مجموعه‌ای رو‌به‌رشد از کامپوننت‌ها و کیت‌های کاربردی و آماده تولید برای توسعه وب مدرن است." },
-    footer: { description: "کامپوننت‌ها و کیت‌های آماده تولید برای توسعه‌دهندگان وب مدرن.", important: "لینک‌های مهم", social: "شبکه‌های اجتماعی", subscribe: "عضویت در خبرنامه", emailPlaceholder: "ایمیل خود را وارد کنید...", button: "عضویت", home: "خانه", about: "درباره ما", componentPacks: "پک‌های کامپوننت", portfolio: "نمونه‌کارها", contact: "ارتباط با ما", faq: "سؤالات متداول", terms: "شرایط استفاده", privacy: "حریم خصوصی", copyright: "© ۲۰۲۶ MinKits" },
+    footer: { search: "جست‌وجو", description: "کامپوننت‌ها و کیت‌های آماده تولید برای توسعه‌دهندگان وب مدرن.", important: "لینک‌های مهم", social: "شبکه‌های اجتماعی", subscribe: "عضویت در خبرنامه", emailPlaceholder: "ایمیل خود را وارد کنید...", button: "عضویت", home: "خانه", about: "درباره ما", componentPacks: "پک‌های کامپوننت", portfolio: "نمونه‌کارها", contact: "ارتباط با ما", faq: "سؤالات متداول", terms: "شرایط استفاده", privacy: "حریم خصوصی", copyright: "© ۲۰۲۶ MinKits" },
     breadcrumbs: { home: "خانه", about: "درباره ما", blog: "بلاگ", components: "کامپوننت‌ها" },
   },
 } satisfies Record<Lang, unknown>;
