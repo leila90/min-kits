@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import {useMemo, useState} from "react";
-import type {Lang, Messages} from "@/app/i18n";
+import type {Lang} from "@/app/i18n";
+import type {Messages} from "@/app/i18n/messages";
 import BlogSidebar from "./blogSidebar";
 
 type Category = "all" | "components" | "react" | "tailwind";
