@@ -82,40 +82,38 @@ export default async function Page({
 
     return (
         <main className="min-h-screen bg-white text-zinc-900">
-            <section className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-40">
+            <div className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-30"/>
+
+            <Header/>
+            <Breadcrumb
+                lang={lang}
+                dict={d.breadcrumbs}
+                page="blog"
+                currentLabel={post.title}
+            />
+            <section className="pb-8 md:pb-10">
                 <Container>
-                    <div className="max-w-3xl">
+                    <div className="max-w-full">
                         <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
                             {d.blog.title}
                         </span>
-                        <h1 className="mt-2 text-4xl font-bold tracking-tight text-zinc-200 md:text-5xl">
+                        <h1 className="mt-2 text-2xl font-bold tracking-tight text-zinc-900 md:text-3xl">
                             {post.title}
                         </h1>
                         <p className="mt-3 text-base leading-7 text-zinc-500 md:text-lg">
                             {post.description}
                         </p>
                     </div>
+
+                    <MagazineEditorialColumns
+                        lang={lang}
+                        title={post.title}
+                        description={post.description}
+                    />
                 </Container>
             </section>
 
-            <Header />
-
-            <section className="pb-8 md:pb-10">
-                <Breadcrumb
-                    lang={lang}
-                    dict={d.breadcrumbs}
-                    page="blog"
-                    currentLabel={post.title}
-                />
-
-                <MagazineEditorialColumns
-                    lang={lang}
-                    title={post.title}
-                    description={post.description}
-                />
-            </section>
-
-            <FooterHeader />
+            <FooterHeader/>
         </main>
     );
 }
