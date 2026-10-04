@@ -1,7 +1,7 @@
 "use client";
 
 import {useId, useState} from "react";
-import type {ComponentPropsWithoutRef} from "react";
+import type {ComponentPropsWithoutRef, MouseEvent} from "react";
 
 export type SwitchProps = Omit<ComponentPropsWithoutRef<"button">, "onChange"> & {
     checked?: boolean;
@@ -13,6 +13,7 @@ export default function Switch({
     checked,
     defaultChecked = false,
     onCheckedChange,
+    onClick,
     className = "",
     ...props
 }: SwitchProps) {
@@ -27,13 +28,18 @@ export default function Switch({
         onCheckedChange?.(next);
     };
 
+    const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+        toggle();
+        onClick?.(event);
+    };
+
     return (
         <button
             id={id}
             type="button"
             role="switch"
             aria-checked={value}
-            onClick={toggle}
+            onClick={handleClick}
             className={[
                 "inline-flex h-6 w-11 shrink-0 items-center rounded-full p-0.5 transition-colors",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900",
