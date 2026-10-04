@@ -10,13 +10,6 @@ export default function Footer({ lang, dict }: FooterProps) {
         <section id="footer" className="scroll-mt-36 md:scroll-mt-44">
             <footer dir={lang === "fa" ? "rtl" : "ltr"} className="bg-footer-background pt-20 pb-12 md:pt-38">
                 <Container>
-                    {/*<div className="w-full flex flex-col mb-20 items-center text-center">*/}
-                    {/*    <Link href={`/${lang}`} aria-label="MinKits">*/}
-                    {/*        <Image src="/logo-ww.png" alt="" height={150} width={150}/>*/}
-                    {/*    </Link>*/}
-                    {/*    <div className="mt-8 w-full"><Divider variant="gradient" direction={lang === "fa" ? "rtl" : "ltr"} className="from-footer-divider-end via-footer-divider to-footer-divider-end" /></div>*/}
-                    {/*    <p className='mt-6 text-sm leading-relaxed text-footer-muted'>{dict.description}</p>*/}
-                    {/*</div>*/}
                     <div className="flex flex-wrap justify-between gap-y-12 lg:gap-x-8">
                         <div className="w-full md:w-[45%] lg:w-[35%] flex flex-col items-center md:items-start text-center md:text-start">
 
