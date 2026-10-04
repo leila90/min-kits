@@ -25,31 +25,27 @@ export default async function Page({params}: { params: Promise<{ lang: string }>
 
     return (
         <main className="min-h-screen bg-white text-zinc-900">
-            <section className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-30">
+            <section className="border-b border-zinc-200 bg-zinc-200 py-20 md:py-28">
+                <Container>
+                    <SectionTitle
+                        brand="MinKits"
+                        title={d.blog.title}
+                        subTitle={d.blog.subtitle}
+                        lang={lang}
+                    />
+                </Container>
             </section>
 
-            <Header/>
+            <Header />
 
-            <section className="-mt-10">
+            <section className="pb-8 md:pb-10">
                 <Breadcrumb
                     lang={lang}
                     dict={d.breadcrumbs}
                     page="blog"
                     currentLabel={d.blog.title}
                 />
-            </section>
-            <section className="pb-8 md:pb-10">
 
-                {/*<Container>*/}
-                {/*    <div className="max-w-full">*/}
-                {/*            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">*/}
-                {/*                {d.blog.title}*/}
-                {/*            </span>*/}
-                {/*        <h1 className="mt-2 text-xl font-bold tracking-tight text-zinc-900 md:text-2xl">*/}
-                {/*            {d.blog.subtitle}*/}
-                {/*        </h1>*/}
-                {/*    </div>*/}
-                {/*</Container>*/}
                 <Container>
                     <BlogBrowser lang={lang} blog={d.blog} />
                 </Container>
