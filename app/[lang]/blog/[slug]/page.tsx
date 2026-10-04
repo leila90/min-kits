@@ -1,15 +1,22 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { getDictionary, isLang, locales } from "@/app/i18n";
-import { Header, FooterHeader } from "@/components/layout";
-import { Breadcrumb } from "@/components/common";
-import { MagazineEditorialColumns } from "@/components/blog";
+import type {Metadata} from "next";
+import {notFound} from "next/navigation";
+import {getDictionary, isLang, locales} from "@/app/i18n";
+import {Header, FooterHeader} from "@/components/layout";
+import {Breadcrumb} from "@/components/common";
+import {MagazineEditorialColumns} from "@/components/blog";
 import Container from "@/components/ui/container";
 
-export function generateStaticParams() {
-    return locales.flatMap((lang) =>
-        ["1", "2", "3"].map((slug) => ({ lang, slug }))
-    );
+export async function generateStaticParams() {
+    return Promise.all(
+        locales.map(async (lang) => {
+            const dictionary = await getDictionary(lang);
+
+            return dictionary.blog.posts.map((_, index) => ({
+                lang,
+                slug: String(index + 1),
+            }));
+        }),
+    ).then((params) => params.flat());
 }
 
 function getPostIndex(slug: string, postCount: number) {
@@ -22,12 +29,14 @@ function getPostIndex(slug: string, postCount: number) {
     return index;
 }
 
-export async function generateMetadata({
-    params,
-}: {
+type BlogDetailPageProps = {
     params: Promise<{ lang: string; slug: string }>;
-}): Promise<Metadata> {
-    const { lang, slug } = await params;
+};
+
+export async function generateMetadata({
+                                           params,
+                                       }: BlogDetailPageProps): Promise<Metadata> {
+    const {lang, slug} = await params;
 
     if (!isLang(lang)) {
         return {};
@@ -59,11 +68,11 @@ export async function generateMetadata({
 }
 
 export default async function Page({
-    params,
-}: {
+                                       params,
+                                   }: {
     params: Promise<{ lang: string; slug: string }>;
 }) {
-    const { lang, slug } = await params;
+    const {lang, slug} = await params;
 
     if (!isLang(lang)) {
         notFound();
@@ -79,17 +88,38 @@ export default async function Page({
     const post = d.blog.posts[postIndex];
 
     return (
-        <>
-            <Header />
-            <Breadcrumb lang={lang} dict={d.breadcrumbs} page="blog" />
-            <Container>
-                <section className="py-10">
-                    <h2 className="text-3xl font-bold">{post.title}</h2>
-                    <p className="mt-5 text-blog-card-muted">{post.description}</p>
-                </section>
-            </Container>
-            <MagazineEditorialColumns lang={lang} title={post.title} description={post.description} />
-            <FooterHeader />
-        </>
+        <main className="min-h-screen bg-white text-zinc-900">
+            <div className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-30"/>
+
+            <Header/>
+            <Breadcrumb
+                lang={lang}
+                dict={d.breadcrumbs}
+                page="blog"
+                currentLabel={post.title}
+            />
+            <section className="pb-8 md:pb-10">
+                <Container>
+                    <div className="max-w-full">
+                        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
+                            {d.blog.title}
+                        </span>
+                        <h1 className="mt-2 text-2xl font-bold tracking-tight text-zinc-900 md:text-3xl">
+                            {post.title}
+                        </h1>
+                        <p className="mt-3 text-base leading-7 text-zinc-500 md:text-lg">
+                            {post.description}
+                        </p>
+                    </div>
+
+                    <MagazineEditorialColumns
+                        lang={lang}
+                        description={post.description}
+                    />
+                </Container>
+            </section>
+
+            <FooterHeader/>
+        </main>
     );
 }

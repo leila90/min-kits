@@ -2,7 +2,6 @@ export { default as Breadcrumb } from "./breadcrumb";
 export { default as SectionTitle } from "./sectionTitle";
 export { default as PageHeader } from "./pageHeader";
 export { default as LanguageDropdown } from "./languageDropdown";
-export { default as Card } from "./card";
 export { default as AnimatedGallery } from "./animatedGallery";
 export { default as FeaturesNavs } from "./featuresNavs";
 export { default as SlideSwiper } from "./slideSwiper";

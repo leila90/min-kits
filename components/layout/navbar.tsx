@@ -28,8 +28,8 @@ export default function Navbar({ lang, dict }: NavbarProps) {
     const closeMobileMenu = () => setMobileMenuOpen(false)
     return (
         <header
-            className={`fixed md:my-10 md:mx-20 my-5 mx-5 rounded-2xl border-1 backdrop-blur border-navbar-border top-0 left-0 right-0 z-50 duration-300 bg-navbar-background shadow-md text-navbar-text  ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
-            <nav aria-label={lang === "fa" ? "ناوبری اصلی" : "Main navigation"} className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8">
+            className={`fixed top-5 left-1/2 z-50 w-full max-w-[1440px] md:top-10 -translate-x-1/2 rounded-2xl border-1 border-navbar-border bg-navbar-background text-navbar-text shadow-md backdrop-blur duration-300 ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
+            <nav aria-label={lang === "fa" ? "ناوبری اصلی" : "Main navigation"} className="mx-auto flex min-w-0 w-full items-center justify-between px-4 sm:px-6 lg:px-8">
                 <div className="flex lg:flex-1">
                     <Link href={`/${lang}`} className="justify-items-center">
                         <Image
@@ -39,7 +39,6 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                             height={150}
                             className="md:h-16 h-16 w-auto m-2"
                         />
-                        {/*<span className="flex"><h2 className="text-xs text-zinc-900 pt-2 px-1">شرکت تهویه تاسیسات</h2><h2 className="text-xs text-sky-800 pt-2">ویرا</h2></span>*/}
                     </Link>
                 </div>
                 <div className="flex lg:hidden">
@@ -76,9 +75,6 @@ export default function Navbar({ lang, dict }: NavbarProps) {
 
 
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-2">
-                    {/*<Link href="/#" className="text-sm/6 text-sky-800 font-semibold border border-b-sky-800 rounded-sm px-4 py-1 bg-white hover:bg-sky-50">*/}
-                    {/*    دعوت به همکاری*/}
-                    {/*</Link>*/}
                     <LanguageDropdown/>
                 </div>
             </nav>
@@ -151,10 +147,6 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                 </span>
                             </div>
                             <div className="py-6">
-
-                                {/*<Link href="/#" className="text-sm/6 text-sky-800 font-semibold border border-b-sky-800 rounded-sm px-4 py-1 bg-white hover:bg-sky-50">*/}
-                                {/*    دعوت به همکاری*/}
-                                {/*</Link>*/}
 
                                 <LanguageDropdown/>
                             </div>
