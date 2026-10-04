@@ -14,7 +14,6 @@ type BlogBrowserProps = {
     blog: Messages["blog"];
 };
 
-const categoryOrder: Exclude<Category, "all">[] = ["components", "react", "tailwind"];
 
 export default function BlogBrowser({lang, blog}: BlogBrowserProps) {
     const [query, setQuery] = useState("");
