@@ -28,8 +28,7 @@ type BlogDetailPageProps = {
 
 export async function generateMetadata({
     params,
-}: BlogDetailPageProps {
-): Promise<Metadata> {
+}: BlogDetailPageProps): Promise<Metadata> {
     const { lang, slug } = await params;
 
     if (!isLang(lang)) {
