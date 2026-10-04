@@ -51,7 +51,7 @@ export default async function ComponentsPage({params}: ComponentsPageProps) {
             <Header />
             <Breadcrumb
                 lang={lang}
-                dict={copy.breadcrumbs}
+                dict={(await getDictionary(lang)).breadcrumbs}
                 page="components"
                 currentLabel={copy.title}
             />
