@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { getDictionary, isLang, locales } from "@/app/i18n";
-import { Header, FooterHeader } from "@/components/layout";
-import { Breadcrumb } from "@/components/common";
-import { MagazineEditorialColumns } from "@/components/blog";
+import type {Metadata} from "next";
+import {notFound} from "next/navigation";
+import {getDictionary, isLang, locales} from "@/app/i18n";
+import {Header, FooterHeader} from "@/components/layout";
+import {Breadcrumb} from "@/components/common";
+import {MagazineEditorialColumns} from "@/components/blog";
 import Container from "@/components/ui/container";
 
 export function generateStaticParams() {
     return locales.flatMap((lang) =>
-        ["1", "2", "3"].map((slug) => ({ lang, slug }))
+        ["1", "2", "3"].map((slug) => ({lang, slug}))
     );
 }
 
@@ -27,9 +27,9 @@ type BlogDetailPageProps = {
 };
 
 export async function generateMetadata({
-    params,
-}: BlogDetailPageProps): Promise<Metadata> {
-    const { lang, slug } = await params;
+                                           params,
+                                       }: BlogDetailPageProps): Promise<Metadata> {
+    const {lang, slug} = await params;
 
     if (!isLang(lang)) {
         return {};
@@ -61,11 +61,11 @@ export async function generateMetadata({
 }
 
 export default async function Page({
-    params,
-}: {
+                                       params,
+                                   }: {
     params: Promise<{ lang: string; slug: string }>;
 }) {
-    const { lang, slug } = await params;
+    const {lang, slug} = await params;
 
     if (!isLang(lang)) {
         notFound();
@@ -83,31 +83,33 @@ export default async function Page({
     return (
         <>
             <main className="min-h-screen bg-white text-zinc-900">
-                <section className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-40">
-                    <Container>
-                        <div className="max-w-3xl">
-                            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
-                                {d.blog.title}
-                            </span>
-                            <h1 className="mt-2 text-4xl font-bold tracking-tight text-zinc-200 md:text-5xl">
-                                {post.title}
-                            </h1>
-                            <p className="mt-3 text-base leading-7 text-zinc-500 md:text-lg">
-                                {post.description}
-                            </p>
-                        </div>
-                    </Container>
+                <section className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-30">
                 </section>
 
-                <Header />
+                <Header/>
 
-                <section className="pb-8 md:pb-10">
+                <section className="-mt-10">
                     <Breadcrumb
                         lang={lang}
                         dict={d.breadcrumbs}
                         page="blog"
                         currentLabel={post.title}
                     />
+                </section>
+                <section className="pb-8 md:pb-10">
+                    <Container>
+                        <div className="max-w-full">
+                            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
+                                {d.blog.title}
+                            </span>
+                            <h1 className="mt-2 text-xl font-bold tracking-tight text-zinc-900 md:text-2xl">
+                                {post.title}
+                            </h1>
+                            {/*<p className="mt-3 text-base leading-7 text-zinc-500 md:text-lg">*/}
+                            {/*    {post.description}*/}
+                            {/*</p>*/}
+                        </div>
+                    </Container>
 
                     <MagazineEditorialColumns
                         lang={lang}
@@ -116,7 +118,7 @@ export default async function Page({
                     />
                 </section>
             </main>
-            <FooterHeader />
+            <FooterHeader/>
         </>
     );
 }

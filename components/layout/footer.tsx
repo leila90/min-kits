@@ -8,18 +8,19 @@ type FooterProps = { lang: "fa" | "en"; dict: { description: string; important: 
 export default function Footer({ lang, dict }: FooterProps) {
     return (
         <section id="footer" className="scroll-mt-36 md:scroll-mt-44">
-            <footer dir={lang === "fa" ? "rtl" : "ltr"} className="bg-footer-background pt-20 pb-12 md:pt-28">
+            <footer dir={lang === "fa" ? "rtl" : "ltr"} className="bg-footer-background pt-20 pb-12 md:pt-38">
                 <Container>
-                    <div className="w-full flex flex-col mb-20 items-center text-center">
-                        <Link href={`/${lang}`} aria-label="MinKits">
-                            <Image src="/logo-ww.png" alt="" height={150} width={150}/>
-                        </Link>
-                        <div className="mt-8 w-full"><Divider variant="gradient" direction={lang === "fa" ? "rtl" : "ltr"} className="from-footer-divider-end via-footer-divider to-footer-divider-end" /></div>
-                        <p className='mt-6 text-sm leading-relaxed text-footer-muted'>{dict.description}</p>
-                    </div>
+                    {/*<div className="w-full flex flex-col mb-20 items-center text-center">*/}
+                    {/*    <Link href={`/${lang}`} aria-label="MinKits">*/}
+                    {/*        <Image src="/logo-ww.png" alt="" height={150} width={150}/>*/}
+                    {/*    </Link>*/}
+                    {/*    <div className="mt-8 w-full"><Divider variant="gradient" direction={lang === "fa" ? "rtl" : "ltr"} className="from-footer-divider-end via-footer-divider to-footer-divider-end" /></div>*/}
+                    {/*    <p className='mt-6 text-sm leading-relaxed text-footer-muted'>{dict.description}</p>*/}
+                    {/*</div>*/}
                     <div className="flex flex-wrap justify-between gap-y-12 lg:gap-x-8">
                         <div className="w-full md:w-[45%] lg:w-[35%] flex flex-col items-center md:items-start text-center md:text-start">
-                            <h4 className="text-balance text-2xl font-semibold tracking-tight text-footer-heading">MinKits Team</h4>
+
+                            <Image src="/logo-ww.png" alt="" height={150} width={150}/>
                             <div className="my-4 w-full"><Divider variant="gradient" direction={lang === "fa" ? "rtl" : "ltr"} className="from-footer-divider-start to-footer-divider-end" /></div>
                             <p className='max-w-sm text-sm leading-relaxed text-footer-muted'>{dict.description}</p>
                         </div>
@@ -27,7 +28,7 @@ export default function Footer({ lang, dict }: FooterProps) {
                             <h3 className='text-sm font-medium text-footer-heading'>{dict.important}</h3>
                             <div className="flex flex-col gap-2 mt-6">
                                 <Link href={`/${lang}`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{dict.home}</Link>
-                                <Link href={`/${lang}/about`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{dict.about}</Link>\n                                <Link href={`/${lang}/components/component-packs`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{dict.componentPacks}</Link>
+                                <Link href={`/${lang}/about`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{dict.about}</Link>                           <Link href={`/${lang}/components/component-packs`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading'>{dict.componentPacks}</Link>
                                 <span className='text-sm text-footer-muted'>{dict.portfolio}</span>
                                 <Link href={`/${lang}#contactUs`} className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>{dict.contact}</Link>
                                 <span className='text-sm text-footer-muted'>{dict.faq}</span>

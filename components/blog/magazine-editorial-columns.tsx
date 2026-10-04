@@ -49,49 +49,55 @@ export function MagazineEditorialColumns({lang, title, description}: Props) {
     const copy = editorialCopy[lang];
 
     return (
-        <section dir={lang === "fa" ? "rtl" : "ltr"} className="mb-16 bg-white py-16">
+        <section dir={lang === "fa" ? "rtl" : "ltr"} className="mb-16 bg-white">
             <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
-                <div className="mb-8 flex items-center justify-between border-y border-black py-2">
-                    <span className="font-sans text-xs font-bold tracking-[0.25em] uppercase">
-                        {copy.masthead}
-                    </span>
-                    <span className="font-sans text-xs tracking-widest text-neutral-500 uppercase">
-                        {copy.season}
-                    </span>
-                </div>
+                {/*<div className="mb-8 flex items-center justify-between border-y border-black py-2">*/}
+                {/*    <span className="font-sans text-xs font-bold tracking-[0.25em] uppercase">*/}
+                {/*        {copy.masthead}*/}
+                {/*    </span>*/}
+                {/*    <span className="font-sans text-xs tracking-widest text-neutral-500 uppercase">*/}
+                {/*        {copy.season}*/}
+                {/*    </span>*/}
+                {/*</div>*/}
 
                 <div className="relative mb-8 overflow-hidden">
-                    <div className="pointer-events-none absolute inset-0 flex items-end select-none" aria-hidden="true">
-                        <span className="block font-sans text-[clamp(4rem,15vw,10rem)] leading-none font-black tracking-tighter text-black/[0.05]">
-                            MinKits
-                        </span>
-                    </div>
+                    {/*<div className="pointer-events-none absolute inset-0 flex items-end select-none" aria-hidden="true">*/}
+                    {/*    <span className="block font-sans text-[clamp(4rem,15vw,10rem)] leading-none font-black tracking-tighter text-black/[0.05]">*/}
+                    {/*        MinKits*/}
+                    {/*    </span>*/}
+                    {/*</div>*/}
 
                     <div className="relative">
-                        <h2 className="mb-2 font-sans text-[11px] font-bold tracking-[0.3em] text-neutral-500 uppercase">
-                            {copy.label}
-                        </h2>
-                        <h1 className="font-serif text-[clamp(1.8rem,4.5vw,3rem)] leading-[1.1] font-bold text-black">
-                            {title}
-                        </h1>
+                        {/*<h2 className="mb-2 font-sans text-[11px] font-bold tracking-[0.3em] text-neutral-500 uppercase">*/}
+                        {/*    {copy.label}*/}
+                        {/*</h2>*/}
+                        {/*<h1 className="font-serif text-[clamp(1.8rem,4.5vw,3rem)] leading-[1.1] font-bold text-black">*/}
+                        {/*    {title}*/}
+                        {/*</h1>*/}
                         <p className="mt-3 font-sans text-sm text-neutral-500">
                             {copy.byline} &nbsp;·&nbsp; {copy.photography}
                         </p>
                     </div>
                 </div>
 
-                <div className="mb-8 border-t-4 border-black" />
+                {/*<div className="mb-8 border-t-4 border-black" />*/}
 
-                <div className="mb-8 font-serif text-lg leading-relaxed text-neutral-800 text-justify">
-                    <span className={(lang === "fa" ? "float-right ml-2" : "float-left mr-2") + " mt-1 font-serif text-[4.5rem] leading-[0.75] font-black text-black"}>
-                        {lang === "fa" ? "ر" : "G"}
-                    </span>
-                    {description} {copy.intro}
-                </div>
+                <figure className="max-w-full mx-auto text-center pb-10 px-20">
+                    <svg className="w-11 h-11 text-heading mb-4 mx-auto" aria-hidden="true"
+                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M10 11V8a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1Zm0 0v2a4 4 0 0 1-4 4H5m14-6V8a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1Zm0 0v2a4 4 0 0 1-4 4h-1"/>
+                    </svg>
+                    <blockquote>
+                        <p className="text-2xl italic font-semibold tracking-tight text-heading">
+                            {description} {copy.intro}
+                        </p>
+                    </blockquote>
+                </figure>
 
-                <div className="mb-8 border-t-2 border-black py-2">
-                    <div className="flex flex-col md:flex-row">
-                        <div className="basis-1/2 px-5 text-justify">
+
+                <div className="mb-8 py-2">
+                    <div className="flex flex-col">
                             <p>{copy.col1}</p>
                             <div className="flex items-center justify-center px-4 py-6 sm:px-10">
                                 <Image
@@ -102,10 +108,7 @@ export function MagazineEditorialColumns({lang, title, description}: Props) {
                                     height={200}
                                 />
                             </div>
-                        </div>
-                        <div className="basis-1/2 px-5 text-justify">
-                            <p>{copy.col2}</p>
-                        </div>
+                        <p>{copy.col2}</p>
                     </div>
                 </div>
 
