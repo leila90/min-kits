@@ -78,7 +78,6 @@ const posts = [
                 '/images/avatar2.jpg',
         },
     }
-    // More posts...
 
 ]
 type props = { lang: "fa" | "en"; dict: Messages["blog"] }
@@ -87,11 +86,6 @@ export default function FormBlog({lang, dict}: props  ) {
         <section id={"blog"} className="md:my-10 md:mx-30 my-5 mx-5 ">
 
             <SectionTitle brand='MinKits' title={dict.title} subTitle={dict.subtitle} lang={lang}/>
-            {/*<div className="text-center" dir={"rtl"}>*/}
-            {/*    <p className="lg:mt-10 md:mt-10 mt-20 text-sm text-zinc-700">*/}
-            {/*        همراه با مجله دات وان، همیشه به روز باشید.*/}
-            {/*    </p>*/}
-            {/*</div>*/}
 
             <div
                 className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:mt-16 lg:mx-0 lg:max-w-none lg:grid-cols-4 md:grid-cols-2">
@@ -123,17 +117,6 @@ export default function FormBlog({lang, dict}: props  ) {
                                 </time>
                             </div>
                         </div>
-                        {/*<div className="flex items-center gap-x-4 text-xs">*/}
-                        {/*    <time dateTime={post.datetime} className="text-zinc-500">*/}
-                        {/*        {post.date}*/}
-                        {/*    </time>*/}
-                        {/*    <a*/}
-                        {/*        href={post.category.href}*/}
-                        {/*        className="relative z-10 rounded-full bg-orange-50 px-3 py-1.5 font-medium text-zinc-600 hover:bg-zinc-100"*/}
-                        {/*    >*/}
-                        {/*        {post.category.title}*/}
-                        {/*    </a>*/}
-                        {/*</div>*/}
                         <div className="group relative">
                             <h3 className={`mt-3 font-semibold text-zinc-900 ${lang === "fa" ? "border-r-4 pr-2" : "border-l-4 pl-2"} border-black`}>
                                 <a href={post.href}>
@@ -145,18 +128,6 @@ export default function FormBlog({lang, dict}: props  ) {
                         </div>
                         <div className="w-full mt-8 grid grid-cols-2 gap-4">
                             <div className="col-span-1">
-                                {/*<div className="relative flex items-center gap-x-4">*/}
-                                {/*    <img alt="" src={post.author.imageUrl} className="size-10 rounded-full bg-zinc-50"/>*/}
-                                {/*    <div className="text-sm/6">*/}
-                                {/*        <p className="font-semibold text-zinc-900">*/}
-                                {/*            <a href={post.author.href}>*/}
-                                {/*                <span className="absolute inset-0"/>*/}
-                                {/*                {post.author.name}*/}
-                                {/*            </a>*/}
-                                {/*        </p>*/}
-                                {/*        <p className="text-zinc-600">{post.author.role}</p>*/}
-                                {/*    </div>*/}
-                                {/*</div>*/}
                             </div>
                             <div className="flex items-center justify-end">
                                 <Link href={`/${lang}/blog`}
