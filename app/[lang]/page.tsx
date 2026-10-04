@@ -14,6 +14,7 @@ import TeamSection from "@/components/sections/teamSection/teamSection";
 import TeamContact from "@/components/sections/teamContact/teamContact";
 import BlogSection from "@/components/sections/blogSection/blogSection";
 import Ctr from "@/components/sections/ctr/ctr";
+import FeaturedComponents from "@/components/sections/featuredComponents/featuredComponents";
 import {getDictionary, isLang} from "../i18n";
 
 export const metadata: Metadata = {
@@ -35,6 +36,7 @@ export default async function Home({params}: {params: Promise<{lang: string}>}) 
             <Header/>
             <MySlogan dict={{slogan: dict.slogan.text, mainSlogan: dict.slogan.value}}/>
             <AboutUs lang={lang} dict={dict.about}/>
+            <FeaturedComponents lang={lang} dict={dict.featuredComponents}/>
             <MyFeatures lang={lang} dict={dict.features}/>
             <ComponentStore lang={lang} dict={dict.componentStore}/>
             <Ctr/>
