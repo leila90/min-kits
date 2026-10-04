@@ -215,7 +215,7 @@ export const componentRegistry: ComponentRegistry = [
         category: "navigation",
         name: {en: "Modal", fa: "مودال"},
         description: {en: "Accessible dialog surface powered by Headless UI.", fa: "سطح گفت‌وگوی دسترس‌پذیر مبتنی بر Headless UI."},
-        props: [{name: "open", type: "boolean", required: true, description: {en: "Whether the dialog is open.", fa: "آیا گفت‌وگو باز است یا نه."}}, {name: "onClose", type: "(open: boolean) => void", required: true, description: {en: "Called when the dialog closes.", fa: "هنگام بسته شدن گفت‌وگو اجرا می‌شود."}}, {name: "title", type: "ReactNode", required: false, description: {en: "Dialog title.", fa: "عنوان گفت‌وگو."}}],
+        props: [{name: "open", type: "boolean", required: true, description: {en: "Whether the dialog is open.", fa: "آیا گفت‌وگو باز است یا نه."}}, {name: "onClose", type: "(open: boolean) => void", required: true, description: {en: "Called when the dialog closes.", fa: "هنگام بسته شدن گفت‌وگو اجرا می‌شود."}}, {name: "title", type: "ReactNode", required: false, description: {en: "Dialog title.", fa: "عنوان گفت‌وگو."}}, {name: "ariaLabel", type: "string", required: false, description: {en: "Accessible name used when no visible title is provided.", fa: "نام دسترسی‌پذیر برای زمانی که عنوان قابل مشاهده وجود ندارد."}}],
         examples: [{title: {en: "Dialog", fa: "گفت‌وگو"}, code: `<Modal open={open} onClose={setOpen} title="Confirm">Content</Modal>`}],
     },
 ];
