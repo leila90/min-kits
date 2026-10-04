@@ -81,44 +81,41 @@ export default async function Page({
     const post = d.blog.posts[postIndex];
 
     return (
-        <>
-            <main className="min-h-screen bg-white text-zinc-900">
-                <section className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-30">
-                </section>
+        <main className="min-h-screen bg-white text-zinc-900">
+            <section className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-40">
+                <Container>
+                    <div className="max-w-3xl">
+                        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
+                            {d.blog.title}
+                        </span>
+                        <h1 className="mt-2 text-4xl font-bold tracking-tight text-zinc-200 md:text-5xl">
+                            {post.title}
+                        </h1>
+                        <p className="mt-3 text-base leading-7 text-zinc-500 md:text-lg">
+                            {post.description}
+                        </p>
+                    </div>
+                </Container>
+            </section>
 
-                <Header/>
+            <Header />
 
-                <section className="-mt-10">
-                    <Breadcrumb
-                        lang={lang}
-                        dict={d.breadcrumbs}
-                        page="blog"
-                        currentLabel={post.title}
-                    />
-                </section>
-                <section className="pb-8 md:pb-10">
-                    <Container>
-                        <div className="max-w-full">
-                            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
-                                {d.blog.title}
-                            </span>
-                            <h1 className="mt-2 text-xl font-bold tracking-tight text-zinc-900 md:text-2xl">
-                                {post.title}
-                            </h1>
-                            {/*<p className="mt-3 text-base leading-7 text-zinc-500 md:text-lg">*/}
-                            {/*    {post.description}*/}
-                            {/*</p>*/}
-                        </div>
-                    </Container>
+            <section className="pb-8 md:pb-10">
+                <Breadcrumb
+                    lang={lang}
+                    dict={d.breadcrumbs}
+                    page="blog"
+                    currentLabel={post.title}
+                />
 
-                    <MagazineEditorialColumns
-                        lang={lang}
-                        title={post.title}
-                        description={post.description}
-                    />
-                </section>
-            </main>
-            <FooterHeader/>
-        </>
+                <MagazineEditorialColumns
+                    lang={lang}
+                    title={post.title}
+                    description={post.description}
+                />
+            </section>
+
+            <FooterHeader />
+        </main>
     );
 }
