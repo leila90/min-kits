@@ -39,7 +39,6 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                             height={150}
                             className="md:h-16 h-16 w-auto m-2"
                         />
-                        {/*<span className="flex"><h2 className="text-xs text-zinc-900 pt-2 px-1">شرکت تهویه تاسیسات</h2><h2 className="text-xs text-sky-800 pt-2">ویرا</h2></span>*/}
                     </Link>
                 </div>
                 <div className="flex lg:hidden">
@@ -76,9 +75,6 @@ export default function Navbar({ lang, dict }: NavbarProps) {
 
 
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-2">
-                    {/*<Link href="/#" className="text-sm/6 text-sky-800 font-semibold border border-b-sky-800 rounded-sm px-4 py-1 bg-white hover:bg-sky-50">*/}
-                    {/*    دعوت به همکاری*/}
-                    {/*</Link>*/}
                     <LanguageDropdown/>
                 </div>
             </nav>
@@ -151,10 +147,6 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                 </span>
                             </div>
                             <div className="py-6">
-
-                                {/*<Link href="/#" className="text-sm/6 text-sky-800 font-semibold border border-b-sky-800 rounded-sm px-4 py-1 bg-white hover:bg-sky-50">*/}
-                                {/*    دعوت به همکاری*/}
-                                {/*</Link>*/}
 
                                 <LanguageDropdown/>
                             </div>
