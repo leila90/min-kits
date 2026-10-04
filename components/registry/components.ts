@@ -119,7 +119,6 @@ export const componentRegistry: ComponentRegistry = [
             {title: {en: "RTL gradient", fa: "گرادیان راست به چپ"}, code: `<Divider variant="gradient" direction="rtl" />`},
         ],
     },
-,
     {
         slug: "badge",
         sourceFile: "components/ui/badge.tsx",
