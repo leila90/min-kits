@@ -2,47 +2,32 @@
 
 import Link from "next/link";
 import {useState} from "react";
-import type {Lang} from "../../../app/i18n";
-import type {ComponentRegistryItem, ComponentCategory} from "../../registry/types";
+import type {Lang} from "@/app/i18n";
+import type {Messages} from "@/app/i18n/messages";
+import {componentCategories, type ComponentCategory, type ComponentRegistryItem} from "@/components/registry";
 
 type ComponentCatalogSidebarProps = {
     lang: Lang;
-    activeSlug: string;
+    activeSlug?: string;
     registry: readonly ComponentRegistryItem[];
+    copy: Messages["componentsCatalog"];
 };
-
-const labels = {
-    en: {
-        form: "Form",
-        layout: "Layout",
-        feedback: "Feedback",
-        catalog: "Components",
-        expand: "Expand",
-        collapse: "Collapse",
-    },
-    fa: {
-        form: "فرم",
-        layout: "چیدمان",
-        feedback: "بازخورد",
-        catalog: "کامپوننت‌ها",
-        expand: "باز کردن",
-        collapse: "بستن",
-    },
-} as const;
-
-const categoryOrder: ComponentCategory[] = ["form", "layout", "feedback"];
 
 export default function ComponentCatalogSidebar({
     lang,
     activeSlug,
     registry,
+    copy,
 }: ComponentCatalogSidebarProps) {
     const activeCategory = registry.find((item) => item.slug === activeSlug)?.category;
-    const [openCategories, setOpenCategories] = useState<Record<ComponentCategory, boolean>>({
-        form: activeCategory === "form" || activeCategory === undefined,
-        layout: activeCategory === "layout",
-        feedback: activeCategory === "feedback",
-    });
+    const [openCategories, setOpenCategories] = useState<Record<ComponentCategory, boolean>>(() =>
+        Object.fromEntries(
+            componentCategories.map((category) => [
+                category,
+                activeCategory === undefined ? category === componentCategories[0] : category === activeCategory,
+            ]),
+        ) as Record<ComponentCategory, boolean>,
+    );
 
     const toggleCategory = (category: ComponentCategory) => {
         setOpenCategories((current) => ({
@@ -53,21 +38,19 @@ export default function ComponentCatalogSidebar({
 
     return (
         <aside className="lg:sticky lg:top-40 lg:self-start">
-            <nav
-                // aria-label={labels[lang].catalog}
-                className="rounded-2xl border border-zinc-300 bg-white"
-            >
-                <div className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-white bg-black rounded-t-2xl py-5 px-3">
-                    {labels[lang].catalog}
+            <nav aria-label={copy.title} className="rounded-2xl border border-zinc-300 bg-white">
+                <div className="mb-2 rounded-t-2xl bg-black px-3 py-5 text-xs font-bold uppercase tracking-[0.16em] text-white">
+                    {copy.title}
                 </div>
 
                 <div className="space-y-1 p-3">
-                    {categoryOrder.map((category) => {
+                    {componentCategories.map((category) => {
                         const items = registry.filter((item) => item.category === category);
                         if (items.length === 0) return null;
 
                         const isOpen = openCategories[category];
                         const panelId = `catalog-category-${category}`;
+                        const categoryLabel = copy.categories[category];
 
                         return (
                             <div key={category}>
@@ -76,7 +59,7 @@ export default function ComponentCatalogSidebar({
                                     onClick={() => toggleCategory(category)}
                                     aria-expanded={isOpen}
                                     aria-controls={panelId}
-                                    aria-label={`${isOpen ? labels[lang].collapse : labels[lang].expand} ${labels[lang][category]}`}
+                                    aria-label={`${isOpen ? copy.sidebar.collapse : copy.sidebar.expand} ${categoryLabel}`}
                                     className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-start text-xs font-semibold text-zinc-500 transition-colors hover:bg-zinc-50 hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
                                 >
                                     <span className="flex items-center gap-2">
@@ -84,27 +67,19 @@ export default function ComponentCatalogSidebar({
                                             aria-hidden="true"
                                             className={[
                                                 "inline-block text-[10px] transition-transform duration-200",
-                                                isOpen
-                                                    ? lang === "fa"
-                                                        ? "-rotate-90"
-                                                        : "rotate-90"
-                                                    : "",
+                                                isOpen ? (lang === "fa" ? "-rotate-90" : "rotate-90") : "",
                                             ].join(" ")}
                                         >
                                             {lang === "fa" ? "‹" : "›"}
                                         </span>
-                                        <span>{labels[lang][category]}</span>
+                                        <span>{categoryLabel}</span>
                                     </span>
                                     <span className="text-[10px] font-semibold tabular-nums text-zinc-300">
                                         {String(items.length).padStart(2, "0")}
                                     </span>
                                 </button>
 
-                                <div
-                                    id={panelId}
-                                    hidden={!isOpen}
-                                    className="space-y-0.5"
-                                >
+                                <div id={panelId} hidden={!isOpen} className="space-y-0.5">
                                     {items.map((item) => {
                                         const active = item.slug === activeSlug;
 
@@ -122,12 +97,6 @@ export default function ComponentCatalogSidebar({
                                                 ].join(" ")}
                                             >
                                                 <span>{item.name[lang]}</span>
-                                                {/*<span*/}
-                                                {/*    aria-hidden="true"*/}
-                                                {/*    className={active ? "text-zinc-400" : "text-zinc-300"}*/}
-                                                {/*>*/}
-                                                {/*    {lang === "fa" ? "←" : "→"}*/}
-                                                {/*</span>*/}
                                             </Link>
                                         );
                                     })}

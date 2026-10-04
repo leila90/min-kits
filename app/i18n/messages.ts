@@ -35,7 +35,18 @@ export const messages = {
       collectionLabel: "Collection", philosophyLabel: "Philosophy", earlyAccessLabel: "Early access", previewLabel: "MINKITS / BLOCKS"
     },
     pageKits: { title: "Page Kits", description: "Complete page sections and layouts for faster product assembly.", back: "Back to component store", badge: "Coming soon", cta: "Request early access" },
-    componentsCatalog: { previousComponent: "Previous component", nextComponent: "Next component", browseAllComponents: "Browse all components", title: "Components", subtitle: "Production-ready building blocks you can explore, reuse, and adapt.", viewComponent: "View component", metaTitle: "Components — MinKits", metaDescription: "Explore reusable, production-ready UI components from MinKits.", backToCatalog: "Back to components", preview: "Preview", source: "Source code", copy: "Copy", copied: "Copied", searchPlaceholder: "Search components...", allCategories: "All", noResults: "No components match your search.", usage: "Usage", startHere: "Start here", interactiveDemo: "Interactive demo", example: "example", examples: "examples", documentedProps: "documented props", api: "API", props: "Props", propName: "Name", propType: "Type", required: "Required", optional: "Optional", defaultValue: "Default" },
+    componentsCatalog: { previousComponent: "Previous component", nextComponent: "Next component", browseAllComponents: "Browse all components", title: "Components", subtitle: "Production-ready building blocks you can explore, reuse, and adapt.", viewComponent: "View component", metaTitle: "Components", metaDescription: "Explore reusable, production-ready UI components from MinKits.", backToCatalog: "Back to components", preview: "Preview", source: "Source code", copy: "Copy", copied: "Copied", searchPlaceholder: "Search components...", allCategories: "All", noResults: "No components match your search.", usage: "Usage", startHere: "Start here", interactiveDemo: "Interactive demo", example: "example", examples: "examples", documentedProps: "documented props", api: "API", props: "Props", propName: "Name", propType: "Type", required: "Required", optional: "Optional", defaultValue: "Default",
+      categories: { form: "Form", layout: "Layout" },
+      sidebar: { expand: "Expand", collapse: "Collapse" },
+      demo: {
+        click: "Click me", done: "Done ✓", secondary: "Secondary", formButton: "Form",
+        buttonHint: "Try the variants and sizes below.", buttonActive: "Button interaction is active.", continueAction: "Continue",
+        emailPlaceholder: "you@example.com", emailLabel: "Email", passwordLabel: "Password", disabledInput: "Disabled input",
+        typeToTest: "Type to test the input.", valuePrefix: "Value:", messagePlaceholder: "Write your message...", messageLabel: "Message",
+        requiredField: "Required field", characters: "characters", dividerHint: "Solid and directional gradient variants.",
+        inputSample: "Input", textareaSample: "Your message...", nameLabel: "Name"
+      }
+    },
     uiKits: { title: "UI Kits", description: "Larger UI collections for consistent product interfaces.", back: "Back to component store", badge: "Coming soon", cta: "Request early access" },
     blog: {
       title: "Blog",
@@ -95,7 +106,18 @@ export const messages = {
       collectionLabel: "مجموعه", philosophyLabel: "رویکرد", earlyAccessLabel: "دسترسی زودهنگام", previewLabel: "MINKITS / BLOCKS"
     },
     pageKits: { title: "کیت صفحات", description: "صفحات و بخش‌های کامل برای ساخت سریع‌تر محصولات.", back: "بازگشت به فروشگاه کامپوننت", badge: "به‌زودی", cta: "درخواست دسترسی زودهنگام" },
-    componentsCatalog: { previousComponent: "کامپوننت قبلی", nextComponent: "کامپوننت بعدی", browseAllComponents: "مشاهده همه کامپوننت‌ها", title: "کامپوننت‌ها", subtitle: "بلوک‌های رابط کاربری آماده تولید برای مشاهده، استفاده مجدد و شخصی‌سازی.", viewComponent: "مشاهده کامپوننت", metaTitle: "کامپوننت‌ها — MinKits", metaDescription: "مجموعه‌ای از کامپوننت‌های رابط کاربری آماده تولید و قابل استفاده مجدد در MinKits.", backToCatalog: "بازگشت به کامپوننت‌ها", preview: "پیش‌نمایش", source: "سورس کد", copy: "کپی", copied: "کپی شد", searchPlaceholder: "جستجوی کامپوننت‌ها...", allCategories: "همه", noResults: "کامپوننتی با این جستجو پیدا نشد.", usage: "نحوه استفاده", startHere: "از اینجا شروع کنید", interactiveDemo: "دموی تعاملی", example: "مثال", examples: "مثال", documentedProps: "پراپ مستند", api: "API", props: "پراپ‌ها", propName: "نام", propType: "نوع", required: "الزامی", optional: "اختیاری", defaultValue: "پیش‌فرض" },
+    componentsCatalog: { previousComponent: "کامپوننت قبلی", nextComponent: "کامپوننت بعدی", browseAllComponents: "مشاهده همه کامپوننت‌ها", title: "کامپوننت‌ها", subtitle: "بلوک‌های رابط کاربری آماده تولید برای مشاهده، استفاده مجدد و شخصی‌سازی.", viewComponent: "مشاهده کامپوننت", metaTitle: "کامپوننت‌ها", metaDescription: "مجموعه‌ای از کامپوننت‌های رابط کاربری آماده تولید و قابل استفاده مجدد در MinKits.", backToCatalog: "بازگشت به کامپوننت‌ها", preview: "پیش‌نمایش", source: "سورس کد", copy: "کپی", copied: "کپی شد", searchPlaceholder: "جستجوی کامپوننت‌ها...", allCategories: "همه", noResults: "کامپوننتی با این جستجو پیدا نشد.", usage: "نحوه استفاده", startHere: "از اینجا شروع کنید", interactiveDemo: "دموی تعاملی", example: "مثال", examples: "مثال", documentedProps: "پراپ مستند", api: "API", props: "پراپ‌ها", propName: "نام", propType: "نوع", required: "الزامی", optional: "اختیاری", defaultValue: "پیش‌فرض",
+      categories: { form: "فرم", layout: "چیدمان" },
+      sidebar: { expand: "باز کردن", collapse: "بستن" },
+      demo: {
+        click: "کلیک کنید", done: "انجام شد ✓", secondary: "ثانویه", formButton: "فرم",
+        buttonHint: "واریانت‌ها و اندازه‌های زیر را امتحان کنید.", buttonActive: "تعامل با دکمه فعال است.", continueAction: "ادامه",
+        emailPlaceholder: "you@example.com", emailLabel: "ایمیل", passwordLabel: "رمز عبور", disabledInput: "ورودی غیرفعال",
+        typeToTest: "برای تست تایپ کنید.", valuePrefix: "مقدار:", messagePlaceholder: "پیام خود را بنویسید...", messageLabel: "پیام",
+        requiredField: "فیلد الزامی", characters: "کاراکتر", dividerHint: "حالت ساده و گرادیان جهت‌دار.",
+        inputSample: "ورودی", textareaSample: "پیام شما...", nameLabel: "نام"
+      }
+    },
     uiKits: { title: "کیت‌های UI", description: "مجموعه‌های بزرگ‌تر برای ساخت رابط‌های یکپارچه در محصول.", back: "بازگشت به فروشگاه کامپوننت", badge: "به‌زودی", cta: "درخواست دسترسی زودهنگام" },
     blog: {
       title: "بلاگ",

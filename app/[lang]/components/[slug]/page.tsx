@@ -1,21 +1,24 @@
+import type {Metadata} from "next";
 import Link from "next/link";
 import {notFound} from "next/navigation";
-import Container from "../../../../components/ui/container";
-import {Header, FooterHeader} from "../../../../components/layout";
-import ComponentCatalogSidebar from "../../../../components/sections/componentCatalog/componentCatalogSidebar";
-import ComponentPreview from "../../../../components/sections/componentCatalog/componentPreview";
-import ComponentDemoTabs from "../../../../components/sections/componentCatalog/componentDemoTabs";
-import {getComponentSource} from "../../../../components/registry/source";
-import {getDictionary, isLang, type Lang} from "../../../i18n";
-import {componentRegistry} from "../../../../components/registry";
-import Breadcrumb from "../../../../components/common/breadcrumb";
+import {getDictionary, getDirection, isLang, locales, type Lang} from "@/app/i18n";
+import Breadcrumb from "@/components/common/breadcrumb";
+import {FooterHeader, Header} from "@/components/layout";
+import {componentRegistry} from "@/components/registry";
+import {getComponentSource} from "@/components/registry/source";
+import ComponentCatalogSidebar from "@/components/sections/componentCatalog/componentCatalogSidebar";
+import ComponentDemoTabs from "@/components/sections/componentCatalog/componentDemoTabs";
+import {ComponentPreview} from "@/components/sections/componentCatalog/previews";
+import Container from "@/components/ui/container";
 
 type ComponentDetailPageProps = {
     params: Promise<{lang: string; slug: string}>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-    return ["en", "fa"].flatMap((lang) =>
+    return locales.flatMap((lang) =>
         componentRegistry.map((component) => ({
             lang,
             slug: component.slug,
@@ -23,10 +26,10 @@ export function generateStaticParams() {
     );
 }
 
-export async function generateMetadata({params}: ComponentDetailPageProps) {
-    const {lang: rawLang, slug} = await params;
+export async function generateMetadata({params}: ComponentDetailPageProps): Promise<Metadata> {
+    const {lang, slug} = await params;
 
-    if (!isLang(rawLang)) {
+    if (!isLang(lang)) {
         return {};
     }
 
@@ -36,19 +39,18 @@ export async function generateMetadata({params}: ComponentDetailPageProps) {
         return {};
     }
 
-    const lang = rawLang as Lang;
+    const title = component.name[lang];
+    const description = component.description[lang];
+    const path = `/${lang}/components/${slug}`;
 
     return {
-        title: `${component.name[lang]} — MinKits`,
-        description: component.description[lang],
+        title,
+        description,
         alternates: {
-            canonical: `/${lang}/components/${slug}`,
+            canonical: path,
+            languages: Object.fromEntries(locales.map((locale) => [locale, `/${locale}/components/${slug}`])),
         },
-        openGraph: {
-            title: `${component.name[lang]} — MinKits`,
-            description: component.description[lang],
-            url: `/${lang}/components/${slug}`,
-        },
+        openGraph: {title: `${title} | MinKits`, description, url: path},
     };
 }
 
@@ -68,24 +70,16 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
     const dictionary = await getDictionary(lang);
     const copy = dictionary.componentsCatalog;
-    const source = getComponentSource(component);
+    const source = await getComponentSource(component);
     const componentIndex = componentRegistry.findIndex((item) => item.slug === component.slug);
-    const categoryLabel = {
-        form: lang === "fa" ? "فرم" : "Form",
-        layout: lang === "fa" ? "چیدمان" : "Layout",
-        feedback: lang === "fa" ? "بازخورد" : "Feedback",
-    }[component.category];
+    const categoryLabel = copy.categories[component.category];
+    const previousComponent = componentRegistry[componentIndex - 1];
+    const nextComponent = componentRegistry[componentIndex + 1];
 
     return (
         <main className="min-h-screen bg-white text-zinc-900">
             <section className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-40">
                 <Container>
-                    {/*<Link*/}
-                    {/*    href={`/${lang}/components`}*/}
-                    {/*    className="rounded-lg px-3 py-2 text-sm font-semibold text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"*/}
-                    {/*>*/}
-                    {/*    {copy.backToCatalog}*/}
-                    {/*</Link>*/}
 
                     <div className="max-w-3xl">
                         <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
@@ -94,9 +88,6 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl text-zinc-200">
                             {component.name[lang]}
                         </h1>
-                        {/*<p className="mt-3 text-base leading-7 text-zinc-500 md:text-lg">*/}
-                        {/*    {component.description[lang]}*/}
-                        {/*</p>*/}
                     </div>
                 </Container>
             </section>
@@ -117,6 +108,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                             lang={lang}
                             activeSlug={component.slug}
                             registry={componentRegistry}
+                            copy={copy}
                         />
 
                         <div className="min-w-0 lg:col-start-2">
@@ -126,17 +118,11 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                         {copy.interactiveDemo}
                                     </p>
                                 </div>
-                                {/*<span className="rounded-2xl border border-zinc-200 px-3 py-1 text-xs font-medium text-zinc-900">*/}
-                                {/*    {categoryLabel}*/}
-                                {/*</span>*/}
                             </div>
 
                             <ComponentDemoTabs
                                 preview={
-                                    <ComponentPreview
-                                        slug={component.slug}
-                                        lang={lang}
-                                    />
+                                    <ComponentPreview slug={component.slug} copy={copy.demo} dir={getDirection(lang)} />
                                 }
                                 source={source}
                                 previewLabel={copy.preview}
@@ -162,7 +148,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
                                 <div className="divide-y divide-zinc-200 bg-white">
                                     {component.examples.map((example, index) => (
-                                        <div key={example.code} className="p-5 md:p-6">
+                                        <div key={`${index}-${example.title.en}`} className="p-5 md:p-6">
                                             <div className="mb-3 flex items-center gap-3">
                                                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-xs font-bold text-white">
                                                     {String(index + 1).padStart(2, "0")}
@@ -192,7 +178,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
 
                                 <div className="divide-y divide-zinc-200 bg-white">
                                     {component.props.map((prop) => (
-                                        <article key={prop.name} className="p-6 md:p-7" dir={lang === "fa" ? "rtl" : "ltr"}>
+                                        <article key={prop.name} className="p-6 md:p-7" dir={getDirection(lang)}>
                                             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                                                 <div className="min-w-0">
                                                     <div className="flex flex-wrap items-center gap-2">
@@ -233,24 +219,24 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                     >
                         <div className="flex items-center justify-between gap-6">
                             <Link
-                                href={componentIndex > 0 ? `/${lang}/components/${componentRegistry[componentIndex - 1].slug}` : `/${lang}/components`}
+                                href={previousComponent ? `/${lang}/components/${previousComponent.slug}` : `/${lang}/components`}
                                 className="group rounded-lg text-sm text-zinc-600 transition-colors hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
                             >
                                 <span className="block font-semibold">← {copy.previousComponent}</span>
-                                {componentIndex > 0 && (
+                                {previousComponent && (
                                     <span className="mt-1 block text-xs font-medium text-zinc-400 group-hover:text-zinc-600">
-                                        {componentRegistry[componentIndex - 1].name[lang]}
+                                        {previousComponent.name[lang]}
                                     </span>
                                 )}
                             </Link>
                             <Link
-                                href={componentIndex < componentRegistry.length - 1 ? `/${lang}/components/${componentRegistry[componentIndex + 1].slug}` : `/${lang}/components`}
+                                href={nextComponent ? `/${lang}/components/${nextComponent.slug}` : `/${lang}/components`}
                                 className="group rounded-lg text-end text-sm text-zinc-600 transition-colors hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500"
                             >
                                 <span className="block font-semibold">{copy.nextComponent} →</span>
-                                {componentIndex < componentRegistry.length - 1 && (
+                                {nextComponent && (
                                     <span className="mt-1 block text-xs font-medium text-zinc-400 group-hover:text-zinc-600">
-                                        {componentRegistry[componentIndex + 1].name[lang]}
+                                        {nextComponent.name[lang]}
                                     </span>
                                 )}
                             </Link>

@@ -2,56 +2,21 @@
 
 import {useMemo, useState} from "react";
 import Link from "next/link";
-import type {Lang} from "../../../app/i18n";
-import type {ComponentCategory, ComponentRegistryItem} from "../../registry/types";
+import type {Lang} from "@/app/i18n";
+import type {Messages} from "@/app/i18n/messages";
+import {
+    componentCategories,
+    type ComponentCategory,
+    type ComponentRegistryItem,
+} from "@/components/registry";
 import ComponentCatalogSidebar from "./componentCatalogSidebar";
-import {Button, Divider, FormField, Input, Textarea} from "../../ui";
+import {ComponentCardPreview} from "./previews";
 
 type ComponentCatalogBrowserProps = {
     lang: Lang;
     registry: readonly ComponentRegistryItem[];
-    copy: {
-        viewComponent: string;
-        searchPlaceholder: string;
-        allCategories: string;
-        noResults: string;
-    };
+    copy: Messages["componentsCatalog"];
 };
-
-const categoryLabels = {
-    en: {form: "Form", layout: "Layout", feedback: "Feedback"},
-    fa: {form: "فرم", layout: "چیدمان", feedback: "بازخورد"},
-} as const;
-
-const categoryOrder: ComponentCategory[] = ["form", "layout", "feedback"];
-
-function CatalogPreview({slug, lang}: {slug: string; lang: Lang}) {
-    if (slug === "button") {
-        return <Button size="sm" radius="full" tabIndex={-1}>{lang === "fa" ? "ادامه" : "Continue"}</Button>;
-    }
-
-    if (slug === "input") {
-        return <Input tabIndex={-1} aria-hidden="true" placeholder={lang === "fa" ? "ورودی" : "Input"} />;
-    }
-
-    if (slug === "textarea") {
-        return <Textarea tabIndex={-1} aria-hidden="true" placeholder={lang === "fa" ? "پیام شما..." : "Your message..."} />;
-    }
-
-    if (slug === "form-field") {
-        return (
-            <FormField label={lang === "fa" ? "نام" : "Name"}>
-                <Input tabIndex={-1} aria-hidden="true" />
-            </FormField>
-        );
-    }
-
-    if (slug === "divider") {
-        return <Divider variant="gradient" direction={lang === "fa" ? "rtl" : "ltr"} />;
-    }
-
-    return null;
-}
 
 export default function ComponentCatalogBrowser({
     lang,
@@ -80,7 +45,7 @@ export default function ComponentCatalogBrowser({
 
     const grouped = useMemo(
         () =>
-            categoryOrder
+            componentCategories
                 .map((currentCategory) => ({
                     category: currentCategory,
                     items: filtered.filter((component) => component.category === currentCategory),
@@ -91,7 +56,7 @@ export default function ComponentCatalogBrowser({
 
     return (
         <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-start lg:gap-12">
-            <ComponentCatalogSidebar lang={lang} activeSlug="" registry={registry} />
+            <ComponentCatalogSidebar lang={lang} registry={registry} copy={copy} />
 
             <div className="min-w-0">
                 <div className="mb-10 grid gap-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
@@ -121,7 +86,7 @@ export default function ComponentCatalogBrowser({
                             {copy.allCategories}
                         </button>
 
-                        {categoryOrder.map((item) => (
+                        {componentCategories.map((item) => (
                             <button
                                 key={item}
                                 type="button"
@@ -134,7 +99,7 @@ export default function ComponentCatalogBrowser({
                                         : "border-zinc-200 bg-white text-zinc-600 hover:border-zinc-400 hover:text-zinc-950",
                                 ].join(" ")}
                             >
-                                {categoryLabels[lang][item]}
+                                {copy.categories[item]}
                             </button>
                         ))}
                     </div>
@@ -153,7 +118,7 @@ export default function ComponentCatalogBrowser({
                                         id={`components-${currentCategory}`}
                                         className="text-xl font-bold tracking-tight text-zinc-900"
                                     >
-                                        {categoryLabels[lang][currentCategory]}
+                                        {copy.categories[currentCategory]}
                                     </h2>
                                     <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
                                         {String(items.length).padStart(2, "0")}
@@ -168,14 +133,14 @@ export default function ComponentCatalogBrowser({
                                         >
                                             <div className="mb-10 flex items-center justify-between gap-4">
                                                 <span className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-semibold text-zinc-600">
-                                                    {categoryLabels[lang][component.category]}
+                                                    {copy.categories[component.category]}
                                                 </span>
                                                 <span className="text-xs font-medium text-zinc-400">{component.slug}</span>
                                             </div>
 
                                             <div className="mb-6 flex min-h-28 items-center justify-center rounded-xl bg-zinc-50 p-6">
                                                 <div className="w-full max-w-48">
-                                                    <CatalogPreview slug={component.slug} lang={lang} />
+                                                    <ComponentCardPreview slug={component.slug} copy={copy.demo} dir={lang === "fa" ? "rtl" : "ltr"} />
                                                 </div>
                                             </div>
 
