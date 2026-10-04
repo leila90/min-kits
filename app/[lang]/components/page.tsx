@@ -18,7 +18,8 @@ export async function generateMetadata({params}: ComponentsPageProps): Promise<M
         return {};
     }
 
-    const copy = (await getDictionary(lang)).componentsCatalog;
+    const dictionary = await getDictionary(lang);
+    const copy = dictionary.componentsCatalog;
 
     return {
         title: copy.metaTitle,
@@ -51,7 +52,7 @@ export default async function ComponentsPage({params}: ComponentsPageProps) {
             <Header />
             <Breadcrumb
                 lang={lang}
-                dict={(await getDictionary(lang)).breadcrumbs}
+                dict={dictionary.breadcrumbs}
                 page="components"
                 currentLabel={copy.title}
             />
