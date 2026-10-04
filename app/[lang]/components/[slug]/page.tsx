@@ -88,6 +88,9 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         <h1 className="mt-2 text-4xl font-bold tracking-tight text-zinc-200 md:text-5xl">
                             {component.name[lang]}
                         </h1>
+                        <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-400 md:text-base">
+                            {component.description[lang]}
+                        </p>
                     </div>
                 </Container>
             </section>
