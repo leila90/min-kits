@@ -115,7 +115,6 @@ export default async function Page({
                         title={post.title}
                         description={post.description}
                     />
-                    </Container>
                 </section>
             </main>
             <FooterHeader />
