@@ -83,14 +83,13 @@ export default async function Page({
     return (
         <>
             <main className="min-h-screen bg-white text-zinc-900">
-                <section className="border-b border-zinc-200 bg-zinc-200 pb-12 pt-32 md:pb-30 md:pt-40">
+                <section className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-40">
                     <Container>
-                        <Breadcrumb lang={lang} dict={d.breadcrumbs} page="blog" />
-                        <div className="mt-7 max-w-3xl">
+                        <div className="max-w-3xl">
                             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
                                 {d.blog.title}
                             </span>
-                            <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
+                            <h1 className="mt-2 text-4xl font-bold tracking-tight text-zinc-200 md:text-5xl">
                                 {post.title}
                             </h1>
                             <p className="mt-3 text-base leading-7 text-zinc-500 md:text-lg">
@@ -102,12 +101,21 @@ export default async function Page({
 
                 <Header />
 
-                <section className="pt-28 pb-8 md:pt-32 md:pb-10">
+                <section className="pb-8 md:pb-10">
+                    <Breadcrumb
+                        lang={lang}
+                        dict={d.breadcrumbs}
+                        page="blog"
+                        currentLabel={post.title}
+                    />
+
+                    <Container>
                     <MagazineEditorialColumns
                         lang={lang}
                         title={post.title}
                         description={post.description}
                     />
+                    </Container>
                 </section>
             </main>
             <FooterHeader />
