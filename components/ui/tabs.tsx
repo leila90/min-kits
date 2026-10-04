@@ -1,6 +1,6 @@
 "use client";
 
-import {useId, useState, type ReactNode} from "react";
+import {useId, useRef, useState, type ReactNode} from "react";
 
 export type TabItem = {
     id: string;
@@ -21,12 +21,20 @@ export default function Tabs({items, defaultValue, ariaLabel = "Tabs", className
         ? defaultValue
         : items[0]?.id;
     const [active, setActive] = useState(initial);
+    const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+
+    const selectByIndex = (index: number) => {
+        const nextId = items[index]?.id;
+        if (!nextId) return;
+        setActive(nextId);
+        tabRefs.current[nextId]?.focus();
+    };
 
     const selectByOffset = (currentId: string, offset: number) => {
         const index = items.findIndex((item) => item.id === currentId);
         if (index < 0) return;
         const nextIndex = (index + offset + items.length) % items.length;
-        setActive(items[nextIndex].id);
+        selectByIndex(nextIndex);
     };
 
     if (!items.length) return null;
@@ -41,6 +49,9 @@ export default function Tabs({items, defaultValue, ariaLabel = "Tabs", className
                     return (
                         <button
                             key={item.id}
+                            ref={(element) => {
+                                tabRefs.current[item.id] = element;
+                            }}
                             id={`${baseId}-tab-${item.id}`}
                             type="button"
                             role="tab"
@@ -57,10 +68,10 @@ export default function Tabs({items, defaultValue, ariaLabel = "Tabs", className
                                     selectByOffset(item.id, -1);
                                 } else if (event.key === "Home") {
                                     event.preventDefault();
-                                    setActive(items[0].id);
+                                    selectByIndex(0);
                                 } else if (event.key === "End") {
                                     event.preventDefault();
-                                    setActive(items[items.length - 1].id);
+                                    selectByIndex(items.length - 1);
                                 }
                             }}
                             className={[
