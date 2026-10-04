@@ -197,7 +197,7 @@ export const componentRegistry: ComponentRegistry = [
         category: "navigation",
         name: {en: "Tabs", fa: "تب‌ها"},
         description: {en: "Keyboard-friendly tabbed content container.", fa: "ظرف محتوای تب‌بندی‌شده با ساختار مناسب دسترسی‌پذیری."},
-        props: [{name: "items", type: "readonly TabItem[]", required: true, description: {en: "Tab definitions and content.", fa: "تعریف تب‌ها و محتوای آن‌ها."}}, {name: "defaultValue", type: "string", required: false, description: {en: "Initially active tab id.", fa: "شناسه تب فعال اولیه."}}],
+        props: [{name: "items", type: "readonly TabItem[]", required: true, description: {en: "Tab definitions and content.", fa: "تعریف تب‌ها و محتوای آن‌ها."}}, {name: "defaultValue", type: "string", required: false, description: {en: "Initially active tab id.", fa: "شناسه تب فعال اولیه."}}, {name: "ariaLabel", type: "string", required: false, defaultValue: '"Tabs"', description: {en: "Accessible tablist label.", fa: "برچسب دسترسی‌پذیر گروه تب‌ها."}}],
         examples: [{title: {en: "Two tabs", fa: "دو تب"}, code: `<Tabs items={[{id: "preview", label: "Preview", content: <div />}, {id: "code", label: "Code", content: <div /> }]} />`}],
     },
     {
