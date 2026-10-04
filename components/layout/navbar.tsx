@@ -4,6 +4,7 @@ import {useState} from 'react'
 import {
     Dialog,
     DialogPanel,
+    DialogTitle,
     PopoverGroup,
 } from '@headlessui/react'
 import {
@@ -82,6 +83,9 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                 <div className="fixed inset-0 z-10"/>
                 <DialogPanel
                     className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-navbar-mobile-background px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-navbar-mobile-ring">
+                    <DialogTitle className="sr-only">
+                        {lang === "fa" ? "منوی اصلی" : "Main menu"}
+                    </DialogTitle>
                     <div className="flex items-center justify-between">
                         <Link href={`/${lang}`} className="justify-items-center" aria-label="MinKits">
                             <Image
