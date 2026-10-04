@@ -3,7 +3,7 @@
 import {useId, useState, type ComponentType} from "react";
 import type {Messages} from "@/app/i18n/messages";
 import type {ComponentSlug} from "@/components/registry";
-import {Button, Divider, FormField, Input, Textarea} from "@/components/ui";
+import {Alert, Badge, Button, Card, Checkbox, Divider, FormField, Input, Modal, Radio, Select, Switch, Tabs, Textarea, Tooltip} from "@/components/ui";
 
 export type DemoCopy = Messages["componentsCatalog"]["demo"];
 
@@ -113,6 +113,39 @@ function DividerDemo({copy}: PreviewProps) {
     );
 }
 
+function BadgeDemo() {
+    return <div className="flex flex-wrap items-center justify-center gap-3"><Badge>New</Badge><Badge variant="dark">Stable</Badge><Badge variant="accent">Coming soon</Badge></div>;
+}
+function CardDemo({copy}: PreviewProps) {
+    return <Card className="w-full max-w-sm"><p className="font-semibold text-zinc-900">{copy.startHere}</p><p className="mt-2 text-sm text-zinc-500">{copy.buttonHint}</p></Card>;
+}
+function AlertDemo() {
+    return <div className="w-full max-w-md space-y-3"><Alert variant="info">This is an informational message.</Alert><Alert variant="success">Saved successfully.</Alert></div>;
+}
+function CheckboxDemo() {
+    return <label className="flex items-center gap-3 text-sm text-zinc-700"><Checkbox defaultChecked /> Accept terms</label>;
+}
+function RadioDemo() {
+    return <div className="space-y-3 text-sm text-zinc-700"><label className="flex items-center gap-3"><Radio name="demo-plan" value="starter" defaultChecked /> Starter</label><label className="flex items-center gap-3"><Radio name="demo-plan" value="pro" /> Pro</label></div>;
+}
+function SelectDemo() {
+    return <Select className="max-w-xs" defaultValue="react" aria-label="Technology"><option value="react">React</option><option value="next">Next.js</option><option value="tailwind">Tailwind CSS</option></Select>;
+}
+function SwitchDemo() {
+    const [enabled, setEnabled] = useState(true);
+    return <div className="flex items-center gap-3 text-sm text-zinc-700"><Switch checked={enabled} onCheckedChange={setEnabled} aria-label="Enable feature" /><span>{enabled ? "Enabled" : "Disabled"}</span></div>;
+}
+function TabsDemo() {
+    return <Tabs items={[{id: "preview", label: "Preview", content: <p className="text-sm text-zinc-600">Preview content.</p>}, {id: "code", label: "Code", content: <p className="text-sm text-zinc-600">Source content.</p>}]} />;
+}
+function TooltipDemo() {
+    return <Tooltip content="More information"><Button variant="secondary" aria-label="More information">?</Button></Tooltip>;
+}
+function ModalDemo() {
+    const [open, setOpen] = useState(false);
+    return <><Button onClick={() => setOpen(true)}>Open dialog</Button><Modal open={open} onClose={setOpen} title="MinKits dialog"><p className="text-sm text-zinc-600">Accessible dialog content.</p><Button className="mt-5" onClick={() => setOpen(false)}>Close</Button></Modal></>;
+}
+
 /** Full interactive demo shown on the component detail page. */
 export const demoPreviews: Record<ComponentSlug, ComponentType<PreviewProps>> = {
     button: ButtonDemo,
@@ -120,6 +153,16 @@ export const demoPreviews: Record<ComponentSlug, ComponentType<PreviewProps>> = 
     textarea: TextareaDemo,
     "form-field": FormFieldDemo,
     divider: DividerDemo,
+    badge: BadgeDemo,
+    card: CardDemo,
+    alert: AlertDemo,
+    checkbox: CheckboxDemo,
+    radio: RadioDemo,
+    select: SelectDemo,
+    switch: SwitchDemo,
+    tabs: TabsDemo,
+    tooltip: TooltipDemo,
+    modal: ModalDemo,
 };
 
 /** Small static thumbnails shown on the catalog cards. */
@@ -137,6 +180,16 @@ export const cardPreviews: Record<ComponentSlug, ComponentType<PreviewProps>> = 
         </FormField>
     ),
     divider: ({dir}) => <Divider variant="gradient" direction={dir} />,
+    badge: () => <Badge>Badge</Badge>,
+    card: () => <Card className="w-full"><div className="h-10 rounded-lg bg-zinc-100" /></Card>,
+    alert: () => <Alert>Notice</Alert>,
+    checkbox: () => <Checkbox tabIndex={-1} aria-hidden="true" defaultChecked />,
+    radio: () => <Radio tabIndex={-1} aria-hidden="true" defaultChecked />,
+    select: () => <Select tabIndex={-1} aria-hidden="true" defaultValue="one"><option value="one">Select</option></Select>,
+    switch: () => <Switch tabIndex={-1} aria-hidden="true" defaultChecked />,
+    tabs: () => <Tabs items={[{id: "one", label: "One", content: <span />}, {id: "two", label: "Two", content: <span />}]} />,
+    tooltip: () => <Tooltip content="Hint"><Button size="sm" tabIndex={-1}>?</Button></Tooltip>,
+    modal: () => <Button size="sm" tabIndex={-1}>Open</Button>,
 };
 
 type ComponentPreviewProps = PreviewProps & {slug: ComponentSlug};
