@@ -109,7 +109,6 @@ export default async function Page({
                         currentLabel={post.title}
                     />
 
-                    <Container>
                     <MagazineEditorialColumns
                         lang={lang}
                         title={post.title}
