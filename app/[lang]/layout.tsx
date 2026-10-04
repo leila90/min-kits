@@ -91,6 +91,18 @@ export default async function RootLayout({
                     easing="ease"
                 />
                 <Navbar lang={lang} dict={dict}/>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "WebSite",
+                            name: "MinKits",
+                            url: siteUrl,
+                            inLanguage: lang,
+                        }),
+                    }}
+                />
                 {children}
                 <Footer lang={lang} dict={dict.footer}/>
             </body>
