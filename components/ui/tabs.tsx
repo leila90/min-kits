@@ -62,7 +62,7 @@ export default function Tabs({items, defaultValue, ariaLabel = "Tabs", className
                                     event.preventDefault();
                                     setActive(items[items.length - 1].id);
                                 }
-                            }
+                            }}
                             className={[
                                 "border-b-2 px-4 py-2.5 text-sm font-semibold transition-colors",
                                 selected
