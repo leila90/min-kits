@@ -107,7 +107,6 @@ export default async function Page({
 
                     <MagazineEditorialColumns
                         lang={lang}
-                        title={post.title}
                         description={post.description}
                     />
                 </Container>
