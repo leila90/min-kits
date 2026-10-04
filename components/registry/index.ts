@@ -1,2 +1,8 @@
 export {componentRegistry} from "./components";
-export type {ComponentCategory, ComponentRegistry, ComponentRegistryItem} from "./types";
+export {componentCategories, componentSlugs} from "./types";
+export type {
+    ComponentCategory,
+    ComponentRegistry,
+    ComponentRegistryItem,
+    ComponentSlug,
+} from "./types";
