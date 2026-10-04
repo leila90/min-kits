@@ -88,6 +88,9 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                         <h1 className="mt-2 text-4xl font-bold tracking-tight text-zinc-200 md:text-5xl">
                             {component.name[lang]}
                         </h1>
+                        <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-400 md:text-base">
+                            {component.description[lang]}
+                        </p>
                     </div>
                 </Container>
             </section>
@@ -179,7 +182,7 @@ export default async function ComponentDetailPage({params}: ComponentDetailPageP
                                 <div className="divide-y divide-zinc-200 bg-white">
                                     {component.props.map((prop) => (
                                         <article key={prop.name} className="p-6 md:p-7" dir={getDirection(lang)}>
-                                            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                                            <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start">
                                                 <div className="min-w-0">
                                                     <div className="flex flex-wrap items-center gap-2">
                                                         <code className="rounded-lg bg-zinc-100 px-2.5 py-1 text-sm font-semibold text-zinc-900">

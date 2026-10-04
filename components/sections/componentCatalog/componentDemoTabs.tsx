@@ -65,18 +65,18 @@ function SourceCode({source}: {source: string}) {
             <pre dir="ltr" className="min-w-max text-left font-mono text-[13px] leading-6">
                 <code>
                     {source.split("\n").map((line, index) => (
-                        <div key={index} className="flex min-h-6">
+                        <span key={index} className="flex min-h-6">
                             <span className="sticky left-0 w-12 shrink-0 select-none border-r border-zinc-400 bg-zinc-800 pr-4 text-right text-zinc-500">
                                 {index + 1}
                             </span>
-                            <span className="pl-5">
+                                    <span className="pl-5">
                                 {tokenizeLine(line).map((token, tokenIndex) => (
                                     <span key={tokenIndex} className={tokenClasses[token.kind]}>
                                         {token.value}
                                     </span>
                                 ))}
                             </span>
-                        </div>
+                        </span>
                     ))}
                 </code>
             </pre>
@@ -115,6 +115,28 @@ export default function ComponentDemoTabs({
                         aria-selected={activeTab === "preview"}
                         aria-controls="component-demo-preview"
                         id="component-demo-tab-preview"
+                        tabIndex={activeTab === "preview" ? 0 : -1}
+                        onKeyDown={(event) => {
+                            if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+                                event.preventDefault();
+                                setActiveTab("source");
+                                document.getElementById("component-demo-tab-source")?.focus();
+                            }
+                            if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+                                event.preventDefault();
+                                setActiveTab("preview");
+                            }
+                            if (event.key === "Home") {
+                                event.preventDefault();
+                                setActiveTab("preview");
+                                document.getElementById("component-demo-tab-preview")?.focus();
+                            }
+                            if (event.key === "End") {
+                                event.preventDefault();
+                                setActiveTab("source");
+                                document.getElementById("component-demo-tab-source")?.focus();
+                            }
+                        }}
                         onClick={() => setActiveTab("preview")}
                         className={[
                             "rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
@@ -129,6 +151,27 @@ export default function ComponentDemoTabs({
                         aria-selected={activeTab === "source"}
                         aria-controls="component-demo-source"
                         id="component-demo-tab-source"
+                        tabIndex={activeTab === "source" ? 0 : -1}
+                        onKeyDown={(event) => {
+                            if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+                                event.preventDefault();
+                                setActiveTab("preview");
+                                document.getElementById("component-demo-tab-preview")?.focus();
+                            }
+                            if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+                                event.preventDefault();
+                                setActiveTab("source");
+                            }
+                            if (event.key === "Home") {
+                                event.preventDefault();
+                                setActiveTab("preview");
+                                document.getElementById("component-demo-tab-preview")?.focus();
+                            }
+                            if (event.key === "End") {
+                                event.preventDefault();
+                                setActiveTab("source");
+                            }
+                        }}
                         onClick={() => setActiveTab("source")}
                         className={[
                             "rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
@@ -143,6 +186,7 @@ export default function ComponentDemoTabs({
                     <button
                         type="button"
                         onClick={copySource}
+                        aria-label={copied ? copiedLabel : copyLabel}
                         className="rounded-2xl border border-zinc-400 px-3 py-1.5 text-xs font-semibold text-zinc-900 transition-colors hover:border-zinc-600 hover:text-zinc-900"
                     >
                         {copied ? copiedLabel : copyLabel}

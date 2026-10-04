@@ -1,6 +1,7 @@
 import {notFound} from "next/navigation";
 import type {Metadata} from "next";
 import {getDictionary, isLang, locales, type Lang} from "@/app/i18n";
+import {Breadcrumb} from "@/components/common";
 import {FooterHeader, Header} from "@/components/layout";
 import {componentRegistry} from "@/components/registry";
 import ComponentCatalogBrowser from "@/components/sections/componentCatalog/componentCatalogBrowser";
@@ -17,7 +18,8 @@ export async function generateMetadata({params}: ComponentsPageProps): Promise<M
         return {};
     }
 
-    const copy = (await getDictionary(lang)).componentsCatalog;
+    const dictionary = await getDictionary(lang);
+    const copy = dictionary.componentsCatalog;
 
     return {
         title: copy.metaTitle,
@@ -42,12 +44,19 @@ export default async function ComponentsPage({params}: ComponentsPageProps) {
     }
 
     const lang = rawLang as Lang;
-    const copy = (await getDictionary(lang)).componentsCatalog;
+    const dictionary = await getDictionary(lang);
+    const copy = dictionary.componentsCatalog;
 
     return (
         <main className="min-h-screen bg-white text-zinc-900">
             <div className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-30"/>
             <Header />
+            <Breadcrumb
+                lang={lang}
+                dict={dictionary.breadcrumbs}
+                page="components"
+                currentLabel={copy.title}
+            />
             <section className="pb-32 pt-12 md:pb-40 md:pt-16">
                 <Container>
                     <ComponentCatalogBrowser
