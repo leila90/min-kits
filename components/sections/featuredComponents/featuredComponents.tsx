@@ -37,7 +37,7 @@ export default function FeaturedComponents({lang, dict}: Props) {
                         <Link key={item.slug} href={`/${lang}/components/${item.slug}`} className="group">
                             <Card interactive className="h-full p-6">
                                 <div className="flex items-center justify-between gap-3">
-                                    <Badge>{item.category}</Badge>
+                                    <Badge>{item.category === "form" ? (lang === "fa" ? "فرم" : "Form") : item.category === "layout" ? (lang === "fa" ? "چیدمان" : "Layout") : item.category === "feedback" ? (lang === "fa" ? "بازخورد" : "Feedback") : (lang === "fa" ? "ناوبری" : "Navigation")}</Badge>
                                     <span aria-hidden="true" className="text-zinc-300 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
                                 </div>
                                 <h3 className="mt-5 text-lg font-semibold text-zinc-950">{item.name[lang]}</h3>
