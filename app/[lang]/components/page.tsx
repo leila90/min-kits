@@ -44,7 +44,8 @@ export default async function ComponentsPage({params}: ComponentsPageProps) {
     }
 
     const lang = rawLang as Lang;
-    const copy = (await getDictionary(lang)).componentsCatalog;
+    const dictionary = await getDictionary(lang);
+    const copy = dictionary.componentsCatalog;
 
     return (
         <main className="min-h-screen bg-white text-zinc-900">
