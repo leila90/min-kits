@@ -1,16 +1,16 @@
 import {notFound} from "next/navigation";
-import Container from "../../../components/ui/container";
-import {Header, FooterHeader} from "../../../components/layout";
-import SectionTitle from "../../../components/common/sectionTitle";
-import ComponentCatalogBrowser from "../../../components/sections/componentCatalog/componentCatalogBrowser";
-import {getDictionary, isLang, type Lang} from "../../i18n";
-import {componentRegistry} from "../../../components/registry";
+import type {Metadata} from "next";
+import {getDictionary, isLang, locales, type Lang} from "@/app/i18n";
+import {FooterHeader, Header} from "@/components/layout";
+import {componentRegistry} from "@/components/registry";
+import ComponentCatalogBrowser from "@/components/sections/componentCatalog/componentCatalogBrowser";
+import Container from "@/components/ui/container";
 
 type ComponentsPageProps = {
     params: Promise<{lang: string}>;
 };
 
-export async function generateMetadata({params}: ComponentsPageProps) {
+export async function generateMetadata({params}: ComponentsPageProps): Promise<Metadata> {
     const {lang} = await params;
 
     if (!isLang(lang)) {
@@ -24,9 +24,10 @@ export async function generateMetadata({params}: ComponentsPageProps) {
         description: copy.metaDescription,
         alternates: {
             canonical: `/${lang}/components`,
+            languages: Object.fromEntries(locales.map((locale) => [locale, `/${locale}/components`])),
         },
         openGraph: {
-            title: copy.metaTitle,
+            title: `${copy.metaTitle} | MinKits`,
             description: copy.metaDescription,
             url: `/${lang}/components`,
         },
@@ -52,12 +53,7 @@ export default async function ComponentsPage({params}: ComponentsPageProps) {
                     <ComponentCatalogBrowser
                         lang={lang}
                         registry={componentRegistry}
-                        copy={{
-                            viewComponent: copy.viewComponent,
-                            searchPlaceholder: copy.searchPlaceholder,
-                            allCategories: copy.allCategories,
-                            noResults: copy.noResults,
-                        }}
+                        copy={copy}
                     />
                 </Container>
             </section>
