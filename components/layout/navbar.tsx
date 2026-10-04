@@ -28,8 +28,8 @@ export default function Navbar({ lang, dict }: NavbarProps) {
     const closeMobileMenu = () => setMobileMenuOpen(false)
     return (
         <header
-            className={`fixed md:my-10 md:mx-20 my-5 mx-5 rounded-2xl border-1 backdrop-blur border-navbar-border top-0 left-0 right-0 z-50 duration-300 bg-navbar-background shadow-md text-navbar-text  ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
-            <nav aria-label={lang === "fa" ? "ناوبری اصلی" : "Main navigation"} className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8">
+            className={`fixed top-0 left-1/2 z-50 w-full max-w-[1440px] -translate-x-1/2 rounded-2xl border-1 border-navbar-border bg-navbar-background text-navbar-text shadow-md backdrop-blur duration-300 ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
+            <nav aria-label={lang === "fa" ? "ناوبری اصلی" : "Main navigation"} className="mx-auto flex min-w-0 w-full items-center justify-between px-4 sm:px-6 lg:px-8">
                 <div className="flex lg:flex-1">
                     <Link href={`/${lang}`} className="justify-items-center">
                         <Image
