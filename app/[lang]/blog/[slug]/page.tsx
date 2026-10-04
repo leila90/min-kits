@@ -6,10 +6,17 @@ import {Breadcrumb} from "@/components/common";
 import {MagazineEditorialColumns} from "@/components/blog";
 import Container from "@/components/ui/container";
 
-export function generateStaticParams() {
-    return locales.flatMap((lang) =>
-        ["1", "2", "3"].map((slug) => ({lang, slug}))
-    );
+export async function generateStaticParams() {
+    return Promise.all(
+        locales.map(async (lang) => {
+            const dictionary = await getDictionary(lang);
+
+            return dictionary.blog.posts.map((_, index) => ({
+                lang,
+                slug: String(index + 1),
+            }));
+        }),
+    ).then((params) => params.flat());
 }
 
 function getPostIndex(slug: string, postCount: number) {
