@@ -23,6 +23,7 @@ export async function generateMetadata({params}: SearchPageProps): Promise<Metad
             canonical: `/${lang}/search`,
             languages: {en: "/en/search", fa: "/fa/search"},
         },
+        robots: {index: false, follow: true},
     };
 }
 
