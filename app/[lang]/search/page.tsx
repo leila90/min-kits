@@ -114,7 +114,7 @@ export default async function SearchPage({params, searchParams}: SearchPageProps
                                             <h2 className="text-xl font-semibold">{dictionary.search.components}</h2>
                                             <div className="mt-4 grid gap-4 md:grid-cols-2">
                                                 {componentResults.map((item) => (
-                                                    <Link key={item.slug} href={`/${lang}/components/${item.slug}`} className="rounded-2xl border border-zinc-200 p-5 transition-shadow hover:shadow-md">
+                                                    <Link key={item.slug} href={`/${lang}/components/${item.slug}`} className="rounded-2xl border border-zinc-200 p-5 transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500">
                                                         <Badge>{categoryLabels[item.category]}</Badge>
                                                         <h3 className="mt-3 font-semibold">{item.name[lang]}</h3>
                                                         <p className="mt-2 text-sm leading-6 text-zinc-500">{item.description[lang]}</p>
@@ -129,7 +129,7 @@ export default async function SearchPage({params, searchParams}: SearchPageProps
                                             <h2 className="text-xl font-semibold">{dictionary.search.packs}</h2>
                                             <div className="mt-4 grid gap-4 md:grid-cols-2">
                                                 {packResults.map((block) => (
-                                                    <Link key={block.number} href={`/${lang}/components/component-packs`} className="rounded-2xl border border-zinc-200 p-5 transition-shadow hover:shadow-md">
+                                                    <Link key={block.number} href={`/${lang}/components/component-packs`} className="rounded-2xl border border-zinc-200 p-5 transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500">
                                                         <Badge>{block.tag}</Badge>
                                                         <h3 className="mt-3 font-semibold">{block.title}</h3>
                                                         <p className="mt-2 text-sm leading-6 text-zinc-500">{block.description}</p>
@@ -144,7 +144,7 @@ export default async function SearchPage({params, searchParams}: SearchPageProps
                                             <h2 className="text-xl font-semibold">{dictionary.search.blog}</h2>
                                             <div className="mt-4 grid gap-4 md:grid-cols-2">
                                                 {blogResults.map(({post, index}) => (
-                                                    <Link key={index} href={`/${lang}/blog/${index + 1}`} className="rounded-2xl border border-zinc-200 p-5 transition-shadow hover:shadow-md">
+                                                    <Link key={index} href={`/${lang}/blog/${index + 1}`} className="rounded-2xl border border-zinc-200 p-5 transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500">
                                                         <Badge>{post.category}</Badge>
                                                         <h3 className="mt-3 font-semibold">{post.title}</h3>
                                                         <p className="mt-2 text-sm leading-6 text-zinc-500">{post.description}</p>
