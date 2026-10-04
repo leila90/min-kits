@@ -9,3 +9,4 @@ export { default as TeamContact } from "./teamContact/teamContact";
 export { default as LatestBlog } from "./latestBlog/latestBlog";
 export { default as ContactUs } from "./contactUs/contactUs";
 export { default as Ctr } from "./ctr/ctr";
+export {default as FeaturedComponents} from "./featuredComponents/featuredComponents";
