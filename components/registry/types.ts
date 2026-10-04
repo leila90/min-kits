@@ -1,4 +1,10 @@
-export type ComponentCategory = "form" | "layout" | "feedback";
+export const componentCategories = ["form", "layout"] as const;
+
+export type ComponentCategory = (typeof componentCategories)[number];
+
+export const componentSlugs = ["button", "input", "textarea", "form-field", "divider"] as const;
+
+export type ComponentSlug = (typeof componentSlugs)[number];
 
 export type ComponentProp = {
     name: string;
@@ -20,7 +26,9 @@ export type ComponentUsageExample = {
 };
 
 export type ComponentRegistryItem = {
-    slug: string;
+    slug: ComponentSlug;
+    /** Path of the real component file, relative to the project root. */
+    sourceFile: string;
     category: ComponentCategory;
     name: {
         en: string;
