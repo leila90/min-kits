@@ -117,7 +117,7 @@ function BadgeDemo() {
     return <div className="flex flex-wrap items-center justify-center gap-3"><Badge>New</Badge><Badge variant="dark">Stable</Badge><Badge variant="accent">Coming soon</Badge></div>;
 }
 function CardDemo({copy}: PreviewProps) {
-    return <Card className="w-full max-w-sm"><p className="font-semibold text-zinc-900">{copy.startHere}</p><p className="mt-2 text-sm text-zinc-500">{copy.buttonHint}</p></Card>;
+    return <Card className="w-full max-w-sm"><p className="font-semibold text-zinc-900">{copy.buttonHint}</p><p className="mt-2 text-sm text-zinc-500">{copy.buttonHint}</p></Card>;
 }
 function AlertDemo() {
     return <div className="w-full max-w-md space-y-3"><Alert variant="info">This is an informational message.</Alert><Alert variant="success">Saved successfully.</Alert></div>;
