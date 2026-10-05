@@ -97,6 +97,35 @@ export default function ComponentPacksExplorer({
 
     return (
         <div className={lang === "fa" ? "text-right" : "text-left"}>
+            <div className="mb-10">
+                <div className="mb-5 flex items-end justify-between border-b border-zinc-200 pb-4">
+                    <div>
+                        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-400">MinKits / Collections</p>
+                        <p className="mt-2 text-sm text-zinc-500">{lang === "fa" ? "بلاک‌ها را بر اساس کاربرد مرور کنید." : "Explore organized collections of production-ready blocks."}</p>
+                    </div>
+                    <span className="hidden font-mono text-[10px] text-zinc-400 sm:block">{blocks.length} blocks</span>
+                </div>
+                <div className="grid gap-px border border-zinc-200 bg-zinc-200 sm:grid-cols-2 lg:grid-cols-3">
+                    {[allLabel, ...categories].map((item, index) => {
+                        const count = item === allLabel ? blocks.length : blocks.filter((block) => block.tag === item).length;
+                        const active = category === item;
+                        return (
+                            <button key={item} type="button" onClick={() => setCategory(item)} className={"group bg-white p-5 text-start transition-colors hover:bg-[#fcfbf8] md:p-6 " + (active ? "ring-1 ring-inset ring-zinc-950" : "")}>
+                                <div className="flex items-start justify-between gap-4">
+                                    <span className="font-mono text-[9px] font-semibold tracking-[0.18em] text-zinc-400">{String(index + 1).padStart(2, "0")} / COLLECTION</span>
+                                    <span className="flex h-8 w-8 items-center justify-center border border-zinc-200 text-zinc-400 transition-colors group-hover:border-zinc-950 group-hover:text-zinc-950">{active ? "−" : "↗"}</span>
+                                </div>
+                                <h3 className="mt-8 text-xl font-semibold tracking-[-0.04em]">{item}</h3>
+                                <div className="mt-8 flex items-center justify-between border-t border-zinc-100 pt-3">
+                                    <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-zinc-400">{String(count).padStart(2, "0")} blocks</span>
+                                    <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-zinc-400">{active ? "Selected" : "Browse"} →</span>
+                                </div>
+                            </button>
+                        );
+                    })}
+                </div>
+            </div>
+
             <div className="border-y border-zinc-200 bg-white">
                 <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.65fr)]">
                     <div className="border-b border-zinc-200 p-4 md:p-5 lg:border-b-0 lg:border-e">
