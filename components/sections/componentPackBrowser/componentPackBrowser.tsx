@@ -18,6 +18,7 @@ type PackCopy = {
 type Props = {
     lang: Lang;
     copy: PackCopy;
+    sourceUnlocked: boolean;
 };
 
 type Block = {
@@ -194,7 +195,7 @@ function BlockPreview({block}: {block: Block}) {
     );
 }
 
-export default function ComponentPackBrowser({lang, copy}: Props) {
+export default function ComponentPackBrowser({lang, copy, sourceUnlocked}: Props) {
     const [category, setCategory] = useState("Hero");
     const [openSource, setOpenSource] = useState<number | null>(null);
     const categories = ["Hero", "Content", "Contact Form", "Pricing", "Testimonials", "FAQ", "CTA", "Footer"];
@@ -260,12 +261,12 @@ export default function ComponentPackBrowser({lang, copy}: Props) {
                                         </div>
 
                                         {sourceOpen ? (
-                                            <div className="bg-zinc-950 p-5 text-left sm:p-7" dir="ltr">
+                                            <div className="relative bg-zinc-950 p-5 text-left sm:p-7" dir="ltr">
                                                 <div className="mb-4 flex items-center justify-between gap-4">
                                                     <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-zinc-500">HeroSection.tsx</span>
-                                                    <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-600">{isRtl ? "اشتراک فعال" : "Subscription active"}</span>
+                                                    <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-600">{sourceUnlocked ? (isRtl ? "اشتراک فعال" : "Subscription active") : (isRtl ? "قفل شده" : "Locked")}</span>
                                                 </div>
-                                                <pre className="overflow-x-auto text-xs leading-6 text-zinc-300"><code>{block.source}</code></pre>
+                                                <pre className={`overflow-x-auto text-xs leading-6 text-zinc-300 ${sourceUnlocked ? "" : "select-none blur-[3px] opacity-60"}`}><code>{block.source}</code></pre>{!sourceUnlocked ? <div className="absolute inset-0 flex items-center justify-center bg-zinc-950/55 p-5"><div className="max-w-sm border border-white/10 bg-zinc-900 p-6 text-center shadow-2xl"><p className="text-sm font-semibold text-white">{isRtl ? "سورس با اشتراک فعال باز می‌شود" : "Source unlocks with an active subscription"}</p><p className="mt-2 text-xs leading-5 text-zinc-500">{isRtl ? "پیش‌نمایش آزاد است؛ برای کپی کردن کد، دسترسی سورس را فعال کنید." : "Preview is open. Activate source access to copy the implementation."}</p></div></div> : null}
                                             </div>
                                         ) : (
                                             <BlockPreview block={block}/>
