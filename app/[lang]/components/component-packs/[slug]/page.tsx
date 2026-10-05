@@ -5,8 +5,7 @@ import Container from "@/components/ui/container";
 import {FooterHeader, Header} from "@/components/layout";
 import {getDictionary, isLang, locales} from "../../../../i18n";
 import {getComponentPack, getComponentPacks} from "@/content/componentPacks";
-import ComponentPackPreview from "@/components/sections/componentPackPreview/componentPackPreview";
-import ComponentPackSourceVault from "@/components/sections/componentPackSourceVault/componentPackSourceVault";
+import ComponentPackBrowser from "@/components/sections/componentPackBrowser/componentPackBrowser";
 
 type Props = {params: Promise<{lang: string; slug: string}>};
 
@@ -81,74 +80,22 @@ export default async function ComponentPackDetailPage({params}: Props) {
                     </Container>
                 </section>
 
-                <section className="border-b border-zinc-200 bg-zinc-50 py-16 md:py-24">
-                    <Container>
-                        <div className={lang === "fa" ? "text-right" : "text-left"}>
-                            <div className="max-w-3xl">
-                                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-400">01 / {copy.contentsLabel}</p>
-                                <h2 className="mt-4 text-3xl font-semibold tracking-[-0.035em] md:text-5xl">{copy.contentsTitle}</h2>
-                            </div>
+                <ComponentPackBrowser
+                    lang={lang}
+                    sourceUnlocked={process.env.MIN_KITS_SOURCE_LOCKED === "false"}
+                    copy={{
+                        includedLabel: copy.contentsLabel,
+                        includedTitle: copy.contentsTitle,
+                        previewLabel: copy.previewSectionLabel,
+                        previewTitle: copy.previewSectionTitle,
+                        previewDescription: copy.previewDescription,
+                        previewTabs: copy.previewTabs,
+                        previewHint: copy.previewHint,
+                        accessLabel: copy.accessLabel,
+                        accessTitle: copy.accessTitle,
+                    }}
+                />
 
-                            <div className="mt-10 grid border-y border-zinc-200 sm:grid-cols-2 lg:grid-cols-4">
-                                {pack.includes.map((item, index) => (
-                                    <div key={item} className={`border-b border-zinc-200 px-5 py-6 lg:border-e ${index % 2 === 1 ? "sm:border-e-0 lg:border-e" : ""} ${index % 4 === 3 ? "lg:border-e-0" : ""}`}>
-                                        <p className="font-mono text-[10px] text-zinc-400">{String(index + 1).padStart(2, "0")}</p>
-                                        <p className="mt-8 text-sm font-semibold">{item}</p>
-                                        <div className="mt-5 h-16 border border-zinc-200 bg-white p-2">
-                                            <div className="grid h-full grid-cols-4 gap-1.5">
-                                                <span className="col-span-2 bg-zinc-900"/>
-                                                <span className="bg-zinc-200"/>
-                                                <span className="bg-zinc-300"/>
-                                                <span className="bg-zinc-200"/>
-                                                <span className="col-span-3 bg-zinc-100"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </Container>
-                </section>
-
-                <ComponentPackPreview lang={lang} copy={{
-                    previewLabel: copy.previewSectionLabel,
-                    previewTitle: copy.previewSectionTitle,
-                    previewDescription: copy.previewDescription,
-                    previewTabs: copy.previewTabs,
-                    previewHint: copy.previewHint,
-                }}/>
-
-                <section className="border-b border-zinc-200 py-16 md:py-24">
-                    <Container>
-                        <div className={lang === "fa" ? "text-right" : "text-left"}>
-                            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-400">03 / {copy.accessLabel}</p>
-                            <div className="mt-4 grid gap-12 lg:grid-cols-[1fr_.8fr] lg:items-start">
-                                <div>
-                                    <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.035em] md:text-5xl">{copy.accessTitle}</h2>
-                                    <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                                        {pack.features.map((feature, index) => (
-                                            <div key={feature} className="border border-zinc-200 p-5">
-                                                <span className="font-mono text-[10px] text-zinc-400">{String(index + 1).padStart(2, "0")}</span>
-                                                <p className="mt-8 text-sm font-semibold leading-6">{feature}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <aside className="border border-zinc-900 bg-zinc-950 p-7 text-white lg:sticky lg:top-28">
-                                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">{copy.earlyAccessLabel}</p>
-                                    <p className="mt-4 text-4xl font-semibold">{pack.price}</p>
-                                    <p className="mt-3 text-sm leading-6 text-zinc-400">{copy.sourceDescription}</p>
-                                    <Link href={`/${lang}/#contactUs`} className="mt-7 flex w-full items-center justify-center bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-                                        {copy.cta}
-                                    </Link>
-                                </aside>
-                            </div>
-                        </div>
-                    </Container>
-                </section>
-
-                <ComponentPackSourceVault lang={lang} dict={copy}/>
             </main>
             <FooterHeader/>
         </>
