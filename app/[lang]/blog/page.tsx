@@ -5,6 +5,7 @@ import {Header, FooterHeader} from "@/components/layout";
 import {Breadcrumb} from "@/components/common";
 import BlogBrowser from "@/components/sections/blogCatalog/blogBrowser";
 import Container from "@/components/ui/container";
+import {getBlogPosts} from "@/content/blog";
 
 export async function generateMetadata({params}: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const {lang} = await params;
@@ -37,7 +38,7 @@ export default async function Page({params}: { params: Promise<{ lang: string }>
             <section className="pb-8 md:pb-10">
 
                 <Container>
-                    <BlogBrowser lang={lang} blog={d.blog} />
+                    <BlogBrowser lang={lang} blog={d.blog} posts={getBlogPosts(lang)} />
                 </Container>
             </section>
 
