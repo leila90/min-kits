@@ -26,7 +26,7 @@ type Props = {
 
 function BlockVisual({index}: {index: number}) {
     const variants = [
-        <div className="h-full bg-[#ebe8e1] p-4">
+        <div key="split" className="h-full bg-[#ebe8e1] p-4">
             <div className="grid h-full grid-cols-[1fr_0.82fr] overflow-hidden border border-zinc-200 bg-white">
                 <div className="flex flex-col justify-center p-5">
                     <span className="h-1.5 w-20 bg-zinc-950" />
@@ -36,7 +36,7 @@ function BlockVisual({index}: {index: number}) {
                 <div className="m-3 bg-zinc-100" />
             </div>
         </div>,
-        <div className="h-full bg-[#ebe8e1] p-4">
+        <div key="center" className="h-full bg-[#ebe8e1] p-4">
             <div className="flex h-full flex-col items-center justify-center border border-zinc-200 bg-white px-7">
                 <span className="h-1.5 w-24 bg-zinc-950" />
                 <span className="mt-2 h-1 w-32 bg-zinc-300" />
@@ -45,23 +45,23 @@ function BlockVisual({index}: {index: number}) {
                 </div>
             </div>
         </div>,
-        <div className="h-full bg-zinc-950 p-5">
+        <div key="dark" className="h-full bg-zinc-950 p-5">
             <div className="flex h-full flex-col justify-center">
                 <span className="h-1.5 w-24 bg-white" />
                 <span className="mt-2 h-1 w-32 bg-white/20" />
                 <div className="mt-6 flex gap-2"><span className="h-8 w-20 bg-white" /><span className="h-8 w-20 border border-white/20" /></div>
             </div>
         </div>,
-        <div className="h-full bg-[#ebe8e1] p-4">
+        <div key="minimal" className="h-full bg-[#ebe8e1] p-4">
             <div className="h-full border border-zinc-200 bg-white p-4">
                 <div className="flex items-center justify-between border-b border-zinc-200 pb-3"><span className="h-1.5 w-16 bg-zinc-950" /><span className="h-1.5 w-9 bg-zinc-300" /></div>
                 <div className="grid grid-cols-3 gap-2 pt-5">{[1,2,3].map((item) => <span key={item} className="h-16 border border-zinc-200 bg-zinc-50" />)}</div>
             </div>
         </div>,
-        <div className="h-full bg-[#ebe8e1] p-4">
+        <div key="sidebar" className="h-full bg-[#ebe8e1] p-4">
             <div className="flex h-full gap-3 border border-zinc-200 bg-white p-3"><div className="w-12 bg-zinc-950" /><div className="flex flex-1 flex-col justify-center"><span className="h-1.5 w-24 bg-zinc-950" /><span className="mt-2 h-1 w-16 bg-zinc-300" /><span className="mt-5 h-14 border border-zinc-200 bg-zinc-50" /></div></div>
         </div>,
-        <div className="h-full bg-[#ebe8e1] p-4">
+        <div key="table" className="h-full bg-[#ebe8e1] p-4">
             <div className="h-full border border-zinc-200 bg-white"><div className="grid grid-cols-4 gap-2 border-b border-zinc-200 p-3">{[1,2,3,4].map((item) => <span key={item} className="h-1.5 bg-zinc-300" />)}</div>{[1,2,3].map((row) => <div key={row} className="grid grid-cols-4 gap-2 border-b border-zinc-100 p-3">{[1,2,3,4].map((item) => <span key={item} className="h-1.5 bg-zinc-200" />)}</div>)}</div>
         </div>,
     ];
