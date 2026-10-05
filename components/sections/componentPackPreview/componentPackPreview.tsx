@@ -1,3 +1,7 @@
+"use client";
+
+import {useState} from "react";
+
 type Props = {
     lang: "fa" | "en";
     copy: {
@@ -16,6 +20,7 @@ const previewContent = [
         heading: "Build a sharper SaaS experience.",
         body: "A structured hero composition designed for product-focused landing pages.",
         action: "Start building",
+        kind: "hero",
     },
     {
         title: "Pricing",
@@ -23,6 +28,7 @@ const previewContent = [
         heading: "Choose the right plan.",
         body: "Clear hierarchy, responsive cards, and a focused conversion path.",
         action: "View plans",
+        kind: "pricing",
     },
     {
         title: "Features",
@@ -30,8 +36,62 @@ const previewContent = [
         heading: "Everything your team needs.",
         body: "Reusable feature blocks with a deliberate visual rhythm.",
         action: "Explore features",
+        kind: "features",
     },
-];
+] as const;
+
+function PreviewVisual({kind}: {kind: (typeof previewContent)[number]["kind"]}) {
+    if (kind === "pricing") {
+        return (
+            <div className="grid grid-cols-2 gap-3">
+                <div className="border border-zinc-300 bg-white p-4">
+                    <span className="block h-2 w-14 bg-zinc-200"/>
+                    <span className="mt-5 block h-6 w-20 bg-zinc-900"/>
+                    <span className="mt-5 block h-2 w-full bg-zinc-200"/>
+                    <span className="mt-2 block h-2 w-4/5 bg-zinc-200"/>
+                    <span className="mt-5 block h-8 w-full bg-zinc-950"/>
+                </div>
+                <div className="border-2 border-zinc-900 bg-zinc-950 p-4 text-white">
+                    <span className="block h-2 w-14 bg-zinc-500"/>
+                    <span className="mt-5 block h-6 w-20 bg-white"/>
+                    <span className="mt-5 block h-2 w-full bg-zinc-700"/>
+                    <span className="mt-2 block h-2 w-4/5 bg-zinc-700"/>
+                    <span className="mt-5 block h-8 w-full bg-white"/>
+                </div>
+            </div>
+        );
+    }
+
+    if (kind === "features") {
+        return (
+            <div className="grid grid-cols-2 gap-3">
+                {["A", "B", "C", "D"].map((item, index) => (
+                    <div key={item} className="border border-zinc-300 bg-white p-4">
+                        <span className="flex size-7 items-center justify-center bg-zinc-950 font-mono text-[10px] text-white">{item}</span>
+                        <span className="mt-5 block h-2 w-3/4 bg-zinc-900"/>
+                        <span className="mt-3 block h-2 w-full bg-zinc-200"/>
+                        <span className="mt-2 block h-2 w-4/5 bg-zinc-200"/>
+                        <span className={`mt-5 block h-1.5 ${index % 2 === 0 ? "w-1/2" : "w-2/3"} bg-zinc-300`}/>
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
+    return (
+        <div className="aspect-square border border-zinc-200 bg-zinc-100 p-4">
+            <div className="grid h-full grid-cols-3 gap-2">
+                <div className="col-span-2 bg-zinc-900"/>
+                <div className="bg-zinc-300"/>
+                <div className="bg-zinc-200"/>
+                <div className="col-span-2 bg-zinc-300"/>
+                <div className="bg-zinc-900"/>
+                <div className="col-span-2 bg-zinc-200"/>
+                <div className="bg-zinc-300"/>
+            </div>
+        </div>
+    );
+}
 
 function PreviewCanvas({index, lang}: {index: number; lang: "fa" | "en"}) {
     const item = previewContent[index];
@@ -71,17 +131,7 @@ function PreviewCanvas({index, lang}: {index: number; lang: "fa" | "en"}) {
                             <button type="button" className="mt-7 bg-zinc-950 px-5 py-2.5 text-xs font-semibold text-white">{item.action}</button>
                         </div>
                         <div className="relative mx-auto w-full max-w-xs">
-                            <div className="aspect-square border border-zinc-200 bg-zinc-100 p-4">
-                                <div className="grid h-full grid-cols-3 gap-2">
-                                    <div className="col-span-2 bg-zinc-900"/>
-                                    <div className="bg-zinc-300"/>
-                                    <div className="bg-zinc-200"/>
-                                    <div className="col-span-2 bg-zinc-300"/>
-                                    <div className="bg-zinc-900"/>
-                                    <div className="col-span-2 bg-zinc-200"/>
-                                    <div className="bg-zinc-300"/>
-                                </div>
-                            </div>
+                            <PreviewVisual kind={item.kind}/>
                         </div>
                     </div>
                 </div>
@@ -91,6 +141,8 @@ function PreviewCanvas({index, lang}: {index: number; lang: "fa" | "en"}) {
 }
 
 export default function ComponentPackPreview({lang, copy}: Props) {
+    const [activeIndex, setActiveIndex] = useState(0);
+
     return (
         <section className="border-y border-zinc-200 bg-zinc-50 py-16 md:py-24">
             <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
@@ -105,15 +157,28 @@ export default function ComponentPackPreview({lang, copy}: Props) {
                     </div>
 
                     <div className="mt-8 overflow-hidden border border-zinc-200 bg-white shadow-sm">
-                        <div className="grid border-b border-zinc-200 sm:grid-cols-3">
-                            {copy.previewTabs.map((tab, index) => (
-                                <div key={tab} className={`border-zinc-200 px-5 py-4 text-xs font-semibold uppercase tracking-[0.12em] ${index === 0 ? "bg-zinc-950 text-white" : "text-zinc-500 sm:border-s"}`}>
-                                    <span className="me-2 font-mono opacity-50">{String(index + 1).padStart(2, "0")}</span>
-                                    {tab}
-                                </div>
-                            ))}
+                        <div className="grid border-b border-zinc-200 sm:grid-cols-3" role="tablist" aria-label={copy.previewLabel}>
+                            {copy.previewTabs.map((tab, index) => {
+                                const active = activeIndex === index;
+
+                                return (
+                                    <button
+                                        key={tab}
+                                        type="button"
+                                        role="tab"
+                                        aria-selected={active}
+                                        onClick={() => setActiveIndex(index)}
+                                        className={`border-zinc-200 px-5 py-4 text-xs font-semibold uppercase tracking-[0.12em] transition-colors focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-zinc-950 ${active ? "bg-zinc-950 text-white" : "text-zinc-500 hover:bg-zinc-100 hover:text-zinc-950 sm:border-s"}`}
+                                    >
+                                        <span className="me-2 font-mono opacity-50">{String(index + 1).padStart(2, "0")}</span>
+                                        {tab}
+                                    </button>
+                                );
+                            })}
                         </div>
-                        <PreviewCanvas index={0} lang={lang}/>
+                        <div role="tabpanel" aria-live="polite">
+                            <PreviewCanvas index={activeIndex} lang={lang}/>
+                        </div>
                     </div>
                 </div>
             </div>
