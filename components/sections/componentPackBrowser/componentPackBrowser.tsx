@@ -198,6 +198,7 @@ function BlockPreview({block}: {block: Block}) {
 export default function ComponentPackBrowser({lang, copy, sourceUnlocked}: Props) {
     const [category, setCategory] = useState("Hero");
     const [openSource, setOpenSource] = useState<number | null>(null);
+    const [copied, setCopied] = useState(false);
     const categories = ["Hero", "Content", "Contact Form", "Pricing", "Testimonials", "FAQ", "CTA", "Footer"];
     const filtered = useMemo(() => blocks.filter((block) => block.category === category), [category]);
     const isRtl = lang === "fa";
@@ -251,10 +252,10 @@ export default function ComponentPackBrowser({lang, copy, sourceUnlocked}: Props
                                                 <p className="mt-1 ps-7 text-xs leading-5 text-zinc-500">{block.description}</p>
                                             </div>
                                             <div className="flex shrink-0 border border-zinc-200 bg-zinc-50 p-1" role="tablist">
-                                                <button type="button" onClick={() => setOpenSource(null)} aria-selected={!sourceOpen} role="tab" className={`px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] ${!sourceOpen ? "bg-zinc-950 text-white" : "text-zinc-500 hover:text-zinc-950"}`}>
+                                                <button type="button" onClick={() => { setOpenSource(null); setCopied(false); }} aria-selected={!sourceOpen} role="tab" className={`px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] ${!sourceOpen ? "bg-zinc-950 text-white" : "text-zinc-500 hover:text-zinc-950"}`}>
                                                     {isRtl ? "پیش‌نمایش" : "Preview"}
                                                 </button>
-                                                <button type="button" onClick={() => setOpenSource(index)} aria-selected={sourceOpen} role="tab" className={`px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] ${sourceOpen ? "bg-zinc-950 text-white" : "text-zinc-500 hover:text-zinc-950"}`}>
+                                                <button type="button" onClick={() => { setOpenSource(index); setCopied(false); }} aria-selected={sourceOpen} role="tab" className={`px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] ${sourceOpen ? "bg-zinc-950 text-white" : "text-zinc-500 hover:text-zinc-950"}`}>
                                                     {isRtl ? "سورس کد" : "Source"}
                                                 </button>
                                             </div>
@@ -264,6 +265,7 @@ export default function ComponentPackBrowser({lang, copy, sourceUnlocked}: Props
                                             <div className="relative bg-zinc-950 p-5 text-left sm:p-7" dir="ltr">
                                                 <div className="mb-4 flex items-center justify-between gap-4">
                                                     <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-zinc-500">HeroSection.tsx</span>
+                                                    {sourceUnlocked ? <button type="button" onClick={async () => { await navigator.clipboard.writeText(block.source); setCopied(true); }} className="border border-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-300 hover:bg-white/5">{copied ? (isRtl ? "کپی شد" : "Copied") : (isRtl ? "کپی سورس" : "Copy source")}</button> : null}
                                                     <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-600">{sourceUnlocked ? (isRtl ? "اشتراک فعال" : "Subscription active") : (isRtl ? "قفل شده" : "Locked")}</span>
                                                 </div>
                                                 <pre className={`overflow-x-auto text-xs leading-6 text-zinc-300 ${sourceUnlocked ? "" : "select-none blur-[3px] opacity-60"}`}><code>{block.source}</code></pre>{!sourceUnlocked ? <div className="absolute inset-0 flex items-center justify-center bg-zinc-950/55 p-5"><div className="max-w-sm border border-white/10 bg-zinc-900 p-6 text-center shadow-2xl"><p className="text-sm font-semibold text-white">{isRtl ? "سورس با اشتراک فعال باز می‌شود" : "Source unlocks with an active subscription"}</p><p className="mt-2 text-xs leading-5 text-zinc-500">{isRtl ? "پیش‌نمایش آزاد است؛ برای کپی کردن کد، دسترسی سورس را فعال کنید." : "Preview is open. Activate source access to copy the implementation."}</p></div></div> : null}
