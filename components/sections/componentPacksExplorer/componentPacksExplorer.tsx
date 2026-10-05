@@ -120,23 +120,33 @@ export default function ComponentPacksExplorer({
 
     return (
         <div className={lang === "fa" ? "text-right" : "text-left"}>
-            <div className="overflow-hidden border border-zinc-200 bg-white/75 shadow-[0_18px_50px_rgba(24,24,27,0.055)] backdrop-blur-xl">
-                <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.45fr)]">
-                    <div className="flex min-h-16 items-center gap-4 border-b border-zinc-200 px-5 md:px-7 lg:border-b-0 lg:border-e">
-                        <label className="flex min-w-0 flex-1 items-center gap-3">
-                            <span className="text-lg leading-none text-zinc-400" aria-hidden="true">⌕</span>
+            <div className="relative overflow-hidden border border-zinc-200 bg-[#f8f7f4] shadow-[0_20px_60px_rgba(24,24,27,0.06)]">
+                <div className="absolute inset-y-0 end-0 w-1/3 bg-[radial-gradient(circle_at_80%_50%,rgba(198,146,43,0.10),transparent_62%)]" />
+                <div className="relative grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.95fr)]">
+                    <div className="border-b border-zinc-200 p-3 md:p-4 lg:border-b-0 lg:border-e">
+                        <label className="flex min-h-14 items-center gap-3 border border-zinc-200 bg-white px-4 shadow-[0_8px_24px_rgba(24,24,27,0.035)] transition-all focus-within:border-zinc-400 focus-within:shadow-[0_12px_32px_rgba(24,24,27,0.07)]">
+                            <span className="text-base text-zinc-400" aria-hidden="true">⌕</span>
                             <span className="sr-only">{searchPlaceholder}</span>
-                            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={searchPlaceholder} className="min-w-0 w-full bg-transparent text-sm font-medium outline-none placeholder:text-zinc-400" />
+                            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={searchPlaceholder} className="min-w-0 flex-1 bg-transparent text-sm font-medium outline-none placeholder:text-zinc-400" />
+                            {query && (
+                                <button type="button" onClick={() => setQuery("")} aria-label={lang === "fa" ? "پاک کردن جستجو" : "Clear search"} className="flex h-7 w-7 items-center justify-center border border-zinc-200 text-xs text-zinc-400 transition-colors hover:border-zinc-950 hover:text-zinc-950">
+                                    ×
+                                </button>
+                            )}
                         </label>
-                        {query && <button type="button" onClick={() => setQuery("")} className="shrink-0 border border-zinc-200 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-zinc-400 transition-colors hover:border-zinc-400 hover:text-zinc-950">{lang === "fa" ? "پاک کردن" : "Clear"}</button>}
                     </div>
-                    <div className="flex min-h-16 items-center gap-2 overflow-x-auto px-5 py-3 md:px-7">
-                        <span className="me-1 shrink-0 text-[9px] font-bold uppercase tracking-[0.18em] text-zinc-400">{lang === "fa" ? "دسته‌بندی" : "Category"}</span>
+                    <div className="relative flex min-h-20 items-center gap-2 overflow-x-auto px-4 py-4 md:px-5">
+                        <div className="me-2 hidden shrink-0 sm:block">
+                            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400">{lang === "fa" ? "فیلتر" : "Filter"}</p>
+                            <p className="mt-1 text-[10px] font-medium text-zinc-400">{filteredBlocks.length} {lang === "fa" ? "بلاک" : "blocks"}</p>
+                        </div>
                         {[allLabel, ...categories].map((item) => {
                             const active = category === item;
+                            const count = item === allLabel ? blocks.length : blocks.filter((block) => block.tag === item).length;
                             return (
-                                <button key={item} type="button" onClick={() => setCategory(item)} aria-pressed={active} className={"shrink-0 border px-3.5 py-2 text-xs font-semibold transition-all duration-200 " + (active ? "border-zinc-950 bg-zinc-950 text-white shadow-[0_8px_20px_rgba(24,24,27,0.14)]" : "border-zinc-200 bg-white/70 text-zinc-500 hover:-translate-y-px hover:border-zinc-400 hover:bg-white hover:text-zinc-950")}>
-                                    {item}
+                                <button key={item} type="button" onClick={() => setCategory(item)} aria-pressed={active} className={"group flex shrink-0 items-center gap-2 border px-3.5 py-2.5 text-xs font-semibold transition-all duration-200 " + (active ? "border-zinc-950 bg-zinc-950 text-white shadow-[0_10px_24px_rgba(24,24,27,0.14)]" : "border-zinc-200 bg-white/80 text-zinc-500 hover:-translate-y-px hover:border-zinc-400 hover:text-zinc-950")}>
+                                    <span>{item}</span>
+                                    <span className={"text-[9px] tabular-nums " + (active ? "text-zinc-500" : "text-zinc-400")}>{String(count).padStart(2, "0")}</span>
                                 </button>
                             );
                         })}
@@ -152,25 +162,29 @@ export default function ComponentPacksExplorer({
             {filteredBlocks.length > 0 ? (
                 <div className="grid gap-4 py-6 sm:grid-cols-2 lg:grid-cols-4">
                     {filteredBlocks.map((block, index) => (
-                        <article key={block.number} className="group overflow-hidden border border-zinc-200/80 bg-white/70 shadow-[0_14px_40px_rgba(24,24,27,0.045)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-zinc-300 hover:bg-white/85 hover:shadow-[0_24px_60px_rgba(24,24,27,0.09)]">
-                            <div className="relative aspect-[16/10] overflow-hidden border-b border-zinc-200/80">
+                        <article key={block.number} className="group relative overflow-hidden border border-zinc-200 bg-white shadow-[0_12px_35px_rgba(24,24,27,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-zinc-300 hover:shadow-[0_24px_60px_rgba(24,24,27,0.09)]">
+                            <div className="absolute inset-x-0 top-0 h-px origin-center scale-x-0 bg-[#c6922b] transition-transform duration-300 group-hover:scale-x-100" />
+                            <div className="relative aspect-[16/10] overflow-hidden border-b border-zinc-200 bg-[#eeece7]">
                                 <BlockVisual index={index} />
-                                <div className="absolute inset-x-4 top-4 flex items-center justify-between text-[9px] font-bold uppercase tracking-[0.16em]">
-                                    <span className="border border-white/70 bg-white/60 px-2.5 py-1.5 text-zinc-500 shadow-sm backdrop-blur-xl">{block.tag}</span>
-                                    <span className="border border-white/60 bg-zinc-950/90 px-2.5 py-1.5 text-white">{block.number}</span>
+                                <div className="absolute inset-x-3 top-3 flex items-center justify-between">
+                                    <span className="border border-white/80 bg-white/75 px-2 py-1 text-[8px] font-bold uppercase tracking-[0.16em] text-zinc-500 shadow-sm backdrop-blur-md">{block.tag}</span>
+                                    <span className="font-mono text-[9px] font-semibold tabular-nums text-zinc-400">{block.number}</span>
                                 </div>
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                             </div>
-                            <Link href={"/" + lang + "/components/component-packs/" + featured.slug} className="block p-5 md:p-5">
-                                <div className="flex items-start justify-between gap-4">
-                                    <div>
-                                        <h3 className="text-base font-semibold tracking-[-0.03em] transition-colors group-hover:text-zinc-600">{block.title}</h3>
-                                        <p className="mt-2 line-clamp-2 text-[12px] leading-5 text-zinc-500">{block.description}</p>
+                            <Link href={"/" + lang + "/components/component-packs/" + featured.slug} className="block p-4 md:p-5">
+                                <div className="flex min-h-[102px] flex-col justify-between">
+                                    <div className="flex items-start justify-between gap-3">
+                                        <div>
+                                            <h3 className="text-[15px] font-semibold tracking-[-0.03em] text-zinc-950 transition-colors group-hover:text-zinc-600">{block.title}</h3>
+                                            <p className="mt-2 line-clamp-2 text-[11px] leading-[1.55] text-zinc-500">{block.description}</p>
+                                        </div>
+                                        <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center border border-zinc-200 text-zinc-300 transition-all duration-300 group-hover:border-zinc-950 group-hover:text-zinc-950" aria-hidden="true">↗</span>
                                     </div>
-                                    <span className="text-zinc-300 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-zinc-950" aria-hidden="true">↗</span>
-                                </div>
-                                <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-3 text-[9px] font-bold uppercase tracking-[0.14em] text-zinc-400">
-                                    <span>{block.tag}</span>
-                                    <span>View source →</span>
+                                    <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-3">
+                                        <span className="text-[8px] font-bold uppercase tracking-[0.16em] text-zinc-400">{block.tag}</span>
+                                        <span className="text-[8px] font-bold uppercase tracking-[0.12em] text-zinc-400 transition-colors group-hover:text-zinc-950">{lang === "fa" ? "مشاهده پک" : "Explore pack"} →</span>
+                                    </div>
                                 </div>
                             </Link>
                         </article>
