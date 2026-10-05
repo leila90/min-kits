@@ -6,6 +6,7 @@ import Container from "@/components/ui/container";
 import {FooterHeader, Header} from "@/components/layout";
 import {getDictionary, isLang, locales} from "../../../../i18n";
 import {getComponentPack, getComponentPacks} from "@/content/componentPacks";
+import ComponentPackSourceVault from "@/components/sections/componentPackSourceVault/componentPackSourceVault";
 
 type Props = {params: Promise<{lang: string; slug: string}>};
 
@@ -71,6 +72,8 @@ export default async function ComponentPackDetailPage({params}: Props) {
                 </section>
 
                 <Header/>
+
+                <ComponentPackSourceVault lang={lang} dict={copy}/>
 
                 <section className="py-20 md:py-28">
                     <Container>
