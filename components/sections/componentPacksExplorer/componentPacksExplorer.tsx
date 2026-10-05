@@ -7,78 +7,65 @@ import type {ComponentPack} from "@/content/componentPacks";
 type Block={title:string;description:string;tag:string;number:string};
 type Props={lang:"en"|"fa";packs:ComponentPack[];blocks:Block[];categories:string[];allLabel:string;viewPack:string};
 
-function BlockCanvas({index}:{index:number}){
-    const variant=index%4;
-    if(variant===0)return <div className="grid h-full grid-cols-[1.15fr_.85fr] gap-3 bg-[#ebe7df] p-4 md:gap-5 md:p-7"><div className="flex flex-col justify-center bg-white p-5 md:p-8"><span className="h-2 w-24 bg-zinc-950"/><span className="mt-4 h-8 w-full max-w-sm bg-zinc-950"/><span className="mt-2 h-8 w-4/5 max-w-xs bg-zinc-200"/><span className="mt-7 h-9 w-28 bg-zinc-950"/></div><div className="bg-zinc-200 p-3"><div className="grid h-full grid-cols-2 gap-2"><span className="bg-zinc-950"/><span className="bg-white"/><span className="col-span-2 bg-white"/></div></div></div>;
-    if(variant===1)return <div className="h-full bg-zinc-950 p-5 text-white md:p-8"><div className="mx-auto flex h-full max-w-lg flex-col justify-center text-center"><span className="mx-auto h-2 w-28 bg-white"/><span className="mx-auto mt-5 h-9 w-4/5 bg-white"/><span className="mx-auto mt-2 h-9 w-3/5 bg-zinc-700"/><div className="mx-auto mt-7 flex gap-2"><span className="h-9 w-24 bg-white"/><span className="h-9 w-20 border border-white/20"/></div></div></div>;
-    if(variant===2)return <div className="h-full bg-[#ebe7df] p-4 md:p-7"><div className="h-full border border-zinc-200 bg-white p-5 md:p-7"><div className="flex justify-between border-b border-zinc-200 pb-4"><span className="h-2 w-24 bg-zinc-950"/><span className="h-2 w-10 bg-zinc-200"/></div><div className="mt-7 grid grid-cols-3 gap-2"><span className="h-24 bg-zinc-950 md:h-32"/><span className="h-24 bg-zinc-100 md:h-32"/><span className="h-24 bg-zinc-200 md:h-32"/></div></div></div>;
-    return <div className="h-full bg-[#ebe7df] p-4 md:p-7"><div className="flex h-full border border-zinc-200 bg-white"><span className="w-12 bg-zinc-950 md:w-16"/><div className="flex flex-1 flex-col justify-center p-5 md:p-8"><span className="h-2 w-28 bg-zinc-950"/><span className="mt-4 h-2 w-20 bg-zinc-200"/><span className="mt-8 h-24 border border-zinc-200 bg-zinc-50 md:h-32"/></div></div></div>;
+function Preview({index}:{index:number}){
+    const n=index%4;
+    return <div className={"relative h-full min-h-[380px] overflow-hidden "+(n===1?"bg-zinc-950":"bg-[#ebe7df]")}>
+        <div className={"absolute left-[8%] right-[8%] top-[9%] bottom-[9%] border "+(n===1?"border-white/10 bg-zinc-900":"border-zinc-200 bg-white")}>
+            {n===0&&<div className="grid h-full grid-cols-[1.1fr_.9fr] gap-4 p-6"><div className="flex flex-col justify-center"><span className="h-2 w-20 bg-zinc-950"/><span className="mt-5 h-10 w-full bg-zinc-950"/><span className="mt-2 h-8 w-3/4 bg-zinc-200"/><span className="mt-8 h-9 w-24 bg-zinc-950"/></div><div className="grid grid-cols-2 gap-2 bg-zinc-100 p-3"><span className="bg-zinc-950"/><span className="bg-white"/><span className="col-span-2 bg-white"/></div></div>}
+            {n===1&&<div className="flex h-full flex-col items-center justify-center text-center"><span className="h-2 w-24 bg-white"/><span className="mt-6 h-11 w-4/5 bg-white"/><span className="mt-2 h-8 w-3/5 bg-zinc-700"/><div className="mt-8 flex gap-2"><span className="h-10 w-24 bg-white"/><span className="h-10 w-20 border border-white/20"/></div></div>}
+            {n===2&&<div className="p-6"><div className="flex justify-between border-b border-zinc-200 pb-4"><span className="h-2 w-24 bg-zinc-950"/><span className="h-2 w-8 bg-zinc-200"/></div><div className="mt-8 grid grid-cols-3 gap-3"><span className="h-32 bg-zinc-950"/><span className="h-32 bg-zinc-100"/><span className="h-32 bg-zinc-200"/></div></div>}
+            {n===3&&<div className="flex h-full"><div className="w-14 bg-zinc-950"/><div className="flex flex-1 flex-col justify-center p-8"><span className="h-2 w-28 bg-zinc-950"/><span className="mt-3 h-2 w-16 bg-zinc-200"/><span className="mt-8 h-28 border border-zinc-200 bg-zinc-50"/></div></div>}
+        </div>
+        <span className="absolute bottom-4 left-5 font-mono text-[9px] tracking-[.2em] text-zinc-400">MINKITS / BLOCK {String(index+1).padStart(2,"0")}</span>
+    </div>;
 }
 
 export default function ComponentPacksExplorer({lang,packs,blocks,categories,allLabel,viewPack}:Props){
-    const [selected,setSelected]=useState(0);
-    const [category,setCategory]=useState(allLabel);
-    const featured=packs[0];
-    const filtered=blocks.filter((block)=>category===allLabel||block.tag===category);
-    const active=filtered[Math.min(selected,Math.max(filtered.length-1,0))]??blocks[0];
-    const activeIndex=Math.max(0,blocks.findIndex((block)=>block.number===active?.number));
-    const isRtl=lang==="fa";
+    const [active,setActive]=useState(0);
+    const [filter,setFilter]=useState(allLabel);
+    const pack=packs[0];
+    const list=blocks.filter((b)=>filter===allLabel||b.tag===filter);
+    const current=list[active]??list[0]??blocks[0];
+    const currentIndex=Math.max(0,blocks.findIndex((b)=>b.number===current?.number));
+    const rtl=lang==="fa";
 
-    return (
-        <div className={isRtl?"text-right":"text-left"}>
-            <div className="grid border-y border-zinc-200 lg:grid-cols-[210px_minmax(0,1fr)_250px]">
-                <aside className="border-b border-zinc-200 lg:border-b-0 lg:border-e">
-                    <div className="p-5 md:p-6">
-                        <p className="font-mono text-[9px] uppercase tracking-[.22em] text-zinc-400">COLLECTION / 01</p>
-                        <h2 className="mt-4 text-xl font-semibold tracking-[-.04em]">{featured.name}</h2>
-                        <p className="mt-3 text-xs leading-6 text-zinc-500">{isRtl?"یک مجموعه فشرده از بلاک‌های آماده برای ساخت سریع صفحات واقعی.":"A focused collection of production-ready blocks for real product pages."}</p>
-                    </div>
-                    <div className="border-t border-zinc-200">
-                        {[allLabel,...categories].map((item)=>(
-                            <button key={item} type="button" onClick={()=>{setCategory(item);setSelected(0);}} aria-pressed={category===item} className={"flex w-full items-center justify-between border-b border-zinc-200 px-5 py-3.5 text-xs font-semibold "+(category===item?"bg-zinc-950 text-white":"text-zinc-500 hover:bg-zinc-50 hover:text-zinc-950")}>
-                                <span>{item}</span><span className="font-mono text-[9px] opacity-50">{category===item?"●":"○"}</span>
-                            </button>
-                        ))}
-                    </div>
-                </aside>
-
-                <section className="min-w-0 bg-[#f1eee8]">
-                    <div className="flex items-center justify-between gap-4 border-b border-zinc-200 px-5 py-4 md:px-7">
-                        <div>
-                            <p className="font-mono text-[9px] uppercase tracking-[.22em] text-zinc-400">{active?.number??"01"} / SELECTED BLOCK</p>
-                            <h3 className="mt-1 text-lg font-semibold tracking-[-.03em]">{active?.title}</h3>
-                        </div>
-                        <Link href={"/"+lang+"/components/component-packs/"+featured.slug} className="hidden text-[10px] font-semibold underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-950 sm:block">{viewPack} →</Link>
-                    </div>
-                    <div className="min-h-[390px] p-4 md:min-h-[500px] md:p-7">
-                        <div className="h-full min-h-[360px] overflow-hidden border border-zinc-200 bg-white shadow-[0_18px_50px_rgba(0,0,0,.06)]">
-                            <BlockCanvas index={activeIndex}/>
-                        </div>
-                    </div>
-                    <div className="border-t border-zinc-200 bg-white">
-                        <div className="flex gap-0 overflow-x-auto [scrollbar-width:none]">
-                            {filtered.map((block,index)=>(
-                                <button key={block.number} type="button" onClick={()=>setSelected(index)} aria-pressed={active?.number===block.number} className={"min-w-[170px] flex-1 border-e border-zinc-200 px-4 py-4 text-start transition-colors last:border-e-0 "+(active?.number===block.number?"bg-zinc-950 text-white":"hover:bg-zinc-50")}>
-                                    <span className="font-mono text-[9px] opacity-40">{block.number}</span>
-                                    <span className="mt-2 block text-xs font-semibold">{block.title}</span>
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                <aside className="border-t border-zinc-200 bg-zinc-950 p-6 text-white lg:border-t-0 md:p-7">
-                    <p className="font-mono text-[9px] uppercase tracking-[.22em] text-zinc-600">{isRtl?"چرا این پک؟":"WHY THIS COLLECTION"}</p>
-                    <div className="mt-10">
-                        <p className="text-5xl font-semibold tracking-[-.08em] text-zinc-700">{featured.price}</p>
-                        <p className="mt-3 text-xs leading-6 text-zinc-500">{isRtl?"کد منبع React و Tailwind برای استفاده مستقیم در پروژه.":"React + Tailwind source designed to leave the library and ship inside your product."}</p>
-                        <div className="mt-8 space-y-3 border-t border-white/10 pt-6">
-                            {(featured.features??[]).slice(0,4).map((feature)=>(<div key={feature} className="flex gap-3 text-xs text-zinc-400"><span className="text-zinc-600">+</span><span>{feature}</span></div>))}
-                        </div>
-                    </div>
-                    <Link href={"/"+lang+"/components/component-packs/"+featured.slug} className="mt-10 flex items-center justify-between border border-white/15 px-4 py-3 text-xs font-semibold text-white hover:bg-white hover:text-zinc-950"><span>{viewPack}</span><span aria-hidden="true">{isRtl?"←":"→"}</span></Link>
-                </aside>
+    return <div className={rtl?"text-right":"text-left"}>
+        <div className="grid border-y border-zinc-950 lg:grid-cols-[minmax(0,1.55fr)_minmax(300px,.7fr)]">
+            <div className="relative min-h-[620px] bg-[#ebe7df] p-4 md:p-7">
+                <div className="mb-4 flex items-center justify-between font-mono text-[9px] uppercase tracking-[.2em] text-zinc-400">
+                    <span>PACK / 01 — {pack.category}</span><span>{current?.number} / {blocks.length.toString().padStart(2,"0")}</span>
+                </div>
+                <div className="h-[500px] border border-zinc-300 bg-white p-2 md:p-3"><Preview index={currentIndex}/></div>
             </div>
+
+            <aside className="flex flex-col bg-zinc-950 text-white">
+                <div className="flex-1 p-6 md:p-9">
+                    <p className="font-mono text-[9px] uppercase tracking-[.22em] text-zinc-600">THE PRODUCT</p>
+                    <h2 className="mt-8 text-4xl font-semibold leading-[.9] tracking-[-.065em] md:text-5xl">{pack.name}</h2>
+                    <p className="mt-5 text-sm leading-7 text-zinc-500">{pack.description}</p>
+                    <div className="mt-9 border-y border-white/10 py-5">
+                        <p className="font-mono text-4xl tracking-[-.06em]">{pack.price}</p>
+                        <p className="mt-1 text-[9px] uppercase tracking-[.18em] text-zinc-600">{rtl?"دسترسی به سورس":"source access"}</p>
+                    </div>
+                    <div className="mt-7 space-y-3">
+                        {(pack.features??[]).slice(0,5).map((feature)=><p key={feature} className="flex gap-3 text-xs leading-5 text-zinc-400"><span className="text-zinc-700">+</span>{feature}</p>)}
+                    </div>
+                </div>
+                <Link href={"/"+lang+"/components/component-packs/"+pack.slug} className="flex items-center justify-between border-t border-white/10 px-6 py-5 text-xs font-semibold hover:bg-white hover:text-zinc-950 md:px-9"><span>{viewPack}</span><span>{rtl?"←":"↗"}</span></Link>
+            </aside>
         </div>
-    );
+
+        <div className="mt-10 border-y border-zinc-950 bg-white">
+            <div className="flex items-end justify-between gap-6 border-b border-zinc-200 px-5 py-6 md:px-8">
+                <div><p className="font-mono text-[9px] uppercase tracking-[.2em] text-zinc-400">WHAT'S INSIDE</p><h3 className="mt-2 text-2xl font-semibold tracking-[-.05em]">{rtl?"فهرست بلاک‌ها":"The block index"}</h3></div>
+                <div className="flex max-w-[55%] gap-1 overflow-x-auto">{[allLabel,...categories].map((item)=><button key={item} type="button" onClick={()=>{setFilter(item);setActive(0);}} className={"whitespace-nowrap px-3 py-2 text-[10px] font-semibold "+(filter===item?"bg-zinc-950 text-white":"bg-zinc-100 text-zinc-500 hover:bg-zinc-200")}>{item}</button>)}</div>
+            </div>
+            {list.map((block,index)=><button key={block.number} type="button" onClick={()=>setActive(index)} aria-pressed={current?.number===block.number} className={"grid w-full grid-cols-[55px_minmax(0,1fr)_100px_20px] items-center gap-4 border-b border-zinc-200 px-5 py-5 text-start last:border-0 md:grid-cols-[80px_minmax(0,1fr)_160px_30px] md:px-8 "+(current?.number===block.number?"bg-[#f1eee8]":"hover:bg-[#f8f7f4]")}>
+                <span className="font-mono text-[10px] text-zinc-400">{block.number}</span>
+                <span><span className="block text-sm font-semibold">{block.title}</span><span className="mt-1 block text-xs text-zinc-500">{block.description}</span></span>
+                <span className="hidden text-[9px] uppercase tracking-[.16em] text-zinc-400 md:block">{block.tag}</span>
+                <span className="text-zinc-300">{current?.number===block.number?"●":"○"}</span>
+            </button>)}
+        </div>
+    </div>;
 }
