@@ -22,7 +22,7 @@ export const messages = {
       includedTitle: "Everything in the pack",
       earlyAccessLabel: "Early access",
       badge: "Coming soon",
-      stats: [{ value: "24+", label: "UI blocks" }, { value: "React", label: "Source code" }, { value: "Tailwind", label: "Styling" }],
+      stats: [{ value: "18", label: "UI blocks" }, { value: "React", label: "Source code" }, { value: "Tailwind", label: "Styling" }],
       categories: ["All blocks", "Marketing", "Dashboard", "Application"],
       blocks: [
         { title: "Hero Sections", description: "Flexible hero compositions for product launches, SaaS pages, and focused landing experiences.", tag: "Marketing", number: "01" },
@@ -37,7 +37,7 @@ export const messages = {
       ctaTitle: "Get early access to the first collection.",
       ctaText: "The Component Packs collection is coming soon. Join the early-access list to be notified when the first blocks are released.",
       cta: "Request early access",
-      collectionLabel: "Collection", philosophyLabel: "Philosophy", earlyAccessLabel: "Early access", previewLabel: "MINKITS / BLOCKS"
+      collectionLabel: "Collection", philosophyLabel: "Philosophy", previewLabel: "MINKITS / BLOCKS"
     },
     pageKits: { title: "Page Kits", description: "Complete page sections and layouts for faster product assembly.", back: "Back to component store", badge: "Coming soon", cta: "Request early access" },
     componentsCatalog: { previousComponent: "Previous component", nextComponent: "Next component", browseAllComponents: "Browse all components", title: "Components", subtitle: "Production-ready building blocks you can explore, reuse, and adapt.", viewComponent: "View component", metaTitle: "Components", metaDescription: "Explore reusable, production-ready UI components from MinKits.", backToCatalog: "Back to components", preview: "Preview", source: "Source code", copy: "Copy", copied: "Copied", searchPlaceholder: "Search components...", allCategories: "All", noResults: "No components match your search.", usage: "Usage", startHere: "Start here", interactiveDemo: "Interactive demo", example: "example", examples: "examples", documentedProps: "documented props", api: "API", props: "Props", propName: "Name", propType: "Type", required: "Required", optional: "Optional", defaultValue: "Default",
@@ -99,7 +99,7 @@ export const messages = {
       includedTitle: "همه چیز داخل این پک",
       earlyAccessLabel: "دسترسی زودهنگام",
       badge: "به‌زودی",
-      stats: [{ value: "۲۴+", label: "بلاک رابط کاربری" }, { value: "React", label: "کد منبع" }, { value: "Tailwind", label: "استایل‌دهی" }],
+      stats: [{ value: "۱۸", label: "بلاک رابط کاربری" }, { value: "React", label: "کد منبع" }, { value: "Tailwind", label: "استایل‌دهی" }],
       categories: ["همه بلاک‌ها", "مارکتینگ", "داشبورد", "اپلیکیشن"],
       blocks: [
         { title: "بخش‌های Hero", description: "ترکیب‌های منعطف برای معرفی محصول، صفحات SaaS و تجربه‌های متمرکز فرود.", tag: "مارکتینگ", number: "۰۱" },
@@ -114,7 +114,7 @@ export const messages = {
       ctaTitle: "برای دسترسی زودهنگام به اولین مجموعه آماده شوید.",
       ctaText: "مجموعه Component Packs به‌زودی منتشر می‌شود. برای دریافت اطلاع‌رسانی زمان انتشار اولین بلاک‌ها، به فهرست دسترسی زودهنگام بپیوندید.",
       cta: "درخواست دسترسی زودهنگام",
-      collectionLabel: "مجموعه", philosophyLabel: "رویکرد", earlyAccessLabel: "دسترسی زودهنگام", previewLabel: "MINKITS / BLOCKS"
+      collectionLabel: "مجموعه", philosophyLabel: "رویکرد", previewLabel: "MINKITS / BLOCKS"
     },
     pageKits: { title: "کیت صفحات", description: "صفحات و بخش‌های کامل برای ساخت سریع‌تر محصولات.", back: "بازگشت به فروشگاه کامپوننت", badge: "به‌زودی", cta: "درخواست دسترسی زودهنگام" },
     componentsCatalog: { previousComponent: "کامپوننت قبلی", nextComponent: "کامپوننت بعدی", browseAllComponents: "مشاهده همه کامپوننت‌ها", title: "کامپوننت‌ها", subtitle: "بلوک‌های رابط کاربری آماده تولید برای مشاهده، استفاده مجدد و شخصی‌سازی.", viewComponent: "مشاهده کامپوننت", metaTitle: "کامپوننت‌ها", metaDescription: "مجموعه‌ای از کامپوننت‌های رابط کاربری آماده تولید و قابل استفاده مجدد در MinKits.", backToCatalog: "بازگشت به کامپوننت‌ها", preview: "پیش‌نمایش", source: "سورس کد", copy: "کپی", copied: "کپی شد", searchPlaceholder: "جستجوی کامپوننت‌ها...", allCategories: "همه", noResults: "کامپوننتی با این جستجو پیدا نشد.", usage: "نحوه استفاده", startHere: "از اینجا شروع کنید", interactiveDemo: "دموی تعاملی", example: "مثال", examples: "مثال", documentedProps: "پراپ مستند", api: "API", props: "پراپ‌ها", propName: "نام", propType: "نوع", required: "الزامی", optional: "اختیاری", defaultValue: "پیش‌فرض",
