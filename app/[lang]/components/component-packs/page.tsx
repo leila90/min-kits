@@ -10,163 +10,78 @@ import ComponentPacksExplorer from "@/components/sections/componentPacksExplorer
 type Props = {params: Promise<{lang: string}>};
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
-    const {lang} = await params;
+    const {lang}=await params;
     if (!isLang(lang)) return {};
-    const copy = (await getDictionary(lang)).componentPacks;
-
-    return {
-        title: copy.title,
-        description: copy.subtitle,
-        alternates: {
-            canonical: "/" + lang + "/components/component-packs",
-            languages: {en: "/en/components/component-packs", fa: "/fa/components/component-packs"},
-        },
-    };
+    const copy=(await getDictionary(lang)).componentPacks;
+    return {title:copy.title,description:copy.subtitle,alternates:{canonical:"/"+lang+"/components/component-packs",languages:{en:"/en/components/component-packs",fa:"/fa/components/component-packs"}}};
 }
 
 export default async function ComponentPacksPage({params}: Props) {
-    const {lang} = await params;
+    const {lang}=await params;
     if (!isLang(lang)) notFound();
 
-    const copy = (await getDictionary(lang)).componentPacks;
-    const packs = getComponentPacks(lang);
-    const featured = packs[0];
+    const copy=(await getDictionary(lang)).componentPacks;
+    const packs=getComponentPacks(lang);
+    const featured=packs[0];
 
     return (
-        <>
-            <main className="min-h-screen bg-[#f8f7f4] text-zinc-950">
-                <section className="relative overflow-hidden bg-zinc-950 text-white">
-                    <div className="pointer-events-none absolute inset-0">
-                        <div className="absolute -start-56 -top-72 h-[900px] w-[900px] rounded-full border border-white/[0.06]" />
-                        <div className="absolute -start-16 -top-32 h-[650px] w-[650px] rounded-full border border-white/[0.05]" />
-                        <div className="absolute end-[-240px] top-[-260px] h-[720px] w-[720px] rounded-full border border-[#c6922b]/15" />
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_18%,rgba(198,146,43,0.12),transparent_28%),linear-gradient(110deg,rgba(255,255,255,0.015),transparent_48%)]" />
+        <main className="min-h-screen bg-[#f8f7f4] text-zinc-950">
+            <Header/>
+
+            <section className="border-b border-zinc-200 bg-zinc-950 text-white">
+                <Container>
+                    <div className={"grid gap-12 py-20 md:py-28 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end lg:py-32 "+(lang==="fa" ? "text-right" : "text-left")}>
+                        <div>
+                            <div className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[.25em] text-zinc-600">
+                                <span>MINKITS / BLOCKS</span><span className="h-px w-12 bg-zinc-700"/><span>01 / {featured.category}</span>
+                            </div>
+                            <h1 className="mt-8 max-w-5xl text-6xl font-semibold leading-[.86] tracking-[-.075em] md:text-8xl lg:text-[112px]">BLOCKS</h1>
+                            <p className="mt-7 max-w-2xl text-sm leading-7 text-zinc-400 md:text-base">{copy.subtitle}</p>
+                        </div>
+                        <div className="border-t border-white/10 pt-5">
+                            <p className="font-mono text-3xl tracking-[-.06em]">{featured.name}</p>
+                            <p className="mt-3 text-xs leading-6 text-zinc-500">{featured.description}</p>
+                            <div className="mt-7 flex items-end justify-between gap-5">
+                                <span className="text-4xl font-semibold tracking-[-.06em]">{featured.price}</span>
+                                <span className="text-[9px] font-bold uppercase tracking-[.18em] text-[#c6922b]">{copy.earlyAccessLabel}</span>
+                            </div>
+                        </div>
                     </div>
+                </Container>
+            </section>
 
-                    <Container>
-                        <div className={`relative py-24 md:py-32 lg:py-36 ${lang === "fa" ? "text-right" : "text-left"}`}>
-                            <div className="flex items-center justify-between gap-6 border-b border-white/10 pb-5 text-[10px] font-bold uppercase tracking-[0.26em] text-zinc-600">
-                                <span>MinKits / Blocks</span>
-                                <Link href={"/" + lang + "/components"} className="hidden text-zinc-500 transition-colors hover:text-white sm:block">
-                                    {lang === "fa" ? "کتابخانه کامپوننت‌ها ←" : "Component library →"}
-                                </Link>
-                            </div>
+            <section className="border-b border-zinc-200 bg-[#f8f7f4]">
+                <Container>
+                    <div className={"flex flex-col gap-5 py-7 md:flex-row md:items-center md:justify-between "+(lang==="fa" ? "text-right" : "text-left")}>
+                        <div><p className="font-mono text-[9px] uppercase tracking-[.24em] text-zinc-400">01 / COLLECTION</p><h2 className="mt-2 text-2xl font-semibold tracking-[-.05em]">{featured.name}</h2></div>
+                        <div className="flex flex-wrap gap-2">{featured.stats.map((stat)=><span key={stat.label} className="border border-zinc-200 bg-white px-3 py-2 text-[9px] font-bold uppercase tracking-[.12em] text-zinc-500">{stat.value} · {stat.label}</span>)}</div>
+                    </div>
+                </Container>
+            </section>
 
-                            <div className="grid gap-14 pt-14 lg:grid-cols-[minmax(0,1.1fr)_420px] lg:items-end lg:gap-20 lg:pt-20">
-                                <div>
-                                    <div className="flex flex-wrap items-center gap-3">
-                                        <span className="border border-[#c6922b]/30 bg-[#c6922b]/[0.08] px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-[#d7b36b]">
-                                            {copy.eyebrow}
-                                        </span>
-                                        <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-zinc-600">
-                                            {lang === "fa" ? "بلوک‌های آماده برای محصول" : "Production-ready blocks"}
-                                        </span>
-                                    </div>
-
-                                    <h1 className="mt-8 max-w-5xl text-5xl font-semibold leading-[0.9] tracking-[-0.07em] md:text-7xl lg:text-[94px]">
-                                        {copy.title}
-                                    </h1>
-
-                                    <p className="mt-8 max-w-2xl text-base leading-8 text-zinc-400 md:text-lg">
-                                        {copy.subtitle}
-                                    </p>
-
-                                    <div className="mt-9 flex flex-wrap gap-2">
-                                        {["React", "Tailwind CSS", "RTL ready", "Typed source"].map((item) => (
-                                            <span key={item} className="border border-white/10 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-                                                {item}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <div className="relative border border-white/10 bg-white/[0.025] p-5">
-                                    <div className="mb-5 flex items-end justify-between border-b border-white/10 pb-4">
-                                        <div>
-                                            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-600">{copy.collectionLabel}</p>
-                                            <p className="mt-1 text-sm font-semibold">{featured.name}</p>
-                                        </div>
-                                        <span className="text-sm font-semibold">{featured.price}</span>
-                                    </div>
-
-                                    <div className="grid grid-cols-6 gap-2">
-                                        {Array.from({length: 12}, (_, index) => (
-                                            <div key={index} className={`relative overflow-hidden border border-white/10 bg-zinc-900 ${index % 5 === 0 ? "col-span-2 row-span-2 min-h-24" : "min-h-11"}`}>
-                                                <div className="absolute inset-x-2 top-2 h-1 bg-white/50" />
-                                                <div className="absolute inset-x-2 top-5 h-1 bg-white/10" />
-                                                <div className="absolute inset-x-2 bottom-2 h-3 border border-white/10 bg-white/[0.03]" />
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                    <div className="mt-5 grid grid-cols-3 border-t border-white/10 pt-4">
-                                        {copy.stats.map((stat) => (
-                                            <div key={stat.label}>
-                                                <p className="text-xl font-semibold tracking-[-0.04em]">{stat.value}</p>
-                                                <p className="mt-1 text-[8px] font-bold uppercase tracking-[0.12em] text-zinc-600">{stat.label}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
+            <section className="py-12 md:py-20">
+                <Container>
+                    <div className="mb-8 flex items-end justify-between gap-6 border-b border-zinc-200 pb-6">
+                        <div className={lang==="fa" ? "text-right" : "text-left"}>
+                            <p className="font-mono text-[9px] uppercase tracking-[.24em] text-zinc-400">02 / EXPLORER</p>
+                            <h2 className="mt-2 text-3xl font-semibold tracking-[-.055em]">{copy.contentsTitle}</h2>
                         </div>
-                    </Container>
-                </section>
+                        <Link href={"/"+lang+"/components"} className="hidden text-xs font-semibold underline decoration-zinc-300 underline-offset-8 hover:decoration-zinc-950 sm:block">{lang==="fa" ? "کتابخانه کامپوننت‌ها ←" : "Component library →"}</Link>
+                    </div>
+                    <ComponentPacksExplorer lang={lang} packs={packs} blocks={copy.blocks} categories={copy.categories.slice(1)} searchPlaceholder={copy.previewSectionTitle} allLabel={copy.categories[0]} resultsLabel={lang==="fa" ? "نتایج" : "RESULTS"} noResults={lang==="fa" ? "بلاکی با این مشخصات پیدا نشد." : "No blocks match this filter."} viewPack={copy.viewPack} featuredLabel={copy.includedLabel}/>
+                </Container>
+            </section>
 
-                <Header />
+            <section className="border-y border-zinc-200 bg-white">
+                <Container>
+                    <div className={"grid gap-12 py-16 md:py-24 lg:grid-cols-[.8fr_1.2fr] lg:items-start "+(lang==="fa" ? "text-right" : "text-left")}>
+                        <div><p className="font-mono text-[9px] uppercase tracking-[.24em] text-zinc-400">03 / APPROACH</p><h2 className="mt-4 text-4xl font-semibold tracking-[-.06em]">{copy.principleTitle}</h2></div>
+                        <p className="max-w-2xl text-base leading-8 text-zinc-500">{copy.principleText}</p>
+                    </div>
+                </Container>
+            </section>
 
-                <section className="border-b border-zinc-200 bg-[#f8f7f4]">
-                    <Container>
-                        <div className="py-16 md:py-24">
-                            <div className={`mb-10 grid gap-7 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-end ${lang === "fa" ? "text-right" : "text-left"}`}>
-                                <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-zinc-400">01 / {copy.collectionLabel}</p>
-                                    <h2 className="mt-3 text-3xl font-semibold tracking-[-0.055em] md:text-5xl">{copy.contentsTitle}</h2>
-                                </div>
-                                <p className="max-w-2xl text-sm leading-7 text-zinc-500 md:text-base">{copy.principleText}</p>
-                            </div>
-
-                            <ComponentPacksExplorer
-                                lang={lang}
-                                packs={packs}
-                                blocks={copy.blocks}
-                                categories={copy.categories.slice(1)}
-                                searchPlaceholder={lang === "fa" ? "جستجو در بلاک‌ها..." : "Search blocks..."}
-                                allLabel={copy.categories[0]}
-                                resultsLabel={lang === "fa" ? "نمایش" : "Showing"}
-                                noResults={lang === "fa" ? "بلاکی با این فیلتر پیدا نشد." : "No blocks match your filters."}
-                                viewPack={copy.viewPack}
-                                featuredLabel={lang === "fa" ? "پک منتخب" : "Featured pack"}
-                            />
-                        </div>
-                    </Container>
-                </section>
-
-                <section className="bg-zinc-950 py-20 text-white md:py-28">
-                    <Container>
-                        <div className={`grid gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:items-end ${lang === "fa" ? "text-right" : "text-left"}`}>
-                            <div>
-                                <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-zinc-600">02 / {copy.philosophyLabel}</p>
-                                <h2 className="mt-4 text-3xl font-semibold leading-[1.02] tracking-[-0.055em] md:text-5xl">{copy.principleTitle}</h2>
-                            </div>
-                            <div>
-                                <p className="max-w-3xl text-base leading-8 text-zinc-400 md:text-lg">{copy.principleText}</p>
-                                <div className="mt-8 flex flex-wrap gap-2">
-                                    {featured.includes.slice(0, 6).map((item) => (
-                                        <span key={item} className="border border-white/10 px-3 py-2 text-[10px] font-medium text-zinc-500">{item}</span>
-                                    ))}
-                                </div>
-                                <Link href={"/" + lang + "/components/component-packs/" + featured.slug} className="mt-9 inline-flex items-center gap-10 bg-white px-6 py-4 text-sm font-semibold text-zinc-950 transition-colors hover:bg-zinc-200">
-                                    {copy.viewPack}
-                                    <span aria-hidden="true">{lang === "fa" ? "←" : "→"}</span>
-                                </Link>
-                            </div>
-                        </div>
-                    </Container>
-                </section>
-            </main>
-
-            <FooterHeader />
-        </>
+            <FooterHeader/>
+        </main>
     );
 }
