@@ -64,7 +64,7 @@ export default async function ComponentPacksPage({params}: Props) {
                     <div className="mb-8 flex items-end justify-between gap-6 border-b border-zinc-200 pb-6">
                         <div className={lang==="fa" ? "text-right" : "text-left"}>
                             <p className="font-mono text-[9px] uppercase tracking-[.24em] text-zinc-400">02 / EXPLORER</p>
-                            <h2 className="mt-2 text-3xl font-semibold tracking-[-.055em]">{copy.contentsTitle}</h2>
+                            <h2 className="mt-2 text-3xl font-semibold tracking-[-.055em]">{lang === "fa" ? "بلاک‌های منتخب این مجموعه" : "Selected blocks from this collection"}</h2>
                         </div>
                         <Link href={"/"+lang+"/components"} className="hidden text-xs font-semibold underline decoration-zinc-300 underline-offset-8 hover:decoration-zinc-950 sm:block">{lang==="fa" ? "کتابخانه کامپوننت‌ها ←" : "Component library →"}</Link>
                     </div>
