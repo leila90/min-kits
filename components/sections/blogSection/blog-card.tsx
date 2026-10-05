@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type {BlogPost} from "@/content/blog";
 
@@ -16,7 +15,6 @@ export default function BlogCard({readMore, lang, post}: Props) {
             <div className="mx-6 mb-5 min-w-0">
                 <div className="mb-5 flex min-w-0 items-center justify-between text-blog-card-text">
                     <div className="flex min-w-0 items-center gap-x-4">
-                        <Image src="/images/avatar2.jpg" alt="" width={40} height={40} className="size-10 rounded-full bg-blog-avatar-background"/>
                         <div className="min-w-0 text-sm/6">
                             <p className="font-semibold text-blog-card-text">{post.author}</p>
                         </div>
