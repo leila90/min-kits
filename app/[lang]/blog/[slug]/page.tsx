@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type {Metadata} from "next";
 import {notFound} from "next/navigation";
 import {getDictionary, isLang, locales} from "@/app/i18n";
@@ -5,51 +6,22 @@ import {Header, FooterHeader} from "@/components/layout";
 import {Breadcrumb} from "@/components/common";
 import {MagazineEditorialColumns} from "@/components/blog";
 import Container from "@/components/ui/container";
+import {getBlogPost, getBlogPosts} from "@/content/blog";
 
 export async function generateStaticParams() {
-    return Promise.all(
-        locales.map(async (lang) => {
-            const dictionary = await getDictionary(lang);
-
-            return dictionary.blog.posts.map((_, index) => ({
-                lang,
-                slug: String(index + 1),
-            }));
-        }),
-    ).then((params) => params.flat());
-}
-
-function getPostIndex(slug: string, postCount: number) {
-    const index = Number.parseInt(slug, 10) - 1;
-
-    if (!Number.isInteger(index) || index < 0 || index >= postCount) {
-        return null;
-    }
-
-    return index;
+    return locales.flatMap((lang) => getBlogPosts(lang).map((post) => ({lang, slug: post.slug})));
 }
 
 type BlogDetailPageProps = {
-    params: Promise<{ lang: string; slug: string }>;
+    params: Promise<{lang: string; slug: string}>;
 };
 
-export async function generateMetadata({
-                                           params,
-                                       }: BlogDetailPageProps): Promise<Metadata> {
+export async function generateMetadata({params}: BlogDetailPageProps): Promise<Metadata> {
     const {lang, slug} = await params;
+    if (!isLang(lang)) return {};
 
-    if (!isLang(lang)) {
-        return {};
-    }
-
-    const d = await getDictionary(lang);
-    const postIndex = getPostIndex(slug, d.blog.posts.length);
-
-    if (postIndex === null) {
-        return {};
-    }
-
-    const post = d.blog.posts[postIndex];
+    const post = getBlogPost(lang, slug);
+    if (!post) return {};
 
     return {
         title: post.title,
@@ -62,60 +34,46 @@ export async function generateMetadata({
             },
         },
         openGraph: {
+            title: post.title,
+            description: post.description,
             url: `/${lang}/blog/${slug}`,
+            images: [{url: post.image, alt: post.imageAlt}],
         },
     };
 }
 
-export default async function Page({
-                                       params,
-                                   }: {
-    params: Promise<{ lang: string; slug: string }>;
-}) {
+export default async function Page({params}: BlogDetailPageProps) {
     const {lang, slug} = await params;
-
-    if (!isLang(lang)) {
-        notFound();
-    }
+    if (!isLang(lang)) notFound();
 
     const d = await getDictionary(lang);
-    const postIndex = getPostIndex(slug, d.blog.posts.length);
-
-    if (postIndex === null) {
-        notFound();
-    }
-
-    const post = d.blog.posts[postIndex];
+    const post = getBlogPost(lang, slug);
+    if (!post) notFound();
 
     return (
         <main className="min-h-screen bg-white text-zinc-900">
             <div className="border-b border-zinc-900 bg-zinc-900 pb-12 pt-32 md:pb-30 md:pt-30"/>
-
             <Header/>
-            <Breadcrumb
-                lang={lang}
-                dict={d.breadcrumbs}
-                page="blog"
-                currentLabel={post.title}
-            />
+            <Breadcrumb lang={lang} dict={d.breadcrumbs} page="blog" currentLabel={post.title}/>
+
             <section className="pb-8 md:pb-10">
                 <Container>
-                    <div className="max-w-full">
-                        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
-                            {d.blog.title}
-                        </span>
-                        <h1 className="mt-2 text-2xl font-bold tracking-tight text-zinc-900 md:text-3xl">
-                            {post.title}
-                        </h1>
-                        <p className="mt-3 text-base leading-7 text-zinc-500 md:text-lg">
-                            {post.description}
-                        </p>
+                    <div className={`max-w-4xl ${lang === "fa" ? "text-right" : "text-left"}`}>
+                        <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-zinc-400">
+                            <span className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1">{d.blog.categories[post.category]}</span>
+                            <time dateTime={post.publishedAt}>{post.publishedAt}</time>
+                            <span>{post.readTime} min</span>
+                        </div>
+                        <h1 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900 md:text-5xl md:leading-tight">{post.title}</h1>
+                        <p className="mt-5 text-base leading-8 text-zinc-500 md:text-lg">{post.description}</p>
+                        <p className="mt-5 text-sm text-zinc-400">{post.author} · {post.role}</p>
                     </div>
 
-                    <MagazineEditorialColumns
-                        lang={lang}
-                        description={post.description}
-                    />
+                    <div className="relative mt-10 aspect-[16/8] overflow-hidden rounded-[2rem]">
+                        <Image src={post.image} alt={post.imageAlt} fill priority sizes="100vw" className="object-cover"/>
+                    </div>
+
+                    <MagazineEditorialColumns lang={lang} post={post}/>
                 </Container>
             </section>
 
