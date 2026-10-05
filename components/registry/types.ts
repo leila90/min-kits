@@ -1,8 +1,8 @@
-export const componentCategories = ["form", "layout"] as const;
+export const componentCategories = ["form", "layout", "feedback", "navigation"] as const;
 
 export type ComponentCategory = (typeof componentCategories)[number];
 
-export const componentSlugs = ["button", "input", "textarea", "form-field", "divider"] as const;
+export const componentSlugs = ["button", "input", "textarea", "form-field", "divider", "badge", "card", "alert", "checkbox", "radio", "select", "switch", "tabs", "tooltip", "modal"] as const;
 
 export type ComponentSlug = (typeof componentSlugs)[number];
 

@@ -50,3 +50,11 @@ Open http://localhost:3000. Requests without a locale are redirected to the dete
 | `NEXT_PUBLIC_SITE_URL` | Canonical public URL used by metadata, robots and sitemap |
 
 Requires Node.js 20.9 or newer.
+
+## UI architecture
+
+- `components/ui/` contains reusable primitives.
+- `components/registry/` is the single source of truth for the public component catalog, metadata, props, examples and source-file mapping.
+- `components/sections/componentCatalog/` renders catalog browsing, previews, source tabs and detail navigation from the registry.
+- `/[lang]/search` provides locale-aware search across components, component packs and blog posts.
+- Component pages are statically generated from the registry, with canonical and language alternates.

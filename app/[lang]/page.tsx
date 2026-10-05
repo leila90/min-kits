@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import type {Metadata} from "next";
+import {notFound} from "next/navigation";
 import Hero from "@/components/sections/hero/hero";
 import Header from "@/components/layout/header";
 import MySlogan from "@/components/sections/mySlogan/mySlogan";
@@ -14,33 +14,39 @@ import TeamSection from "@/components/sections/teamSection/teamSection";
 import TeamContact from "@/components/sections/teamContact/teamContact";
 import BlogSection from "@/components/sections/blogSection/blogSection";
 import Ctr from "@/components/sections/ctr/ctr";
-import { getDictionary, isLang } from "../i18n";
+import FeaturedComponents from "@/components/sections/featuredComponents/featuredComponents";
+import {getDictionary, isLang} from "../i18n";
 
 export const metadata: Metadata = {
-    title: { absolute: "MinKits | Production-ready UI kits" },
+    title: {absolute: "MinKits | Production-ready UI kits"},
 };
 
-export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
-    const { lang } = await params;
-    if (!isLang(lang)) notFound();
+export default async function Home({params}: {params: Promise<{lang: string}>}) {
+    const {lang} = await params;
+
+    if (!isLang(lang)) {
+        notFound();
+    }
+
     const dict = await getDictionary(lang);
 
     return (
         <>
-            <Hero dict={dict.hero} />
-            <Header />
-            <MySlogan dict={{ slogan: dict.slogan.text, mainSlogan: dict.slogan.value }} />
-            <AboutUs lang={lang} dict={dict.about} />
-            <MyFeatures lang={lang} dict={dict.features} />
-            <ComponentStore lang={lang} dict={dict.componentStore} />
-            <Ctr />
-            <BlogSection lang={lang} dict={dict.blog} />
-            <TeamSection lang={lang} dict={dict.team} />
-            <TeamContact lang={lang} dict={dict.contact} />
-            <LatestBlog lang={lang} dict={{ title: dict.blog.title, subtitle: dict.blog.subtitle, viewAll: dict.blog.viewAll, readMore: dict.blog.readMore }} />
-            <ContactUs lang={lang} dict={dict.contact} />
-            <Logo />
-            <FooterHeader />
+            <Hero lang={lang} dict={dict.hero}/>
+            <Header/>
+            <MySlogan dict={{slogan: dict.slogan.text, mainSlogan: dict.slogan.value}}/>
+            <AboutUs lang={lang} dict={dict.about}/>
+            <FeaturedComponents lang={lang} dict={dict.featuredComponents}/>
+            <MyFeatures lang={lang} dict={dict.features}/>
+            <ComponentStore lang={lang} dict={dict.componentStore}/>
+            <Ctr/>
+            <BlogSection lang={lang} dict={dict.blog}/>
+            <TeamSection lang={lang} dict={dict.team}/>
+            <TeamContact lang={lang} dict={dict.contact}/>
+            <LatestBlog lang={lang} dict={{title: dict.blog.title, subtitle: dict.blog.subtitle, viewAll: dict.blog.viewAll, readMore: dict.blog.readMore}}/>
+            <ContactUs lang={lang} dict={dict.contact}/>
+            <Logo/>
+            <FooterHeader/>
         </>
     );
 }

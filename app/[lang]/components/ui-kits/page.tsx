@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: copy.title,
     description: copy.description,
-    alternates: { canonical: `/${lang}/components/ui-kits` },
+    alternates: { canonical: `/${lang}/components/ui-kits`, languages: { en: "/en/components/ui-kits", fa: "/fa/components/ui-kits" } },
   };
 }
 
@@ -29,7 +29,7 @@ export default async function UiKitsPage({ params }: Props) {
         <section className="border-b border-black/8 bg-[#f7f6f2] py-40 md:py-52">
           <Container>
             <div className={lang === "fa" ? "mx-auto max-w-3xl text-right" : "mx-auto max-w-3xl text-left"}>
-              <Link href={`/${lang}/#component-store`} className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 transition-colors hover:text-zinc-950">
+              <Link href={`/${lang}/#component-store`} className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 transition-colors hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500">
                 <span aria-hidden="true">{lang === "fa" ? "→" : "←"}</span> {copy.back}
               </Link>
               <span className="mt-10 inline-flex rounded-full border border-black/10 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-600">{copy.badge}</span>

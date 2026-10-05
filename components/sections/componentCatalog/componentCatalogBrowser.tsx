@@ -77,7 +77,7 @@ export default function ComponentCatalogBrowser({
                             onClick={() => setCategory("all")}
                             aria-pressed={category === "all"}
                             className={[
-                                "rounded-full border px-4 py-2 text-xs font-semibold transition-colors",
+                                "rounded-full border px-4 py-2 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900",
                                 category === "all"
                                     ? "border-zinc-900 bg-zinc-900 text-white"
                                     : "border-zinc-200 bg-white text-zinc-600 hover:border-zinc-400 hover:text-zinc-950",

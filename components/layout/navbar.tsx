@@ -4,6 +4,7 @@ import {useState} from 'react'
 import {
     Dialog,
     DialogPanel,
+    DialogTitle,
     PopoverGroup,
 } from '@headlessui/react'
 import {
@@ -31,7 +32,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
             className={`fixed top-5 left-1/2 z-50 w-full max-w-[1440px] md:top-10 -translate-x-1/2 rounded-2xl border-1 border-navbar-border bg-navbar-background text-navbar-text shadow-md backdrop-blur duration-300 ${mobileMenuOpen ? "lg:block hidden" : ""}`}>
             <nav aria-label={lang === "fa" ? "ناوبری اصلی" : "Main navigation"} className="mx-auto flex min-w-0 w-full items-center justify-between px-4 sm:px-6 lg:px-8">
                 <div className="flex lg:flex-1">
-                    <Link href={`/${lang}`} className="justify-items-center">
+                    <Link href={`/${lang}`} className="justify-items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500">
                         <Image
                             alt="MinKits"
                             src="/logo-ww.png"
@@ -45,7 +46,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(true)}
-                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500"
                     >
                         <span className="sr-only">{lang === "fa" ? "باز کردن منوی اصلی" : "Open main menu"}</span>
                         <Bars3Icon aria-hidden="true" className="size-6"/>
@@ -53,19 +54,19 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                 </div>
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
 
-                    <Link href={`/${lang}/about`} className="text-sm/6 font-semibold">
+                    <Link href={`/${lang}/about`} className="text-sm/6 font-semibold focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500">
                         {dict.nav.about}
                     </Link>
-                    <Link href={`/${lang}/blog`} className="text-sm/6 font-semibold">
+                    <Link href={`/${lang}/blog`} className="text-sm/6 font-semibold focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500">
                         {dict.nav.blog}
                     </Link>
-                    <Link href={`/${lang}/components/component-packs`} className="text-sm/6 font-semibold">
+                    <Link href={`/${lang}/components/component-packs`} className="text-sm/6 font-semibold focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500">
                         {dict.nav.componentPacks}
                     </Link>
                     <span className="text-sm/6 font-semibold">
                         {dict.nav.companies}
                     </span>
-                    <Link href={`/${lang}#contactUs`} className="text-sm/6 font-semibold">
+                    <Link href={`/${lang}#contactUs`} className="text-sm/6 font-semibold focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500">
                         {dict.nav.contact}
                     </Link>
                     <span className="text-sm/6 font-semibold">
@@ -82,8 +83,11 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                 <div className="fixed inset-0 z-10"/>
                 <DialogPanel
                     className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-navbar-mobile-background px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-navbar-mobile-ring">
+                    <DialogTitle className="sr-only">
+                        {lang === "fa" ? "منوی اصلی" : "Main menu"}
+                    </DialogTitle>
                     <div className="flex items-center justify-between">
-                        <Link href={`/${lang}`} className="justify-items-center" aria-label="MinKits">
+                        <Link href={`/${lang}`} className="justify-items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500" aria-label="MinKits">
                             <Image
                                 alt="MinKits"
                                 src="/logo-bb.png"
@@ -95,7 +99,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}
-                            className="-m-2.5 rounded-md p-2.5 text-navbar-mobile-muted"
+                            className="-m-2.5 rounded-md p-2.5 text-navbar-mobile-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500"
                         >
                             <span className="sr-only">{lang === "fa" ? "بستن منو" : "Close menu"}</span>
                             <XMarkIcon aria-hidden="true" className="size-6"/>
@@ -108,7 +112,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                 <Link
                                     href={`/${lang}/about`}
                                     onClick={closeMobileMenu}
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500"
                                 >
                                     {dict.nav.about}
                                 </Link>
@@ -116,14 +120,14 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                 <Link
                                     href={`/${lang}/blog`}
                                     onClick={closeMobileMenu}
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500"
                                 >
                                     {dict.nav.blog}
                                 </Link>
                                 <Link
                                     href={`/${lang}/components/component-packs`}
                                     onClick={closeMobileMenu}
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500"
                                 >
                                     {dict.nav.componentPacks}
                                 </Link>
@@ -136,7 +140,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
                                 <Link
                                     href={`/${lang}#contactUs`}
                                     onClick={closeMobileMenu}
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-navbar-mobile-text hover:bg-navbar-mobile-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500"
                                 >
                                     {dict.nav.contact}
                                 </Link>
