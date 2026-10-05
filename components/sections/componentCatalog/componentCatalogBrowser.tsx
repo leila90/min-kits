@@ -1,15 +1,10 @@
 "use client";
 
-import {useMemo, useState} from "react";
+import {useState} from "react";
 import Link from "next/link";
 import type {Lang} from "@/app/i18n";
 import type {Messages} from "@/app/i18n/messages";
-import {
-    componentCategories,
-    type ComponentCategory,
-    type ComponentRegistryItem,
-} from "@/components/registry";
-import ComponentCatalogSidebar from "./componentCatalogSidebar";
+import {componentCategories, type ComponentCategory, type ComponentRegistryItem} from "@/components/registry";
 import {ComponentCardPreview} from "./previews";
 
 type ComponentCatalogBrowserProps = {
@@ -18,150 +13,205 @@ type ComponentCatalogBrowserProps = {
     copy: Messages["componentsCatalog"];
 };
 
+const categoryMeta: Record<
+    ComponentCategory,
+    {en: {index: string; description: string}; fa: {index: string; description: string}}
+> = {
+    form: {
+        en: {index: "01", description: "Inputs, fields and controls for clear, reliable product flows."},
+        fa: {index: "۰۱", description: "ورودی‌ها، فیلدها و کنترل‌های دقیق برای جریان‌های واقعی محصول."},
+    },
+    layout: {
+        en: {index: "02", description: "Structural primitives for rhythm, spacing and reusable page composition."},
+        fa: {index: "۰۲", description: "الگوهای ساختاری برای فاصله‌گذاری، ریتم و ترکیب دوباره صفحات."},
+    },
+    feedback: {
+        en: {index: "03", description: "States and messages that make product interactions understandable."},
+        fa: {index: "۰۳", description: "وضعیت‌ها و پیام‌هایی برای تجربه‌ای واضح‌تر و قابل فهم‌تر."},
+    },
+    navigation: {
+        en: {index: "04", description: "Navigation patterns for moving through interfaces with confidence."},
+        fa: {index: "۰۴", description: "الگوهای ناوبری برای حرکت شفاف و مطمئن در رابط کاربری."},
+    },
+};
+
+const categoryMarks: Record<ComponentCategory, string> = {
+    form: "F",
+    layout: "L",
+    feedback: "↗",
+    navigation: "N",
+};
+
 export default function ComponentCatalogBrowser({
     lang,
     registry,
     copy,
 }: ComponentCatalogBrowserProps) {
-    const [query, setQuery] = useState("");
-    const [category, setCategory] = useState<ComponentCategory | "all">("all");
+    const [selectedCategory, setSelectedCategory] = useState<ComponentCategory | null>(null);
 
-    const filtered = useMemo(() => {
-        const normalizedQuery = query.trim().toLocaleLowerCase();
+    const selectedItems = selectedCategory
+        ? registry.filter((component) => component.category === selectedCategory)
+        : [];
 
-        return registry.filter((component) => {
-            if (category !== "all" && component.category !== category) return false;
-            if (!normalizedQuery) return true;
-
-            return [
-                component.slug,
-                component.name.en,
-                component.name.fa,
-                component.description.en,
-                component.description.fa,
-            ].some((value) => value.toLocaleLowerCase().includes(normalizedQuery));
-        });
-    }, [category, query, registry]);
-
-    const grouped = useMemo(
-        () =>
-            componentCategories
-                .map((currentCategory) => ({
-                    category: currentCategory,
-                    items: filtered.filter((component) => component.category === currentCategory),
-                }))
-                .filter((group) => group.items.length > 0),
-        [filtered],
-    );
+    const selectedLabel = selectedCategory ? copy.categories[selectedCategory] : "";
 
     return (
-        <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-start lg:gap-12">
-            <ComponentCatalogSidebar lang={lang} registry={registry} copy={copy} />
-
-            <div className="min-w-0">
-                <div className="mb-10 grid gap-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
-                    <label className="min-w-0">
-                        <span className="sr-only">{copy.searchPlaceholder}</span>
-                        <input
-                            type="search"
-                            value={query}
-                            onChange={(event) => setQuery(event.target.value)}
-                            placeholder={copy.searchPlaceholder}
-                            className="h-12 w-full rounded-xl border border-zinc-200 bg-white px-4 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-zinc-900"
-                        />
-                    </label>
-
-                    <div className="flex min-w-0 flex-wrap gap-2" role="group" aria-label={copy.allCategories}>
-                        <button
-                            type="button"
-                            onClick={() => setCategory("all")}
-                            aria-pressed={category === "all"}
-                            className={[
-                                "rounded-full border px-4 py-2 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900",
-                                category === "all"
-                                    ? "border-zinc-900 bg-zinc-900 text-white"
-                                    : "border-zinc-200 bg-white text-zinc-600 hover:border-zinc-400 hover:text-zinc-950",
-                            ].join(" ")}
+        <div className="space-y-16 md:space-y-24">
+            <section aria-labelledby="component-categories-heading">
+                <div className="mb-8 flex items-end justify-between gap-6 border-b border-zinc-200 pb-5">
+                    <div>
+                        <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-zinc-400">
+                            {lang === "fa" ? "کتابخانه / دسته‌بندی" : "Library / Categories"}
+                        </p>
+                        <h2
+                            id="component-categories-heading"
+                            className="text-2xl font-semibold tracking-[-0.03em] text-zinc-950 md:text-3xl"
                         >
-                            {copy.allCategories}
-                        </button>
-
-                        {componentCategories.map((item) => (
-                            <button
-                                key={item}
-                                type="button"
-                                onClick={() => setCategory(item)}
-                                aria-pressed={category === item}
-                                className={[
-                                    "rounded-full border px-4 py-2 text-xs font-semibold transition-colors",
-                                    category === item
-                                        ? "border-zinc-900 bg-zinc-900 text-white"
-                                        : "border-zinc-200 bg-white text-zinc-600 hover:border-zinc-400 hover:text-zinc-950",
-                                ].join(" ")}
-                            >
-                                {copy.categories[item]}
-                            </button>
-                        ))}
+                            {lang === "fa" ? "از الگو شروع کنید." : "Start with a pattern."}
+                        </h2>
                     </div>
+                    <span className="hidden text-xs font-medium tabular-nums text-zinc-400 sm:block">
+                        {String(componentCategories.length).padStart(2, "0")} {lang === "fa" ? "دسته" : "categories"}
+                    </span>
                 </div>
 
-                {filtered.length === 0 ? (
-                    <div className="rounded-2xl border border-dashed border-zinc-300 px-6 py-16 text-center text-sm text-zinc-500">
-                        {copy.noResults}
-                    </div>
-                ) : (
-                    <div className="space-y-16">
-                        {grouped.map(({category: currentCategory, items}) => (
-                            <section key={currentCategory} aria-labelledby={`components-${currentCategory}`}>
-                                <div className="mb-6 flex items-end justify-between gap-6 border-b border-zinc-200 pb-4">
-                                    <h2
-                                        id={`components-${currentCategory}`}
-                                        className="text-xl font-bold tracking-tight text-zinc-900"
-                                    >
-                                        {copy.categories[currentCategory]}
-                                    </h2>
-                                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
-                                        {String(items.length).padStart(2, "0")}
-                                    </span>
-                                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                    {componentCategories.map((category) => {
+                        const count = registry.filter((item) => item.category === category).length;
+                        const active = selectedCategory === category;
+                        const meta = categoryMeta[category][lang];
 
-                                <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                                    {items.map((component) => (
-                                        <article
-                                            key={component.slug}
-                                            className="group rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-200 hover:-translate-y-1 hover:border-zinc-400 hover:shadow-[0_18px_45px_rgb(0_0_0_/0.07)]"
+                        return (
+                            <button
+                                key={category}
+                                type="button"
+                                onClick={() => setSelectedCategory(active ? null : category)}
+                                aria-expanded={active}
+                                className={[
+                                    "group relative min-h-56 overflow-hidden border p-6 text-start transition-all duration-300 md:p-8",
+                                    active
+                                        ? "border-zinc-950 bg-zinc-950 text-white shadow-[0_24px_70px_rgb(0_0_0_/0.16)]"
+                                        : "border-zinc-200 bg-white text-zinc-950 hover:-translate-y-1 hover:border-zinc-400 hover:shadow-[0_24px_70px_rgb(0_0_0_/0.08)]",
+                                ].join(" ")}
+                            >
+                                <span
+                                    aria-hidden="true"
+                                    className={[
+                                        "absolute -end-8 -top-10 select-none text-[180px] font-black leading-none tracking-[-0.12em] transition-transform duration-500 group-hover:scale-105",
+                                        active ? "text-white/[0.045]" : "text-zinc-950/[0.035]",
+                                    ].join(" ")}
+                                >
+                                    {categoryMarks[category]}
+                                </span>
+
+                                <div className="relative flex h-full min-h-40 flex-col justify-between">
+                                    <div className="flex items-start justify-between gap-6">
+                                        <span
+                                            className={[
+                                                "text-[10px] font-bold tracking-[0.22em]",
+                                                active ? "text-zinc-500" : "text-zinc-400",
+                                            ].join(" ")}
                                         >
-                                            <div className="mb-10 flex items-center justify-between gap-4">
-                                                <span className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-semibold text-zinc-600">
-                                                    {copy.categories[component.category]}
-                                                </span>
-                                                <span className="text-xs font-medium text-zinc-400">{component.slug}</span>
-                                            </div>
+                                            {meta.index}
+                                        </span>
+                                        <span
+                                            className={[
+                                                "border px-2.5 py-1 text-[10px] font-semibold tabular-nums",
+                                                active ? "border-white/15 text-zinc-300" : "border-zinc-200 text-zinc-500",
+                                            ].join(" ")}
+                                        >
+                                            {String(count).padStart(2, "0")}
+                                        </span>
+                                    </div>
 
-                                            <div className="mb-6 flex min-h-28 items-center justify-center rounded-xl bg-zinc-50 p-6">
-                                                <div className="w-full max-w-48">
-                                                    <ComponentCardPreview slug={component.slug} copy={copy.demo} dir={lang === "fa" ? "rtl" : "ltr"} />
-                                                </div>
-                                            </div>
+                                    <div>
+                                        <h3 className="text-2xl font-semibold tracking-[-0.04em]">{copy.categories[category]}</h3>
+                                        <p
+                                            className={[
+                                                "mt-3 max-w-md text-sm leading-6",
+                                                active ? "text-zinc-400" : "text-zinc-500",
+                                            ].join(" ")}
+                                        >
+                                            {meta.description}
+                                        </p>
+                                    </div>
 
-                                            <h3 className="text-lg font-bold tracking-tight text-zinc-900">{component.name[lang]}</h3>
-                                            <p className="mt-2 text-sm leading-6 text-zinc-600">{component.description[lang]}</p>
-
-                                            <Link
-                                                href={`/${lang}/components/${component.slug}`}
-                                                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-900 transition-transform duration-200 hover:translate-x-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-900 rtl:hover:-translate-x-1"
-                                            >
-                                                {copy.viewComponent}
-                                                <span aria-hidden="true">{lang === "fa" ? "←" : "→"}</span>
-                                            </Link>
-                                        </article>
-                                    ))}
+                                    <div className="mt-7 flex items-center justify-between border-t border-current/10 pt-4 text-xs font-semibold">
+                                        <span>{active ? (lang === "fa" ? "بستن دسته" : "Close category") : (lang === "fa" ? "مشاهده کامپوننت‌ها" : "Explore components")}</span>
+                                        <span aria-hidden="true" className="text-base">
+                                            {lang === "fa" ? "←" : "→"}
+                                        </span>
+                                    </div>
                                 </div>
-                            </section>
+                            </button>
+                        );
+                    })}
+                </div>
+            </section>
+
+            {selectedCategory && (
+                <section
+                    aria-labelledby="selected-component-category"
+                    className="scroll-mt-32 border-t border-zinc-200 pt-10 md:pt-14"
+                >
+                    <div className="mb-8 flex flex-wrap items-end justify-between gap-5">
+                        <div>
+                            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.24em] text-zinc-400">
+                                {lang === "fa" ? "دسته انتخاب‌شده" : "Selected category"}
+                            </p>
+                            <h2
+                                id="selected-component-category"
+                                className="text-3xl font-semibold tracking-[-0.04em] text-zinc-950"
+                            >
+                                {selectedLabel}
+                            </h2>
+                        </div>
+                        <span className="text-xs font-semibold tabular-nums text-zinc-400">
+                            {String(selectedItems.length).padStart(2, "0")} {lang === "fa" ? "کامپوننت" : "components"}
+                        </span>
+                    </div>
+
+                    <div className="divide-y divide-zinc-200 border-y border-zinc-200">
+                        {selectedItems.map((component, index) => (
+                            <article
+                                key={component.slug}
+                                className="grid gap-7 py-7 md:grid-cols-[56px_minmax(220px,0.8fr)_minmax(260px,1fr)_auto] md:items-center md:gap-8"
+                            >
+                                <span className="text-xs font-semibold tabular-nums text-zinc-300">
+                                    {String(index + 1).padStart(2, "0")}
+                                </span>
+
+                                <div>
+                                    <h3 className="text-lg font-semibold tracking-[-0.02em] text-zinc-950">
+                                        {component.name[lang]}
+                                    </h3>
+                                    <p className="mt-2 text-sm leading-6 text-zinc-500">
+                                        {component.description[lang]}
+                                    </p>
+                                </div>
+
+                                <div className="flex min-h-24 items-center justify-center border border-zinc-100 bg-zinc-50 p-5">
+                                    <div className="w-full max-w-52">
+                                        <ComponentCardPreview
+                                            slug={component.slug}
+                                            copy={copy.demo}
+                                            dir={lang === "fa" ? "rtl" : "ltr"}
+                                        />
+                                    </div>
+                                </div>
+
+                                <Link
+                                    href={`/${lang}/components/${component.slug}`}
+                                    className="inline-flex items-center justify-between gap-4 border-b border-zinc-900 pb-1 text-sm font-semibold text-zinc-950 transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-900"
+                                >
+                                    {copy.viewComponent}
+                                    <span aria-hidden="true">{lang === "fa" ? "←" : "→"}</span>
+                                </Link>
+                            </article>
                         ))}
                     </div>
-                )}
-            </div>
+                </section>
+            )}
         </div>
     );
 }
