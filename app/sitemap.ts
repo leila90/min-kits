@@ -1,12 +1,14 @@
 import type { MetadataRoute } from "next";
 import { componentRegistry } from "@/components/registry";
 import { locales } from "./i18n";
-import { messages } from "./i18n/messages";
+import { getBlogPosts } from "@/content/blog";
+import { getComponentPacks } from "@/content/componentPacks";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://minkits.com";
 
-const blogPaths = messages.en.blog.posts.map((_, index) => `/blog/${index + 1}`);
+const blogPaths = getBlogPosts("en").map((post) => `/blog/${post.slug}`);
 const componentPaths = componentRegistry.map((component) => `/components/${component.slug}`);
+const componentPackPaths = getComponentPacks("en").map((pack) => `/components/component-packs/${pack.slug}`);
 
 const paths = [
     "",
@@ -16,6 +18,7 @@ const paths = [
     "/components",
     ...componentPaths,
     "/components/component-packs",
+    ...componentPackPaths,
     "/components/page-kits",
     "/components/ui-kits",
 ];
