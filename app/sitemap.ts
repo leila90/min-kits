@@ -18,7 +18,6 @@ const paths = [
     "/components/component-packs",
     "/components/page-kits",
     "/components/ui-kits",
-    "/search",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
