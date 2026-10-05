@@ -92,25 +92,25 @@ export default function ComponentPacksExplorer({
             </div>
 
             {filteredBlocks.length > 0 ? (
-                <div className="grid gap-5 py-6 md:grid-cols-2">
+                <div className="mx-auto grid max-w-6xl gap-4 py-6 md:grid-cols-3">
                     {filteredBlocks.map((block, index) => (
-                        <article key={block.number} className="group overflow-hidden border border-zinc-200 bg-white transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-400 hover:shadow-[0_24px_60px_rgb(0_0_0_/0.07)]">
-                            <div className="relative aspect-[16/10] overflow-hidden border-b border-zinc-200">
+                        <article key={block.number} className="group overflow-hidden border border-zinc-200/80 bg-white/70 shadow-[0_14px_40px_rgba(24,24,27,0.045)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-zinc-300 hover:bg-white/85 hover:shadow-[0_24px_60px_rgba(24,24,27,0.09)]">
+                            <div className="relative aspect-[16/10] overflow-hidden border-b border-zinc-200/80">
                                 <BlockVisual index={index} />
                                 <div className="absolute inset-x-4 top-4 flex items-center justify-between text-[9px] font-bold uppercase tracking-[0.16em]">
-                                    <span className="bg-white/90 px-2.5 py-1.5 text-zinc-500 backdrop-blur">{block.tag}</span>
+                                    <span className="border border-white/70 bg-white/60 px-2.5 py-1.5 text-zinc-500 shadow-sm backdrop-blur-xl">{block.tag}</span>
                                     <span className="border border-white/60 bg-zinc-950/90 px-2.5 py-1.5 text-white">{block.number}</span>
                                 </div>
                             </div>
-                            <div className="p-6 md:p-7">
+                            <div className="p-5 md:p-6">
                                 <div className="flex items-start justify-between gap-5">
                                     <div>
-                                        <h3 className="text-xl font-semibold tracking-[-0.035em]">{block.title}</h3>
-                                        <p className="mt-3 max-w-xl text-sm leading-6 text-zinc-500">{block.description}</p>
+                                        <h3 className="text-lg font-semibold tracking-[-0.035em]">{block.title}</h3>
+                                        <p className="mt-2 max-w-xl text-[13px] leading-5.5 text-zinc-500">{block.description}</p>
                                     </div>
                                     <span className="hidden text-zinc-300 transition-colors group-hover:text-zinc-950 sm:block">↗</span>
                                 </div>
-                                <div className="mt-6 flex items-center justify-between border-t border-zinc-100 pt-4 text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400">
+                                <div className="mt-5 flex items-center justify-between border-t border-zinc-100 pt-4 text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400">
                                     <span>{featuredLabel}</span>
                                     <span>React / Tailwind</span>
                                 </div>
