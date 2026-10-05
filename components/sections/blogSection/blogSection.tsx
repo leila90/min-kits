@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function BlogSection({lang, dict}: Props) {
-    const posts = getBlogPosts(lang);
+    const posts = getBlogPosts(lang).slice(0, 5);
 
     return (
         <section id="blogSection" className="scroll-mt-36 py-16 md:scroll-mt-44 md:py-20">
