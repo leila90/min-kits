@@ -26,15 +26,70 @@ type Props = {
 
 function BlockVisual({index}: {index: number}) {
     const variants = [
-        <div className="grid h-full grid-cols-[1.1fr_0.9fr] gap-3 p-6"><div className="flex flex-col justify-center gap-3"><span className="h-2 w-20 bg-zinc-900/80" /><span className="h-2 w-32 bg-zinc-400/60" /><span className="mt-2 h-7 w-20 bg-zinc-900" /></div><div className="border border-zinc-300 bg-white shadow-sm" /></div>,
-        <div className="flex h-full flex-col justify-center gap-5 p-8"><span className="mx-auto h-2 w-24 bg-zinc-900/80" /><span className="mx-auto h-2 w-40 bg-zinc-400/60" /><div className="grid grid-cols-3 gap-3 pt-2"><i className="h-14 border border-zinc-300 bg-white" /><i className="h-14 border border-zinc-300 bg-white" /><i className="h-14 border border-zinc-300 bg-white" /></div></div>,
-        <div className="grid h-full grid-cols-3 items-end gap-3 p-6"><i className="h-20 border border-zinc-300 bg-white" /><i className="h-28 border-2 border-zinc-900 bg-white shadow-sm" /><i className="h-24 border border-zinc-300 bg-white" /></div>,
-        <div className="flex h-full items-center justify-center p-6"><div className="w-full border border-zinc-300 bg-white p-4 shadow-sm"><div className="flex gap-2 border-b border-zinc-200 pb-3"><i className="h-2 w-16 bg-zinc-900/70" /><i className="h-2 w-10 bg-zinc-300" /></div><div className="grid grid-cols-3 gap-2 pt-4"><i className="h-16 bg-zinc-100" /><i className="h-16 bg-zinc-100" /><i className="h-16 bg-zinc-100" /></div></div></div>,
-        <div className="flex h-full gap-4 p-6"><div className="w-16 border border-zinc-300 bg-zinc-900/90" /><div className="flex flex-1 flex-col gap-3 pt-2"><i className="h-2 w-28 bg-zinc-900/70" /><i className="h-2 w-20 bg-zinc-300" /><i className="mt-4 h-20 border border-zinc-300 bg-white" /></div></div>,
-        <div className="h-full p-6"><div className="border border-zinc-300 bg-white"><div className="grid grid-cols-4 border-b border-zinc-200 p-3"><i className="h-2 bg-zinc-300" /><i className="h-2 bg-zinc-300" /><i className="h-2 bg-zinc-300" /><i className="h-2 bg-zinc-900/70" /></div>{[1, 2, 3].map((row) => <div key={row} className="grid grid-cols-4 gap-3 border-b border-zinc-100 p-3"><i className="h-2 bg-zinc-200" /><i className="h-2 bg-zinc-200" /><i className="h-2 bg-zinc-200" /><i className="h-2 bg-zinc-300" /></div>)}</div></div>
+        <div className="h-full bg-[#f0eee9] p-4">
+            <div className="flex h-full overflow-hidden border border-zinc-200 bg-white shadow-sm">
+                <div className="flex w-[44%] flex-col justify-center p-4">
+                    <span className="h-1.5 w-16 bg-zinc-900" />
+                    <span className="mt-2 h-1 w-24 bg-zinc-300" />
+                    <span className="mt-4 h-5 w-14 bg-zinc-900" />
+                </div>
+                <div className="m-3 flex-1 border border-zinc-200 bg-zinc-100" />
+            </div>
+        </div>,
+        <div className="h-full bg-[#f0eee9] p-4">
+            <div className="flex h-full flex-col items-center justify-center border border-zinc-200 bg-white px-5 shadow-sm">
+                <span className="h-1.5 w-20 bg-zinc-900" />
+                <span className="mt-2 h-1 w-28 bg-zinc-300" />
+                <div className="mt-5 grid w-full grid-cols-3 gap-2">
+                    {[1,2,3].map((item) => <span key={item} className="h-12 border border-zinc-200 bg-zinc-50" />)}
+                </div>
+            </div>
+        </div>,
+        <div className="h-full bg-zinc-950 p-4">
+            <div className="flex h-full flex-col justify-center">
+                <span className="h-1.5 w-20 bg-white/90" />
+                <span className="mt-2 h-1 w-28 bg-white/25" />
+                <div className="mt-5 flex gap-2">
+                    <span className="h-7 w-16 bg-white" />
+                    <span className="h-7 w-16 border border-white/20" />
+                </div>
+            </div>
+        </div>,
+        <div className="h-full bg-[#f0eee9] p-4">
+            <div className="h-full border border-zinc-200 bg-white p-3 shadow-sm">
+                <div className="flex items-center justify-between border-b border-zinc-200 pb-3">
+                    <span className="h-1.5 w-14 bg-zinc-900" />
+                    <span className="h-1.5 w-8 bg-zinc-300" />
+                </div>
+                <div className="grid grid-cols-3 gap-2 pt-4">
+                    {[1,2,3].map((item) => <span key={item} className="h-14 border border-zinc-200 bg-zinc-50" />)}
+                </div>
+            </div>
+        </div>,
+        <div className="h-full bg-[#f0eee9] p-4">
+            <div className="flex h-full gap-3 border border-zinc-200 bg-white p-3 shadow-sm">
+                <div className="w-12 border border-zinc-200 bg-zinc-900" />
+                <div className="flex flex-1 flex-col justify-center">
+                    <span className="h-1.5 w-20 bg-zinc-900" />
+                    <span className="mt-2 h-1 w-16 bg-zinc-300" />
+                    <span className="mt-4 h-12 border border-zinc-200 bg-zinc-50" />
+                </div>
+            </div>
+        </div>,
+        <div className="h-full bg-[#f0eee9] p-4">
+            <div className="h-full border border-zinc-200 bg-white shadow-sm">
+                <div className="grid grid-cols-4 gap-2 border-b border-zinc-200 p-3">
+                    {[1,2,3,4].map((item) => <span key={item} className="h-1.5 bg-zinc-300" />)}
+                </div>
+                {[1,2,3].map((row) => (
+                    <div key={row} className="grid grid-cols-4 gap-2 border-b border-zinc-100 p-3">
+                        {[1,2,3,4].map((item) => <span key={item} className="h-1.5 bg-zinc-200" />)}
+                    </div>
+                ))}
+            </div>
+        </div>
     ];
-
-    return <div className="h-full overflow-hidden bg-[#eeece7]">{variants[index % variants.length]}</div>;
+    return <div className="h-full overflow-hidden">{variants[index % variants.length]}</div>;
 }
 
 export default function ComponentPacksExplorer({
@@ -105,19 +160,19 @@ export default function ComponentPacksExplorer({
                                     <span className="border border-white/60 bg-zinc-950/90 px-2.5 py-1.5 text-white">{block.number}</span>
                                 </div>
                             </div>
-                            <div className="p-5 md:p-6">
-                                <div className="flex items-start justify-between gap-5">
+                            <Link href={"/" + lang + "/components/component-packs/" + featured.slug} className="block p-5 md:p-5">
+                                <div className="flex items-start justify-between gap-4">
                                     <div>
-                                        <h3 className="text-lg font-semibold tracking-[-0.035em]">{block.title}</h3>
-                                        <p className="mt-2 max-w-xl text-[13px] leading-5.5 text-zinc-500">{block.description}</p>
+                                        <h3 className="text-base font-semibold tracking-[-0.03em] transition-colors group-hover:text-zinc-600">{block.title}</h3>
+                                        <p className="mt-2 line-clamp-2 text-[12px] leading-5 text-zinc-500">{block.description}</p>
                                     </div>
-                                    <span className="hidden text-zinc-300 transition-colors group-hover:text-zinc-950 sm:block">↗</span>
+                                    <span className="text-zinc-300 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-zinc-950" aria-hidden="true">↗</span>
                                 </div>
-                                <div className="mt-5 flex items-center justify-between border-t border-zinc-100 pt-4 text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400">
-                                    <span>{featuredLabel}</span>
-                                    <span>React / Tailwind</span>
+                                <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-3 text-[9px] font-bold uppercase tracking-[0.14em] text-zinc-400">
+                                    <span>{block.tag}</span>
+                                    <span>View source →</span>
                                 </div>
-                            </div>
+                            </Link>
                         </article>
                     ))}
                 </div>
