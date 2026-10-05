@@ -4,110 +4,74 @@ import Link from "next/link";
 import {useState} from "react";
 import type {Lang} from "@/app/i18n";
 import type {Messages} from "@/app/i18n/messages";
-import {componentCategories, type ComponentCategory, type ComponentRegistryItem} from "@/components/registry";
+import {componentCategories,type ComponentCategory,type ComponentRegistryItem} from "@/components/registry";
 import {ComponentCardPreview} from "./previews";
 
-type Props = {
-    lang: Lang;
-    registry: readonly ComponentRegistryItem[];
-    copy: Messages["componentsCatalog"];
+type Props={lang:Lang;registry:readonly ComponentRegistryItem[];copy:Messages["componentsCatalog"]};
+
+const labels:Record<ComponentCategory,{en:string;fa:string;code:string}>={
+    form:{en:"Fields & controls",fa:"فیلد و کنترل",code:"FORM"},
+    layout:{en:"Layout & surfaces",fa:"چیدمان و سطح",code:"LAYOUT"},
+    feedback:{en:"Feedback & states",fa:"بازخورد و وضعیت",code:"STATE"},
+    navigation:{en:"Navigation",fa:"ناوبری",code:"NAV"}
 };
 
-const meta: Record<ComponentCategory, {en: string; fa: string; mark: string}> = {
-    form: {mark: "01", en: "Inputs, fields and controls.", fa: "ورودی‌ها، فیلدها و کنترل‌ها."},
-    layout: {mark: "02", en: "Structure, surfaces and composition.", fa: "ساختار، سطوح و ترکیب‌بندی."},
-    feedback: {mark: "03", en: "States, alerts and interaction feedback.", fa: "وضعیت‌ها، هشدارها و بازخورد تعامل."},
-    navigation: {mark: "04", en: "Ways to move through a product.", fa: "الگوهای حرکت در محصول."},
-};
-
-export default function ComponentCatalogBrowser({lang, registry, copy}: Props) {
-    const [selected, setSelected] = useState<ComponentCategory | null>(null);
-    const selectedItems = selected ? registry.filter((item) => item.category === selected) : [];
+export default function ComponentCatalogBrowser({lang,registry,copy}:Props){
+    const [selected,setSelected]=useState<ComponentCategory>(componentCategories[0]);
+    const items=registry.filter((item)=>item.category===selected);
+    const selectedIndex=componentCategories.indexOf(selected);
 
     return (
-        <div className={lang === "fa" ? "text-right" : "text-left"}>
-            <div className="border-y border-zinc-200 bg-white">
-                <div className="grid lg:grid-cols-[260px_minmax(0,1fr)]">
-                    <aside className="border-b border-zinc-200 bg-zinc-950 p-5 text-white lg:border-b-0 lg:border-e lg:p-7">
-                        <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-zinc-600">INDEX / 01</p>
-                        <h2 className="mt-8 text-2xl font-semibold tracking-[-0.05em]">{lang === "fa" ? "کتابخانه" : "Library"}</h2>
-                        <p className="mt-3 text-xs leading-6 text-zinc-500">
-                            {lang === "fa" ? "یک دسته را انتخاب کنید و مستقیماً وارد نمونه‌های آن شوید." : "Choose a family and jump directly into its specimens."}
-                        </p>
-                        <div className="mt-10 border-t border-white/10 pt-5">
-                            <p className="font-mono text-3xl tracking-[-0.06em]">{String(registry.length).padStart(2, "0")}</p>
-                            <p className="mt-1 text-[9px] uppercase tracking-[0.18em] text-zinc-600">{lang === "fa" ? "کامپوننت" : "components"}</p>
-                        </div>
-                    </aside>
-
-                    <div className="divide-y divide-zinc-200">
-                        {componentCategories.map((category) => {
-                            const count = registry.filter((item) => item.category === category).length;
-                            const active = selected === category;
-                            const info = meta[category];
-                            return (
-                                <button
-                                    key={category}
-                                    type="button"
-                                    onClick={() => setSelected(active ? null : category)}
-                                    aria-expanded={active}
-                                    className="group grid w-full grid-cols-[56px_minmax(0,1fr)_110px_44px] items-center gap-4 p-5 text-start transition-colors hover:bg-[#f8f7f4] md:grid-cols-[72px_minmax(0,1fr)_150px_52px] md:p-7"
-                                >
-                                    <span className="font-mono text-[10px] text-zinc-300">{info.mark}</span>
-                                    <span>
-                                        <span className="block text-xl font-semibold tracking-[-0.045em] text-zinc-950 md:text-2xl">{copy.categories[category]}</span>
-                                        <span className="mt-1 block text-xs text-zinc-500">{info[lang]}</span>
-                                    </span>
-                                    <span className="text-end font-mono text-[10px] uppercase tracking-[0.14em] text-zinc-400">{String(count).padStart(2, "0")} / {lang === "fa" ? "نمونه" : "specimens"}</span>
-                                    <span className={"flex h-9 w-9 items-center justify-center border transition-all " + (active ? "border-zinc-950 bg-zinc-950 text-white" : "border-zinc-200 text-zinc-400 group-hover:border-zinc-950 group-hover:text-zinc-950")}>{active ? "−" : "↗"}</span>
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
+        <div className={lang==="fa"?"text-right":"text-left"}>
+            <div className="flex gap-2 overflow-x-auto border-b border-zinc-200 py-3 [scrollbar-width:none]">
+                {componentCategories.map((category,index)=>{
+                    const active=selected===category;
+                    return <button key={category} type="button" onClick={()=>setSelected(category)} aria-pressed={active} className={"shrink-0 border px-4 py-2.5 text-[10px] font-semibold transition-all "+(active?"border-zinc-950 bg-zinc-950 text-white":"border-transparent text-zinc-500 hover:border-zinc-200 hover:bg-white hover:text-zinc-950")}>
+                        <span className="me-2 font-mono text-[9px] opacity-50">0{index+1}</span>{copy.categories[category]}
+                    </button>;
+                })}
             </div>
 
-            {selected && (
-                <section className="mt-8 overflow-hidden border border-zinc-200 bg-white" aria-label={copy.categories[selected]}>
-                    <header className="grid gap-5 border-b border-zinc-200 p-5 md:grid-cols-[1fr_auto] md:items-end md:p-7">
+            <div className="grid min-h-[520px] lg:grid-cols-[minmax(0,1fr)_230px]">
+                <div className="min-w-0 border-b border-zinc-200 lg:border-b-0 lg:border-e">
+                    <div className="flex items-center justify-between border-b border-zinc-200 px-5 py-4 md:px-8">
                         <div>
-                            <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-zinc-400">COLLECTION / {meta[selected].mark}</p>
-                            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.055em]">{copy.categories[selected]}</h2>
+                            <p className="font-mono text-[9px] uppercase tracking-[.2em] text-zinc-400">{labels[selected].code} / 0{selectedIndex+1}</p>
+                            <h2 className="mt-1 text-xl font-semibold tracking-[-.04em]">{copy.categories[selected]}</h2>
                         </div>
-                        <p className="font-mono text-xs text-zinc-400">{selectedItems.length} {lang === "fa" ? "کامپوننت" : "components"}</p>
-                    </header>
+                        <span className="font-mono text-[10px] text-zinc-400">{String(items.length).padStart(2,"0")} / {lang==="fa"?"نمونه":"items"}</span>
+                    </div>
 
                     <div className="divide-y divide-zinc-200">
-                        {selectedItems.map((component, index) => (
-                            <article key={component.slug} className="grid gap-6 p-5 md:grid-cols-[44px_minmax(180px,.7fr)_minmax(280px,1.3fr)_auto] md:items-center md:p-7">
-                                <span className="font-mono text-xs text-zinc-300">{String(index + 1).padStart(2, "0")}</span>
+                        {items.map((item,index)=>(
+                            <article key={item.slug} className="group grid gap-5 p-5 md:grid-cols-[38px_minmax(170px,.55fr)_minmax(260px,1fr)_auto] md:items-center md:px-8 md:py-7">
+                                <span className="font-mono text-[10px] text-zinc-300">{String(index+1).padStart(2,"0")}</span>
                                 <div>
-                                    <h3 className="font-semibold tracking-[-0.025em]">{component.name[lang]}</h3>
-                                    <p className="mt-2 text-xs leading-6 text-zinc-500">{component.description[lang]}</p>
+                                    <h3 className="font-semibold tracking-[-.025em]">{item.name[lang]}</h3>
+                                    <p className="mt-2 text-xs leading-5 text-zinc-500">{item.description[lang]}</p>
                                 </div>
-                                <div className="min-h-28 overflow-hidden border border-zinc-100 bg-[#f3f1ec] p-4">
-                                    <ComponentCardPreview slug={component.slug} copy={copy.demo} dir={lang === "fa" ? "rtl" : "ltr"}/>
+                                <div className="min-h-28 overflow-hidden border border-zinc-200 bg-[#ece9e2] p-4 transition-transform duration-300 group-hover:translate-x-1">
+                                    <ComponentCardPreview slug={item.slug} copy={copy.demo} dir={lang==="fa"?"rtl":"ltr"}/>
                                 </div>
-                                <Link href={"/" + lang + "/components/" + component.slug} className="whitespace-nowrap text-sm font-semibold underline decoration-zinc-300 underline-offset-8 transition-colors hover:decoration-zinc-950">
-                                    {copy.viewComponent} <span aria-hidden="true">{lang === "fa" ? "←" : "→"}</span>
-                                </Link>
+                                <Link href={"/"+lang+"/components/"+item.slug} className="whitespace-nowrap text-xs font-semibold underline decoration-zinc-300 underline-offset-8 hover:decoration-zinc-950">{copy.viewComponent} <span aria-hidden="true">{lang==="fa"?"←":"→"}</span></Link>
                             </article>
                         ))}
                     </div>
-                </section>
-            )}
-
-            {!selected && (
-                <div className="mt-8 grid gap-px border border-zinc-200 bg-zinc-200 sm:grid-cols-3">
-                    {["React", "TypeScript", "Tailwind v4"].map((item, index) => (
-                        <div key={item} className="bg-white p-5 md:p-6">
-                            <p className="font-mono text-[9px] text-zinc-300">0{index + 1}</p>
-                            <p className="mt-5 font-semibold tracking-[-0.02em]">{item}</p>
-                            <p className="mt-1 text-xs text-zinc-500">{lang === "fa" ? "ساختار آماده استفاده در پروژه‌های واقعی" : "Built around practical product work."}</p>
-                        </div>
-                    ))}
                 </div>
-            )}
+
+                <aside className={"bg-zinc-950 p-5 text-white md:p-7 "+(lang==="fa"?"text-right":"text-left")}>
+                    <p className="font-mono text-[9px] uppercase tracking-[.22em] text-zinc-600">SPECIMEN NOTE</p>
+                    <div className="mt-12">
+                        <span className="font-mono text-6xl tracking-[-.08em] text-zinc-700">{String(selectedIndex+1).padStart(2,"0")}</span>
+                        <h3 className="mt-5 text-2xl font-semibold tracking-[-.05em]">{labels[selected][lang]}</h3>
+                        <p className="mt-4 text-xs leading-6 text-zinc-500">{lang==="fa"?"نمونه‌ها برای استفاده مستقیم در پروژه ساخته شده‌اند؛ برای جزئیات و سورس، هر مورد را باز کنید.":"Every specimen is built for direct product use. Open an item for its full details and source."}</p>
+                    </div>
+                    <div className="mt-12 border-t border-white/10 pt-5">
+                        <p className="font-mono text-3xl tracking-[-.06em]">{String(registry.length).padStart(2,"0")}</p>
+                        <p className="mt-1 text-[9px] uppercase tracking-[.18em] text-zinc-600">{lang==="fa"?"در کتابخانه":"in library"}</p>
+                    </div>
+                </aside>
+            </div>
         </div>
     );
 }
