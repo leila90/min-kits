@@ -103,7 +103,7 @@ export default function LatestBlog({lang, dict}: LatestBlogProps) {
                                     <SwiperSlide key={i} className="min-w-0">
                                         <LatestBlogCard
                                             title={blog.title}
-                                            desc={blog.desc}
+                                            desc={blog.description}
                                             image={blog.image}
                                             readMore={dict.readMore}
                                             href={`/${lang}/blog/${blog.slug}`}
