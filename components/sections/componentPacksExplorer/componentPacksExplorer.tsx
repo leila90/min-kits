@@ -92,7 +92,7 @@ export default function ComponentPacksExplorer({
             </div>
 
             {filteredBlocks.length > 0 ? (
-                <div className="mx-auto grid max-w-6xl gap-4 py-6 md:grid-cols-3">
+                <div className="grid gap-4 py-6 sm:grid-cols-2 lg:grid-cols-4">
                     {filteredBlocks.map((block, index) => (
                         <article key={block.number} className="group overflow-hidden border border-zinc-200/80 bg-white/70 shadow-[0_14px_40px_rgba(24,24,27,0.045)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-zinc-300 hover:bg-white/85 hover:shadow-[0_24px_60px_rgba(24,24,27,0.09)]">
                             <div className="relative aspect-[16/10] overflow-hidden border-b border-zinc-200/80">
