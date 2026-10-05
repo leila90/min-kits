@@ -1,5 +1,3 @@
-import {LockKeyhole, Sparkles} from "lucide-react";
-
 type Props = {
     lang: "fa" | "en";
     dict: {
@@ -39,11 +37,11 @@ export default function ComponentPackSourceVault({lang, dict}: Props) {
                 <div className={lang === "fa" ? "text-right" : "text-left"}>
                     <div className="flex flex-wrap items-center gap-3">
                         <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-300">
-                            <LockKeyhole className="size-3.5" aria-hidden="true"/>
+                            <span aria-hidden="true" className="text-[10px]">⌘</span>
                             {dict.sourceEyebrow}
                         </span>
                         <span className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-600">
-                            <Sparkles className="size-3.5" aria-hidden="true"/>
+                            <span aria-hidden="true" className="text-[10px]">✦</span>
                             {dict.lockedLabel}
                         </span>
                     </div>
@@ -77,7 +75,7 @@ export default function ComponentPackSourceVault({lang, dict}: Props) {
                                 <div className="absolute inset-0 flex items-center justify-center bg-zinc-950/55 p-6 backdrop-blur-[2px]">
                                     <div className="max-w-sm rounded-3xl border border-white/10 bg-zinc-900/90 p-6 text-center shadow-2xl">
                                         <div className="mx-auto flex size-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
-                                            <LockKeyhole className="size-5 text-zinc-300" aria-hidden="true"/>
+                                            <span aria-hidden="true" className="text-lg">⌑</span>
                                         </div>
                                         <p className="mt-4 text-base font-semibold">{dict.lockedLabel}</p>
                                         <p className="mt-2 text-sm leading-6 text-zinc-500">{dict.lockedDescription}</p>
