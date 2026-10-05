@@ -13,10 +13,7 @@ type ComponentCatalogBrowserProps = {
     copy: Messages["componentsCatalog"];
 };
 
-const categoryMeta: Record<
-    ComponentCategory,
-    {en: {index: string; description: string}; fa: {index: string; description: string}}
-> = {
+const categoryMeta: Record<ComponentCategory, {en: {index: string; description: string}; fa: {index: string; description: string}}> = {
     form: {
         en: {index: "01", description: "Inputs, fields and controls for clear, reliable product flows."},
         fa: {index: "۰۱", description: "ورودی‌ها، فیلدها و کنترل‌های دقیق برای جریان‌های واقعی محصول."},
@@ -42,40 +39,15 @@ const categoryMarks: Record<ComponentCategory, string> = {
     navigation: "N",
 };
 
-export default function ComponentCatalogBrowser({
-    lang,
-    registry,
-    copy,
-}: ComponentCatalogBrowserProps) {
+export default function ComponentCatalogBrowser({lang, registry, copy}: ComponentCatalogBrowserProps) {
     const [selectedCategory, setSelectedCategory] = useState<ComponentCategory | null>(null);
-
-    const selectedItems = selectedCategory
-        ? registry.filter((component) => component.category === selectedCategory)
-        : [];
-
+    const selectedItems = selectedCategory ? registry.filter((component) => component.category === selectedCategory) : [];
     const selectedLabel = selectedCategory ? copy.categories[selectedCategory] : "";
 
     return (
-        <div className="space-y-16 md:space-y-24">
+        <div className={lang === "fa" ? "text-right" : "text-left"}>
             <section aria-labelledby="component-categories-heading">
-                <div className="mb-8 flex items-end justify-between gap-6 border-b border-zinc-200 pb-5">
-                    <div>
-                        <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-zinc-400">
-                            {lang === "fa" ? "کتابخانه / دسته‌بندی" : "Library / Categories"}
-                        </p>
-                        <h2
-                            id="component-categories-heading"
-                            className="text-2xl font-semibold tracking-[-0.03em] text-zinc-950 md:text-3xl"
-                        >
-                            {lang === "fa" ? "از الگو شروع کنید." : "Start with a pattern."}
-                        </h2>
-                    </div>
-                    <span className="hidden text-xs font-medium tabular-nums text-zinc-400 sm:block">
-                        {String(componentCategories.length).padStart(2, "0")} {lang === "fa" ? "دسته" : "categories"}
-                    </span>
-                </div>
-
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="divide-y divide-zinc-200 border-y border-zinc-200">
                     {componentCategories.map((category) => {
                         const count = registry.filter((item) => item.category === category).length;
                         const active = selectedCategory === category;
@@ -88,58 +60,40 @@ export default function ComponentCatalogBrowser({
                                 onClick={() => setSelectedCategory(active ? null : category)}
                                 aria-expanded={active}
                                 className={[
-                                    "group relative min-h-56 overflow-hidden border p-6 text-start transition-all duration-300 md:p-8",
-                                    active
-                                        ? "border-zinc-950 bg-zinc-950 text-white shadow-[0_24px_70px_rgb(0_0_0_/0.16)]"
-                                        : "border-zinc-200 bg-white text-zinc-950 hover:-translate-y-1 hover:border-zinc-400 hover:shadow-[0_24px_70px_rgb(0_0_0_/0.08)]",
+                                    "group relative block w-full overflow-hidden px-1 py-7 text-start transition-all duration-300 md:py-9",
+                                    active ? "bg-zinc-950 text-white" : "bg-transparent text-zinc-950 hover:bg-white",
                                 ].join(" ")}
                             >
                                 <span
                                     aria-hidden="true"
                                     className={[
-                                        "absolute -end-8 -top-10 select-none text-[180px] font-black leading-none tracking-[-0.12em] transition-transform duration-500 group-hover:scale-105",
-                                        active ? "text-white/[0.045]" : "text-zinc-950/[0.035]",
+                                        "pointer-events-none absolute end-0 top-1/2 -translate-y-1/2 select-none text-[150px] font-black leading-none tracking-[-0.14em] transition-all duration-500 md:text-[190px]",
+                                        active ? "text-white/[0.045] group-hover:text-[#c6922b]/[0.08]" : "text-zinc-950/[0.025] group-hover:text-[#c6922b]/[0.07]",
                                     ].join(" ")}
                                 >
                                     {categoryMarks[category]}
                                 </span>
 
-                                <div className="relative flex h-full min-h-40 flex-col justify-between">
-                                    <div className="flex items-start justify-between gap-6">
-                                        <span
-                                            className={[
-                                                "text-[10px] font-bold tracking-[0.22em]",
-                                                active ? "text-zinc-500" : "text-zinc-400",
-                                            ].join(" ")}
-                                        >
-                                            {meta.index}
-                                        </span>
-                                        <span
-                                            className={[
-                                                "border px-2.5 py-1 text-[10px] font-semibold tabular-nums",
-                                                active ? "border-white/15 text-zinc-300" : "border-zinc-200 text-zinc-500",
-                                            ].join(" ")}
-                                        >
-                                            {String(count).padStart(2, "0")}
-                                        </span>
-                                    </div>
+                                <div className="relative grid gap-5 md:grid-cols-[72px_minmax(220px,0.7fr)_minmax(260px,1fr)_auto] md:items-center md:gap-8">
+                                    <span className={`font-mono text-xs font-semibold tabular-nums ${active ? "text-zinc-500" : "text-zinc-300"}`}>
+                                        {meta.index}
+                                    </span>
 
                                     <div>
-                                        <h3 className="text-2xl font-semibold tracking-[-0.04em]">{copy.categories[category]}</h3>
-                                        <p
-                                            className={[
-                                                "mt-3 max-w-md text-sm leading-6",
-                                                active ? "text-zinc-400" : "text-zinc-500",
-                                            ].join(" ")}
-                                        >
+                                        <h2 id={category === componentCategories[0] ? "component-categories-heading" : undefined} className="text-2xl font-semibold tracking-[-0.045em] md:text-3xl">
+                                            {copy.categories[category]}
+                                        </h2>
+                                        <p className={`mt-2 max-w-md text-sm leading-6 ${active ? "text-zinc-400" : "text-zinc-500"}`}>
                                             {meta.description}
                                         </p>
                                     </div>
 
-                                    <div className="mt-7 flex items-center justify-between border-t border-current/10 pt-4 text-xs font-semibold">
-                                        <span>{active ? (lang === "fa" ? "بستن دسته" : "Close category") : (lang === "fa" ? "مشاهده کامپوننت‌ها" : "Explore components")}</span>
-                                        <span aria-hidden="true" className="text-base">
-                                            {lang === "fa" ? "←" : "→"}
+                                    <div className="flex items-center gap-3 md:justify-self-end">
+                                        <span className={`text-[10px] font-bold uppercase tracking-[0.18em] ${active ? "text-zinc-500" : "text-zinc-400"}`}>
+                                            {String(count).padStart(2, "0")} {lang === "fa" ? "کامپوننت" : "components"}
+                                        </span>
+                                        <span className={`flex h-9 w-9 items-center justify-center border text-sm transition-all duration-300 ${active ? "border-white/15 text-white" : "border-zinc-200 text-zinc-400 group-hover:border-zinc-950 group-hover:text-zinc-950"}`} aria-hidden="true">
+                                            {active ? "−" : lang === "fa" ? "←" : "→"}
                                         </span>
                                     </div>
                                 </div>
@@ -150,19 +104,13 @@ export default function ComponentCatalogBrowser({
             </section>
 
             {selectedCategory && (
-                <section
-                    aria-labelledby="selected-component-category"
-                    className="scroll-mt-32 border-t border-zinc-200 pt-10 md:pt-14"
-                >
-                    <div className="mb-8 flex flex-wrap items-end justify-between gap-5">
+                <section aria-labelledby="selected-component-category" className="mt-12 border border-zinc-200 bg-white p-5 shadow-[0_24px_70px_rgba(24,24,27,0.06)] md:p-8">
+                    <div className="mb-7 flex flex-wrap items-end justify-between gap-5 border-b border-zinc-200 pb-5">
                         <div>
                             <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.24em] text-zinc-400">
-                                {lang === "fa" ? "دسته انتخاب‌شده" : "Selected category"}
+                                {lang === "fa" ? "کتابخانه / دسته انتخاب‌شده" : "Library / Selected category"}
                             </p>
-                            <h2
-                                id="selected-component-category"
-                                className="text-3xl font-semibold tracking-[-0.04em] text-zinc-950"
-                            >
+                            <h2 id="selected-component-category" className="text-3xl font-semibold tracking-[-0.05em] text-zinc-950">
                                 {selectedLabel}
                             </h2>
                         </div>
@@ -171,38 +119,25 @@ export default function ComponentCatalogBrowser({
                         </span>
                     </div>
 
-                    <div className="divide-y divide-zinc-200 border-y border-zinc-200">
+                    <div className="divide-y divide-zinc-200">
                         {selectedItems.map((component, index) => (
-                            <article
-                                key={component.slug}
-                                className="grid gap-7 py-7 md:grid-cols-[56px_minmax(220px,0.8fr)_minmax(260px,1fr)_auto] md:items-center md:gap-8"
-                            >
-                                <span className="text-xs font-semibold tabular-nums text-zinc-300">
-                                    {String(index + 1).padStart(2, "0")}
-                                </span>
+                            <article key={component.slug} className="grid gap-6 py-6 md:grid-cols-[48px_minmax(190px,0.75fr)_minmax(250px,1fr)_auto] md:items-center md:gap-8">
+                                <span className="font-mono text-xs font-semibold tabular-nums text-zinc-300">{String(index + 1).padStart(2, "0")}</span>
 
                                 <div>
-                                    <h3 className="text-lg font-semibold tracking-[-0.02em] text-zinc-950">
-                                        {component.name[lang]}
-                                    </h3>
-                                    <p className="mt-2 text-sm leading-6 text-zinc-500">
-                                        {component.description[lang]}
-                                    </p>
+                                    <h3 className="text-lg font-semibold tracking-[-0.025em] text-zinc-950">{component.name[lang]}</h3>
+                                    <p className="mt-2 text-sm leading-6 text-zinc-500">{component.description[lang]}</p>
                                 </div>
 
-                                <div className="flex min-h-24 items-center justify-center border border-zinc-100 bg-zinc-50 p-5">
-                                    <div className="w-full max-w-52">
-                                        <ComponentCardPreview
-                                            slug={component.slug}
-                                            copy={copy.demo}
-                                            dir={lang === "fa" ? "rtl" : "ltr"}
-                                        />
+                                <div className="flex min-h-28 items-center justify-center border border-zinc-100 bg-[#f3f1ec] p-5">
+                                    <div className="w-full max-w-56">
+                                        <ComponentCardPreview slug={component.slug} copy={copy.demo} dir={lang === "fa" ? "rtl" : "ltr"} />
                                     </div>
                                 </div>
 
                                 <Link
                                     href={`/${lang}/components/${component.slug}`}
-                                    className="inline-flex items-center justify-between gap-4 border-b border-zinc-900 pb-1 text-sm font-semibold text-zinc-950 transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-900"
+                                    className="inline-flex items-center justify-between gap-4 border-b border-zinc-950 pb-1 text-sm font-semibold text-zinc-950 transition-opacity hover:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-950"
                                 >
                                     {copy.viewComponent}
                                     <span aria-hidden="true">{lang === "fa" ? "←" : "→"}</span>
