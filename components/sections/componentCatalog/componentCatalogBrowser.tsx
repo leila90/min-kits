@@ -20,23 +20,6 @@ const meta: Record<ComponentCategory, {en: string; fa: string; mark: string}> = 
     navigation: {mark: "04", en: "Ways to move through a product.", fa: "الگوهای حرکت در محصول."},
 };
 
-function CollectionMark({category}: {category: ComponentCategory}) {
-    const bars: Record<ComponentCategory, string[]> = {
-        form: ["w-2/3", "w-full", "w-1/2"],
-        layout: ["w-full", "w-1/2", "w-3/4"],
-        feedback: ["w-1/2", "w-full", "w-2/3"],
-        navigation: ["w-full", "w-3/4", "w-1/3"],
-    };
-    return (
-        <div className="flex h-28 flex-col justify-end gap-2 p-6">
-            {bars[category].map((width, index) => (
-                <span key={index} className={"block h-px bg-zinc-950 " + width}/>
-            ))}
-            <span className="mt-2 block h-2 w-2 bg-[#c6922b]"/>
-        </div>
-    );
-}
-
 export default function ComponentCatalogBrowser({lang, registry, copy}: Props) {
     const [selected, setSelected] = useState<ComponentCategory | null>(null);
     const selectedItems = selected ? registry.filter((item) => item.category === selected) : [];
