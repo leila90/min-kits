@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type {BlogPost} from "@/content/blog";
 
 type Props = {
@@ -32,11 +31,6 @@ export function MagazineEditorialColumns({lang, post}: Props) {
                                 <div className="mt-5 space-y-5 text-base leading-8 text-neutral-600">
                                     {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                                 </div>
-                                {index === 0 && (
-                                    <div className="mt-8 overflow-hidden rounded-2xl">
-                                        <Image src={post.image} alt={post.imageAlt} width={1200} height={700} className="h-auto w-full object-cover"/>
-                                    </div>
-                                )}
                             </div>
                         </section>
                     ))}
