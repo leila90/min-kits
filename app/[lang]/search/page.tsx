@@ -6,6 +6,8 @@ import {componentRegistry} from "@/components/registry";
 import {Header, FooterHeader} from "@/components/layout";
 import Container from "@/components/ui/container";
 import Badge from "@/components/ui/badge";
+import {getBlogPosts} from "@/content/blog";
+import {getComponentPacks} from "@/content/componentPacks";
 
 type SearchPageProps = {
     params: Promise<{lang: string}>;
@@ -36,6 +38,8 @@ export default async function SearchPage({params, searchParams}: SearchPageProps
     const rawQuery = Array.isArray(q) ? q[0] ?? "" : q ?? "";
     const query = rawQuery.trim().toLocaleLowerCase();
     const categoryLabels = dictionary.componentsCatalog.categories;
+    const blogPosts = getBlogPosts(lang);
+    const componentPacks = getComponentPacks(lang);
 
     const componentResults = query
         ? componentRegistry.filter((item) =>
@@ -45,18 +49,16 @@ export default async function SearchPage({params, searchParams}: SearchPageProps
         : [];
 
     const blogResults = query
-        ? dictionary.blog.posts
-            .map((post, index) => ({post, index}))
-            .filter(({post}) =>
-                [post.title, post.description, post.category].some((value) =>
-                    value.toLocaleLowerCase().includes(query),
-                ),
-            )
+        ? blogPosts.filter((post) =>
+            [post.title, post.description, post.category, post.author].some((value) =>
+                value.toLocaleLowerCase().includes(query),
+            ),
+        )
         : [];
 
     const packResults = query
-        ? dictionary.componentPacks.blocks.filter((block) =>
-            [block.title, block.description, block.tag].some((value) =>
+        ? componentPacks.filter((pack) =>
+            [pack.name, pack.description, pack.category, ...pack.features].some((value) =>
                 value.toLocaleLowerCase().includes(query),
             ),
         )
