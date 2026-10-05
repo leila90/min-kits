@@ -34,7 +34,7 @@ export default function FeaturedComponents({lang, dict}: Props) {
                 </div>
                 <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     {items.map((item) => (
-                        <Link key={item.slug} href={`/${lang}/components/${item.slug}`} className="group">
+                        <Link key={item.slug} href={`/${lang}/components/${item.slug}`} className="group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500">
                             <Card interactive className="h-full p-6">
                                 <div className="flex items-center justify-between gap-3">
                                     <Badge>{item.category === "form" ? (lang === "fa" ? "فرم" : "Form") : item.category === "layout" ? (lang === "fa" ? "چیدمان" : "Layout") : item.category === "feedback" ? (lang === "fa" ? "بازخورد" : "Feedback") : (lang === "fa" ? "ناوبری" : "Navigation")}</Badge>
