@@ -91,7 +91,7 @@ export default async function ComponentPackDetailPage({params}: Props) {
 
                             <div className="mt-10 grid border-y border-zinc-200 sm:grid-cols-2 lg:grid-cols-4">
                                 {pack.includes.map((item, index) => (
-                                    <div key={item} className="border-b border-zinc-200 px-5 py-6 sm:nth-[odd]:border-e lg:border-e lg:nth-[4n]:border-e-0">
+                                    <div key={item} className={`border-b border-zinc-200 px-5 py-6 lg:border-e ${index % 2 === 1 ? "sm:border-e-0 lg:border-e" : ""} ${index % 4 === 3 ? "lg:border-e-0" : ""}`}>
                                         <p className="font-mono text-[10px] text-zinc-400">{String(index + 1).padStart(2, "0")}</p>
                                         <p className="mt-8 text-sm font-semibold">{item}</p>
                                         <div className="mt-5 h-16 border border-zinc-200 bg-white p-2">
