@@ -82,7 +82,6 @@ export default async function ComponentPacksPage({params}: Props) {
                         </div>
                     </Container>
                 </section>
-                <FooterHeader />
                 <section className="border-b border-zinc-200 bg-white">
                     <Container>
                         <div className="py-8 md:py-10">
@@ -125,6 +124,6 @@ export default async function ComponentPacksPage({params}: Props) {
                     </Container>
                 </section>
             </main>
-        </>
-    );
+            <FooterHeader />
+        </>\n    );
 }
