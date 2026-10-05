@@ -32,7 +32,6 @@ export default async function ComponentPacksPage({params}: Props) {
 
     return (
         <>
-            <Header />
             <main className="min-h-screen bg-[#f8f7f4] text-zinc-950">
                 <section className="relative overflow-hidden border-b border-zinc-200 bg-[#f8f7f4]">
                     <div className="pointer-events-none absolute inset-0">
@@ -82,6 +81,7 @@ export default async function ComponentPacksPage({params}: Props) {
                         </div>
                     </Container>
                 </section>
+                <Header />
                 <section className="border-b border-zinc-200 bg-white">
                     <Container>
                         <div className="py-8 md:py-10">
