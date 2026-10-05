@@ -217,7 +217,7 @@ export default function ComponentPackBrowser({lang, copy, sourceUnlocked}: Props
                         <aside className="lg:sticky lg:top-28 lg:h-fit">
                             <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-400">{isRtl ? "دسته‌بندی" : "Categories"}</p>
                             <nav className="border-y border-zinc-200">
-                                {categories.map((item, index) => {
+                                {categories.map((item) => {
                                     const active = category === item;
                                     const available = item === "Hero";
 
