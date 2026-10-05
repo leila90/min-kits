@@ -31,6 +31,8 @@ const codeLines = [
 ];
 
 export default function ComponentPackSourceVault({lang, dict}: Props) {
+    const isLocked = process.env.MIN_KITS_SOURCE_LOCKED !== "false";
+
     return (
         <section className="border-y border-zinc-200 bg-zinc-950 py-20 text-white md:py-28">
             <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
@@ -42,7 +44,7 @@ export default function ComponentPackSourceVault({lang, dict}: Props) {
                         </span>
                         <span className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-600">
                             <span aria-hidden="true" className="text-[10px]">✦</span>
-                            {dict.lockedLabel}
+                            {isLocked ? dict.lockedLabel : "Source code unlocked"}
                         </span>
                     </div>
 
