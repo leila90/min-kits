@@ -18,7 +18,9 @@ type LatestBlogProps = {
 };
 
 export default function LatestBlog({lang, dict}: LatestBlogProps) {
-    const blogs = getBlogPosts(lang).slice(0, 4)\n\n    return (
+    const blogs = getBlogPosts(lang).slice(0, 4)
+
+    return (
         <section id="latestBlog" dir={lang === "fa" ? "rtl" : "ltr"} className="scroll-mt-36 py-16 md:scroll-mt-44 md:py-20">
             <Container>
                 <div className="min-w-0 rounded-2xl bg-latest-blog-background p-6 sm:p-8 lg:p-10">
