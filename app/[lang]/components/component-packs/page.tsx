@@ -57,7 +57,7 @@ export default async function ComponentPacksPage({params}:Props){
                         <h2 className="mt-3 text-2xl font-semibold tracking-[-.05em] md:text-4xl">{lang==="fa"?"قبل از خرید، داخل محصول را ببینید.":"See the product before you buy the product."}</h2>
                         <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-500">{lang==="fa"?"بلاک‌ها را انتخاب کنید، ساختار هرکدام را ببینید و بعد وارد صفحه پک شوید تا پیش‌نمایش و سورس هر بلاک را همان‌جا بررسی کنید.":"Select a block, inspect its shape, then enter the pack for the full inline preview/source experience."}</p>
                     </div>
-                    <ComponentPacksExplorer lang={lang} packs={packs} blocks={copy.blocks} categories={copy.categories.slice(1)} searchPlaceholder={lang==="fa"?"جستجوی بلاک...":"Search blocks..."} allLabel={copy.categories[0]} resultsLabel={lang==="fa"?"بلاک":"BLOCKS"} noResults={lang==="fa"?"بلاکی پیدا نشد.":"No blocks found."} viewPack={copy.viewPack} featuredLabel={copy.includedLabel}/>
+                    <ComponentPacksExplorer lang={lang} packs={packs} blocks={copy.blocks} categories={copy.categories.slice(1)} allLabel={copy.categories[0]} viewPack={copy.viewPack}/>
                 </Container>
             </section>
 
