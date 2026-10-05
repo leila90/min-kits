@@ -65,19 +65,22 @@ export default function ComponentPacksExplorer({
 
     return (
         <div className={lang === "fa" ? "text-right" : "text-left"}>
-            <div className="border-y border-zinc-200 bg-white">
-                <div className="grid lg:grid-cols-[minmax(0,1fr)_auto]">
-                    <label className="flex min-h-16 items-center gap-4 border-b border-zinc-200 px-5 md:px-7 lg:border-b-0 lg:border-e">
-                        <span className="text-zinc-400" aria-hidden="true">⌕</span>
-                        <span className="sr-only">{searchPlaceholder}</span>
-                        <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={searchPlaceholder} className="w-full bg-transparent text-sm outline-none placeholder:text-zinc-400" />
-                        {query && <button type="button" onClick={() => setQuery("")} className="text-xs font-semibold text-zinc-400 hover:text-zinc-950">Esc</button>}
-                    </label>
-                    <div className="flex min-h-16 items-center gap-2 overflow-x-auto px-5 md:px-7">
+            <div className="overflow-hidden border border-zinc-200 bg-white/75 shadow-[0_18px_50px_rgba(24,24,27,0.055)] backdrop-blur-xl">
+                <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.45fr)]">
+                    <div className="flex min-h-16 items-center gap-4 border-b border-zinc-200 px-5 md:px-7 lg:border-b-0 lg:border-e">
+                        <label className="flex min-w-0 flex-1 items-center gap-3">
+                            <span className="text-lg leading-none text-zinc-400" aria-hidden="true">⌕</span>
+                            <span className="sr-only">{searchPlaceholder}</span>
+                            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={searchPlaceholder} className="min-w-0 w-full bg-transparent text-sm font-medium outline-none placeholder:text-zinc-400" />
+                        </label>
+                        {query && <button type="button" onClick={() => setQuery("")} className="shrink-0 border border-zinc-200 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-zinc-400 transition-colors hover:border-zinc-400 hover:text-zinc-950">{lang === "fa" ? "پاک کردن" : "Clear"}</button>}
+                    </div>
+                    <div className="flex min-h-16 items-center gap-2 overflow-x-auto px-5 py-3 md:px-7">
+                        <span className="me-1 shrink-0 text-[9px] font-bold uppercase tracking-[0.18em] text-zinc-400">{lang === "fa" ? "دسته‌بندی" : "Category"}</span>
                         {[allLabel, ...categories].map((item) => {
                             const active = category === item;
                             return (
-                                <button key={item} type="button" onClick={() => setCategory(item)} className={"shrink-0 border px-3.5 py-2 text-xs font-semibold transition-colors " + (active ? "border-zinc-950 bg-zinc-950 text-white" : "border-zinc-200 bg-white text-zinc-500 hover:border-zinc-400 hover:text-zinc-950")}>
+                                <button key={item} type="button" onClick={() => setCategory(item)} aria-pressed={active} className={"shrink-0 border px-3.5 py-2 text-xs font-semibold transition-all duration-200 " + (active ? "border-zinc-950 bg-zinc-950 text-white shadow-[0_8px_20px_rgba(24,24,27,0.14)]" : "border-zinc-200 bg-white/70 text-zinc-500 hover:-translate-y-px hover:border-zinc-400 hover:bg-white hover:text-zinc-950")}>
                                     {item}
                                 </button>
                             );
