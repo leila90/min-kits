@@ -27,7 +27,7 @@ export default function FeaturedComponents({lang, dict}: Props) {
                             <h2 className="text-3xl font-semibold tracking-tight text-zinc-950 md:text-4xl">{dict.title}</h2>
                             <p className="mt-3 max-w-2xl text-base leading-7 text-zinc-500 md:text-lg">{dict.subtitle}</p>
                         </div>
-                        <Link href={`/${lang}/components`} className="shrink-0 text-sm font-semibold text-zinc-900 underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-900">
+                        <Link href={`/${lang}/components`} className="shrink-0 text-sm font-semibold text-zinc-900 underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-900 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-500">
                             {dict.viewAll}
                         </Link>
                     </div>
