@@ -49,14 +49,16 @@ export default async function ComponentPacksPage({params}: Props) {
                                     {lang === "fa" ? "کتابخانه کامپوننت‌ها ←" : "Component library →"}
                                 </Link>
                             </div>
-                            <div className="grid gap-10 py-20 md:py-24 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.42fr)] lg:gap-24 lg:py-28">
+                            <div className="grid gap-12 py-20 md:py-24 lg:grid-cols-[minmax(0,1fr)_minmax(330px,0.48fr)] lg:gap-20 lg:py-28">
                                 <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">{copy.eyebrow}</p>
-                                    <div className="inline-flex items-center gap-2 border border-white/70 bg-white/55 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.22em] text-zinc-500 shadow-[0_12px_40px_rgba(0,0,0,0.04)] backdrop-blur-xl">
-                                        <span className="h-1.5 w-1.5 rounded-full bg-zinc-950" />
-                                        MinKits / Blocks
+                                    <div className="flex flex-wrap items-center gap-3">
+                                        <span className="inline-flex items-center gap-2 border border-white/80 bg-white/55 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.22em] text-zinc-500 shadow-[0_12px_40px_rgba(0,0,0,0.04)] backdrop-blur-xl">
+                                            <span className="h-1.5 w-1.5 rounded-full bg-zinc-950" />
+                                            MinKits / Blocks
+                                        </span>
+                                        <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-zinc-400">{copy.eyebrow}</span>
                                     </div>
-                                    <h1 className="mt-7 max-w-5xl text-5xl font-semibold leading-[0.9] tracking-[-0.07em] md:text-7xl lg:text-[92px]">{copy.title}</h1>
+                                    <h1 className="mt-8 max-w-5xl text-5xl font-semibold leading-[0.9] tracking-[-0.07em] md:text-7xl lg:text-[92px]">{copy.title}</h1>
                                     <p className="mt-8 max-w-2xl text-base leading-8 text-zinc-500 md:text-lg">{copy.subtitle}</p>
                                     <div className="mt-9 flex flex-wrap gap-2">
                                         {["React", "Tailwind CSS", "RTL ready", "Production UI"].map((item) => (
@@ -66,15 +68,33 @@ export default async function ComponentPacksPage({params}: Props) {
                                         ))}
                                     </div>
                                 </div>
-                                <div className="self-end border-s border-zinc-200 ps-6 lg:ps-8">
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-zinc-400">{copy.collectionLabel}</p>
-                                    <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-5">
-                                        {copy.stats.map((stat) => (
-                                            <div key={stat.label}>
-                                                <p className="text-2xl font-semibold tracking-[-0.04em]">{stat.value}</p>
-                                                <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-zinc-400">{stat.label}</p>
+                                <div className="relative self-end overflow-hidden border border-white/80 bg-white/45 p-5 shadow-[0_24px_70px_rgba(24,24,27,0.07)] backdrop-blur-xl">
+                                    <div className="absolute -end-20 -top-20 h-48 w-48 rounded-full border border-zinc-200/80" />
+                                    <div className="relative">
+                                        <div className="flex items-center justify-between border-b border-zinc-200/80 pb-4">
+                                            <div>
+                                                <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400">{copy.collectionLabel}</p>
+                                                <p className="mt-1 text-sm font-semibold tracking-[-0.02em]">{packs[0].name}</p>
                                             </div>
-                                        ))}
+                                            <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-zinc-400">{packs[0].price}</span>
+                                        </div>
+                                        <div className="mt-5 grid grid-cols-3 gap-2">
+                                            {["h-24", "h-16", "h-20", "h-14", "h-20", "h-16"].map((height, index) => (
+                                                <div key={index} className={"relative overflow-hidden border border-zinc-200 bg-[#eeece7] " + height}>
+                                                    <div className="absolute inset-x-2 top-2 h-1.5 bg-zinc-900/75" />
+                                                    <div className="absolute inset-x-2 top-6 h-1 bg-zinc-300" />
+                                                    <div className="absolute inset-x-2 bottom-2 h-5 border border-zinc-200 bg-white" />
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div className="mt-5 grid grid-cols-3 gap-3 border-t border-zinc-200/80 pt-4">
+                                            {copy.stats.map((stat) => (
+                                                <div key={stat.label}>
+                                                    <p className="text-lg font-semibold tracking-[-0.04em]">{stat.value}</p>
+                                                    <p className="mt-1 text-[8px] font-bold uppercase tracking-[0.12em] text-zinc-400">{stat.label}</p>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
