@@ -89,7 +89,7 @@ export default function ComponentCatalogSidebar({
                                                 href={`/${lang}/components/${item.slug}`}
                                                 aria-current={active ? "page" : undefined}
                                                 className={[
-                                                    "flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-colors",
+                                                    "flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900",
                                                     lang === "fa" ? "pr-7" : "pl-7",
                                                     active
                                                         ? "bg-zinc-900 text-white"
