@@ -95,7 +95,7 @@ export default async function ComponentPacksPage({params}: Props) {
                                 <h1 className="mt-4 max-w-3xl text-2xl font-semibold tracking-[-0.035em] text-zinc-950 md:text-4xl md:leading-[1.05]">{copy.title}</h1>
                                 <p className="mt-6 max-w-2xl text-base font-medium leading-8 text-zinc-600 md:text-lg">{copy.subtitle}</p>
                                 <Link href="#blocks"
-                                      className="mt-9 inline-flex items-center gap-3 rounded-full bg-zinc-950 px-6 py-3 text-sm font-semibold text-white hover:-translate-y-0.5 hover:bg-black">{copy.browse}<span
+                                      className="mt-9 inline-flex items-center gap-3 rounded-full bg-zinc-950 px-6 py-3 text-sm font-semibold text-white hover:-translate-y-0.5 hover:bg-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-950">{copy.browse}<span
                                     aria-hidden="true">↓</span></Link>
                             </div>
                             <div className="relative mx-auto w-full max-w-xl">
