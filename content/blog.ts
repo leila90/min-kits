@@ -105,6 +105,64 @@ export const blogPosts: Record<"en" | "fa", BlogPost[]> = {
             ]
         },
         {
+            slug: "server-first-ui-patterns",
+            category: "react",
+            title: "Server-first UI patterns for faster product pages",
+            description: "A practical look at keeping data-heavy routes on the server while using small client islands only where interaction actually requires them.",
+            publishedAt: "2026-09-01",
+            readTime: 6,
+            author: "MinKits Editorial",
+            role: "Web Architecture",
+            image: "/images/blog/2.jpg",
+            imageAlt: "Web development interface on a laptop",
+            quote: "A fast interface often starts by deciding what does not need to run in the browser.",
+            sections: [
+                {
+                    heading: "Keep data close to the route",
+                    paragraphs: [
+                        "Server components are especially useful when a page needs data before it can render. Keeping that work on the server reduces client-side coordination and lets the browser receive a smaller interactive surface.",
+                        "The useful boundary is not server versus client as a slogan; it is deciding which parts genuinely need browser state, event handlers, or effects."
+                    ]
+                },
+                {
+                    heading: "Make client islands intentional",
+                    paragraphs: [
+                        "Search, tabs, menus, and other interactive controls can remain focused client islands while the surrounding page stays server-rendered. This keeps hydration work proportional to the interaction the user actually needs.",
+                        "For a component library, the same principle helps keep primitives flexible without forcing every consuming page to become a client component."
+                    ]
+                }
+            ]
+        },
+        {
+            slug: "server-first-ui-patterns",
+            category: "react",
+            title: "الگوهای Server-first برای ساخت صفحات سریع‌تر",
+            description: "نگاهی کاربردی به نگه‌داشتن routeهای داده‌محور روی سرور و استفاده از client islandهای کوچک فقط در بخش‌هایی که واقعاً تعامل مرورگر لازم دارند.",
+            publishedAt: "2026-09-01",
+            readTime: 6,
+            author: "تحریریه MinKits",
+            role: "معماری وب",
+            image: "/images/blog/2.jpg",
+            imageAlt: "رابط توسعه وب روی لپ‌تاپ",
+            quote: "یک رابط سریع اغلب از این تصمیم شروع می‌شود که چه چیزی لازم نیست در مرورگر اجرا شود.",
+            sections: [
+                {
+                    heading: "داده را نزدیک route نگه دارید",
+                    paragraphs: [
+                        "Server Componentها زمانی ارزشمندند که صفحه برای render شدن به داده نیاز دارد. انجام این کار روی سرور، هماهنگی سمت کلاینت را کم می‌کند و سطح تعاملی کوچک‌تری به مرورگر می‌دهد.",
+                        "مرز درست فقط server در برابر client نیست؛ باید مشخص کنیم کدام بخش واقعاً به state، event handler یا effect در مرورگر نیاز دارد."
+                    ]
+                },
+                {
+                    heading: "Client islandها را آگاهانه انتخاب کنید",
+                    paragraphs: [
+                        "جستجو، tab، menu و کنترل‌های تعاملی می‌توانند client islandهای کوچکی باشند و باقی صفحه server-rendered بماند. این کار هزینه hydration را متناسب با تعامل واقعی کاربر نگه می‌دارد.",
+                        "در یک کتابخانه کامپوننت هم همین اصل کمک می‌کند primitiveها انعطاف‌پذیر بمانند بدون اینکه هر صفحه مصرف‌کننده مجبور به client component شدن باشد."
+                    ]
+                }
+            ]
+        },
+        {
             slug: "accessible-ui-from-the-start",
             category: "components",
             title: "Building accessible UI from the first component",
