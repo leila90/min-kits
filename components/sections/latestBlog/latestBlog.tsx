@@ -8,29 +8,9 @@ import "swiper/css/navigation"
 import Link from "next/link"
 import Container from "@/components/ui/container"
 import LatestBlogCard from "./latest-blog-card"
+import {getBlogPosts} from "@/content/blog"
 
-const blogs = [
-    {
-        title: "Clever ways to invest in product to organize your portfolio",
-        desc: "Discover smart investment strategies to streamline and organize your portfolio. Explore innovative approaches to optimize your...",
-        image: "/images/blog/1.png",
-    },
-    {
-        title: "How to grow your profit through systematic investment with us",
-        desc: "Unlock the power of systematic investment with us and watch your profits soar. Our expert team will guide you on the path to financial..",
-        image: "/images/blog/2.png",
-    },
-    {
-        title: "Clever ways to invest in product to organize your portfolio",
-        desc: "Discover smart investment strategies to streamline and organize your portfolio. Explore innovative approaches to optimize your...",
-        image: "/images/blog/1.png",
-    },
-    {
-        title: "How to grow your profit through systematic investment with us",
-        desc: "Unlock the power of systematic investment with us and watch your profits soar. Our expert team will guide you on the path to financial..",
-        image: "/images/blog/2.png",
-    },
-]
+
 
 type LatestBlogProps = {
     lang: "fa" | "en";
@@ -38,7 +18,7 @@ type LatestBlogProps = {
 };
 
 export default function LatestBlog({lang, dict}: LatestBlogProps) {
-    return (
+    const blogs = getBlogPosts(lang).slice(0, 4)\n\n    return (
         <section id="latestBlog" dir={lang === "fa" ? "rtl" : "ltr"} className="scroll-mt-36 py-16 md:scroll-mt-44 md:py-20">
             <Container>
                 <div className="min-w-0 rounded-2xl bg-latest-blog-background p-6 sm:p-8 lg:p-10">
@@ -126,7 +106,7 @@ export default function LatestBlog({lang, dict}: LatestBlogProps) {
                                             desc={blog.desc}
                                             image={blog.image}
                                             readMore={dict.readMore}
-                                            href={`/${lang}/blog/${(i % 3) + 1}`}
+                                            href={`/${lang}/blog/${blog.slug}`}
                                         />
                                     </SwiperSlide>
                                 ))}
