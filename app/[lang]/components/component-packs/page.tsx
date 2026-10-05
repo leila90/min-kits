@@ -125,5 +125,6 @@ export default async function ComponentPacksPage({params}: Props) {
                 </section>
             </main>
             <FooterHeader />
-        </>\n    );
+        </>
+    );
 }
