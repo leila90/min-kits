@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import {useState, type ReactNode} from "react";
 import Link from "next/link";
 import type {Lang} from "@/app/i18n";
 import type {Messages} from "@/app/i18n/messages";
@@ -17,7 +17,7 @@ const meta: Record<ComponentCategory, {en: string; fa: string; mark: string}> = 
 };
 
 function CollectionPreview({category}: {category: ComponentCategory}) {
-    const variants: Record<ComponentCategory, React.ReactNode> = {
+    const variants: Record<ComponentCategory, ReactNode> = {
         form: <div className="grid h-full grid-cols-2 gap-2 p-5"><div className="space-y-2"><span className="block h-2 w-16 bg-zinc-900"/><span className="block h-7 border border-zinc-200 bg-white"/><span className="block h-7 border border-zinc-200 bg-white"/></div><div className="mt-5 space-y-2"><span className="block h-9 bg-zinc-950"/><span className="block h-9 border border-zinc-200"/></div></div>,
         layout: <div className="grid h-full grid-cols-3 gap-2 p-5"><span className="col-span-2 bg-white"/><span className="bg-zinc-900"/><span className="bg-zinc-100"/><span className="bg-white"/><span className="bg-zinc-200"/></div>,
         feedback: <div className="flex h-full items-center justify-center p-5"><div className="w-full border border-zinc-200 bg-white p-4"><span className="block h-2 w-20 bg-zinc-900"/><span className="mt-3 block h-1 w-full bg-zinc-200"/><div className="mt-5 flex justify-end gap-2"><span className="h-7 w-16 bg-zinc-950"/><span className="h-7 w-12 border border-zinc-200"/></div></div></div>,
