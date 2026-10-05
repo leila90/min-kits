@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type {BlogPost} from "@/content/blog";
 
@@ -22,7 +21,6 @@ export default function BlogCard({readMore, lang, post}: Props) {
                     </div>
                     <time dateTime={post.publishedAt} className="text-xs text-blog-card-text">{post.publishedAt}</time>
                 </div>
-                <Image src={post.image} alt={post.imageAlt} width={600} height={380} className="mb-5 aspect-[3/2] w-full rounded-2xl object-cover"/>
                 <h2 className={`mb-2 border-blog-card-text ${lang === "fa" ? "border-r-10 pr-2" : "border-l-10 pl-2"} text-2xl font-bold tracking-tight text-blog-card-text`}>
                     <Link href={href}>{post.title}</Link>
                 </h2>
