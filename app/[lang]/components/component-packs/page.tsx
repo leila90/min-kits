@@ -43,16 +43,12 @@ export default async function ComponentPacksPage({params}: Props) {
                                     {lang === "fa" ? "کتابخانه کامپوننت‌ها ←" : "Component library →"}
                                 </Link>
                             </div>
-
                             <div className="grid gap-10 py-16 md:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.42fr)] lg:gap-24 lg:py-24">
                                 <div>
                                     <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">{copy.eyebrow}</p>
-                                    <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.94] tracking-[-0.065em] md:text-7xl lg:text-[88px]">
-                                        {copy.title}
-                                    </h1>
+                                    <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.94] tracking-[-0.065em] md:text-7xl lg:text-[88px]">{copy.title}</h1>
                                     <p className="mt-7 max-w-2xl text-base leading-8 text-zinc-500 md:text-lg">{copy.subtitle}</p>
                                 </div>
-
                                 <div className="self-end border-s border-zinc-200 ps-6 lg:ps-8">
                                     <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-zinc-400">{copy.collectionLabel}</p>
                                     <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-5">
@@ -68,7 +64,6 @@ export default async function ComponentPacksPage({params}: Props) {
                         </div>
                     </Container>
                 </section>
-
                 <section className="border-b border-zinc-200 bg-white">
                     <Container>
                         <div className="py-8 md:py-10">
@@ -79,7 +74,6 @@ export default async function ComponentPacksPage({params}: Props) {
                                 </div>
                                 <p className="max-w-lg text-sm leading-6 text-zinc-500 md:text-right">{copy.principleText}</p>
                             </div>
-
                             <ComponentPacksExplorer
                                 lang={lang}
                                 packs={packs}
@@ -95,10 +89,9 @@ export default async function ComponentPacksPage({params}: Props) {
                         </div>
                     </Container>
                 </section>
-
                 <section className="bg-zinc-950 py-20 text-white md:py-24">
                     <Container>
-                        <div className={\`grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end \${lang === "fa" ? "text-right" : "text-left"}\`}>
+                        <div className={"grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end " + (lang === "fa" ? "text-right" : "text-left")}>
                             <div>
                                 <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-zinc-600">02 / {copy.philosophyLabel}</p>
                                 <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.05em] md:text-5xl">{copy.principleTitle}</h2>
