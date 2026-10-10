@@ -3,7 +3,7 @@ import Link from "next/link";
 import Container from "@/components/ui/container";
 import {Button, Divider, Input} from "@/components/ui";
 
-type FooterProps = { lang: "fa" | "en"; dict: { search: string; description: string; important: string; social: string; subscribe: string; emailPlaceholder: string; button: string; terms: string; privacy: string; copyright: string; home: string; about: string; portfolio: string; contact: string; faq: string; componentPacks: string } };
+type FooterProps = { lang: "fa" | "en"; dict: { search: string; description: string; important: string; social: string; subscribe: string; emailPlaceholder: string; button: string; terms: string; privacy: string; copyright: string; home: string; about: string; portfolio: string; contact: string; faq: string; components: string; componentPacks: string } };
 
 export default function Footer({ lang, dict }: FooterProps) {
     return (
@@ -22,7 +22,8 @@ export default function Footer({ lang, dict }: FooterProps) {
                             <div className="flex flex-col gap-2 mt-6">
                                 <Link href={`/${lang}`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500'>{dict.home}</Link>
                                 <Link href={`/${lang}/about`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500'>{dict.about}</Link>
-                                <Link href={`/${lang}/search`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500'>{dict.search}</Link>                           <Link href={`/${lang}/components/component-packs`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500'>{dict.componentPacks}</Link>
+                                <Link href={`/${lang}/search`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500'>{dict.search}</Link>                           <Link href={`/${lang}/components`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500'>{dict.components}</Link>
+                                <Link href={`/${lang}/components/component-packs`} className='text-sm text-footer-muted transition-colors hover:text-footer-heading focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500'>{dict.componentPacks}</Link>
                                 <span className='text-sm text-footer-muted'>{dict.portfolio}</span>
                                 <Link href={`/${lang}#contactUs`} className='text-sm text-footer-muted hover:text-footer-heading transition-colors'>{dict.contact}</Link>
                                 <span className='text-sm text-footer-muted'>{dict.faq}</span>

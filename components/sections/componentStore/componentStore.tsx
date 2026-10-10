@@ -163,7 +163,7 @@ export default function ComponentStore({lang, dict}: Props) {
                     </p>
 
                     <div className="mt-10 divide-y divide-component-store-divider border-y border-component-store-divider">
-                        {dict.products.map((product, index) => (
+                        {dict.products.slice(0, 1).map((product, index) => (
                             <article
                                 key={product.title}
                                 className="group grid min-w-0 gap-8 py-10 md:py-12 lg:grid-cols-2 lg:items-center lg:gap-14"

@@ -18,7 +18,7 @@ type LatestBlogProps = {
 };
 
 export default function LatestBlog({lang, dict}: LatestBlogProps) {
-    const blogs = getBlogPosts(lang).slice(0, 4)
+    const blogs = getBlogPosts(lang).slice(0, 3)
 
     return (
         <section id="latestBlog" dir={lang === "fa" ? "rtl" : "ltr"} className="scroll-mt-36 py-16 md:scroll-mt-44 md:py-20">
