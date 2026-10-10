@@ -1,8 +1,8 @@
 'use client'
 
-import {useState} from "react"
+import {useEffect, useState} from "react"
 import {Dialog, DialogPanel, DialogTitle} from "@headlessui/react"
-import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline"
+import {Bars3Icon, MoonIcon, SunIcon, XMarkIcon} from "@heroicons/react/24/outline"
 import Link from "next/link"
 import Image from "next/image"
 import LanguageDropdown from "@/components/common/languageDropdown"
@@ -25,6 +25,31 @@ type NavbarProps = {
 
 export default function Navbar({lang, dict}: NavbarProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [darkMode, setDarkMode] = useState(false);
+
+    useEffect(() => {
+        let savedTheme: string | null = null;
+        try {
+            savedTheme = window.localStorage.getItem("theme");
+        } catch {
+            // Fall back to the current document theme when storage is unavailable.
+        }
+        const initialTheme = savedTheme === "dark" || document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+        document.documentElement.dataset.theme = initialTheme;
+        setDarkMode(initialTheme === "dark");
+    }, []);
+
+    const toggleTheme = () => {
+        const nextTheme = darkMode ? "light" : "dark";
+        document.documentElement.dataset.theme = nextTheme;
+        try {
+            window.localStorage.setItem("theme", nextTheme);
+        } catch {
+            // Theme still works for this session when storage is unavailable.
+        }
+        setDarkMode(nextTheme === "dark");
+    };
+
     const closeMobileMenu = () => setMobileMenuOpen(false);
     const links = [
         {href: "/" + lang + "/components", label: dict.nav.components},
@@ -47,7 +72,10 @@ export default function Navbar({lang, dict}: NavbarProps) {
                         </Link>
                     ))}
                 </div>
-                <div className="hidden shrink-0 items-center lg:flex">
+                <div className="hidden shrink-0 items-center gap-2 lg:flex">
+                    <button type="button" onClick={toggleTheme} aria-label={lang === "fa" ? "تغییر تم" : "Toggle color theme"} title={lang === "fa" ? "تغییر تم" : "Toggle color theme"} className="inline-flex size-10 items-center justify-center rounded-full border border-navbar-border transition hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 dark:hover:bg-white/10">
+                        {darkMode ? <SunIcon aria-hidden="true" className="size-4"/> : <MoonIcon aria-hidden="true" className="size-4"/>}
+                    </button>
                     <LanguageDropdown/>
                 </div>
                 <button type="button" onClick={() => setMobileMenuOpen(true)} className="inline-flex items-center justify-center rounded-xl p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 lg:hidden">
@@ -73,7 +101,11 @@ export default function Navbar({lang, dict}: NavbarProps) {
                             </Link>
                         ))}
                     </div>
-                    <div className="mt-6 border-t border-zinc-200 pt-6 dark:border-zinc-800">
+                    <div className="mt-6 flex items-center justify-between border-t border-zinc-200 pt-6 dark:border-zinc-800">
+                        <button type="button" onClick={toggleTheme} className="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-4 py-2.5 text-sm font-medium dark:border-zinc-700" aria-label={lang === "fa" ? "تغییر تم" : "Toggle color theme"}>
+                            {darkMode ? <SunIcon aria-hidden="true" className="size-4"/> : <MoonIcon aria-hidden="true" className="size-4"/>}
+                            {lang === "fa" ? (darkMode ? "تم روشن" : "تم تیره") : (darkMode ? "Light theme" : "Dark theme")}
+                        </button>
                         <LanguageDropdown/>
                     </div>
                 </DialogPanel>
